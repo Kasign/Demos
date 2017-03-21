@@ -15,6 +15,7 @@
 		396C30001E728EC20098C8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C2FFE1E728EC20098C8B3 /* LaunchScreen.storyboard */; };
 		396C300B1E728EC20098C8B3 /* ___NSOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C300A1E728EC20098C8B3 /* ___NSOperationTests.m */; };
 		396C30161E728EC20098C8B3 /* ___NSOperationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C30151E728EC20098C8B3 /* ___NSOperationUITests.m */; };
+		396C30251E72912A0098C8B3 /* FlyImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C30241E72912A0098C8B3 /* FlyImageData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		396C30111E728EC20098C8B3 /* 多线程NSOperationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "多线程NSOperationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C30151E728EC20098C8B3 /* ___NSOperationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___NSOperationUITests.m"; sourceTree = "<group>"; };
 		396C30171E728EC20098C8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		396C30231E72912A0098C8B3 /* FlyImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyImageData.h; sourceTree = "<group>"; };
+		396C30241E72912A0098C8B3 /* FlyImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyImageData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				396C2FF41E728EC20098C8B3 /* AppDelegate.m */,
 				396C2FF61E728EC20098C8B3 /* ViewController.h */,
 				396C2FF71E728EC20098C8B3 /* ViewController.m */,
+				396C30231E72912A0098C8B3 /* FlyImageData.h */,
+				396C30241E72912A0098C8B3 /* FlyImageData.m */,
 				396C2FF91E728EC20098C8B3 /* Main.storyboard */,
 				396C2FFC1E728EC20098C8B3 /* Assets.xcassets */,
 				396C2FFE1E728EC20098C8B3 /* LaunchScreen.storyboard */,
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				396C2FF81E728EC20098C8B3 /* ViewController.m in Sources */,
+				396C30251E72912A0098C8B3 /* FlyImageData.m in Sources */,
 				396C2FF51E728EC20098C8B3 /* AppDelegate.m in Sources */,
 				396C2FF21E728EC20098C8B3 /* main.m in Sources */,
 			);
