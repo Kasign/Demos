@@ -27,7 +27,7 @@
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         
-        CGRect frame = CGRectMake((self.view.bounds.size.width-280)/2.0, 0, 280, self.view.bounds.size.height);
+        CGRect frame = self.view.bounds;
         _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
@@ -37,37 +37,64 @@
     return _collectionView;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return 2;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return countryList().allKeys.count;
+    if (section == 0) {
+         return countryList().allKeys.count;
+    }else{
+         return hotList().allKeys.count;
+    }
+   
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FlyHallCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HALLCELL" forIndexPath:indexPath];
-    if (indexPath.row<countryList().allKeys.count) {
-        NSString *key = countryList().allKeys[indexPath.row];
-        cell.title = countryList()[key];
-        cell.kind = key;
+    if (indexPath.section == 0) {
+        if (indexPath.row<countryList().allKeys.count) {
+            NSString *key = countryList().allKeys[indexPath.row];
+            cell.title = countryList()[key];
+            cell.kind = key;
+        }
     }
+    else{
+        if (indexPath.row<hotList().allKeys.count) {
+            NSString *key = hotList().allKeys[indexPath.row];
+            cell.title = hotList()[key];
+            cell.kind = key;
+        }
+    }
+   
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(120, 80);
+    return CGSizeMake(self.view.bounds.size.width/2.0-10, 80);
 }
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(1,1,1,1);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *key = countryList().allKeys[indexPath.row];
+    NSString *key;
+    NSString *value;
+    if (indexPath.section==0)
+    {
+        key = countryList().allKeys[indexPath.row];
+        value =countryList()[key];
+    }
+    else
+    {
+        key = hotList().allKeys[indexPath.row];
+        value =hotList()[key];
+    }
     
     FlyShowOldViewController *oldVC = [[FlyShowOldViewController alloc] init];
     oldVC.urlStr = key;
-    oldVC.showTitle =countryList()[key];
+    oldVC.showTitle =value;
     
     [self.navigationController pushViewController:oldVC animated:YES];
     

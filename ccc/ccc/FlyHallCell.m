@@ -7,6 +7,7 @@
 //
 
 #import "FlyHallCell.h"
+#import "UIImageView+AFNetworking.h"
 @interface FlyHallCell ()
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLable;
@@ -17,16 +18,16 @@
     if (self) {
 //        self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
         self.backgroundColor = [UIColor whiteColor];
-        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-        self.layer.shadowOffset = CGSizeMake(0, 3);
-        self.layer.shadowRadius = 1;
+//        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+//        self.layer.shadowOffset = CGSizeMake(2,2);
+//        self.layer.shadowRadius = 1;
         
-//        UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
+        UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
         self.layer.masksToBounds = NO;
-//        self.layer.shadowColor = [UIColor blackColor].CGColor;
-//        self.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+        self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
         self.layer.shadowOpacity = 0.5f;
-//        self.layer.shadowPath = shadowPath.CGPath;
+        self.layer.shadowPath = shadowPath.CGPath;
         
         [self creatViews];
     }
@@ -57,9 +58,7 @@
     
     NSString *url = [NSString stringWithFormat:@"http://www.opencai.net/static/v2/logos/%@.gif",_kind];
     
-    UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-    
-    [_imageView setImage:image];
+    [_imageView setImageWithURL:[NSURL URLWithString:url]];
     
 }
 
