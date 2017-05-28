@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SecurityList</key>
+	<dict>
+		<key>12306</key>
+		<array>
+			<dict>
+				<key>用户名</key>
+				<string>12306</string>
+			</dict>
+			<dict>
+				<key>密码</key>
+				<string>11111111</string>
+			</dict>
+			<dict>
+				<key>注释</key>
+				<string>不能用</string>
+			</dict>
+		</array>
+		<key>QQ邮箱</key>
+		<array>
+			<dict>
+				<key>用户名</key>
+				<string>QQ邮箱</string>
+			</dict>
+			<dict>
+				<key>密码</key>
+				<string>222222</string>
+			</dict>
+			<dict>
+				<key>注释</key>
+				<string>好用</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
