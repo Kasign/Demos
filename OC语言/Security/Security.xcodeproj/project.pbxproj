@@ -404,6 +404,7 @@
 				TargetAttributes = {
 					39205C881E1C92A20080E676 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DJS2XEDF4J;
 						ProvisioningStyle = Manual;
 					};
 					39205CA11E1C92A30080E676 = {
@@ -629,17 +630,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: shihai an (DJS2XEDF4J)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shihai an (DJS2XEDF4J)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DJS2XEDF4J;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/Security/PrefixHeader.pch";
 				INFOPLIST_FILE = Security/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walg.www.security;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccw16000c.www.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8bc564c-a2df-4547-b6ef-1423c00b256c";
-				PROVISIONING_PROFILE_SPECIFIER = ADWildcard;
+				PROVISIONING_PROFILE = "663ca0de-7be2-477e-88ae-5af5f4e67409";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -650,17 +651,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: shihai an (DJS2XEDF4J)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shihai an (DJS2XEDF4J)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DJS2XEDF4J;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/Security/PrefixHeader.pch";
 				INFOPLIST_FILE = Security/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walg.www.security;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccw16000c.www.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8bc564c-a2df-4547-b6ef-1423c00b256c";
-				PROVISIONING_PROFILE_SPECIFIER = ADWildcard;
+				PROVISIONING_PROFILE = "663ca0de-7be2-477e-88ae-5af5f4e67409";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

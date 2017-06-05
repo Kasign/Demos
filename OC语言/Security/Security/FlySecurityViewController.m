@@ -37,13 +37,37 @@
 
 
 -(void)creatViews{
-    _securitTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    _securitTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    [_securitTextField setTextAlignment:NSTextAlignmentCenter];
     _securitTextField.center = CGPointMake(SCREEN_WIDTH/2.0,200);
     _securitTextField.backgroundColor = [UIColor clearColor];
+    _securitTextField.layer.borderWidth = 1;
+    _securitTextField.layer.borderColor = [UIColor greenColor].CGColor;
     _securitTextField.secureTextEntry = YES;
     [_securitTextField setKeyboardType:UIKeyboardTypeNumberPad];
     _securitTextField.delegate =self;
     [self.view addSubview:_securitTextField];
+    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [confirmBtn setBackgroundColor:[UIColor clearColor]];
+    [confirmBtn setFrame:CGRectMake(0, 0, 100, 30)];
+    confirmBtn.center = CGPointMake(SCREEN_WIDTH/2.0, 200+40);
+    [confirmBtn setTitle:@"确 定" forState:UIControlStateNormal];
+    [confirmBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [confirmBtn addTarget:self action:@selector(confirmCliction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:confirmBtn];
+}
+
+-(void)confirmCliction{
+    if ([_securitTextField.text isEqualToString:[FlyUserSettingManager sharedInstance].passWord]) {
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(confirmSuccess)]){
+                [self.delegate confirmSuccess];
+            }
+        }
+    }else{
+        
+        
+    }
 }
 
 -(void)userTouchID{
