@@ -9,7 +9,7 @@
 #import "HVWLuckyWheel.h"
 #import "HVWLuckyWheelButton.h"
 
-@interface HVWLuckyWheel()<CAAnimationDelegate>
+@interface HVWLuckyWheel()
 
 /** 幸运轮 */
 @property (weak, nonatomic) IBOutlet UIImageView *luckyWheel;
@@ -81,7 +81,7 @@
         [button setBackgroundImage:[UIImage imageNamed:@"LuckyRototeSelected"] forState:UIControlStateSelected];
         
         // 按钮点击事件
-        [button addTarget:self action:@selector(conButtonClicked:) forControlEvents:UIControlEventTouchDown];
+        [button addTarget:self action:@selector(conButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         // 环形分布12个星座按钮，围绕着锚点旋转
         button.transform = CGAffineTransformMakeRotation(M_PI/6 * i);
@@ -162,15 +162,12 @@
 
 /**  CALayer动画停止之后 */
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-    if (self.finishDelegate) {
-        if ([self.finishDelegate respondsToSelector:@selector(didFinish)]) {
-            [self.finishDelegate didFinish];
-        }
-    }
     // 恢复轮盘的交互功能
     self.luckyWheel.userInteractionEnabled = YES;
     
+    if (self.finishDelegate) {
+        [self.finishDelegate didFinish];
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 稍后恢复轮盘自动转动

@@ -8,7 +8,6 @@
 
 #import "FlyShowOldViewController.h"
 #import "FlyDetailTableViewCell.h"
-#import "FlyHttpManager.h"
 
 #define HTTP_ADRESS   @"http://f.apiplus.net"
 

@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3918A9821EFF5CE300325DAD /* FlyJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9811EFF5CE300325DAD /* FlyJokeViewController.m */; };
+		3918A9851EFF5E1F00325DAD /* FlyJokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9841EFF5E1F00325DAD /* FlyJokeTableViewCell.m */; };
+		3918A9891EFF601600325DAD /* FlyJokeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9881EFF601600325DAD /* FlyJokeModel.m */; };
+		3918A9911EFF853900325DAD /* HVWLuckyWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A98D1EFF853900325DAD /* HVWLuckyWheel.m */; };
+		3918A9921EFF853900325DAD /* HVWLuckyWheel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3918A98E1EFF853900325DAD /* HVWLuckyWheel.xib */; };
+		3918A9931EFF853900325DAD /* HVWLuckyWheelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9901EFF853900325DAD /* HVWLuckyWheelButton.m */; };
+		3918A9961EFF8D9700325DAD /* UIButton+NMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9951EFF8D9700325DAD /* UIButton+NMCategory.m */; };
 		39196EB31EE8193B00172465 /* FlyFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39196EB21EE8193B00172465 /* FlyFourthViewController.m */; };
 		39196EB61EE8296D00172465 /* FlySecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39196EB51EE8296D00172465 /* FlySecurityView.m */; };
 		39196EB81EE83E9500172465 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39196EB71EE83E9500172465 /* BmobSDK.framework */; };
 		395ABCB61EFA5D93004BD939 /* FlyAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCB51EFA5D93004BD939 /* FlyAllViewController.m */; };
 		395ABCB91EFA794C004BD939 /* FlyDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCB81EFA794C004BD939 /* FlyDataManager.m */; };
-		395ABCBC1EFB6AC1004BD939 /* UIButton+NMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCBB1EFB6AC1004BD939 /* UIButton+NMCategory.m */; };
 		395ABCC21EFB78E9004BD939 /* FlyPhotoEnlargeToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCBF1EFB78E9004BD939 /* FlyPhotoEnlargeToolView.m */; };
 		395ABCC31EFB78E9004BD939 /* FlyPhotosBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCC11EFB78E9004BD939 /* FlyPhotosBrowserView.m */; };
 		395ABCC71EFB9A4B004BD939 /* FlyLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ABCC61EFB9A4B004BD939 /* FlyLookViewController.m */; };
@@ -62,11 +68,7 @@
 		39E9C16A1ECFE87A00653DF9 /* FlySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C1691ECFE87A00653DF9 /* FlySecondViewController.m */; };
 		39E9C16D1ECFE88800653DF9 /* FlyThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C16C1ECFE88800653DF9 /* FlyThirdViewController.m */; };
 		39E9C1701ECFE8A900653DF9 /* FlyFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C16F1ECFE8A900653DF9 /* FlyFirstViewController.m */; };
-		39E9C1761ECFFB5B00653DF9 /* HVWLuckyWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C1721ECFFB5B00653DF9 /* HVWLuckyWheel.m */; };
-		39E9C1771ECFFB5B00653DF9 /* HVWLuckyWheel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E9C1731ECFFB5B00653DF9 /* HVWLuckyWheel.xib */; };
-		39E9C1781ECFFB5B00653DF9 /* HVWLuckyWheelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C1751ECFFB5B00653DF9 /* HVWLuckyWheelButton.m */; };
 		39E9C17C1ED0153500653DF9 /* FlyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C17B1ED0153500653DF9 /* FlyWebViewController.m */; };
-		39E9C17F1ED04C8E00653DF9 /* FlyDetailMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C17E1ED04C8E00653DF9 /* FlyDetailMessageViewController.m */; };
 		39E9C18B1ED12BAE00653DF9 /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E9C1881ED12BAE00653DF9 /* jcore-ios-1.1.3.a */; };
 		39E9C18C1ED12BAE00653DF9 /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E9C1891ED12BAE00653DF9 /* jpush-ios-3.0.5.a */; };
 		39E9C18E1ED12C0C00653DF9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E9C18D1ED12C0C00653DF9 /* CoreFoundation.framework */; };
@@ -95,6 +97,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3918A9801EFF5CE300325DAD /* FlyJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyJokeViewController.h; sourceTree = "<group>"; };
+		3918A9811EFF5CE300325DAD /* FlyJokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyJokeViewController.m; sourceTree = "<group>"; };
+		3918A9831EFF5E1F00325DAD /* FlyJokeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyJokeTableViewCell.h; sourceTree = "<group>"; };
+		3918A9841EFF5E1F00325DAD /* FlyJokeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyJokeTableViewCell.m; sourceTree = "<group>"; };
+		3918A9871EFF601600325DAD /* FlyJokeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyJokeModel.h; sourceTree = "<group>"; };
+		3918A9881EFF601600325DAD /* FlyJokeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyJokeModel.m; sourceTree = "<group>"; };
+		3918A98C1EFF853900325DAD /* HVWLuckyWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVWLuckyWheel.h; sourceTree = "<group>"; };
+		3918A98D1EFF853900325DAD /* HVWLuckyWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVWLuckyWheel.m; sourceTree = "<group>"; };
+		3918A98E1EFF853900325DAD /* HVWLuckyWheel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HVWLuckyWheel.xib; sourceTree = "<group>"; };
+		3918A98F1EFF853900325DAD /* HVWLuckyWheelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVWLuckyWheelButton.h; sourceTree = "<group>"; };
+		3918A9901EFF853900325DAD /* HVWLuckyWheelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVWLuckyWheelButton.m; sourceTree = "<group>"; };
+		3918A9941EFF8D9700325DAD /* UIButton+NMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+NMCategory.h"; sourceTree = "<group>"; };
+		3918A9951EFF8D9700325DAD /* UIButton+NMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+NMCategory.m"; sourceTree = "<group>"; };
 		39196EB11EE8193B00172465 /* FlyFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyFourthViewController.h; sourceTree = "<group>"; };
 		39196EB21EE8193B00172465 /* FlyFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyFourthViewController.m; sourceTree = "<group>"; };
 		39196EB41EE8296D00172465 /* FlySecurityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySecurityView.h; sourceTree = "<group>"; };
@@ -104,8 +119,6 @@
 		395ABCB51EFA5D93004BD939 /* FlyAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyAllViewController.m; sourceTree = "<group>"; };
 		395ABCB71EFA794C004BD939 /* FlyDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyDataManager.h; sourceTree = "<group>"; };
 		395ABCB81EFA794C004BD939 /* FlyDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyDataManager.m; sourceTree = "<group>"; };
-		395ABCBA1EFB6AC1004BD939 /* UIButton+NMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+NMCategory.h"; sourceTree = "<group>"; };
-		395ABCBB1EFB6AC1004BD939 /* UIButton+NMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+NMCategory.m"; sourceTree = "<group>"; };
 		395ABCBE1EFB78E9004BD939 /* FlyPhotoEnlargeToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyPhotoEnlargeToolView.h; sourceTree = "<group>"; };
 		395ABCBF1EFB78E9004BD939 /* FlyPhotoEnlargeToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyPhotoEnlargeToolView.m; sourceTree = "<group>"; };
 		395ABCC01EFB78E9004BD939 /* FlyPhotosBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyPhotosBrowserView.h; sourceTree = "<group>"; };
@@ -198,15 +211,8 @@
 		39E9C16C1ECFE88800653DF9 /* FlyThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThirdViewController.m; sourceTree = "<group>"; };
 		39E9C16E1ECFE8A900653DF9 /* FlyFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyFirstViewController.h; sourceTree = "<group>"; };
 		39E9C16F1ECFE8A900653DF9 /* FlyFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyFirstViewController.m; sourceTree = "<group>"; };
-		39E9C1711ECFFB5B00653DF9 /* HVWLuckyWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVWLuckyWheel.h; sourceTree = "<group>"; };
-		39E9C1721ECFFB5B00653DF9 /* HVWLuckyWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVWLuckyWheel.m; sourceTree = "<group>"; };
-		39E9C1731ECFFB5B00653DF9 /* HVWLuckyWheel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HVWLuckyWheel.xib; sourceTree = "<group>"; };
-		39E9C1741ECFFB5B00653DF9 /* HVWLuckyWheelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVWLuckyWheelButton.h; sourceTree = "<group>"; };
-		39E9C1751ECFFB5B00653DF9 /* HVWLuckyWheelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVWLuckyWheelButton.m; sourceTree = "<group>"; };
 		39E9C17A1ED0153500653DF9 /* FlyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyWebViewController.h; sourceTree = "<group>"; };
 		39E9C17B1ED0153500653DF9 /* FlyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyWebViewController.m; sourceTree = "<group>"; };
-		39E9C17D1ED04C8E00653DF9 /* FlyDetailMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyDetailMessageViewController.h; sourceTree = "<group>"; };
-		39E9C17E1ED04C8E00653DF9 /* FlyDetailMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyDetailMessageViewController.m; sourceTree = "<group>"; };
 		39E9C1861ED1249200653DF9 /* ccw.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ccw.entitlements; sourceTree = "<group>"; };
 		39E9C1881ED12BAE00653DF9 /* jcore-ios-1.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.3.a"; sourceTree = "<group>"; };
 		39E9C1891ED12BAE00653DF9 /* jpush-ios-3.0.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.5.a"; sourceTree = "<group>"; };
@@ -265,11 +271,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3918A9861EFF5FF900325DAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39C9E2811ED5737600FC4612 /* FlyDetailModel.h */,
+				39C9E2821ED5737700FC4612 /* FlyDetailModel.m */,
+				3918A9871EFF601600325DAD /* FlyJokeModel.h */,
+				3918A9881EFF601600325DAD /* FlyJokeModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		395ABCBD1EFB6AC5004BD939 /* cagetory */ = {
 			isa = PBXGroup;
 			children = (
-				395ABCBA1EFB6AC1004BD939 /* UIButton+NMCategory.h */,
-				395ABCBB1EFB6AC1004BD939 /* UIButton+NMCategory.m */,
+				3918A9941EFF8D9700325DAD /* UIButton+NMCategory.h */,
+				3918A9951EFF8D9700325DAD /* UIButton+NMCategory.m */,
 			);
 			name = cagetory;
 			sourceTree = "<group>";
@@ -318,8 +335,6 @@
 				399A9FAA1EBF415B00C223AF /* AppDelegate.m */,
 				39C9E27F1ED5723700FC4612 /* TabBar */,
 				39C9E2801ED5724600FC4612 /* ViewController */,
-				39E9C17D1ED04C8E00653DF9 /* FlyDetailMessageViewController.h */,
-				39E9C17E1ED04C8E00653DF9 /* FlyDetailMessageViewController.m */,
 				39E9C1791ECFFB6500653DF9 /* LuckView */,
 				39C9E2981ED574DD00FC4612 /* ToolHttp */,
 				39C9E2871ED5738C00FC4612 /* Hall */,
@@ -476,8 +491,7 @@
 				39C9E29A1ED5753400FC4612 /* ViewController */,
 				39C9E2991ED5751A00FC4612 /* View */,
 				39C9E28E1ED573A800FC4612 /* FlyList.h */,
-				39C9E2811ED5737600FC4612 /* FlyDetailModel.h */,
-				39C9E2821ED5737700FC4612 /* FlyDetailModel.m */,
+				3918A9861EFF5FF900325DAD /* Model */,
 			);
 			name = Hall;
 			sourceTree = "<group>";
@@ -519,6 +533,10 @@
 				395ABCC61EFB9A4B004BD939 /* FlyLookViewController.m */,
 				395ABCC81EFBA2C8004BD939 /* FlyLookTableViewCell.h */,
 				395ABCC91EFBA2C8004BD939 /* FlyLookTableViewCell.m */,
+				3918A9801EFF5CE300325DAD /* FlyJokeViewController.h */,
+				3918A9811EFF5CE300325DAD /* FlyJokeViewController.m */,
+				3918A9831EFF5E1F00325DAD /* FlyJokeTableViewCell.h */,
+				3918A9841EFF5E1F00325DAD /* FlyJokeTableViewCell.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -526,11 +544,11 @@
 		39E9C1791ECFFB6500653DF9 /* LuckView */ = {
 			isa = PBXGroup;
 			children = (
-				39E9C1711ECFFB5B00653DF9 /* HVWLuckyWheel.h */,
-				39E9C1721ECFFB5B00653DF9 /* HVWLuckyWheel.m */,
-				39E9C1731ECFFB5B00653DF9 /* HVWLuckyWheel.xib */,
-				39E9C1741ECFFB5B00653DF9 /* HVWLuckyWheelButton.h */,
-				39E9C1751ECFFB5B00653DF9 /* HVWLuckyWheelButton.m */,
+				3918A98C1EFF853900325DAD /* HVWLuckyWheel.h */,
+				3918A98D1EFF853900325DAD /* HVWLuckyWheel.m */,
+				3918A98E1EFF853900325DAD /* HVWLuckyWheel.xib */,
+				3918A98F1EFF853900325DAD /* HVWLuckyWheelButton.h */,
+				3918A9901EFF853900325DAD /* HVWLuckyWheelButton.m */,
 			);
 			name = LuckView;
 			sourceTree = "<group>";
@@ -658,7 +676,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39E9C1771ECFFB5B00653DF9 /* HVWLuckyWheel.xib in Resources */,
+				3918A9921EFF853900325DAD /* HVWLuckyWheel.xib in Resources */,
 				399A9FB61EBF415B00C223AF /* LaunchScreen.storyboard in Resources */,
 				399A9FB31EBF415B00C223AF /* Assets.xcassets in Resources */,
 			);
@@ -688,8 +706,8 @@
 				399AA0081EBF428A00C223AF /* UIProgressView+AFNetworking.m in Sources */,
 				39196EB61EE8296D00172465 /* FlySecurityView.m in Sources */,
 				399A9FEC1EBF425F00C223AF /* AFURLSessionManager.m in Sources */,
+				3918A9821EFF5CE300325DAD /* FlyJokeViewController.m in Sources */,
 				39E9C16D1ECFE88800653DF9 /* FlyThirdViewController.m in Sources */,
-				39E9C1761ECFFB5B00653DF9 /* HVWLuckyWheel.m in Sources */,
 				39C9E2861ED5738300FC4612 /* FlyDetailTableViewCell.m in Sources */,
 				399AA00A1EBF428A00C223AF /* UIWebView+AFNetworking.m in Sources */,
 				399AA0071EBF428A00C223AF /* UIImageView+AFNetworking.m in Sources */,
@@ -702,6 +720,7 @@
 				399A9FA81EBF415B00C223AF /* main.m in Sources */,
 				39E9C1701ECFE8A900653DF9 /* FlyFirstViewController.m in Sources */,
 				39C9E2901ED573A800FC4612 /* FlyHallViewController.m in Sources */,
+				3918A9851EFF5E1F00325DAD /* FlyJokeTableViewCell.m in Sources */,
 				399AA0021EBF428A00C223AF /* AFAutoPurgingImageCache.m in Sources */,
 				39E9C17C1ED0153500653DF9 /* FlyWebViewController.m in Sources */,
 				39196EB31EE8193B00172465 /* FlyFourthViewController.m in Sources */,
@@ -709,19 +728,20 @@
 				395ABCB91EFA794C004BD939 /* FlyDataManager.m in Sources */,
 				399A9FEA1EBF425F00C223AF /* AFURLRequestSerialization.m in Sources */,
 				39C9E2971ED5746400FC4612 /* DataModel.m in Sources */,
-				395ABCBC1EFB6AC1004BD939 /* UIButton+NMCategory.m in Sources */,
-				39E9C17F1ED04C8E00653DF9 /* FlyDetailMessageViewController.m in Sources */,
 				399AA0041EBF428A00C223AF /* AFNetworkActivityIndicatorManager.m in Sources */,
-				39E9C1781ECFFB5B00653DF9 /* HVWLuckyWheelButton.m in Sources */,
+				3918A9961EFF8D9700325DAD /* UIButton+NMCategory.m in Sources */,
+				3918A9911EFF853900325DAD /* HVWLuckyWheel.m in Sources */,
 				39C9E2911ED573A800FC4612 /* FlyHttpManager.m in Sources */,
 				39E9C16A1ECFE87A00653DF9 /* FlySecondViewController.m in Sources */,
 				395ABCCA1EFBA2C8004BD939 /* FlyLookTableViewCell.m in Sources */,
 				395ABCC21EFB78E9004BD939 /* FlyPhotoEnlargeToolView.m in Sources */,
 				39C9E28F1ED573A800FC4612 /* FlyHallCell.m in Sources */,
+				3918A9891EFF601600325DAD /* FlyJokeModel.m in Sources */,
 				395ABCC31EFB78E9004BD939 /* FlyPhotosBrowserView.m in Sources */,
 				399A9FEB1EBF425F00C223AF /* AFURLResponseSerialization.m in Sources */,
 				399A9FE71EBF425F00C223AF /* AFHTTPSessionManager.m in Sources */,
 				395ABCC71EFB9A4B004BD939 /* FlyLookViewController.m in Sources */,
+				3918A9931EFF853900325DAD /* HVWLuckyWheelButton.m in Sources */,
 				399AA0031EBF428A00C223AF /* AFImageDownloader.m in Sources */,
 				395ABCB61EFA5D93004BD939 /* FlyAllViewController.m in Sources */,
 				39E9C1671ECFE71F00653DF9 /* FlyTabBarViewController.m in Sources */,
@@ -890,7 +910,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccw1600c.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "80d01059-a049-4203-819a-36376a34026c";
+				PROVISIONING_PROFILE = "2d368297-0179-49d2-8ab1-4fd64d3c1c9b";
 				PROVISIONING_PROFILE_SPECIFIER = "XC com ccw1600c www";
 			};
 			name = Debug;
@@ -922,7 +942,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccw1600c.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "80d01059-a049-4203-819a-36376a34026c";
+				PROVISIONING_PROFILE = "2d368297-0179-49d2-8ab1-4fd64d3c1c9b";
 				PROVISIONING_PROFILE_SPECIFIER = "XC com ccw1600c www";
 			};
 			name = Release;

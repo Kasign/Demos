@@ -7,12 +7,9 @@
 //
 
 #include <iostream>
-#include "aaa.cpp"
-#include "abc.cpp"
+
 
 int main(int argc, const char * argv[]) {
-    
-    
-  std::cout << "Hello, World!\n";
+    std::cout << "Hello, World!\n";
     return 0;
 }

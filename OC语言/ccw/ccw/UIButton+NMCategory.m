@@ -8,7 +8,7 @@
 
 #import "UIButton+NMCategory.h"
 #import <objc/runtime.h>
-#define PADDING     -2
+static NSInteger PADDING   =  -14;
 static void *DragEnableKey = &DragEnableKey;
 static void *AdsorbEnableKey = &AdsorbEnableKey;
 
@@ -79,7 +79,7 @@ CGPoint beginPoint;
         float marginRight = self.superview.frame.size.width - self.frame.origin.x - self.frame.size.width;
         [UIView animateWithDuration:0.125 animations:^(void){
             self.frame = CGRectMake(marginLeft<marginRight?PADDING:self.superview.frame.size.width - self.frame.size.width-PADDING,
-                                    self.frame.origin.y<self.superview.frame.size.height-80?self.frame.origin.y<64?64:self.frame.origin.y:self.superview.frame.size.height-80,
+                                    self.frame.origin.y<self.superview.frame.size.height-80?self.frame.origin.y<64?64:self.frame.origin.y:self.superview.frame.size.height-100,
                                     self.frame.size.width,
                                     self.frame.size.height);
         }];

@@ -25,32 +25,41 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"路径：%@",NSHomeDirectory());
     }
     return self;
 }
 
 -(UIButton *)topButton{
     if (!_topButton) {
-        CGFloat width = 30;
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(MainWidth-width+2, 200,width, width)];
-        btn.backgroundColor = [UIColor lightGrayColor];
-        [btn setTitleColor:[[UIColor yellowColor] colorWithAlphaComponent:1] forState:UIControlStateNormal];
-        [btn setTitleColor:[[UIColor redColor] colorWithAlphaComponent:1] forState:UIControlStateSelected];
-        [btn setTitleColor:[[UIColor redColor] colorWithAlphaComponent:1] forState:UIControlStateHighlighted];
-        [btn setTitleColor:[[UIColor redColor] colorWithAlphaComponent:1] forState:UIControlStateFocused];
+        CGFloat width = 50;
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(MainWidth-width+14, 300,width, width)];
+        btn.backgroundColor = [UIColor clearColor];
+//        [btn setImage:[UIImage imageNamed:@"luckClick"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"clickluck"] forState:UIControlStateNormal];
         [btn setTitle:@"运" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        
         [btn.titleLabel setFont:[UIFont systemFontOfSize:12]];
-        btn.layer.cornerRadius = width/2.0;
-        btn.layer.borderWidth = 1;
-        btn.layer.borderColor = [[UIColor yellowColor] colorWithAlphaComponent:0.6].CGColor;
         [btn setDragEnable:YES];
         [btn setAdsorbEnable:YES];
+        [btn.layer addAnimation:[self addBasicAnimation] forKey:@"basicAnimation"];
         [self.view addSubview:btn];
         [btn addTarget:self action:@selector(topButtonClickAction) forControlEvents:UIControlEventTouchUpInside];
         _topButton = btn;
     }
     return _topButton;
+}
+
+-(CAAnimation*)addBasicAnimation{
+    CGFloat time = 4;
+    CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    basicAnimation.fromValue=[NSNumber numberWithFloat:0];
+    basicAnimation.toValue=[NSNumber numberWithFloat:M_PI*2];
+    basicAnimation.duration=time;
+    basicAnimation.repeatCount=HUGE_VALF;
+    basicAnimation.removedOnCompletion = NO;
+    return basicAnimation;
 }
 
 -(void)topButtonClickAction{
@@ -64,6 +73,7 @@
     [self.topButton.layer addAnimation:basicAnimation forKey:@"roatAnimation"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2*time* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
         [self setSelectedIndex:2];
     });
 }
@@ -127,7 +137,7 @@
     
     FlySecondViewController *sencond = [[FlySecondViewController alloc] init];
     sencond.tabBarItem.title = @"看运气";
-    [sencond.tabBarItem setImage:[UIImage imageNamed:@"luck"]];
+    [sencond.tabBarItem setImage:[UIImage imageNamed:@"tabLuck"]];
     
     FlyHallViewController *third = [[FlyHallViewController alloc] init];
     [third.tabBarItem setTitle:@"开奖大厅"];

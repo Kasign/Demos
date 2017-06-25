@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FlyJokeModel.h"
 @interface FlyLookTableViewCell : UITableViewCell
-@property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) FlyJokeModel *model;
 @end

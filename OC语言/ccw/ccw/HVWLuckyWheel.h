@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol FinishAnimationDelegate <NSObject>
 
 -(void)didFinish;
@@ -17,7 +16,6 @@
 @interface HVWLuckyWheel : UIView
 
 @property (nonatomic,weak)id<FinishAnimationDelegate> finishDelegate;
-
 /** 自定义创建方法 */
 + (instancetype) hvwLuckyWheel;
 

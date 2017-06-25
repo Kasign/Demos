@@ -22,9 +22,9 @@
     return CGRectMake(x, y, width, height);
 }
 
-/** 取消选中效果 */
-- (void)setHighlighted:(BOOL)highlighted {
-    // 置空
-}
+///** 取消选中效果 */
+//- (void)setHighlighted:(BOOL)highlighted {
+//    // 置空
+//}
 
 @end

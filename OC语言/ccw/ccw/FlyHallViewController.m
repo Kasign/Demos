@@ -13,6 +13,7 @@
 #import "FlyAllViewController.h"
 #import "DetailViewController.h"
 #import "FlyLookViewController.h"
+#import "FlyJokeViewController.h"
 @interface FlyHallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIScrollView *headScrollView;
@@ -117,7 +118,7 @@ static NSInteger height = 150;
     _lookGirlsBtn = [[UIButton alloc] initWithFrame:frame1];
     [_lookGirlsBtn setBackgroundColor:[UIColor whiteColor]];
     [_lookGirlsBtn setImage:[UIImage imageNamed:@"girl.jpg"] forState:UIControlStateNormal];
-    [_lookGirlsBtn setTitle:@"看" forState:UIControlStateNormal];
+    [_lookGirlsBtn setTitle:@"看搞笑图" forState:UIControlStateNormal];
     [_lookGirlsBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_lookGirlsBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [_lookGirlsBtn.imageView setBounds:CGRectMake(0, 0, 40, 40)];
@@ -127,8 +128,8 @@ static NSInteger height = 150;
     CGRect frame2= CGRectMake(MainWidth/2.0+1, 2, MainWidth/2.0-1, 40);
     _luckBtn = [[UIButton alloc] initWithFrame:frame2];
     [_luckBtn setBackgroundColor:[UIColor whiteColor]];
-    [_luckBtn setImage:[UIImage imageNamed:@"luckBtn.jpeg"] forState:UIControlStateNormal];
-    [_luckBtn setTitle:@"看运气" forState:UIControlStateNormal];
+    [_luckBtn setImage:[UIImage imageNamed:@"jokeBtn.jpeg"] forState:UIControlStateNormal];
+    [_luckBtn setTitle:@"看笑话" forState:UIControlStateNormal];
     [_luckBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_luckBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [_luckBtn addTarget:self action:@selector(clickLuckAction) forControlEvents:UIControlEventTouchUpInside];
@@ -136,11 +137,14 @@ static NSInteger height = 150;
 }
 
 -(void)clickLuckAction{
-    [self.tabBarController setSelectedIndex:2];
+    FlyJokeViewController *jokeVC = [[FlyJokeViewController alloc] init];
+    jokeVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:jokeVC animated:YES];
 }
 
 -(void)clickLookAction{
     FlyLookViewController *lookVC = [[FlyLookViewController alloc]init];
+    lookVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:lookVC animated:YES];
 }
 
@@ -218,10 +222,10 @@ static NSInteger height = 150;
         [lable setTextColor:[[UIColor blueColor] colorWithAlphaComponent:0.8]];
         [lable setTextAlignment:NSTextAlignmentLeft];
         if (indexPath.section == 0) {
-             [lable setText:@"全国彩列表"];
+             [lable setText:@"全国彩"];
         }
         else{
-             [lable setText:@"高频彩列表"];
+             [lable setText:@"高频彩"];
         }
         CGRect buttonFrame = CGRectMake(MainWidth-100, 0, 80, frame.size.height);
         UIButton *button = [[UIButton alloc] initWithFrame:buttonFrame];
@@ -280,10 +284,10 @@ static NSInteger height = 150;
     FlyAllViewController *allVC = [[FlyAllViewController alloc] init];
     if (tag == 0) {
         allVC.tag = 1;
-        allVC.titleName = @"全国彩列表";
+        allVC.titleName = @"全国彩";
     }else{
         allVC.tag = 2;
-        allVC.titleName = @"高频彩列表";
+        allVC.titleName = @"高频彩";
     }
     allVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:allVC animated:YES];

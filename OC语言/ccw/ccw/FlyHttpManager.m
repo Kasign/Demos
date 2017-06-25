@@ -29,13 +29,8 @@
         _manager = [AFHTTPSessionManager manager];
         AFHTTPRequestSerializer *requestSerislizer = [AFHTTPRequestSerializer serializer];
         [_manager setRequestSerializer:requestSerislizer];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"text/plain",nil];
-        
-//        AFHTTPResponseSerializer *responseSerislizer =[AFHTTPResponseSerializer serializer];
-//        responseSerislizer.acceptableContentTypes =[NSSet setWithObjects:@"application/json",@"text/html", @"text/plain",nil];
-        
-//        [_manager setResponseSerializer:responseSerislizer];
-        
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"text/plain",@"application/x-javascript",nil];
+                
         _downLoadManager = [AFHTTPSessionManager manager];
         AFHTTPResponseSerializer *offlineResponseSerislizer = [AFHTTPResponseSerializer serializer];
         _downLoadManager.responseSerializer = offlineResponseSerislizer;

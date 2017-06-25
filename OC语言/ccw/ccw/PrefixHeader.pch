@@ -16,4 +16,5 @@
 #import "DataModel.h"
 #import "AFNetworking.h"
 #import "FlyDataManager.h"
+#import "FlyHttpManager.h"
 #endif /* PrefixHeader_pch */

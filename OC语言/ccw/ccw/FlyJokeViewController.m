@@ -1,32 +1,32 @@
 //
-//  FlyLookViewController.m
+//  FlyJokeViewController.m
 //  ccw
 //
-//  Created by walg on 2017/6/22.
+//  Created by Walg on 2017/6/25.
 //  Copyright © 2017年 Walg. All rights reserved.
 //
 
-#import "FlyLookViewController.h"
-#import "FlyPhotoEnlargeToolView.h"
-#import "FlyLookTableViewCell.h"
-static NSString *tupianUrl = @"http://api.laifudao.com/open/tupian.json";
-@interface FlyLookViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "FlyJokeViewController.h"
+#import "FlyJokeTableViewCell.h"
+static NSString *jokeUrl = @"http://api.laifudao.com/open/xiaohua.json";
+
+@interface FlyJokeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSMutableArray *dataSource;
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic,strong)UITableView *tableView;
 @end
 
-@implementation FlyLookViewController
+@implementation FlyJokeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"搞笑图";
     self.hidesBottomBarWhenPushed = YES;
     _dataSource = [NSMutableArray array];
+    self.navigationItem.title = @"笑话";
     [self getData];
+    
 }
-
 -(void)getData{
-    [[FlyHttpManager sharedInstance].manager GET:tupianUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[FlyHttpManager sharedInstance].manager GET:jokeUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject isKindOfClass:[NSArray class]]) {
             for (NSDictionary *dic in responseObject) {
                 FlyJokeModel *model = [[FlyJokeModel alloc] initWithDic:dic];
@@ -44,11 +44,10 @@ static NSString *tupianUrl = @"http://api.laifudao.com/open/tupian.json";
 
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainWidth, MainHeight) style:UITableViewStylePlain];
-        _tableView.delegate = self;
+        CGRect frame = CGRectMake(0,0, MainWidth, MainHeight);
+        _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         _tableView.dataSource = self;
-        [_tableView setBackgroundColor:[UIColor whiteColor]];
-        
+        _tableView.delegate = self;
     }
     return _tableView;
 }
@@ -58,10 +57,10 @@ static NSString *tupianUrl = @"http://api.laifudao.com/open/tupian.json";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"cell";
-    FlyLookTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *indentifier = @"jokeCell";
+    FlyJokeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
     if (!cell) {
-        cell = [[FlyLookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[FlyJokeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
     }
     FlyJokeModel *model = _dataSource[indexPath.row];
     cell.model = model;
@@ -69,16 +68,15 @@ static NSString *tupianUrl = @"http://api.laifudao.com/open/tupian.json";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 290;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    FlyJokeModel *model = _dataSource[indexPath.row];
+    return [FlyJokeTableViewCell heightForCellWithContent:model.content]+60;
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
 }
+
 
 @end
