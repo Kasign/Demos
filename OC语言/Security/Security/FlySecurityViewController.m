@@ -29,9 +29,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    if ([FlyUserSettingManager sharedInstance].useTouchID) {
-//        [self userTouchID];
-//    }
     [self.securitTextField resignFirstResponder];
 }
 

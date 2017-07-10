@@ -7,6 +7,8 @@
 //
 
 #import "FlyDataManager.h"
+#import "FlyDataModel.h"
+#import "FlySQLManager.h"
 
 @implementation FlyDataManager
 
@@ -19,35 +21,21 @@
     return _sharedInstance;
 }
 
-static inline NSString *path() {
-//    return [[NSFileManager docmentDirectory] stringByAppendingString:@"security.zip"];
-    return [[NSBundle mainBundle] pathForResource:@"PropertyList" ofType:@"plist"];
-}
-
 -(void)updateDataWithModel:(FlyDataModel*)model{
-    
-    
+    [[FlySQLManager shareInstance] updateDateWithModel:model];
 }
 
 -(void)saveDataWithModel:(FlyDataModel*)model{
-    
+    [[FlySQLManager shareInstance] insertDateWithModel:model];
 }
 
--(void)deleDataWithUserName:(NSString *)userName{
-    
-    
+-(void)deleDataWithModel:(FlyDataModel*)model{
+    [[FlySQLManager shareInstance] deleteDataWithUserName:model.userName securityCode:model.security dataType:model.dataType];
 }
 
 -(NSArray*)readData{
-    NSMutableArray *mutableArray = [NSMutableArray array];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path()];
-    NSDictionary *securityDic = [dictionary objectForKey:@"SecurityList"];
-    for (NSString *key in securityDic.allKeys) {
-        NSArray *keyArray = [securityDic objectForKey:key];
-        FlyDataModel *model = [[FlyDataModel alloc] initWithArray:keyArray key:key];
-        [mutableArray addObject:model];
-    }
-    return [mutableArray copy];
+    NSArray *dataArray = [[FlySQLManager shareInstance] readAllData];
+    return [dataArray mutableCopy];
 }
 
 @end

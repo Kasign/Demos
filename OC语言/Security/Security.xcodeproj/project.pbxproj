@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07B48BC4002792A18B626161 /* libPods-Security.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C344FB2F0D3E58E5F559BF0 /* libPods-Security.a */; };
 		39205C8E1E1C92A20080E676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39205C8D1E1C92A20080E676 /* main.m */; };
 		39205C991E1C92A30080E676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39205C981E1C92A30080E676 /* Assets.xcassets */; };
 		39205C9C1E1C92A30080E676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39205C9A1E1C92A30080E676 /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 		39205CC11E1C92F40080E676 /* FlyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39205CC01E1C92F40080E676 /* FlyAppDelegate.m */; };
 		39205CC41E1C93CA0080E676 /* FlyBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39205CC31E1C93CA0080E676 /* FlyBasicViewController.m */; };
 		39205CC71E1C961A0080E676 /* FlyHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39205CC61E1C961A0080E676 /* FlyHomeViewController.m */; };
+		3952E8C91F1327FC00529916 /* FlySQLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3952E8C81F1327FC00529916 /* FlySQLManager.m */; };
 		39AC77851E1DF30500C594FD /* FlyBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AC77841E1DF30500C594FD /* FlyBasicView.m */; };
 		39AC77881E1DF32000C594FD /* FlyBasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AC77871E1DF32000C594FD /* FlyBasicTableViewCell.m */; };
 		39AC778B1E1DF34900C594FD /* FlyUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AC778A1E1DF34900C594FD /* FlyUserInfoTableViewCell.m */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05285607A6244BD0AC787B8F /* Pods-Security.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Security.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Security/Pods-Security.debug.xcconfig"; sourceTree = "<group>"; };
+		1C344FB2F0D3E58E5F559BF0 /* libPods-Security.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Security.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39205C891E1C92A20080E676 /* Security.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Security.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39205C8D1E1C92A20080E676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39205C981E1C92A30080E676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		39205CC31E1C93CA0080E676 /* FlyBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBasicViewController.m; sourceTree = "<group>"; };
 		39205CC51E1C961A0080E676 /* FlyHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyHomeViewController.h; sourceTree = "<group>"; };
 		39205CC61E1C961A0080E676 /* FlyHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyHomeViewController.m; sourceTree = "<group>"; };
+		3952E8C71F1327FC00529916 /* FlySQLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySQLManager.h; sourceTree = "<group>"; };
+		3952E8C81F1327FC00529916 /* FlySQLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySQLManager.m; sourceTree = "<group>"; };
 		39AC77831E1DF30500C594FD /* FlyBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBasicView.h; sourceTree = "<group>"; };
 		39AC77841E1DF30500C594FD /* FlyBasicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBasicView.m; sourceTree = "<group>"; };
 		39AC77861E1DF32000C594FD /* FlyBasicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBasicTableViewCell.h; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		39E00C8E1E1CEF30001A4370 /* FlyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyUserInfoViewController.h; sourceTree = "<group>"; };
 		39E00C8F1E1CEF30001A4370 /* FlyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyUserInfoViewController.m; sourceTree = "<group>"; };
 		39E00C941E1D073A001A4370 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A066486A58A910FFD52FE568 /* Pods-Security.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Security.release.xcconfig"; path = "Pods/Target Support Files/Pods-Security/Pods-Security.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B48BC4002792A18B626161 /* libPods-Security.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1523B54379FBCCB1997C1D33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05285607A6244BD0AC787B8F /* Pods-Security.debug.xcconfig */,
+				A066486A58A910FFD52FE568 /* Pods-Security.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		39205C801E1C92A20080E676 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +152,8 @@
 				39205CA51E1C92A30080E676 /* SecurityTests */,
 				39205CB01E1C92A30080E676 /* SecurityUITests */,
 				39205C8A1E1C92A20080E676 /* Products */,
+				1523B54379FBCCB1997C1D33 /* Pods */,
+				6258FD256EE21857E123B028 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -312,6 +331,8 @@
 			children = (
 				39AC77AD1E1E48F800C594FD /* FlyDataManager.h */,
 				39AC77AE1E1E48F800C594FD /* FlyDataManager.m */,
+				3952E8C71F1327FC00529916 /* FlySQLManager.h */,
+				3952E8C81F1327FC00529916 /* FlySQLManager.m */,
 				39C9E2A21ED6C29300FC4612 /* FlyUserSettingManager.h */,
 				39C9E2A31ED6C29300FC4612 /* FlyUserSettingManager.m */,
 			);
@@ -336,6 +357,14 @@
 			name = TabBar;
 			sourceTree = "<group>";
 		};
+		6258FD256EE21857E123B028 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C344FB2F0D3E58E5F559BF0 /* libPods-Security.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,9 +372,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39205CB61E1C92A30080E676 /* Build configuration list for PBXNativeTarget "Security" */;
 			buildPhases = (
+				85FE0E4FB8E31AF3403CEBE1 /* [CP] Check Pods Manifest.lock */,
 				39205C851E1C92A20080E676 /* Sources */,
 				39205C861E1C92A20080E676 /* Frameworks */,
 				39205C871E1C92A20080E676 /* Resources */,
+				59532948ABBFFFB7F61DC5B8 /* [CP] Embed Pods Frameworks */,
+				F672BDABE248559510F345C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,6 +498,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		59532948ABBFFFB7F61DC5B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Security/Pods-Security-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85FE0E4FB8E31AF3403CEBE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F672BDABE248559510F345C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Security/Pods-Security-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		39205C851E1C92A20080E676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -479,6 +559,7 @@
 				39AC77A11E1E379A00C594FD /* FlyDisplayDetailViewController.m in Sources */,
 				39AC779A1E1E232E00C594FD /* NSFileManager+custom.m in Sources */,
 				39AC77881E1DF32000C594FD /* FlyBasicTableViewCell.m in Sources */,
+				3952E8C91F1327FC00529916 /* FlySQLManager.m in Sources */,
 				39E00C8D1E1CEDE4001A4370 /* FlyTabBarViewController.m in Sources */,
 				39C9E29F1ED6AC8E00FC4612 /* FlySecurityViewController.m in Sources */,
 				39AC77851E1DF30500C594FD /* FlyBasicView.m in Sources */,
@@ -626,6 +707,7 @@
 		};
 		39205CB71E1C92A30080E676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05285607A6244BD0AC787B8F /* Pods-Security.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: shihai an (DJS2XEDF4J)";
@@ -647,6 +729,7 @@
 		};
 		39205CB81E1C92A30080E676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A066486A58A910FFD52FE568 /* Pods-Security.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: shihai an (DJS2XEDF4J)";

@@ -32,6 +32,7 @@
     if (!_leftField) {
         _leftField = [[UITextField alloc] init];
         _leftField.frame = CGRectMake(0, 0, 66, self.frame.size.height);
+        _leftField.enabled = NO;
         _leftField.backgroundColor = [UIColor clearColor];
         _leftField.textColor = [UIColor blueColor];
         _leftField.font = [UIFont systemFontOfSize:10];
@@ -58,6 +59,9 @@
 
 -(void)setRightString:(NSString *)rightString{
     [self.rightField setText:rightString];
+}
+-(void)setTag:(NSInteger)tag{
+    self.rightField.tag = tag;
 }
 
 @end
@@ -105,6 +109,10 @@
         _rightLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _rightLabel;
+}
+
+-(void)setTag:(NSInteger)tag{
+    self.rightLabel.tag = tag;
 }
 
 

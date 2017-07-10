@@ -91,6 +91,7 @@
             _popBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             _popBackBtn.opaque = YES;
             [_popBackBtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+            
             [_popBackBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
             _popBackBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             _popBackBtn.bounds = CGRectMake(0, 0, 60, 60);

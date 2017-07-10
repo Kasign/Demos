@@ -1,0 +1,4 @@
+platform:ios,'7.0'
+target "Security" do
+pod 'FMDB'
+end
