@@ -114,7 +114,7 @@ static NSString *identifier = @"HOME_CELL";
         FlyDataModel *model =weakSelf.homeListArray[indexPath.row];
         [weakSelf.homeListArray removeObject:model];
         [[FlyDataManager sharedInstance] deleDataWithModel:model];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         [weakSelf loadData];
         
     }];
@@ -122,16 +122,6 @@ static NSString *identifier = @"HOME_CELL";
     return @[deleAction];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        [_homeListArray removeObjectAtIndex:indexPath.row];
-        
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -719,10 +719,10 @@
 				INFOPLIST_FILE = Security/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ccw16000c.www.security;
+				PRODUCT_BUNDLE_IDENTIFIER = com.security.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "663ca0de-7be2-477e-88ae-5af5f4e67409";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
+				PROVISIONING_PROFILE = "faa47df3-aaa3-41ff-a032-41bf31d6254d";
+				PROVISIONING_PROFILE_SPECIFIER = ADWildcard;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -741,10 +741,10 @@
 				INFOPLIST_FILE = Security/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ccw16000c.www.security;
+				PRODUCT_BUNDLE_IDENTIFIER = com.security.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "663ca0de-7be2-477e-88ae-5af5f4e67409";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
+				PROVISIONING_PROFILE = "faa47df3-aaa3-41ff-a032-41bf31d6254d";
+				PROVISIONING_PROFILE_SPECIFIER = ADWildcard;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

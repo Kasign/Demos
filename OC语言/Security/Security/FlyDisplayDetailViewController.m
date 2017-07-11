@@ -195,8 +195,9 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
     UITextField *header = [[UITextField alloc] init];
     [header addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     header.tag = basicTag;
+    header.placeholder = @"类型";
     [header setText:value];
-    if (_type == FlyAddNewType||_type == FlyEditOldType) {
+    if (_type == FlyAddNewType) {
         header.enabled = YES;
     }else{
         header.enabled = NO;
@@ -216,13 +217,12 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
     {
         case FlyAddNewType:
             [_addNewDic setObject:textField.text forKey:key];
-            NSLog(@"%@",textField.text);
             
             break;
             
         case FlyEditOldType:
              [_addNewDic setObject:textField.text forKey:key];
-             NSLog(@"%@",textField.text);
+            
             break;
             
         default:
