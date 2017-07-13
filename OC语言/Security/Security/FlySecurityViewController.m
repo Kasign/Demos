@@ -29,7 +29,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.securitTextField resignFirstResponder];
 }
 
 
@@ -44,6 +43,7 @@
     [_securitTextField setKeyboardType:UIKeyboardTypeNumberPad];
     _securitTextField.delegate =self;
     [self.view addSubview:_securitTextField];
+    
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [confirmBtn setBackgroundColor:[UIColor clearColor]];
     [confirmBtn setFrame:CGRectMake(0, 0, 100, 30)];
@@ -167,16 +167,22 @@
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    if (textField.text == [FlyUserSettingManager sharedInstance].passWord) {
-        [self.delegate confirmSuccess];
-    }
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self resignSelfFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
+
+-(void)resignSelfFirstResponder{
+     [_securitTextField resignFirstResponder];
+}
+
+//-(void)dismissSelf{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
 

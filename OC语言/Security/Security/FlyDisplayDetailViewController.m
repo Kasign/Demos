@@ -148,6 +148,9 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
                 cell = [[FlyDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
             NSString *key = keyArray()[indexPath.row+1];
+            if ([key isEqualToString:@"creatTime"]||[key isEqualToString:@"updateTime"]) {
+                cell.rightField.enabled = NO;
+            }
             cell.leftString = [self.model.keyDic objectForKey:key];
             [cell.rightField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             cell.tag = cellTag;
@@ -160,6 +163,9 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
                 cell = [[FlyDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
             NSString *key = keyArray()[indexPath.row+1];
+            if ([key isEqualToString:@"creatTime"]||[key isEqualToString:@"updateTime"]) {
+                cell.rightField.enabled = NO;
+            }
             cell.leftString = [self.model.keyDic objectForKey:key];
             cell.rightString = [self.model.valueDic objectForKey:key];
             [cell.rightField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];

@@ -16,6 +16,8 @@
 
 @interface FlyTabBarViewController ()<FlyConfirmDelegate>
 
+@property (nonatomic, strong) UINavigationController *nvc;
+
 @end
 
 @implementation FlyTabBarViewController
@@ -58,11 +60,15 @@
 }
 
 -(void)showSecurityView{
+    
     FlySecurityViewController *securityView = [[FlySecurityViewController alloc] init];
-    securityView.view.tag = 20170525;
+    _nvc = [[UINavigationController alloc] initWithRootViewController:securityView];
+    _nvc.navigationBarHidden = YES;
+    _nvc.view.frame = self.view.bounds;
+
     securityView.delegate = self;
     [UIView animateWithDuration:0.2 animations:^{
-        [self.view addSubview:securityView.view];
+        [self.view addSubview:_nvc.view];
     }];
 }
 
@@ -75,9 +81,9 @@
 }
 
 -(void)hiddenSecurityView{
-    UIView *securityView = [self.view viewWithTag:20170525];
+    
     [UIView animateWithDuration:0.2 animations:^{
-        [securityView removeFromSuperview];
+        [_nvc.view removeFromSuperview];
     }];
 }
 
