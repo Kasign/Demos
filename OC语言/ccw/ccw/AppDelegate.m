@@ -30,9 +30,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [JPUSHService setupWithOption:launchOptions appKey:@"b85f70d66801764b55dd8796"
-                          channel:@"appstore"
-                 apsForProduction:1];
+    NSString *appKey = @"08b59583049b3ea48c28daf0";
+
+    [JPUSHService setupWithOption:launchOptions appKey:appKey channel:@"appstore" apsForProduction:1];
     
     [self jpushSet];
     // Optional
@@ -42,7 +42,6 @@
     // Required
     // init Push
     // notice: 2.1.5版本的SDK新增的注册 法，改成可上报IDFA，如果没有使 IDFA直接传nil
-    
     [Bmob registerWithAppKey:@"f0367860fca6424b9a6f2b1c1d565607"];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

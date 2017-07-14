@@ -908,10 +908,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ccw",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ccw1600c.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.firstCaipiao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d368297-0179-49d2-8ab1-4fd64d3c1c9b";
-				PROVISIONING_PROFILE_SPECIFIER = "XC com ccw1600c www";
+				PROVISIONING_PROFILE = "e3713f58-94fe-4abb-8c8e-179d017160a9";
+				PROVISIONING_PROFILE_SPECIFIER = W_FirstCaipiao_Distribution;
 			};
 			name = Debug;
 		};
@@ -940,10 +940,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ccw",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ccw1600c.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.firstCaipiao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d368297-0179-49d2-8ab1-4fd64d3c1c9b";
-				PROVISIONING_PROFILE_SPECIFIER = "XC com ccw1600c www";
+				PROVISIONING_PROFILE = "e3713f58-94fe-4abb-8c8e-179d017160a9";
+				PROVISIONING_PROFILE_SPECIFIER = W_FirstCaipiao_Distribution;
 			};
 			name = Release;
 		};
