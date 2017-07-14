@@ -19,36 +19,39 @@ static NSString *tupianUrl = @"http://api.laifudao.com/open/tupian.json";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"搞笑图";
     self.hidesBottomBarWhenPushed = YES;
     _dataSource = [NSMutableArray array];
-    [self getData];
+    [self loadData];
 }
 
--(void)getData{
-    [[FlyHttpManager sharedInstance].manager GET:tupianUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject isKindOfClass:[NSArray class]]) {
-            for (NSDictionary *dic in responseObject) {
-                FlyJokeModel *model = [[FlyJokeModel alloc] initWithDic:dic];
+-(void)loadData{
+    BmobQuery  *bquery = [BmobQuery queryWithClassName:@"Joke_Pic"];
+    
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (!error&&array) {
+            
+            for (BmobObject *object in array) {
+                FlyJokeModel *model = [[FlyJokeModel alloc] initWithBmobObject:object];
                 [self.dataSource addObject:model];
             }
             [self.view addSubview:self.tableView];
             [self.tableView reloadData];
+        }else{
+            UILabel *label = [[UILabel alloc]initWithFrame:self.view.bounds];
+            [label setText:@"网络请求失败，退出重新加载。。。"];
+            [self.view addSubview:label];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        UILabel *label = [[UILabel alloc]initWithFrame:self.view.bounds];
-        [label setText:@"网络请求失败，退出重新加载。。。"];
-        [self.view addSubview:label];
     }];
 }
 
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainWidth, MainHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,64, MainWidth, MainHeight-64) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView setBackgroundColor:[UIColor whiteColor]];
-        
     }
     return _tableView;
 }

@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
-        
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     return self;
 }
@@ -47,7 +47,7 @@
 
 -(UITextView *)textView{
     if (!_textView) {
-        _textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 64, MainWidth, MainHeight-64)];
+        _textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 70, MainWidth, MainHeight-70)];
         _textView.backgroundColor = [UIColor whiteColor];
         [_textView setEditable:NO];
         [_textView setSelectable:NO];
@@ -96,8 +96,11 @@
 
 -(UIWebView *)webView{
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+        CGRect frame = CGRectMake(0, 16, MainWidth, MainHeight+320);
+        
+        _webView = [[UIWebView alloc] initWithFrame:frame];
         _webView.backgroundColor = [UIColor whiteColor];
+        _webView.scrollView.bounces = NO;
         _webView.delegate = self;
     }
     return _webView;
@@ -118,7 +121,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

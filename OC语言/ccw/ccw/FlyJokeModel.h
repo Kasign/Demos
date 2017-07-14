@@ -13,5 +13,5 @@
 @property (nonatomic,copy)NSString *content;
 @property (nonatomic,copy)NSString *poster;
 @property (nonatomic,copy)NSString *sourceurl;
--(instancetype)initWithDic:(NSDictionary*)dic;
+-(instancetype)initWithBmobObject:(BmobObject*)object;
 @end

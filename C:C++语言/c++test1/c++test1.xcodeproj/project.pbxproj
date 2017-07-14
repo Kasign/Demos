@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3918A9731EFAABD800325DAD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3918A9721EFAABD800325DAD /* main.cpp */; };
-		3918A97D1EFAB0DF00325DAD /* aaa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3918A97C1EFAB0DF00325DAD /* aaa.cpp */; };
-		3918A97F1EFAB31B00325DAD /* abc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3918A97E1EFAB31A00325DAD /* abc.cpp */; };
+		3971867D1F17134C0008B6DF /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3971867B1F17134C0008B6DF /* Dog.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +26,8 @@
 /* Begin PBXFileReference section */
 		3918A96F1EFAABD800325DAD /* c++test1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "c++test1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3918A9721EFAABD800325DAD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		3918A97C1EFAB0DF00325DAD /* aaa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aaa.cpp; sourceTree = "<group>"; };
-		3918A97E1EFAB31A00325DAD /* abc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = abc.cpp; sourceTree = "<group>"; };
+		3971867B1F17134C0008B6DF /* Dog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
+		3971867C1F17134C0008B6DF /* Dog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dog.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				3918A9721EFAABD800325DAD /* main.cpp */,
-				3918A97C1EFAB0DF00325DAD /* aaa.cpp */,
-				3918A97E1EFAB31A00325DAD /* abc.cpp */,
+				3971867B1F17134C0008B6DF /* Dog.cpp */,
+				3971867C1F17134C0008B6DF /* Dog.hpp */,
 			);
 			path = "c++test1";
 			sourceTree = "<group>";
@@ -125,8 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3918A97F1EFAB31B00325DAD /* abc.cpp in Sources */,
-				3918A97D1EFAB0DF00325DAD /* aaa.cpp in Sources */,
+				3971867D1F17134C0008B6DF /* Dog.cpp in Sources */,
 				3918A9731EFAABD800325DAD /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +254,7 @@
 				3918A9781EFAABD800325DAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
