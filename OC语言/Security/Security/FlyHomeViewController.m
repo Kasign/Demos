@@ -58,7 +58,8 @@ static NSString *identifier = @"HOME_CELL";
 }
 
 -(void)loadData{
-     _homeListArray = [[[FlyDataManager sharedInstance] readData] copy];
+     _homeListArray = [[[FlyDataManager sharedInstance] readData] mutableCopy];
+    [self.homeTableView reloadData];
 }
 
 -(void)addNewItemAction{
@@ -94,30 +95,33 @@ static NSString *identifier = @"HOME_CELL";
         cell = [[FlyHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
     FlyDataModel *model =_homeListArray[indexPath.row];
-    cell.title = model.keyString;
+    cell.title = model.dataType;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FlyDataModel *model =_homeListArray[indexPath.row];
     FlyDisplayDetailViewController *vc = [[FlyDisplayDetailViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.model =_homeListArray[indexPath.row];
+    vc.model = model;
     vc.type = FlyDisplayType;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    __block typeof(self) weakSelf = self;
     UITableViewRowAction *deleAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        [tableView setEditing:NO animated:YES];
-        [_homeListArray removeObjectAtIndex:indexPath.row];
-        [tableView reloadData];
+        FlyDataModel *model =weakSelf.homeListArray[indexPath.row];
+        [weakSelf.homeListArray removeObject:model];
+        [[FlyDataManager sharedInstance] deleDataWithModel:model];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [weakSelf loadData];
         
     }];
     
     return @[deleAction];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

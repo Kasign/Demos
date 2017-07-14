@@ -34,4 +34,24 @@
     }
     return self;
 }
+
+-(instancetype)initWithBmobObject:(BmobObject *)object{
+    self = [super init];
+    if (self) {
+        
+        _title = [object objectForKey:@"title"];
+        
+        _content = [object objectForKey:@"content"];
+        if ([_content containsString:@"<br/><br/>"]) {
+            _content = [_content stringByReplacingOccurrencesOfString:@"<br/><br/>" withString:@"\n\n"];
+        }
+        
+        _poster = [object objectForKey:@"poster"];
+        
+        _sourceurl = [object objectForKey:@"pic"];
+        
+        
+    }
+    return self;
+}
 @end

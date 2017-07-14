@@ -9,6 +9,7 @@
 #import "FlyAppDelegate.h"
 
 #import "FlyTabBarViewController.h"
+#import "FlySQLManager.h"
 
 @interface FlyAppDelegate ()
 @property (nonatomic, strong) FlyTabBarViewController *rootView;
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FlyUserSettingManager sharedInstance] updateStates];
+    [[FlySQLManager shareInstance] creatBaseTable];
+    
     FlyTabBarViewController *tabVC = [[FlyTabBarViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:tabVC];

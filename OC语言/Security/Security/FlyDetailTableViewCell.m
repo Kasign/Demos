@@ -18,7 +18,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     self.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-//    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self.contentView addSubview:self.leftField];
     [self.contentView addSubview:self.rightField];
     CALayer *layer = [CALayer layer];
@@ -32,9 +31,10 @@
     if (!_leftField) {
         _leftField = [[UITextField alloc] init];
         _leftField.frame = CGRectMake(0, 0, 66, self.frame.size.height);
+        _leftField.enabled = NO;
         _leftField.backgroundColor = [UIColor clearColor];
         _leftField.textColor = [UIColor blueColor];
-        _leftField.font = [UIFont systemFontOfSize:10];
+        _leftField.font = [UIFont systemFontOfSize:14];
         _leftField.textAlignment = NSTextAlignmentRight;
     }
     return _leftField;
@@ -46,7 +46,7 @@
         _rightField.frame = CGRectMake(73, 0, self.frame.size.width-75, self.frame.size.height);
         _rightField.backgroundColor = [UIColor clearColor];
         _rightField.textColor = [UIColor blueColor];
-        _rightField.font = [UIFont systemFontOfSize:10];
+        _rightField.font = [UIFont systemFontOfSize:14];
         _rightField.textAlignment = NSTextAlignmentLeft;
     }
     return _rightField;
@@ -58,6 +58,10 @@
 
 -(void)setRightString:(NSString *)rightString{
     [self.rightField setText:rightString];
+}
+
+-(void)setTag:(NSInteger)tag{
+    self.rightField.tag = tag;
 }
 
 @end
@@ -105,6 +109,10 @@
         _rightLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _rightLabel;
+}
+
+-(void)setTag:(NSInteger)tag{
+    self.rightLabel.tag = tag;
 }
 
 

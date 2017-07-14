@@ -24,7 +24,6 @@
     [backImage setImage:[UIImage imageNamed:@"LuckyBackground.jpg"]];
     [self.view addSubview:backImage];
     
-    
     UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MainWidth, 30)];
     [topLabel setBackgroundColor:[UIColor clearColor]];
     [topLabel setTextAlignment:NSTextAlignmentCenter];
@@ -33,7 +32,6 @@
     [topLabel setTextColor:[UIColor yellowColor]];
     [self.view addSubview:topLabel];
 
-    
     // 加载转盘
     HVWLuckyWheel *luckyWheel = [HVWLuckyWheel hvwLuckyWheel];
     luckyWheel.finishDelegate = self;

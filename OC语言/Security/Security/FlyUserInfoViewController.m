@@ -27,7 +27,7 @@ static NSString *identifier = @"USERINFO_CELL";
     self.navigationBar.titleFont = [UIFont systemFontOfSize:14];
     self.backBtnHidden = YES;
     
-    _userTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight,SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStylePlain];
+    _userTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight,SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStyleGrouped];
     _userTableView.backgroundColor = [UIColor clearColor];
     _userTableView.dataSource = self;
     _userTableView.delegate = self;
@@ -53,7 +53,7 @@ static inline NSArray *cellM(){
     
     switch (indexPath.row) {
         case 0:
-            cell.isOn = [FlyUserSettingManager sharedInstance].passWord;
+            cell.isOn = [[FlyUserSettingManager sharedInstance].passWord boolValue];
             break;
         case 1:
             cell.isOn = [FlyUserSettingManager sharedInstance].useTouchID;

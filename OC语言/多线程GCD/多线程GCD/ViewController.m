@@ -52,83 +52,96 @@ static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20
 
 -(void)loadImageWithMulatiThread{
     
-    //    dispatch_queue_t serialQueue = dispatch_queue_create("aa", DISPATCH_QUEUE_SERIAL);//串行队列
+    dispatch_queue_t serialQueue = dispatch_queue_create("aa", DISPATCH_QUEUE_SERIAL);//串行队列
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
     //
     //
-    //    dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_SERIAL), ^{
+//        dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_SERIAL), ^{
+//    
+//            dispatch_sync(serialQueue, ^{
+//                [self loadImage:@5];
+//            });
+//            dispatch_sync(serialQueue, ^{
+//                [self loadImage:@6];
+//            });
+//            dispatch_sync(serialQueue, ^{
+//                [self loadImage:@7];
+//            });
+//            dispatch_sync(serialQueue, ^{
+//                [self loadImage:@8];
+//            });
+//    
+//        });
+
+    
+//        dispatch_async(serialQueue, ^{
+//            [self loadImage:@0];
+//        });
+//        dispatch_async(serialQueue, ^{
+//            [self loadImage:@1];
+//        });
+//        dispatch_async(serialQueue, ^{
+//            [self loadImage:@2];
+//        });
+//        dispatch_async(serialQueue, ^{
+//            [self loadImage:@3];
+//        });
     //
-    //        dispatch_sync(serialQueue, ^{
-    //            [self loadImage:@5];
-    //        });
-    //        dispatch_sync(serialQueue, ^{
-    //            [self loadImage:@6];
-    //        });
-    //        dispatch_sync(serialQueue, ^{
-    //            [self loadImage:@7];
-    //        });
-    //        dispatch_sync(serialQueue, ^{
-    //            [self loadImage:@8];
-    //        });
-    //
-    //    });
-    //
-    //    dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
-    //        [self loadImage:@0];
-    //    });
-    //    dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
-    //        [self loadImage:@1];
-    //    });
-    //    dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
-    //        [self loadImage:@2];
-    //    });
-    //    dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
-    //        [self loadImage:@3];
-    //    });
-    //    dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
-    //        [self loadImage:@4];
-    //    });
-    //
-    //
-    //    dispatch_async(serialQueue, ^{
-    //        [self loadImage:@0];
-    //    });
-    //    dispatch_async(serialQueue, ^{
-    //        [self loadImage:@1];
-    //    });
-    //    dispatch_async(serialQueue, ^{
-    //        [self loadImage:@2];
-    //    });
-    //    dispatch_async(serialQueue, ^{
-    //        [self loadImage:@3];
-    //    });
-    //
-    //    dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
-    //
-    //    dispatch_sync(concurrentQueue, ^{
-    //        [self loadImage:@10];
-    //    });
-    //    dispatch_sync(concurrentQueue, ^{
-    //        [self loadImage:@11];
-    //    });
-    //    dispatch_sync(concurrentQueue, ^{
-    //        [self loadImage:@12];
-    //    });
-    //    dispatch_sync(concurrentQueue, ^{
-    //        [self loadImage:@13];
-    //    });
-    //
-    //    dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT), ^{
-    //        [self loadImage:@14];
-    //    });
-    //    dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT), ^{
-    //        [self loadImage:@15];
-    //    });
-    //    dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT), ^{
-    //        [self loadImage:@16];
-    //    });
-    //    dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT), ^{
-    //        [self loadImage:@17];
-    //    });
+    
+//        dispatch_sync(concurrentQueue, ^{
+//            [self loadImage:@10];
+//        });
+//        dispatch_sync(concurrentQueue, ^{
+//            [self loadImage:@11];
+//        });
+//        dispatch_sync(concurrentQueue, ^{
+//            [self loadImage:@12];
+//        });
+//        dispatch_sync(concurrentQueue, ^{
+//            [self loadImage:@13];
+//        });
+    
+//    dispatch_async(concurrentQueue, ^{
+//        [self loadImage:@0];
+//    });
+//    dispatch_async(concurrentQueue, ^{
+//        [self loadImage:@1];
+//    });
+//    dispatch_async(concurrentQueue, ^{
+//        [self loadImage:@2];
+//    });
+//    dispatch_async(concurrentQueue, ^{
+//        [self loadImage:@3];
+//    });
+    
+//        dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
+//            [self loadImage:@0];
+//        });
+//        dispatch_async(dispatch_queue_create("bbb", DISPATCH_QUEUE_SERIAL), ^{
+//            [self loadImage:@1];
+//        });
+//        dispatch_async(dispatch_queue_create("ccc", DISPATCH_QUEUE_SERIAL), ^{
+//            [self loadImage:@2];
+//        });
+//        dispatch_async(dispatch_queue_create("ddd", DISPATCH_QUEUE_SERIAL), ^{
+//            [self loadImage:@3];
+//        });
+//        dispatch_async(dispatch_queue_create("eee", DISPATCH_QUEUE_SERIAL), ^{
+//            [self loadImage:@4];
+//        });
+
+//        dispatch_async(dispatch_queue_create("a", DISPATCH_QUEUE_CONCURRENT), ^{
+//            [self loadImage:@14];
+//        });
+//        dispatch_async(dispatch_queue_create("b", DISPATCH_QUEUE_CONCURRENT), ^{
+//            [self loadImage:@15];
+//        });
+//        dispatch_async(dispatch_queue_create("c", DISPATCH_QUEUE_CONCURRENT), ^{
+//            [self loadImage:@16];
+//        });
+//        dispatch_async(dispatch_queue_create("d", DISPATCH_QUEUE_CONCURRENT), ^{
+//            [self loadImage:@17];
+//        });
     //    /**
     //     high优先级的获取方法
     //     */
@@ -163,31 +176,31 @@ static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20
     //        NSLog(@"done");//执行完成后回调
     //    });
     
-    
-    dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+//    
+//    dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
     dispatch_async(concurrentQueue, ^{
         [self loadImage:@0];
-        //读取数据1
+        //读取数据0
     });
     dispatch_async(concurrentQueue, ^{
         [self loadImage:@1];
-        //读取数据2
+        //读取数据1
     });
     dispatch_async(concurrentQueue, ^{
         [self loadImage:@2];
-        //读取数据3
+        //读取数据2
     });
     dispatch_async(concurrentQueue, ^{
         [self loadImage:@3];
-        //读取数据4
+        //读取数据3
     });
     dispatch_barrier_async(concurrentQueue, ^{
         [self loadImage:@4];
-       //写入数据
+       //异步栅栏写入数据4
     });
     dispatch_barrier_sync(concurrentQueue, ^{
         [self loadImage:@4];
-        //写入数据
+        //同步栅栏写入数据4
     });
     dispatch_async(concurrentQueue, ^{
         [self loadImage:@5];
@@ -210,7 +223,7 @@ static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20
 }
 
 -(void)loadImage:(NSNumber*)index{
-    NSLog(@"%@ %@",index,[NSThread currentThread]);
+    NSLog(@"执行：%@ 线程信息：%@",index,[NSThread currentThread]);
     int i = [index intValue];
     sleep(2);//等待两秒
     NSData *data = [self requestData:i];

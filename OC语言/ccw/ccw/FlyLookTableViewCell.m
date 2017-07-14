@@ -38,8 +38,6 @@
     if (!_imageV) {
         CGRect frame = CGRectMake((MainWidth-230)/2.0, 50, 230, 230);
         _imageV= [[UIImageView alloc] initWithFrame:frame];
-        
-        
     }
     return _imageV;
 }

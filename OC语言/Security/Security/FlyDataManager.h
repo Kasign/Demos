@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FlyDataModel.h"
+@class FlyDataModel;
 
 @interface FlyDataManager : NSObject
 
@@ -20,7 +20,7 @@
 
 -(void)updateDataWithModel:(FlyDataModel*)model;
 
--(void)deleDataWithUserName:(NSString *)userName;
+-(void)deleDataWithModel:(FlyDataModel*)model;
 
 -(NSArray*)readData;
 

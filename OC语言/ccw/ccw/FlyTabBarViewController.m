@@ -86,6 +86,7 @@
     [self setAllViewControllers];
     [self.view addSubview:self.topButton];
     [self getData];
+//    [self uploadData];
 }
 
 -(void)getData{
@@ -99,6 +100,95 @@
             [self swichController];
         }
     }];
+}
+
+-(void)uploadData{
+    
+    NSArray *array = @[@"DLT",
+                       @"FC3D",
+                       @"PL3",
+                       @"PL5",
+                       @"QLC",
+                       @"QXC",
+                       @"SSQ",
+                       @"ZCBQC",
+                       @"ZCJQC",
+                       @"ZCSFC",
+                       @"AH11X5",
+                       @"BJ11X5",
+                       @"FJ11X5",
+                       @"GD11X5",
+                       @"GS11X5",
+                       @"GX11X5",
+                       @"GZ11X5",
+                       @"HEB11X5",
+                       @"HLJ11X5",
+                       @"HUB11X5",
+                       @"JL11X5",
+                       @"JS11X5",
+                       @"JX11X5",
+                       @"LN11X5",
+                       @"NMG11X5",
+                       @"SD11X5",
+                       @"SH11X5",
+                       @"SXL11X5",
+                       @"SXR11X5",
+                       @"JLK3",
+                       @"TJ11X5",
+                       @"XJ11X5",
+                       @"YN11X5",
+                       @"JSK3",
+                       @"JXK3",
+                       @"NMGK3",
+                       @"SHK3",
+                       @"BJKL8",
+                       @"CQKLSF",
+                       @"GDKLSF",
+                       @"GXKLSF",
+                       @"HLJKLSF",
+                       @"HLJSSC",
+                       @"GZK3",
+                       @"GXK3",
+                       @"GSK3",
+                       @"FJK3",
+                       @"BJK3",
+                       @"ZJ11X5",
+                       @"AHK3",
+                       @"HUBK3",
+                       @"HEBK3",
+                       @"HUNKLSF",
+                       @"SXLKLSF",
+                       @"SXRKLSF",
+                       @"TJKLSF",
+                       @"YNKLSF",
+                       @"LNKL12",
+                       @"SCKL12",
+                       @"ZJKL12",
+                       @"CQSSC",
+                       @"NMGSSC",
+                       @"TJSSC",
+                       @"XJSSC",
+                       @"YNSSC",
+                       @"BJPK10",
+                       @"CQBBWP",
+                       @"HUNXYSC",
+                       @"SDKLPK3",
+                       @"SDQYH",
+                       @"SHSSL",
+                       @"SXRYTDJ",
+                       @"XJXLC"];
+    
+    NSLog(@"数量：%ld",array.count);
+    for (int i=70;i<73;i++) {
+        NSString *string = array[i];
+        BmobObject *gameScore = [BmobObject objectWithClassName:@"caipiaoList"];
+        [gameScore setObject:string forKey:@"titleCode"];
+        [gameScore saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            //进行操作
+            NSLog(@"成功：%d,上传：%@",isSuccessful,string);
+        }];
+    }
+   
 }
 
 -(void)swichController{
@@ -153,7 +243,7 @@
 -(UINavigationController*)navigationControllerWithViewController:(UIViewController*)vc{
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     navi.navigationBar.backgroundColor = [UIColor redColor];
-    
+//    [[UIColor redColor] colorWithAlphaComponent:0.6]
     return navi;
 }
 

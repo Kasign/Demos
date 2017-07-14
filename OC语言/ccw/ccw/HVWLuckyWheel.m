@@ -9,7 +9,7 @@
 #import "HVWLuckyWheel.h"
 #import "HVWLuckyWheelButton.h"
 
-@interface HVWLuckyWheel()
+@interface HVWLuckyWheel()<CAAnimationDelegate>
 
 /** 幸运轮 */
 @property (weak, nonatomic) IBOutlet UIImageView *luckyWheel;

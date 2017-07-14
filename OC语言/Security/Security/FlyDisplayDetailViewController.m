@@ -9,14 +9,18 @@
 #import "FlyDisplayDetailViewController.h"
 
 #import "FlyDetailTableViewCell.h"
-
+#import "FlyDataModel.h"
 #import "FlyDataManager.h"
 
-@interface FlyDisplayDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+static int basicTag = 10086;
+
+@interface FlyDisplayDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *addNewTableVIew;
 
 @property (nonatomic, strong) FlyDataModel *addNewModel;
+
+@property (nonatomic, strong) NSMutableDictionary *addNewDic;
 
 @end
 
@@ -28,15 +32,28 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self initViews];
     
     [self.view addSubview:self.addNewTableVIew];
+    
+}
+
+-(void)initDatas{
+    if (!_model) {
+        _model = [[FlyDataModel alloc] init];
+        _addNewDic = [NSMutableDictionary dictionary];
+    }else{
+        _addNewDic = [_model.valueDic mutableCopy];
+    }
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
     self.navigationBar.titleFont = [UIFont systemFontOfSize:14];
+    [self initDatas];
     [self reloadViews];
 }
 
@@ -80,7 +97,7 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
             [self.navigationBar.rightBtn addTarget:self action:@selector(confirmClickAction) forControlEvents:UIControlEventTouchUpInside];
             break;
         case FlyDisplayType:
-            self.navigationBar.title = _model.keyString;
+            self.navigationBar.title = _model.dataType;
             [self.popBackBtn setTitle:@"返回" forState:UIControlStateNormal];
             [self.navigationBar.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
             [self.navigationBar.rightBtn addTarget:self action:@selector(editClickAction) forControlEvents:UIControlEventTouchUpInside];
@@ -92,6 +109,7 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
 -(UITableView *)addNewTableVIew{
     if (!_addNewTableVIew) {
         _addNewTableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStyleGrouped];
+        [_addNewTableVIew setContentInset:UIEdgeInsetsMake(10, 0, 0, 0)];
         _addNewTableVIew.dataSource = self;
         _addNewTableVIew.delegate = self;
         _addNewTableVIew.backgroundColor = [UIColor clearColor];
@@ -99,20 +117,6 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
     return _addNewTableVIew;
 }
 
--(void)confirmClickAction
-{
-    if (_type == FlyAddNewType)
-    {
-          [[FlyDataManager sharedInstance] saveDataWithModel:_addNewModel];
-    }
-    else if (_type == FlyEditOldType)
-    {
-          [[FlyDataManager sharedInstance] updateDataWithModel:_addNewModel];
-    }
-
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
 -(void)editClickAction
 {
@@ -121,29 +125,21 @@ static NSString *displayIdentifier = @"DISPLAY_CELL";
     [self.addNewTableVIew reloadData];
 }
 
-static inline NSArray *editCellM(){
-    return @[@"用户名",@"密码",@"注释"];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    switch (_type)
-    {
-            
+    switch (_type) {
         case FlyAddNewType:
-            return editCellM().count;
+            return 6;
+            break;
             
-        case FlyEditOldType:
-            return _model.keyArray.count;
-            
-        case FlyDisplayType:
-            return _model.keyArray.count;
-            
+        default:
+            return self.model.keyDic.allKeys.count-1;
+            break;
     }
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger cellTag =indexPath.row+basicTag+1;
     switch (_type) {
         case FlyAddNewType:
         {
@@ -151,9 +147,13 @@ static inline NSArray *editCellM(){
             if (!cell) {
                 cell = [[FlyDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
-            cell.leftString = editCellM()[indexPath.row];
-            cell.leftField.delegate = self;
-            cell.rightField.delegate = self;
+            NSString *key = keyArray()[indexPath.row+1];
+            if ([key isEqualToString:@"creatTime"]||[key isEqualToString:@"updateTime"]) {
+                cell.rightField.enabled = NO;
+            }
+            cell.leftString = [self.model.keyDic objectForKey:key];
+            [cell.rightField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+            cell.tag = cellTag;
             return cell;
         }
         case FlyEditOldType:
@@ -162,10 +162,14 @@ static inline NSArray *editCellM(){
             if (!cell) {
                 cell = [[FlyDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
-            cell.leftString = self.model.keyArray[indexPath.row];
-            cell.rightString = self.model.valueArray[indexPath.row];
-            cell.leftField.delegate = self;
-            cell.rightField.delegate = self;
+            NSString *key = keyArray()[indexPath.row+1];
+            if ([key isEqualToString:@"creatTime"]||[key isEqualToString:@"updateTime"]) {
+                cell.rightField.enabled = NO;
+            }
+            cell.leftString = [self.model.keyDic objectForKey:key];
+            cell.rightString = [self.model.valueDic objectForKey:key];
+            [cell.rightField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+            cell.tag = cellTag;
             return cell;
         }
         case FlyDisplayType:
@@ -174,26 +178,56 @@ static inline NSArray *editCellM(){
             if (!cell) {
                 cell = [[FlyDisPlayTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:displayIdentifier];
             }
-            cell.leftString = self.model.keyArray[indexPath.row];
-            cell.rightString = self.model.valueArray[indexPath.row];
+           
+            NSString *key = keyArray()[indexPath.row+1];
+            cell.leftString = [self.model.keyDic objectForKey:key];
+            cell.rightString = [self.model.valueDic objectForKey:key];
+            cell.tag = cellTag;
+            
             return cell;
         }
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSString *keyType = keyArray()[0];
+    NSString *value;
+    for (NSString *key in self.model.valueDic.allKeys) {
+        if ([key isEqualToString:keyType]) {
+            value = [self.model.valueDic objectForKey:key];
+        }
+    }
     
+    UITextField *header = [[UITextField alloc] init];
+    [header addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    header.tag = basicTag;
+    header.placeholder = @"类型";
+    [header setText:value];
+    if (_type == FlyAddNewType) {
+        header.enabled = YES;
+    }else{
+        header.enabled = NO;
+    }
+    [header setTextAlignment:NSTextAlignmentCenter];
+    
+    return header;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
+}
+
+- (void)textFieldDidChange:(UITextField *)textField{
+    NSInteger tag = textField.tag - basicTag;
+    NSString *key = keyArray()[tag];
     switch (_type)
     {
         case FlyAddNewType:
-            
-            NSLog(@"%@",textField.text);
+            [_addNewDic setObject:textField.text forKey:key];
             
             break;
             
         case FlyEditOldType:
-            
-             NSLog(@"%@",textField.text);
+             [_addNewDic setObject:textField.text forKey:key];
             
             break;
             
@@ -201,6 +235,28 @@ static inline NSArray *editCellM(){
             break;
     }
     
+}
+
+-(void)confirmClickAction
+{
+    
+    if (_type == FlyAddNewType)
+    {
+        _addNewModel = [[FlyDataModel alloc] initWithDataDic:_addNewDic];
+        [[FlyDataManager sharedInstance] saveDataWithModel:_addNewModel];
+    }
+    else if (_type == FlyEditOldType)
+    {
+        _addNewModel = [[FlyDataModel alloc] initWithDataDic:_addNewDic];
+        [[FlyDataManager sharedInstance] updateDataWithModel:_addNewModel];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+static NSArray *keyArray(){
+    return @[@"dataType",@"userName",@"security",@"note",@"detail1",@"detail2",@"detail3",@"creatTime",@"updateTime"];
 }
 
 - (void)didReceiveMemoryWarning {
