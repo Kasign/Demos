@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FlyShowOldViewController : UIViewController
+@property (nonatomic,assign)BOOL isMain;
 @property (nonatomic, copy) NSString *urlStr;
 @property (nonatomic, copy) NSString *showTitle;
 @end

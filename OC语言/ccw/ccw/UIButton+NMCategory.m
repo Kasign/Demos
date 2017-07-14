@@ -69,8 +69,8 @@ CGPoint beginPoint;
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
     if (self.highlighted) {
-        [self sendActionsForControlEvents:UIControlEventTouchUpInside];
         self.highlighted = NO;
     }
     

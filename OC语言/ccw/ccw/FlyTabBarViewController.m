@@ -90,15 +90,9 @@
 }
 
 -(void)getData{
-    BmobQuery  *bquery = [BmobQuery queryWithClassName:@"controller"];
-    
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (!error&&array) {
-            BmobObject *object = array.firstObject;
-            NSNumber *num = [object objectForKey:@"isShow"];
-            _tag = num.integerValue;
-            [self swichController];
-        }
+    [[FlyDataManager sharedInstance]getAppStateBlock:^(NSInteger state) {
+        _tag = state;
+        [self swichController];
     }];
 }
 

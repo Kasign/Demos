@@ -14,6 +14,7 @@
 #import "DetailViewController.h"
 #import "FlyLookViewController.h"
 #import "FlyJokeViewController.h"
+
 @interface FlyHallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIScrollView *headScrollView;
@@ -33,6 +34,10 @@ static NSInteger height = 150;
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.headScrollView];
     [self creatMidButtons];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.collectionView reloadData];
 }
 
 -(void)getData{
@@ -109,23 +114,23 @@ static NSInteger height = 150;
 }
 
 -(void)creatMidButtons{
-    CGRect frame= CGRectMake(0, height+64, MainWidth, 44);
+    CGRect frame= CGRectMake(0, height+64, MainWidth, 64);
     UIView *bgView = [[UIView alloc] initWithFrame:frame];
     [bgView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.4]];
     [self.view addSubview:bgView];
     
-    CGRect frame1= CGRectMake(0, 2, MainWidth/2.0-1, 40);
+    CGRect frame1= CGRectMake(0, 2, MainWidth/2.0-1, 60);
     _lookGirlsBtn = [[UIButton alloc] initWithFrame:frame1];
     [_lookGirlsBtn setBackgroundColor:[UIColor whiteColor]];
     [_lookGirlsBtn setImage:[UIImage imageNamed:@"girl.jpg"] forState:UIControlStateNormal];
     [_lookGirlsBtn setTitle:@"看搞笑图" forState:UIControlStateNormal];
     [_lookGirlsBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_lookGirlsBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [_lookGirlsBtn.imageView setBounds:CGRectMake(0, 0, 40, 40)];
+    [_lookGirlsBtn.imageView setBounds:CGRectMake(0, 0, 40, 58)];
     [_lookGirlsBtn addTarget:self action:@selector(clickLookAction) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:_lookGirlsBtn];
     
-    CGRect frame2= CGRectMake(MainWidth/2.0+1, 2, MainWidth/2.0-1, 40);
+    CGRect frame2= CGRectMake(MainWidth/2.0+1, 2, MainWidth/2.0-1, 60);
     _luckBtn = [[UIButton alloc] initWithFrame:frame2];
     [_luckBtn setBackgroundColor:[UIColor whiteColor]];
     [_luckBtn setImage:[UIImage imageNamed:@"jokeBtn.jpeg"] forState:UIControlStateNormal];
@@ -158,8 +163,8 @@ static NSInteger height = 150;
         layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 50);
         
         CGRect frame = self.view.bounds;
-        frame.origin.y = frame.origin.y + height+48;
-        frame.size.height = frame.size.height - height - 48;
+        frame.origin.y = frame.origin.y + height+68;
+        frame.size.height = frame.size.height - height - 68;
         _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
@@ -173,7 +178,10 @@ static NSInteger height = 150;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 2;
+    if ([FlyDataManager sharedInstance].appType != 1) {
+        return 2;
+    }
+    return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 4;
@@ -274,6 +282,9 @@ static NSInteger height = 150;
     FlyShowOldViewController *oldVC = [[FlyShowOldViewController alloc] init];
     oldVC.urlStr = key;
     oldVC.showTitle =value;
+    if (indexPath.section==0) {
+        oldVC.isMain = YES;
+    }
     oldVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:oldVC animated:YES];
     

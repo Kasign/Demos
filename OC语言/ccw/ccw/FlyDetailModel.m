@@ -20,4 +20,16 @@
     }
     return self;
 }
+
+-(instancetype)initWithBmobObject:(BmobObject *)object{
+    self = [super init];
+    if (self) {
+        self.expect = [object objectForKey:@"expect"];
+        self.opentime = [object objectForKey:@"opentime"];
+        self.opencode = [object objectForKey:@"opencode"];
+        self.opentimestamp = [object objectForKey:@"opentimestamp"];
+    }
+    return self;
+}
+
 @end

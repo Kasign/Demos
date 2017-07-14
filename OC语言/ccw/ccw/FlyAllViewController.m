@@ -87,6 +87,11 @@
     FlyShowOldViewController *oldVC = [[FlyShowOldViewController alloc] init];
     oldVC.urlStr = key;
     oldVC.showTitle =value;
+    if (self.tag == 2) {
+        oldVC.isMain = NO;
+    }else{
+        oldVC.isMain = YES;
+    }
     oldVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:oldVC animated:YES];
     

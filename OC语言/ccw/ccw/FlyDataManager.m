@@ -17,9 +17,19 @@
     });
     return manager;
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.appType = 1;
+    }
+    return self;
+}
+
 -(void)getZixunArrayBlock:(void(^)(NSArray *dataArray))block{
     NSMutableArray *_dataSource = [NSMutableArray array];
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"DataSource"];
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"newsTable"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (!error&&array) {
             [_dataSource removeAllObjects];
@@ -42,4 +52,24 @@
         }
     }];
 }
+
+-(void)getAppStateBlock:(void(^)(NSInteger state))block{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        BmobQuery  *bquery = [BmobQuery queryWithClassName:@"ViewController"];
+        
+        [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            if (!error&&array) {
+                BmobObject *object = array.firstObject;
+                NSNumber *num = [object objectForKey:@"isShow"];
+                _appType = num.integerValue;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    block(_appType);
+                });
+            }
+        }];
+    });
+
+}
+
 @end

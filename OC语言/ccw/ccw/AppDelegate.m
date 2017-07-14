@@ -42,7 +42,7 @@
     // Required
     // init Push
     // notice: 2.1.5版本的SDK新增的注册 法，改成可上报IDFA，如果没有使 IDFA直接传nil
-    [Bmob registerWithAppKey:@"f0367860fca6424b9a6f2b1c1d565607"];
+    [Bmob registerWithAppKey:@"230a0e2fc298628e9268cc2a502bc754"];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     

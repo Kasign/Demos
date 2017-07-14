@@ -15,5 +15,5 @@
 @property (nonatomic, copy) NSString *opentimestamp;
 
 -(instancetype)initWithDic:(NSDictionary*)dic;
-
+-(instancetype)initWithBmobObject:(BmobObject*)object;
 @end

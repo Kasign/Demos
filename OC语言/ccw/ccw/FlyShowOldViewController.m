@@ -44,7 +44,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getData];
+    if (_isMain) {
+        [self loadData];
+        
+    }else{
+        [self getData];
+    }
 }
 
 -(void)getData{
@@ -69,6 +74,41 @@
         }]];
         [weakSelf presentViewController:alert animated:YES completion:nil];
     }];
+}
+
+-(void)loadData{
+    BmobQuery  *bquery = [BmobQuery queryWithClassName:[_urlStr uppercaseString]];
+    [_dataArr removeAllObjects];
+    __weak typeof(self) weakSelf = self;
+
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (!error&&array) {
+            for (BmobObject *object in array) {
+                FlyDetailModel *model = [[FlyDetailModel alloc] initWithBmobObject:object];
+                [weakSelf.dataArr addObject:model];
+            }
+            [weakSelf sortDataSource];
+            [weakSelf.tableView reloadData];
+            
+            
+        }else{
+            [self.tableView removeFromSuperview];
+            UILabel *label = [[UILabel alloc]initWithFrame:self.view.bounds];
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setText:@"网络请求失败，退出重新加载。。。"];
+            [self.view addSubview:label];
+        }
+    }];
+
+}
+
+-(void)sortDataSource{
+    
+    self.dataArr = [self.dataArr sortedArrayUsingComparator:^NSComparisonResult(FlyDetailModel *  _Nonnull obj1, FlyDetailModel *  _Nonnull obj2) {
+        
+        return [obj2.opentimestamp compare:obj1.opentimestamp];
+        
+    }].mutableCopy;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
