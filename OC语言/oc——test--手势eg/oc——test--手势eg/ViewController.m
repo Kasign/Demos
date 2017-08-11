@@ -7,35 +7,54 @@
 //
 
 #import "ViewController.h"
-
+#import <objc/runtime.h>
 @interface ViewController ()
 @property (nonatomic, strong) UIView *view1;
 @property (nonatomic, strong) UIView *view2;
 @property (nonatomic, strong) UIView *view3;
 @property (nonatomic, strong) UIView *view4;
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UITextField *textField;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.view addSubview:self.view1];
-//    [self.view1 addSubview:self.view2];
-//    [self.view1 addSubview:self.view3];
-    _label  = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 40, 30)];
-    [_label setBackgroundColor:[UIColor grayColor]];
-    [_label setText:@"123"];
-    [self.view addSubview:_label];
-    [_label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
+    [self.view addSubview:self.view1];
+    [self.view1 addSubview:self.view2];
+    [self.view1 addSubview:self.view3];
+    [self.view addSubview:self.label];
+    [self.view addSubview:self.textField];
+    
+    [self.textField becomeFirstResponder];
+    
 }
 - (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context{
     NSLog(@"keyPath = %@",keyPath);
     NSLog(@"change = %@",change);
 }
 
+-(UILabel *)label{
+    if (!_label) {
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 40, 30)];
+        [_label setBackgroundColor:[UIColor grayColor]];
+        [_label setText:@"123"];
+        [_label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
+    }
+    return _label;
+}
+
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [_label setText:@"123"];
+//    [_label setText:@"123"];
+}
+
+-(UITextField *)textField{
+    if (!_textField) {
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(120, 50, 200, 30)];
+        [_textField setBackgroundColor:[UIColor grayColor]];
+    }
+    return _textField;
 }
 
 -(UIView *)view1{
@@ -54,6 +73,7 @@
 -(UIView *)view2{
     if (!_view2) {
         _view2 = [[UIView alloc] initWithFrame:CGRectMake(10, 40, 300, 400)];
+        _view2.opaque = YES;
         [_view2 setBackgroundColor:[UIColor yellowColor]];
         [_view2 setUserInteractionEnabled:YES];
         UILongPressGestureRecognizer *longG = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
@@ -99,12 +119,59 @@
 }
 
 -(void)swipAction:(UISwipeGestureRecognizer*)swipG{
-    NSLog(@"view1-swipAction");
+//    UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];
+//    unsigned int count = 0;
+//    Method *methodList = class_copyMethodList([keyWindow class], &count);
+//    for (int i = 0; i<count; i++) {
+//        Method method = methodList[i];
+//        NSLog(@"name:%@",NSStringFromSelector(method_getName(method)));
+//    }
+//    free(methodList);
+//    UIView *nextResponder = [keyWindow nextResponder];
+//    UIView * firstResponder = [keyWindow performSelector:@selector(_firstResponder)];
+//    UIView * _firstResponder = [keyWindow performSelector:@selector(firstResponder)];
+    
+    NSMutableString * str1 = [[NSMutableString alloc] initWithFormat:@"aabeebbacedad"];
+    
+    for(int i= 0;i < str1.length- 1;i++)
+    {
+        for (int j = i + 1;j < str1.length; j++)
+        {
+            // 由于字符的特殊性 无法使用 字符串 isEqualToString 进行比较 只能转化为ASCII 值进行比较 所以 需要加 unsigined 修饰
+            
+            unsigned char a = [str1 characterAtIndex:i];
+            
+            unsigned char b = [str1 characterAtIndex:j];
+            
+            if(a == b)
+            {
+                if (j -i > 1)
+                {
+                    
+                    // NSRange: 截取字符串  {j, 1} j: 第一个字符开始 1: 截取几个字符
+                    
+                    NSRange range = {j, 1};
+                    
+                    [str1 deleteCharactersInRange:range];
+                    
+                    j = i--;
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    NSLog(@"------%@-------", str1);
+    NSLog(@"view1-swipAction ------->>>>>>");
+    
 }
 
 -(void)tapAction:(UITapGestureRecognizer*)tap{
     NSLog(@"view3-tapAction");
 }
+
 
 
 
