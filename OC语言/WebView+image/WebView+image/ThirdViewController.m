@@ -11,13 +11,14 @@
 
 #import "ThirdViewController.h"
 #import <WebKit/WebKit.h>
-#import "GCDWebServer.h"
+#import <JavaScriptCore/JavaScriptCore.h>
+//#import "GCDWebServer.h"
 
 @interface ThirdViewController ()<UIScrollViewDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 
 @property (nonatomic, strong)WKWebView   *  webView;
-@property (nonatomic, strong) GCDWebServer  *  webServer;
-
+//@property (nonatomic, strong) GCDWebServer  *  webServer;
+@property (nonatomic, strong) JSContext  *  jsContext;
 @end
 
 @implementation ThirdViewController
@@ -25,33 +26,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"inxex" ofType:@"html"];
-    
     NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     
-    NSString *htmlPath = [documPath stringByAppendingPathComponent:@"/inxex.html"];
+    NSString* lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
     
-    NSURL *fileURL = [NSURL fileURLWithPath:htmlPath];
+    NSString* htmlPath = [documPath stringByAppendingPathComponent:lastPath];
     
-    NSURL *baseURL = [NSURL fileURLWithPath:documPath];
+    NSURL * fileURL = [NSURL fileURLWithPath:htmlPath];
+    
+    NSURL * baseURL = [NSURL fileURLWithPath:documPath];
     
     
     [self.webView loadFileURL:fileURL allowingReadAccessToURL:baseURL];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://local-www.66rpg.com/h5/v2/48432?user=heshang&test=tsgs"]]];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://local-www.66rpg.com/h5/v2/48432?user=heshang&test=tsgs"]]];
     
     [self.view addSubview:self.webView];
     
-    _webServer = [[GCDWebServer alloc]init];
-    
-    NSString *basePath =  [documPath stringByAppendingPathComponent:@""];
-    
-    [_webServer addGETHandlerForBasePath:@"/" directoryPath:basePath indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
-//    [_webServer startWithPort:80 bonjourName:nil];
-    
-    if ([_webServer start]) {
-        NSLog(@"strt success");
-    }
+//    _webServer = [[GCDWebServer alloc]init];
+//    
+//    NSString *basePath =  [documPath stringByAppendingPathComponent:@""];
+//    
+//    [_webServer addGETHandlerForBasePath:@"/" directoryPath:basePath indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
+//    if ([_webServer start]) {
+//        NSLog(@"strt success");
+//    }
     
 
     
@@ -78,7 +77,8 @@
     if (!_webView) {
         
         WKUserContentController *userContentController = [[WKUserContentController alloc] init];
-        [userContentController addScriptMessageHandler:self name:@"webViewPushNewUrl"];
+        [userContentController addScriptMessageHandler:self name:@"callNativeAndSend"];
+        [userContentController addScriptMessageHandler:self name:@"jsCallNative"];
         // WKWebView的配置
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
         configuration.userContentController   = userContentController;
@@ -106,6 +106,11 @@
 }
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+//    [webView evaluateJavaScript:@"globalObject.nativeCallJS('abc')" completionHandler:^(id _Nullable data, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"error:%@",error);
+//        }
+//    }];
     
 }
 // 页面加载失败时调用
@@ -141,6 +146,7 @@
 }
 // 输入框
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler{
+    NSLog(@"输入框");
     completionHandler(@"http");
 }
 // 确认框
@@ -149,29 +155,54 @@
 }
 // 警告框
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    NSLog(@"%@",message);
+    NSLog(@"警告框%@",message);
     completionHandler();
 }
 
 //js交互
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     
-    //    [self.webView evaluateJavaScript:@"" completionHandler:^(id _Nullable abc, NSError * _Nullable error) {
-    //
-    //    }];
-    //
-    //    NSString * path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    //
-    //    NSData * data =[NSData dataWithContentsOfFile:path];
+    NSLog(@"\n body:%@ \n name:%@",message.body,message.name);
     
+    if ([message.name isEqualToString:@"jsCallNative"]) {
+        
+        NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        
+        NSString * imagePath = [documPath stringByAppendingPathComponent:@"/abcd.png"];
+        
+        NSString * js = [NSString stringWithFormat:@"nativeCallJS('%@')",imagePath];
+        
+        [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable data, NSError * _Nullable error) {
+            NSLog(@"\n data:%@ \n error:%@",data,error);
+        }];
+    }
+
+}
+
+- (void)doSomeJsThings{
+    self.jsContext = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exception) {
+        NSLog(@"出现异常，异常信息：%@",exception);
+    };
+    
+    __weak typeof(self)  weakSelf = self;
+    self.jsContext[@"jsCallNative"] = ^(NSString * para){
+        
+        JSValue * method = weakSelf.jsContext[@"nativeCallJS"];
+        
+        NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        
+        NSString * imagePath = [documPath stringByAppendingPathComponent:@"/abcd.png"];
+        
+        [method callWithArguments:@[imagePath]];
+        
+    };
     
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
-
 
 @end

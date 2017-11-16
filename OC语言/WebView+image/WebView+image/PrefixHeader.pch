@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  WebView+image
+//
+//  Created by qiuShan on 2017/11/15.
+//  Copyright © 2017年 秋山. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define HtmlName @"index"
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <title>{$game["gname"]}</title>
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    />
+    <meta name='apple-mobile-web-app-capable' content='yes'/>
+    <meta name='full-screen' content='true'/>
+    <meta name='screen-orientation' content='portrait'/>
+    <meta name='x5-fullscreen' content='true'/>
+    <meta name='360-fullscreen' content='true'/>
+    <meta http-equiv='expires' content='0'/>
+	    <!-- 360浏览器默认开启极速模式 -->
+    <meta name=”renderer” content=”webkit”>
+    <!-- 如果安装了GCF，则使用GCF来渲染页面，如果没有安装GCF，则使用最高版本的IE内核进行渲染 -->
+    <meta http-equiv=”X-UA-Compatible” content=”IE=Edge,chrome=1″ >
+	    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-page-mode" content="app"/>
+</head>
+
+<body style="background-color: red;">
+	打开工程啦
+	
+	file图片
+	<img src="file://private/var/mobile/Containers/Bundle/Application/883BB23F-0B6B-4E75-8DCA-98B693CE9321/Documents/91c0341baa4fecf81ccc4c6f7a0a5a2b/graphic/background/_background_背景_1 (4).jpg"/ width="375" height="180">
+	http图片
+	<img src="http://pic.cgyouxi.com/orange/upload/201710/33044361_a1b17a537157effd515c965d795522cf.jpg!n1920"/>
+	
+    <script type="text/javascript">
+      var nativeCallJS = function(parameter) 
+      {
+          document.getElementsByTagName('img')[0].setAttribute('src',parameter);
+          var result = document.getElementsByTagName('img')[0].getAttribute('src');
+          alert (result);
+       };
+       function clickAction(abc){
+         window.webkit.messageHandlers.jsCallNative.postMessage(abc);
+         alert(abc);
+       }
+    </script>
+    <button type="button" onclick = "jsCallNative('假的')" style="width:100%; height:30px;"/>UI调用OC代码</button>
+    <button type="button" onclick = "clickAction('假的')" style="width:100%; height:30px;"/>WK调用OC代码</button>
+   
+</body>
+</html>

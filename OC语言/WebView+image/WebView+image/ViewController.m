@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton * leftButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 180, 40)];
+    UIButton * leftButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 150, 180, 40)];
     [leftButton setTitle:@"跳转UIWebView" forState:UIControlStateNormal];
     [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(jumpToUIWebView) forControlEvents:UIControlEventTouchUpInside];
@@ -44,23 +44,24 @@
     
     NSString * imagePath = [documPath stringByAppendingPathComponent:@"/abcd.png"];
     
+    NSLog(@"%@",imagePath);
+    
     if (![fileManager fileExistsAtPath:imagePath]) {
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"abcd" ofType:@"png"];
         
-
         BOOL success = [fileManager copyItemAtPath:path toPath:imagePath error:nil];
         
-        NSLog(@"imag成功：%d",success);
+        NSLog(@"imag成功：%d path:%@",success,imagePath);
     }
     
-    NSString *htmlPath = [documPath stringByAppendingPathComponent:@"/inxex.html"];
+    NSString * lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
     
-    
+    NSString *htmlPath = [documPath stringByAppendingPathComponent:lastPath];
     
     if (![fileManager fileExistsAtPath:htmlPath]) {
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"inxex" ofType:@"html"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html"];
         
         BOOL success = [fileManager copyItemAtPath:path toPath:htmlPath error:nil];
         
@@ -72,7 +73,7 @@
         
         NSLog(@"移除成功：%d",success);
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"inxex" ofType:@"html"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html"];
         
         success = [fileManager copyItemAtPath:path toPath:htmlPath error:nil];
         
@@ -84,19 +85,20 @@
 -(void)jumpToUIWebView{
     
     SecondViewController * vc = [[SecondViewController alloc] init];
-    
-    [self presentViewController:vc animated:YES completion:nil];
-    
+
+    [self pushToVC:vc];
 }
 
 -(void)jumpToWKWebView{
     
     ThirdViewController * vc = [[ThirdViewController alloc] init];
     
-    [self presentViewController:vc animated:YES completion:nil];
-    
+    [self pushToVC:vc];
 }
 
+- (void)pushToVC:(UIViewController*)vc{
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

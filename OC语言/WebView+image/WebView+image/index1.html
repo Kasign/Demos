@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport">
+<body style="background-color: white;">
+    <script type="text/javascript">
+        globalObject = new Object();
+        globalObject.name = 100;
+        globalObject.nativeCallJS = function (parameter) {
+            alert (parameter);
+        };
+    
+        var callBack = function(parameter){
+            alert(parameter);
+        }
+        function jsCallNative() {
+           window.webkit.messageHandlers.callNativeAndSend.postMessage('callcallcall');
+           alert(callNative);
+        }
+       function jsCallNative2(parameter) {
+          window.webkit.messageHandlers.NativeObject.shareString.postMessage(parameter);
+          alert(parameter);
+      }
+       function btnClick2() {
+          window.webkit.messageHandlers.showName.postMessage('xiao黄')
+      }
+      function btnClick3() {
+         window.webkit.messageHandlers.showSendMsg.postMessage(['13300001111', 'Go Climbing This Weekend !!!'])
+      }
+    </script>
+    
+    <button type="button" onclick = "jsCallNative()" style="width:100%; height:30px;"/>调用OC代码</button>
+    <button type="button" onclick = "jsCallNative2('hello word')" style="width:100%; height:30px;"/>调用OC代码并传参数</button>
+    <button type="button" onclick = "globalObject.creatJSMethod('jsParameter')" style="width:100%;height:30px;"/>oc生成JS方法</button>
+    <button type="button" onclick = "globalObject.nativeCallJS('jsParameter')" style="width:100%;height:30px;"/>oc调用JS方法</button>
+</body>
+</html>

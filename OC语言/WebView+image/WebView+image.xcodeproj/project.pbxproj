@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3881931FBC427000425A29 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B3881921FBC426F00425A29 /* index.html */; };
 		7B6462411FA2F97B008701B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462401FA2F97B008701B5 /* AppDelegate.m */; };
 		7B6462441FA2F97B008701B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462431FA2F97B008701B5 /* ViewController.m */; };
 		7B6462471FA2F97C008701B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6462451FA2F97C008701B5 /* Main.storyboard */; };
@@ -15,7 +16,7 @@
 		7B64624F1FA2F97C008701B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64624E1FA2F97C008701B5 /* main.m */; };
 		7B6462571FA2F9A7008701B5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462561FA2F9A7008701B5 /* SecondViewController.m */; };
 		7B64625A1FA2F9B2008701B5 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462591FA2F9B2008701B5 /* ThirdViewController.m */; };
-		7B64625C1FA2FA92008701B5 /* inxex.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B64625B1FA2FA92008701B5 /* inxex.html */; };
+		7B64625C1FA2FA92008701B5 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B64625B1FA2FA92008701B5 /* index1.html */; };
 		7B64625E1FA2FD4A008701B5 /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B64625D1FA2FD4A008701B5 /* abcd.png */; };
 		7B64627F1FA30366008701B5 /* GCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462621FA30366008701B5 /* GCDWebServer.m */; };
 		7B6462801FA30366008701B5 /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6462641FA30366008701B5 /* GCDWebServerConnection.m */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B3881921FBC426F00425A29 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		7B3881941FBC42BD00425A29 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7B64623C1FA2F97B008701B5 /* WebView+image.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebView+image.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B64623F1FA2F97B008701B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B6462401FA2F97B008701B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,7 +50,7 @@
 		7B6462561FA2F9A7008701B5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		7B6462581FA2F9B2008701B5 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		7B6462591FA2F9B2008701B5 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
-		7B64625B1FA2FA92008701B5 /* inxex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = inxex.html; sourceTree = "<group>"; };
+		7B64625B1FA2FA92008701B5 /* index1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index1.html; sourceTree = "<group>"; };
 		7B64625D1FA2FD4A008701B5 /* abcd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abcd.png; sourceTree = "<group>"; };
 		7B6462611FA30366008701B5 /* GCDWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServer.h; sourceTree = "<group>"; };
 		7B6462621FA30366008701B5 /* GCDWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServer.m; sourceTree = "<group>"; };
@@ -111,7 +114,9 @@
 			children = (
 				7B64625F1FA30366008701B5 /* GCDWebServer */,
 				7B64625D1FA2FD4A008701B5 /* abcd.png */,
-				7B64625B1FA2FA92008701B5 /* inxex.html */,
+				7B64625B1FA2FA92008701B5 /* index1.html */,
+				7B3881921FBC426F00425A29 /* index.html */,
+				7B3881941FBC42BD00425A29 /* PrefixHeader.pch */,
 				7B64623F1FA2F97B008701B5 /* AppDelegate.h */,
 				7B6462401FA2F97B008701B5 /* AppDelegate.m */,
 				7B6462421FA2F97B008701B5 /* ViewController.h */,
@@ -248,7 +253,8 @@
 			files = (
 				7B64624C1FA2F97C008701B5 /* LaunchScreen.storyboard in Resources */,
 				7B64625E1FA2FD4A008701B5 /* abcd.png in Resources */,
-				7B64625C1FA2FA92008701B5 /* inxex.html in Resources */,
+				7B64625C1FA2FA92008701B5 /* index1.html in Resources */,
+				7B3881931FBC427000425A29 /* index.html in Resources */,
 				7B6462491FA2F97C008701B5 /* Assets.xcassets in Resources */,
 				7B6462471FA2F97C008701B5 /* Main.storyboard in Resources */,
 			);
@@ -414,6 +420,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SSS4ABYHYB;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WebView+image/PrefixHeader.pch";
 				INFOPLIST_FILE = "WebView+image/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.test.WebView-image";
@@ -428,6 +437,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SSS4ABYHYB;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WebView+image/PrefixHeader.pch";
 				INFOPLIST_FILE = "WebView+image/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.test.WebView-image";
