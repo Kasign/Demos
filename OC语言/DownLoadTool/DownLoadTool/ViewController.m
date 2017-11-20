@@ -190,7 +190,9 @@ static NSString * appName(){
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.textView setText:[NSString stringWithFormat:@"%@%@",self.textView.text,newLog]];
-        [self.textView scrollRectToVisible:CGRectMake(0, _textView.contentSize.height-15, _textView.contentSize.width, 10) animated:YES];
+//        [self.textView scrollRectToVisible:CGRectMake(0, _textView.contentSize.height-15, _textView.contentSize.width, 10) animated:YES];
+        
+        [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length - newLog.length, newLog.length)];
     });
     
 }
