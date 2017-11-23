@@ -47,8 +47,6 @@
     BOOL isExist = [_manager fileExistsAtPath:path isDirectory:&isDir];
     
     
-    
-    
     BOOL success = [_manager createFileAtPath:path contents:data attributes:nil];
     
     return success;

@@ -9,6 +9,12 @@
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
+#import "DownloadToolManager.h"
+
+#import "FlyNativeDownloadManager.h"
+
+#import "FlyOfflineTool.h"
+
 #define MainScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define MainScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -20,28 +26,11 @@
 
 @property (nonatomic, strong) UITextView  *  textView;
 
+@property (nonatomic, strong) DownloadToolManager  *  downloadTool;
+
 @end
 
 @implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    NSString * document = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSLog(@"\n document:%@",document);
-    
-    [self initSubViews];
-    
-    
-    
-    NSString * imageStr = @"http://img5.imgtn.bdimg.com/it/u=4146227749,2786900840&fm=27&gp=0.jpg";
-    
-    imageStr = @"https://www.tunnelblick.net/release/Tunnelblick_3.7.4_build_4900.dmg";
-
-    self.urlTextField.text = imageStr;
-
-    
-}
 
 static NSString * document(){
     NSString * document = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
@@ -68,9 +57,46 @@ static NSString * appName(){
     NSDictionary * infoDic = [NSBundle mainBundle].infoDictionary;
     
     NSString * appName = infoDic[@"CFBundleName"];
-
+    
     return appName;
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+//    NSString * document = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//    NSLog(@"\n document:%@",document);
+    
+    [self initSubViews];
+    
+    
+    
+//    NSString * imageStr1 = @"http://img5.imgtn.bdimg.com/it/u=4146227749,2786900840&fm=27&gp=0.jpg";
+    
+    NSString * imageStr2 = @"https://www.tunnelblick.net/release/Tunnelblick_3.7.4_build_4900.dmg";
+    
+    self.urlTextField.text = imageStr2;
+    
+    
+    NSString * path = document();
+    
+    NSMutableDictionary * downDic = [@{imageStr2:@"1"} mutableCopy] ;//,imageStr2:@"1"
+    
+    for (NSString * key in downDic.allKeys) {
+        
+        NSString * lastPathComponent = [key substringWithRange:NSMakeRange(key.length - 10, 10)];
+        
+        path = [path stringByAppendingPathComponent:lastPathComponent];
+        
+        [downDic setValue:path forKey:key];
+    }
+
+//    [[FlyNativeDownloadManager sharedInstance] startDownload];
+    
+    [[FlyOfflineTool sharedInstance] startOfflineWithUrlStr:@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"];
+    
+}
+
 
 -(AFHTTPSessionManager *)downLoadManager{
     if (!_downLoadManager) {
@@ -124,12 +150,34 @@ static NSString * appName(){
     sender.selected = !sender.selected;
     
     if (sender.selected) {
-        [self download];
+//        [self download];
+        [self startDownloadWithTool];
     }else{
-        [self.downLoadManager.downloadTasks.firstObject cancel];
+//        [self.downLoadManager.downloadTasks.firstObject cancel];
+        [_downloadTool stopDownload];
     }
     
 }
+
+- (void)startDownloadWithTool{
+    [_downloadTool startDownloadTaskWithProgress:^(float progress) {
+        
+        NSString * progerssStr = [NSString stringWithFormat:@"\n %f",progress];
+        
+        [self showLogOnScreen:progerssStr];
+        
+    } completeBlock:^(BOOL success, NSError *error) {
+        
+        if (!error && success) {
+            [self showLogOnScreen:@"\n下载成功"];
+        }else{
+            NSString * failStr = [NSString stringWithFormat:@"\n下载失败  error:%@",error.description];
+            [self showLogOnScreen:failStr];
+        }
+        
+    }];
+}
+
 
 
 

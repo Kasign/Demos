@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3ECDBB1FC67C1F003835AC /* FlyOfflineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ECDBA1FC67C1F003835AC /* FlyOfflineTool.m */; };
+		7B5FCAD31FC3F68000FE06BA /* DownloadToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FCAD21FC3F68000FE06BA /* DownloadToolManager.m */; };
+		7B5FCAD61FC3F69600FE06BA /* DownloadTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FCAD51FC3F69600FE06BA /* DownloadTaskManager.m */; };
+		7B6531FB1FC548C200BEFDC6 /* FlyNativeDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6531FA1FC548C200BEFDC6 /* FlyNativeDownloadManager.m */; };
 		7B6EFE7A1FAFF34400F75110 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EFE791FAFF34400F75110 /* AppDelegate.m */; };
 		7B6EFE7D1FAFF34400F75110 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EFE7C1FAFF34400F75110 /* ViewController.m */; };
 		7B6EFE801FAFF34400F75110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6EFE7E1FAFF34400F75110 /* Main.storyboard */; };
@@ -20,6 +24,14 @@
 /* Begin PBXFileReference section */
 		3FE8B6A9E2F52C6E9658929D /* Pods-DownLoadTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTool/Pods-DownLoadTool.debug.xcconfig"; sourceTree = "<group>"; };
 		405A4B96DB5538FF651865DC /* Pods-DownLoadTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTool/Pods-DownLoadTool.release.xcconfig"; sourceTree = "<group>"; };
+		7B3ECDB91FC67C1F003835AC /* FlyOfflineTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyOfflineTool.h; sourceTree = "<group>"; };
+		7B3ECDBA1FC67C1F003835AC /* FlyOfflineTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyOfflineTool.m; sourceTree = "<group>"; };
+		7B5FCAD11FC3F68000FE06BA /* DownloadToolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadToolManager.h; sourceTree = "<group>"; };
+		7B5FCAD21FC3F68000FE06BA /* DownloadToolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadToolManager.m; sourceTree = "<group>"; };
+		7B5FCAD41FC3F69600FE06BA /* DownloadTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadTaskManager.h; sourceTree = "<group>"; };
+		7B5FCAD51FC3F69600FE06BA /* DownloadTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadTaskManager.m; sourceTree = "<group>"; };
+		7B6531F91FC548C200BEFDC6 /* FlyNativeDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyNativeDownloadManager.h; sourceTree = "<group>"; };
+		7B6531FA1FC548C200BEFDC6 /* FlyNativeDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyNativeDownloadManager.m; sourceTree = "<group>"; };
 		7B6EFE751FAFF34400F75110 /* DownLoadTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownLoadTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6EFE781FAFF34400F75110 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B6EFE791FAFF34400F75110 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +95,14 @@
 				7B6EFE7C1FAFF34400F75110 /* ViewController.m */,
 				7B6EFEAE1FB039F300F75110 /* UserFileManager.h */,
 				7B6EFEAF1FB039F300F75110 /* UserFileManager.m */,
+				7B5FCAD41FC3F69600FE06BA /* DownloadTaskManager.h */,
+				7B5FCAD51FC3F69600FE06BA /* DownloadTaskManager.m */,
+				7B5FCAD11FC3F68000FE06BA /* DownloadToolManager.h */,
+				7B5FCAD21FC3F68000FE06BA /* DownloadToolManager.m */,
+				7B6531F91FC548C200BEFDC6 /* FlyNativeDownloadManager.h */,
+				7B6531FA1FC548C200BEFDC6 /* FlyNativeDownloadManager.m */,
+				7B3ECDB91FC67C1F003835AC /* FlyOfflineTool.h */,
+				7B3ECDBA1FC67C1F003835AC /* FlyOfflineTool.m */,
 				7B6EFE7E1FAFF34400F75110 /* Main.storyboard */,
 				7B6EFE811FAFF34400F75110 /* Assets.xcassets */,
 				7B6EFE831FAFF34400F75110 /* LaunchScreen.storyboard */,
@@ -130,7 +150,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = "秋山";
+				ORGANIZATIONNAME = Fly;
 				TargetAttributes = {
 					7B6EFE741FAFF34400F75110 = {
 						CreatedOnToolsVersion = 9.1;
@@ -225,10 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5FCAD31FC3F68000FE06BA /* DownloadToolManager.m in Sources */,
 				7B6EFE7D1FAFF34400F75110 /* ViewController.m in Sources */,
 				7B6EFE881FAFF34400F75110 /* main.m in Sources */,
 				7B6EFEB01FB039F300F75110 /* UserFileManager.m in Sources */,
+				7B5FCAD61FC3F69600FE06BA /* DownloadTaskManager.m in Sources */,
 				7B6EFE7A1FAFF34400F75110 /* AppDelegate.m in Sources */,
+				7B6531FB1FC548C200BEFDC6 /* FlyNativeDownloadManager.m in Sources */,
+				7B3ECDBB1FC67C1F003835AC /* FlyOfflineTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				INFOPLIST_FILE = DownLoadTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.test.DownLoadTool;
@@ -378,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				INFOPLIST_FILE = DownLoadTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.test.DownLoadTool;
