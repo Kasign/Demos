@@ -51,25 +51,25 @@
     NSLog(@"名字是：%@",person.nickname);
     
     
-        unsigned int count;
-        Method *methodlist = class_copyMethodList([p class], &count);
+    unsigned int count;
+    Method *methodlist = class_copyMethodList([p class], &count);
     
-        IMP lastImp = NULL;
-        SEL lastSel = NULL;
-        //调用被覆盖的方法
-        for (NSInteger i = 0; i<count; i++) {
-            Method method = methodlist[i];
-            NSString *methodName = [NSString  stringWithCString:sel_getName(method_getName(method)) encoding:NSUTF8StringEncoding];
-            if ([methodName isEqualToString:@"run"]) {
-                lastImp = method_getImplementation(method);
-                lastSel = method_getName(method);
-            }
+    IMP lastImp = NULL;
+    SEL lastSel = NULL;
+    //调用被覆盖的方法
+    for (NSInteger i = 0; i<count; i++) {
+        Method method = methodlist[i];
+        NSString *methodName = [NSString  stringWithCString:sel_getName(method_getName(method)) encoding:NSUTF8StringEncoding];
+        if ([methodName isEqualToString:@"run"]) {
+            lastImp = method_getImplementation(method);
+            lastSel = method_getName(method);
         }
-        if (lastImp) {
-            lastImp(p,lastSel);
-            objc_msgSend(p, lastSel);
-        }
-        free(methodlist);
+    }
+    if (lastImp) {
+        lastImp(p,lastSel);
+        objc_msgSend(p, lastSel);
+    }
+    free(methodlist);
     
     //获取成员变量和属性
     //    unsigned int ivarCount;
@@ -104,15 +104,15 @@
      */
     
     //获取协议列表
-//    NSMutableArray *protocoArray = [NSMutableArray array];
-//    unsigned int protocoCount = 0;
-//    __unsafe_unretained Protocol **protocolList =  class_copyProtocolList([Person class], &protocoCount);
-//    for (int i = 0; i<protocoCount; i++) {
-//        Protocol *protocol = protocolList[i];
-//        const char *protocolName =  protocol_getName(protocol);
-//        [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
-//    }
-//    NSLog(@"协议列表：%@",protocoArray);
+    //    NSMutableArray *protocoArray = [NSMutableArray array];
+    //    unsigned int protocoCount = 0;
+    //    __unsafe_unretained Protocol **protocolList =  class_copyProtocolList([Person class], &protocoCount);
+    //    for (int i = 0; i<protocoCount; i++) {
+    //        Protocol *protocol = protocolList[i];
+    //        const char *protocolName =  protocol_getName(protocol);
+    //        [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
+    //    }
+    //    NSLog(@"协议列表：%@",protocoArray);
     
 }
 
