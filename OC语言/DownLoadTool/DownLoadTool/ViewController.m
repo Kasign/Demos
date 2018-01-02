@@ -92,8 +92,9 @@ static NSString * appName(){
     }
 
 //    [[FlyNativeDownloadManager sharedInstance] startDownload];
-    
-    [[FlyOfflineTool sharedInstance] startOfflineWithUrlStr:@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"];
+//    https://test-kcdn1.cgyouxi.com/audio/bestman/3JBmDtDXyf.mp3
+//    http://120.25.226.186:32812/resources/videos/minion_01.mp4
+    [[FlyOfflineTool sharedInstance] startOfflineWithUrlStr:@"https://test-kcdn1.cgyouxi.com/audio/bestman/3JBmDtDXyf.mp3"];
     
 }
 

@@ -30,7 +30,6 @@
     SEL sleep = sel_registerName("sleep");
     objc_msgSend(p, sleep);
     
-    
     NSMutableArray *methodArray = [NSMutableArray array];
     unsigned int methodCount = 0;
     Method *methodList = class_copyMethodList([Person class], &methodCount);
@@ -40,9 +39,10 @@
         [methodArray addObject:NSStringFromSelector(methodSEL)];
     }
     free(methodList);
-    NSLog(@"%@",methodArray);
+    NSLog(@"%@",methodArray);//note:获取不到类方法
     
     objc_msgSend([Person new], sel_registerName("walk"));
+    objc_msgSend([Person class], sel_registerName("dance"));
     
     
     Person *person = [Person new];

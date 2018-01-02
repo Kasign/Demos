@@ -26,6 +26,11 @@
     NSLog(@"喝水");
 }
 
++ (void)dance
+{
+    NSLog(@"跳舞");
+}
+
 void sleepMethodIMP(id self,SEL _cmd){
     NSLog(@"睡觉了");
 }
