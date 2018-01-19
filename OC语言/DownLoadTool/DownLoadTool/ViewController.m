@@ -94,7 +94,8 @@ static NSString * appName(){
 //    [[FlyNativeDownloadManager sharedInstance] startDownload];
 //    https://test-kcdn1.cgyouxi.com/audio/bestman/3JBmDtDXyf.mp3
 //    http://120.25.226.186:32812/resources/videos/minion_01.mp4
-    [[FlyOfflineTool sharedInstance] startOfflineWithUrlStr:@"https://test-kcdn1.cgyouxi.com/audio/bestman/3JBmDtDXyf.mp3"];
+    //https://test-wmodcdn.cgyouxi.com/audio/9645ab9cb84431da4aee0d92a5aef605/61/612c17ba5fe53793d37b6c978df7886b.mp3
+    [[FlyOfflineTool sharedInstance] startOfflineWithUrlStr:@"https://test-wmodcdn.cgyouxi.com/audio/9645ab9cb84431da4aee0d92a5aef605/61/612c17ba5fe53793d37b6c978df7886b"];
     
 }
 

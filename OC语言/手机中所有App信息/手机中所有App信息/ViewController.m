@@ -46,7 +46,7 @@
 
 - (void)testStudent
 {
-//    Class student = objc_getClass("Student");
+    Class student = objc_getClass("Student");
     unsigned int methodCount = 0;
     Method * methodList = class_copyMethodList([Student class], &methodCount);
     for (int i=0; i<methodCount; i++) {

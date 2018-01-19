@@ -1,14 +1,13 @@
 //
-//  FlyOfflineTool.m
-//  DownLoadTool
+//  AudioResourceLoaderManager.m
+//  Unity-iPhone
 //
-//  Created by qiuShan on 2017/11/23.
-//  Copyright © 2017年 Fly. All rights reserved.
+//  Created by qiuShan on 2018/1/11.
 //
 
-#import "FlyOfflineTool.h"
+#import "AudioResourceLoaderManager.h"
 
-@interface FlyOfflineTool ()<NSURLSessionDataDelegate>
+@interface AudioResourceLoaderManager ()<NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) NSURLSession  *  offlineSession;
 
@@ -21,15 +20,18 @@
 
 @property (nonatomic, strong) NSFileHandle  *  fileHandle;
 
+@property (nonatomic, copy) NSString  *  fileName;
+
 @end
 
-@implementation FlyOfflineTool
+@implementation AudioResourceLoaderManager
 
-+ (instancetype)sharedInstance{
-    static FlyOfflineTool * _offlineTool;
++ (instancetype)sharedInstance
+{
+    static AudioResourceLoaderManager * _offlineTool;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _offlineTool = [[FlyOfflineTool alloc] init];
+        _offlineTool = [[AudioResourceLoaderManager alloc] init];
     });
     return _offlineTool;
 }
@@ -51,8 +53,8 @@
     return self;
 }
 
-- (void)startOfflineWithUrlStr:(NSString*)urlStr{
-    
+- (void)startOfflineWithUrlStr:(NSString*)urlStr
+{
     NSString * offlineStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:offlineStr]];
@@ -64,9 +66,9 @@
      bytes=-100 请求文件的前100个字节
      bytes=500- q 请求500之后的所有数据
      */
-//    NSString *rangeStr = [NSString stringWithFormat:@"bytes=%zd-", self.curLength];
-//    
-//    [request setValue:rangeStr forHTTPHeaderField:@"Range"];
+    NSString *rangeStr = [NSString stringWithFormat:@"bytes=0-"];
+    
+    [request setValue:rangeStr forHTTPHeaderField:@"Range"];
     
     NSURLSessionDataTask * dataTask = [_offlineSession dataTaskWithRequest:request];
     
@@ -75,74 +77,91 @@
     [_taskDic setObject:dataTask forKey:offlineStr];
 }
 
-- (void)pauseTask{
+- (void)pauseTask
+{
     [self.dataTask suspend];
 }
 
-- (void)resumeTask{
+- (void)resumeTask
+{
     [self.dataTask resume];
 }
 
-static NSString * fullPath(NSString * fileName){
-    NSString * documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    return [documentPath stringByAppendingPathComponent:fileName];
-}
-
-
 #pragma mark - NSURLSessionTaskDelegate
--(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
-    
+-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+{
     NSLog(@"task->didCompleteWithError -- %@", [NSThread currentThread]);
     NSLog(@"didCompleteWithError:%@",error);
     
-    [self.outStream close];
-//    [self.fileHandle closeFile];
+    if (self.outStream) {
+        [self.outStream close];
+    }
+    
+    if (self.fileHandle) {
+        [self.fileHandle closeFile];
+    }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(resourceLoader:finishReciveDataWithPath:request:)]) {
+        [_delegate resourceLoader:self finishReciveDataWithPath:fullPath(_fileName) request:task.currentRequest];
+    }
 }
 
 #pragma mark - NSURLSessionDataDelegate
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler{
-    
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
+{
     completionHandler(NSURLSessionResponseAllow);
     NSLog(@"dataTask->didReceiveResponse -- %@", [NSThread currentThread]);
     
     NSString * name = response.suggestedFilename;
     
     NSLog(@"%@",fullPath(name));
-    
-    self.outStream = [NSOutputStream outputStreamToFileAtPath:fullPath(name) append:YES];
-    
+    _fileName = name;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fullPath(@"")]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:fullPath(@"") withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    self.outStream = [NSOutputStream outputStreamToFileAtPath:fullPath(name) append:NO];
     [self.outStream open];
     
 //    if (![[NSFileManager defaultManager] fileExistsAtPath:fullPath(name)]) {
 //        [[NSFileManager defaultManager] createFileAtPath:fullPath(name) contents:[NSData data] attributes:nil];
 //    }
+
 //    self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:fullPath(name)];
 //    [self.fileHandle seekToEndOfFile];
-
+    
 }
 
--(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask{
-    
+-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask
+{
     NSLog(@"dataTask->didBecomeDownloadTask %@",[NSThread currentThread]);
     NSLog(@"didBecomeDownloadTask");
 }
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeStreamTask:(NSURLSessionStreamTask *)streamTask{
-    
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeStreamTask:(NSURLSessionStreamTask *)streamTask
+{
     NSLog(@"dataTask->didBecomeStreamTask %@",[NSThread currentThread]);
     NSLog(@"didBecomeStreamTask");
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data{
-    
+    didReceiveData:(NSData *)data
+{
     NSLog(@"dataTask->didReceiveData %@",[NSThread currentThread]);
     NSLog(@"返回的data：%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSLog(@"dataLength:%ld",data.length);
     
-    [self.outStream write:data.bytes maxLength:data.length];
+    if (self.outStream) {
+        [self.outStream write:data.bytes maxLength:data.length];
+    }
+    if (self.fileHandle) {
+        [self.fileHandle writeData:data];
+    }
     
-//    [self.fileHandle writeData:data];
+    if (_delegate && [_delegate respondsToSelector:@selector(resourceLoader:shouldStartPlayWithPath:request:)]) {
+        if (_fileName.length) {
+            [_delegate resourceLoader:self shouldStartPlayWithPath:fullPath(_fileName) request:dataTask.currentRequest];
+        }
+    }
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse * _Nullable))completionHandler{
@@ -150,7 +169,6 @@ static NSString * fullPath(NSString * fileName){
     NSLog(@"dataTask->willCacheResponse %@",[NSThread currentThread]);
     NSLog(@"willCacheResponse:%@",proposedResponse.debugDescription);
 }
-
 
 
 @end
