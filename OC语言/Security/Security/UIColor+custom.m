@@ -1,9 +1,9 @@
 //
-//  UIColor+custom.m
-//  leci
+//  PrefixHeader.pch
+//  Security
 //
-//  Created by 熊文博 on 14-2-15.
-//  Copyright (c) 2014年 Leci. All rights reserved.
+//  Created by walg on 2017/1/4.
+//  Copyright © 2017年 walg. All rights reserved.
 //
 
 #import "UIColor+custom.h"

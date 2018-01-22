@@ -9,8 +9,9 @@
 #import "FlyUserSettingManager.h"
 
 #define FLY_USETOUCHID    @"ShowTouchID"
-#define FLY_LOCKTIME    @"LockTime"
-#define FLY_PASSWORD  @"PassWord"
+#define FLY_LOCKTIME      @"LockTime"
+#define FLY_PASSWORD      @"PassWord"
+#define FLY_CLEARBOARD    @"ClearPasteboard"
 
 @interface FlyUserSettingManager()
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
@@ -31,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-        _userDefaults = [NSUserDefaults standardUserDefaults];
+        _userDefaults  = [NSUserDefaults standardUserDefaults];
         _securityQueue = dispatch_queue_create("security", DISPATCH_QUEUE_SERIAL);
         if (![_userDefaults objectForKey:FLY_USETOUCHID]) {
             [_userDefaults setBool:NO forKey:FLY_USETOUCHID];
@@ -69,13 +70,29 @@
     });
 }
 
+-(void)setClearPasteboard:(BOOL)clearPasteboard{
+    _clearPasteboard = clearPasteboard;
+    dispatch_async(_securityQueue, ^{
+        [_userDefaults setBool:clearPasteboard forKey:FLY_CLEARBOARD];
+        [_userDefaults synchronize];
+    });
+}
+
+- (void)clearPasteboardIfNeed
+{
+    if (_clearPasteboard) {
+        [[UIPasteboard generalPasteboard] setString:@""];
+        [[UIPasteboard generalPasteboard] setStrings:@[@""]];
+    }
+}
 
 -(void)updateStates{
     __block typeof(self) weakSelf = self;
     dispatch_async(_securityQueue, ^{
-        weakSelf.useTouchID =[weakSelf.userDefaults boolForKey:FLY_USETOUCHID];
-        weakSelf.lockTime = [weakSelf.userDefaults integerForKey:FLY_LOCKTIME];
-        weakSelf.passWord =  [weakSelf.userDefaults stringForKey:FLY_PASSWORD];
+        weakSelf.useTouchID = [weakSelf.userDefaults boolForKey:FLY_USETOUCHID];
+        weakSelf.lockTime   = [weakSelf.userDefaults integerForKey:FLY_LOCKTIME];
+        weakSelf.passWord   = [weakSelf.userDefaults stringForKey:FLY_PASSWORD];
+        weakSelf.clearPasteboard = [weakSelf.userDefaults boolForKey:FLY_CLEARBOARD];
         [_userDefaults synchronize];
     });
 };

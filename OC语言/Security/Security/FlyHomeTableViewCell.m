@@ -18,19 +18,23 @@
 
 @implementation FlyHomeTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.backgroundColor = [UIColor whiteColor];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    [self addSubview:self.titleLabel];
-    [self addSubview:self.imgView];
+    if (self) {
+        
+        self.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle  = UITableViewCellSelectionStyleNone;
+        self.accessoryType   = UITableViewCellAccessoryDisclosureIndicator;
+        
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.imgView];
+    }
     return self;
 }
 
--(UILabel *)titleLabel{
+-(UILabel *)titleLabel
+{
     if (!_titleLabel) {
         _titleLabel= [[UILabel alloc] init];
         _titleLabel.backgroundColor = [UIColor whiteColor];
@@ -41,7 +45,8 @@
     return _titleLabel;
 }
 
--(UIImageView *)imgView{
+-(UIImageView *)imgView
+{
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
         _imgView.frame = CGRectMake(6, 0, self.bounds.size.height, self.bounds.size.height);
@@ -50,11 +55,13 @@
     return _imgView;
 }
 
--(void)setTitle:(NSString *)title{
+-(void)setTitle:(NSString *)title
+{
     [self.titleLabel setText:title];
 }
 
--(void)setImageName:(NSString *)imageName{
+-(void)setImageName:(NSString *)imageName
+{
     self.imgView.image = [UIImage imageNamed:imageName];
 }
 

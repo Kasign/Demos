@@ -42,22 +42,23 @@
     return self;
 }
 
--(NSDictionary *)keyDic{
+-(NSDictionary *)keyDic
+{
     return @{
              @"dataType":@"类型",
              @"userName":@"用户名",
              @"security":@"密码",
              @"note":@"备注",
-             @"detail1":@"详情1",
-             @"detail2":@"详情2",
-             @"detail3":@"详情3",
+             @"detail1":@"说明1",
+             @"detail2":@"说明2",
+             @"detail3":@"说明3",
              @"creatTime":@"创建时间",
              @"updateTime":@"更新时间"
              };
 }
 
--(NSDictionary *)valueDic{
-    
+-(NSDictionary *)valueDic
+{
     NSMutableDictionary *dataDic = [NSMutableDictionary dictionary];
     
     if (self.dataType) {

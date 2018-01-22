@@ -23,14 +23,15 @@ static NSString *identifier = @"USERINFO_CELL";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationBar.title = @"个人";
-    self.navigationBar.titleFont = [UIFont systemFontOfSize:14];
+    self.navigationBar.title = @"个人设置";
     self.backBtnHidden = YES;
+    self.navigationBar.titleFont = [UIFont systemFontOfSize:FLYTITLEFONTSIZE];
+    
     
     _userTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight,SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStyleGrouped];
     _userTableView.backgroundColor = [UIColor clearColor];
     _userTableView.dataSource = self;
-    _userTableView.delegate = self;
+    _userTableView.delegate   = self;
     [self.view addSubview:_userTableView];
 }
 
@@ -59,7 +60,7 @@ static inline NSArray *cellM(){
             cell.isOn = [FlyUserSettingManager sharedInstance].useTouchID;
             break;
         case 2:
-            
+            cell.isOn = [FlyUserSettingManager sharedInstance].clearPasteboard;
             break;
             
         default:
@@ -83,9 +84,9 @@ static inline NSArray *cellM(){
                     }]];
                     [self presentViewController:alert animated:YES completion:nil];
                 }else{
-                     [[FlyUserSettingManager sharedInstance] setPassWord:nil];
+                    [[FlyUserSettingManager sharedInstance] setPassWord:nil];
                 }
-            
+                
             }
                 break;
                 
@@ -93,13 +94,13 @@ static inline NSArray *cellM(){
                 [[FlyUserSettingManager sharedInstance] setUseTouchID:isYes];
                 break;
             case 2:
-                
+                [[FlyUserSettingManager sharedInstance] setClearPasteboard:isYes];
                 break;
                 
             default:
                 break;
         }
-     
+        
     };
     
     return cell;

@@ -27,15 +27,15 @@
 
 static NSString *identifier = @"HOME_CELL";
 
-- (void)viewDidLoad {
-    
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.navigationBar.title = @"主页";
     
     self.backBtnHidden = YES;
     
-    self.navigationBar.titleFont = [UIFont systemFontOfSize:14];
+    self.navigationBar.titleFont = [UIFont systemFontOfSize:FLYTITLEFONTSIZE];
     
     UIButton *rightBtn = [[UIButton alloc] init];
     rightBtn.backgroundColor = [UIColor clearColor];
@@ -52,26 +52,55 @@ static NSString *identifier = @"HOME_CELL";
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self loadData];
 }
 
--(void)loadData{
+-(void)loadData
+{
      _homeListArray = [[[FlyDataManager sharedInstance] readData] mutableCopy];
     [self.homeTableView reloadData];
 }
 
--(void)addNewItemAction{
+-(void)addNewItemAction
+{
+    NSString * placeholderStr = @"必须添加，否则不能添加";
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"输入账号平台" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = placeholderStr;
+    }];
+    
+    UIAlertAction * concelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    __block typeof(self) weakSelf = self;
+    UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+        UITextField * textFiled = alertController.textFields.lastObject;
+        if (textFiled.text.length && ![textFiled.text isEqualToString:placeholderStr]) {
+            [weakSelf pushToDisPalyViewControllerWithName:textFiled.text];
+        }
+    }];
+    
+    [alertController addAction:concelAction];
+    [alertController addAction:confirmAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)pushToDisPalyViewControllerWithName:(NSString *)name
+{
     FlyDisplayDetailViewController *addNewVC = [[FlyDisplayDetailViewController alloc] init];
     addNewVC.hidesBottomBarWhenPushed = YES;
     addNewVC.type = FlyAddNewType;
+    addNewVC.itemName = name;
     [self.navigationController pushViewController:addNewVC animated:YES];
-    
 }
 
--(UITableView *)homeTableView{
+-(UITableView *)homeTableView
+{
     if (!_homeTableView) {
         _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStylePlain];
         _homeTableView.backgroundColor = [UIColor clearColor];
@@ -81,14 +110,14 @@ static NSString *identifier = @"HOME_CELL";
     return _homeTableView;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return _homeListArray.count;
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     FlyHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {
@@ -99,7 +128,8 @@ static NSString *identifier = @"HOME_CELL";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     FlyDataModel *model =_homeListArray[indexPath.row];
     FlyDisplayDetailViewController *vc = [[FlyDisplayDetailViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
@@ -108,7 +138,8 @@ static NSString *identifier = @"HOME_CELL";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     __block typeof(self) weakSelf = self;
     UITableViewRowAction *deleAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         FlyDataModel *model =weakSelf.homeListArray[indexPath.row];
@@ -123,7 +154,8 @@ static NSString *identifier = @"HOME_CELL";
 }
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 

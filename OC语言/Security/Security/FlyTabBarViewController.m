@@ -42,7 +42,7 @@
     
     FlyUserInfoViewController *userInfoVC = [[FlyUserInfoViewController alloc] init];
     UINavigationController *userInfoNV = [[UINavigationController alloc]initWithRootViewController:userInfoVC];
-    userInfoNV.tabBarItem.title = @"个人";
+    userInfoNV.tabBarItem.title = @"设置";
     userInfoNV.tabBarItem.image = [UIImage imageNamed:@"me"];
 //    userInfoNV.tabBarItem.selectedImage = [UIImage imageNamed:@"me_selected"];
     userInfoNV.navigationBar.hidden = YES;

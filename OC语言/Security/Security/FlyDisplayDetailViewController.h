@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger, FlyDisplayDetailType) {
 
 @property (nonatomic, strong) FlyDataModel *model;
 
+@property (nonatomic, copy) NSString  *  itemName;
+
 @end
 
 

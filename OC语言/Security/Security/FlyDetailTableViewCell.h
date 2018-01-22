@@ -8,6 +8,8 @@
 
 #import "FlyBasicTableViewCell.h"
 
+static const int Fly_FontSize = 14.f;
+
 @interface FlyDetailTableViewCell : FlyBasicTableViewCell
 
 @property (nonatomic, strong) UITextField *leftField;

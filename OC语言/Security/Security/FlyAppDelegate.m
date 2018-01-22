@@ -33,6 +33,7 @@
 //进入后台1，加载
 - (void)applicationWillResignActive:(UIApplication *)application {
     [[FlyUserSettingManager sharedInstance] updateStates];
+    [[FlyUserSettingManager sharedInstance] clearPasteboardIfNeed];
 }
 
 //进入后台2，加载
@@ -50,9 +51,8 @@
 
 }
 
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-   
+    [[FlyUserSettingManager sharedInstance] clearPasteboardIfNeed];
 }
 
 @end

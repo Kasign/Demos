@@ -10,6 +10,6 @@
 
 @interface FlyTabBarViewController : UITabBarController
 
--(void)needShowView;
+- (void)needShowView;
 
 @end

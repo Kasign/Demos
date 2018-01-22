@@ -16,7 +16,8 @@
 
 @implementation FlySecurityViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     if ([FlyUserSettingManager sharedInstance].passWord) {
@@ -27,12 +28,14 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
 }
 
 
--(void)creatViews{
+-(void)creatViews
+{
     _securitTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
     [_securitTextField setTextAlignment:NSTextAlignmentCenter];
     _securitTextField.center = CGPointMake(SCREEN_WIDTH/2.0,200);
@@ -54,7 +57,8 @@
     [self.view addSubview:confirmBtn];
 }
 
--(void)confirmCliction{
+-(void)confirmCliction
+{
     if ([_securitTextField.text isEqualToString:[FlyUserSettingManager sharedInstance].passWord]) {
         if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(confirmSuccess)]){
@@ -67,7 +71,8 @@
     }
 }
 
--(void)userTouchID{
+-(void)userTouchID
+{
     __block typeof(self) weakSelf = self;
     NSError *error = nil;
     LAContext  *context = [LAContext new];
@@ -167,23 +172,19 @@
     }
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
     [self resignSelfFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    
 }
 
--(void)resignSelfFirstResponder{
+-(void)resignSelfFirstResponder
+{
      [_securitTextField resignFirstResponder];
 }
-
-//-(void)dismissSelf{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-
 
 @end

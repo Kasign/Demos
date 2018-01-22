@@ -10,16 +10,19 @@
 
 @interface FlyUserSettingManager : NSObject
 
-@property (nonatomic, assign) BOOL  useTouchID;
+@property (nonatomic, assign) BOOL       useTouchID;
+
+@property (nonatomic, assign) BOOL       clearPasteboard;
 
 @property (nonatomic, assign) NSInteger  lockTime;
 
-@property (nonatomic, strong) NSString *passWord;
+@property (nonatomic, strong) NSString   *passWord;
 
 @property (nonatomic, assign,readonly) BOOL  needShowSecuriView;
 
-+(instancetype)sharedInstance;
++ (instancetype)sharedInstance;
 
--(void)updateStates;
+- (void)updateStates;
+- (void)clearPasteboardIfNeed;
 
 @end
