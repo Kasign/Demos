@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B63B7D72016FB7A00E5EB1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B7D62016FB7A00E5EB1C /* AppDelegate.m */; };
+		7B63B7DA2016FB7A00E5EB1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B7D92016FB7A00E5EB1C /* ViewController.m */; };
+		7B63B7DD2016FB7A00E5EB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B63B7DB2016FB7A00E5EB1C /* Main.storyboard */; };
+		7B63B7DF2016FB7A00E5EB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B63B7DE2016FB7A00E5EB1C /* Assets.xcassets */; };
+		7B63B7E22016FB7A00E5EB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B63B7E02016FB7A00E5EB1C /* LaunchScreen.storyboard */; };
+		7B63B7E52016FB7A00E5EB1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B7E42016FB7A00E5EB1C /* main.m */; };
+		7B63B7ED2016FC0F00E5EB1C /* FlyServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B7EC2016FC0F00E5EB1C /* FlyServerManager.m */; };
+		7B63B84120171E3E00E5EB1C /* FlyCheckTrainRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B84020171E3E00E5EB1C /* FlyCheckTrainRequestObject.m */; };
+		7B63B84420171E5D00E5EB1C /* FlyCheckTrainResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B84320171E5D00E5EB1C /* FlyCheckTrainResponseObject.m */; };
+		7B63B8472017226D00E5EB1C /* FlyResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B8462017226D00E5EB1C /* FlyResponseObject.m */; };
+		7B63B84A2017228100E5EB1C /* FlyRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B8492017228100E5EB1C /* FlyRequestObject.m */; };
+		7B63B84D2017229800E5EB1C /* FlyBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B84C2017229800E5EB1C /* FlyBaseModel.m */; };
+		7B63B8502017256E00E5EB1C /* FlyHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B84F2017256E00E5EB1C /* FlyHttpClient.m */; };
+		7B63B85620172A5700E5EB1C /* FlyStationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B85520172A5700E5EB1C /* FlyStationManager.m */; };
+		7B63B85920172B1100E5EB1C /* FlyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B85820172B1100E5EB1C /* FlyDataSource.m */; };
+		7B63B85C2017336200E5EB1C /* FlyStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B85B2017336200E5EB1C /* FlyStationModel.m */; };
+		7B63B85F2017463000E5EB1C /* FlyTrainStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B85E2017463000E5EB1C /* FlyTrainStateModel.m */; };
+		9F9AF82155815606BCC81218 /* libPods-12306自动抢票.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14965A0177DF09B8444FB0BE /* libPods-12306自动抢票.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		14965A0177DF09B8444FB0BE /* libPods-12306自动抢票.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-12306自动抢票.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C0B967F3E2208F482C6E3E9 /* Pods-12306自动抢票.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-12306自动抢票.debug.xcconfig"; path = "Pods/Target Support Files/Pods-12306自动抢票/Pods-12306自动抢票.debug.xcconfig"; sourceTree = "<group>"; };
+		7B63B7D22016FB7A00E5EB1C /* 12306自动抢票.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "12306自动抢票.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B63B7D52016FB7A00E5EB1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7B63B7D62016FB7A00E5EB1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7B63B7D82016FB7A00E5EB1C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7B63B7D92016FB7A00E5EB1C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7B63B7DC2016FB7A00E5EB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B63B7DE2016FB7A00E5EB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B63B7E12016FB7A00E5EB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B63B7E32016FB7A00E5EB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B63B7E42016FB7A00E5EB1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B63B7EB2016FC0F00E5EB1C /* FlyServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyServerManager.h; sourceTree = "<group>"; };
+		7B63B7EC2016FC0F00E5EB1C /* FlyServerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyServerManager.m; sourceTree = "<group>"; };
+		7B63B83F20171E3E00E5EB1C /* FlyCheckTrainRequestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCheckTrainRequestObject.h; sourceTree = "<group>"; };
+		7B63B84020171E3E00E5EB1C /* FlyCheckTrainRequestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCheckTrainRequestObject.m; sourceTree = "<group>"; };
+		7B63B84220171E5D00E5EB1C /* FlyCheckTrainResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCheckTrainResponseObject.h; sourceTree = "<group>"; };
+		7B63B84320171E5D00E5EB1C /* FlyCheckTrainResponseObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCheckTrainResponseObject.m; sourceTree = "<group>"; };
+		7B63B8452017226D00E5EB1C /* FlyResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyResponseObject.h; sourceTree = "<group>"; };
+		7B63B8462017226D00E5EB1C /* FlyResponseObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyResponseObject.m; sourceTree = "<group>"; };
+		7B63B8482017228100E5EB1C /* FlyRequestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyRequestObject.h; sourceTree = "<group>"; };
+		7B63B8492017228100E5EB1C /* FlyRequestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyRequestObject.m; sourceTree = "<group>"; };
+		7B63B84B2017229800E5EB1C /* FlyBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyBaseModel.h; sourceTree = "<group>"; };
+		7B63B84C2017229800E5EB1C /* FlyBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyBaseModel.m; sourceTree = "<group>"; };
+		7B63B84E2017256E00E5EB1C /* FlyHttpClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyHttpClient.h; sourceTree = "<group>"; };
+		7B63B84F2017256E00E5EB1C /* FlyHttpClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyHttpClient.m; sourceTree = "<group>"; };
+		7B63B85420172A5700E5EB1C /* FlyStationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyStationManager.h; sourceTree = "<group>"; };
+		7B63B85520172A5700E5EB1C /* FlyStationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyStationManager.m; sourceTree = "<group>"; };
+		7B63B85720172B1100E5EB1C /* FlyDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyDataSource.h; sourceTree = "<group>"; };
+		7B63B85820172B1100E5EB1C /* FlyDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyDataSource.m; sourceTree = "<group>"; };
+		7B63B85A2017336200E5EB1C /* FlyStationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyStationModel.h; sourceTree = "<group>"; };
+		7B63B85B2017336200E5EB1C /* FlyStationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyStationModel.m; sourceTree = "<group>"; };
+		7B63B85D2017463000E5EB1C /* FlyTrainStateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTrainStateModel.h; sourceTree = "<group>"; };
+		7B63B85E2017463000E5EB1C /* FlyTrainStateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTrainStateModel.m; sourceTree = "<group>"; };
+		FCDD5F982DB156AFBC3AF4F5 /* Pods-12306自动抢票.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-12306自动抢票.release.xcconfig"; path = "Pods/Target Support Files/Pods-12306自动抢票/Pods-12306自动抢票.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B63B7CF2016FB7A00E5EB1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F9AF82155815606BCC81218 /* libPods-12306自动抢票.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1ADF37D8737F6845290A6354 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C0B967F3E2208F482C6E3E9 /* Pods-12306自动抢票.debug.xcconfig */,
+				FCDD5F982DB156AFBC3AF4F5 /* Pods-12306自动抢票.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B63B7C92016FB7A00E5EB1C = {
+			isa = PBXGroup;
+			children = (
+				7B63B7D42016FB7A00E5EB1C /* 12306自动抢票 */,
+				7B63B7D32016FB7A00E5EB1C /* Products */,
+				1ADF37D8737F6845290A6354 /* Pods */,
+				D7D544EE657BB9AFCA1AC222 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7B63B7D32016FB7A00E5EB1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B7D22016FB7A00E5EB1C /* 12306自动抢票.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B63B7D42016FB7A00E5EB1C /* 12306自动抢票 */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B7D52016FB7A00E5EB1C /* AppDelegate.h */,
+				7B63B7D62016FB7A00E5EB1C /* AppDelegate.m */,
+				7B63B7D82016FB7A00E5EB1C /* ViewController.h */,
+				7B63B7D92016FB7A00E5EB1C /* ViewController.m */,
+				7B63B85420172A5700E5EB1C /* FlyStationManager.h */,
+				7B63B85520172A5700E5EB1C /* FlyStationManager.m */,
+				7B63B85720172B1100E5EB1C /* FlyDataSource.h */,
+				7B63B85820172B1100E5EB1C /* FlyDataSource.m */,
+				7B63B85A2017336200E5EB1C /* FlyStationModel.h */,
+				7B63B85B2017336200E5EB1C /* FlyStationModel.m */,
+				7B63B85D2017463000E5EB1C /* FlyTrainStateModel.h */,
+				7B63B85E2017463000E5EB1C /* FlyTrainStateModel.m */,
+				7B63B7EE201713BD00E5EB1C /* Http */,
+				7B63B7DB2016FB7A00E5EB1C /* Main.storyboard */,
+				7B63B7DE2016FB7A00E5EB1C /* Assets.xcassets */,
+				7B63B7E02016FB7A00E5EB1C /* LaunchScreen.storyboard */,
+				7B63B7E32016FB7A00E5EB1C /* Info.plist */,
+				7B63B7E42016FB7A00E5EB1C /* main.m */,
+			);
+			path = "12306自动抢票";
+			sourceTree = "<group>";
+		};
+		7B63B7EE201713BD00E5EB1C /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B7EF201713BD00E5EB1C /* BaseObject */,
+				7B63B84E2017256E00E5EB1C /* FlyHttpClient.h */,
+				7B63B84F2017256E00E5EB1C /* FlyHttpClient.m */,
+				7B63B7EB2016FC0F00E5EB1C /* FlyServerManager.h */,
+				7B63B7EC2016FC0F00E5EB1C /* FlyServerManager.m */,
+				7B63B7F8201713BD00E5EB1C /* RequestObject */,
+				7B63B811201713BD00E5EB1C /* ResponseObject */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		7B63B7EF201713BD00E5EB1C /* BaseObject */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B84B2017229800E5EB1C /* FlyBaseModel.h */,
+				7B63B84C2017229800E5EB1C /* FlyBaseModel.m */,
+				7B63B8482017228100E5EB1C /* FlyRequestObject.h */,
+				7B63B8492017228100E5EB1C /* FlyRequestObject.m */,
+				7B63B8452017226D00E5EB1C /* FlyResponseObject.h */,
+				7B63B8462017226D00E5EB1C /* FlyResponseObject.m */,
+			);
+			path = BaseObject;
+			sourceTree = "<group>";
+		};
+		7B63B7F8201713BD00E5EB1C /* RequestObject */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B83F20171E3E00E5EB1C /* FlyCheckTrainRequestObject.h */,
+				7B63B84020171E3E00E5EB1C /* FlyCheckTrainRequestObject.m */,
+			);
+			path = RequestObject;
+			sourceTree = "<group>";
+		};
+		7B63B811201713BD00E5EB1C /* ResponseObject */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B84220171E5D00E5EB1C /* FlyCheckTrainResponseObject.h */,
+				7B63B84320171E5D00E5EB1C /* FlyCheckTrainResponseObject.m */,
+			);
+			path = ResponseObject;
+			sourceTree = "<group>";
+		};
+		D7D544EE657BB9AFCA1AC222 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14965A0177DF09B8444FB0BE /* libPods-12306自动抢票.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B63B7D12016FB7A00E5EB1C /* 12306自动抢票 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B63B7E82016FB7A00E5EB1C /* Build configuration list for PBXNativeTarget "12306自动抢票" */;
+			buildPhases = (
+				808E223E0E64C9486D542789 /* [CP] Check Pods Manifest.lock */,
+				7B63B7CE2016FB7A00E5EB1C /* Sources */,
+				7B63B7CF2016FB7A00E5EB1C /* Frameworks */,
+				7B63B7D02016FB7A00E5EB1C /* Resources */,
+				B67CAF3323DF27B02222F1E3 /* [CP] Embed Pods Frameworks */,
+				21B796085B9BEABA8F955B02 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "12306自动抢票";
+			productName = "12306自动抢票";
+			productReference = 7B63B7D22016FB7A00E5EB1C /* 12306自动抢票.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B63B7CA2016FB7A00E5EB1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Fly;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Fly;
+				TargetAttributes = {
+					7B63B7D12016FB7A00E5EB1C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7B63B7CD2016FB7A00E5EB1C /* Build configuration list for PBXProject "12306自动抢票" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B63B7C92016FB7A00E5EB1C;
+			productRefGroup = 7B63B7D32016FB7A00E5EB1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B63B7D12016FB7A00E5EB1C /* 12306自动抢票 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B63B7D02016FB7A00E5EB1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B63B7E22016FB7A00E5EB1C /* LaunchScreen.storyboard in Resources */,
+				7B63B7DF2016FB7A00E5EB1C /* Assets.xcassets in Resources */,
+				7B63B7DD2016FB7A00E5EB1C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21B796085B9BEABA8F955B02 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-12306自动抢票/Pods-12306自动抢票-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		808E223E0E64C9486D542789 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-12306自动抢票-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B67CAF3323DF27B02222F1E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-12306自动抢票/Pods-12306自动抢票-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B63B7CE2016FB7A00E5EB1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B63B85920172B1100E5EB1C /* FlyDataSource.m in Sources */,
+				7B63B7DA2016FB7A00E5EB1C /* ViewController.m in Sources */,
+				7B63B85620172A5700E5EB1C /* FlyStationManager.m in Sources */,
+				7B63B84420171E5D00E5EB1C /* FlyCheckTrainResponseObject.m in Sources */,
+				7B63B7E52016FB7A00E5EB1C /* main.m in Sources */,
+				7B63B7ED2016FC0F00E5EB1C /* FlyServerManager.m in Sources */,
+				7B63B7D72016FB7A00E5EB1C /* AppDelegate.m in Sources */,
+				7B63B85C2017336200E5EB1C /* FlyStationModel.m in Sources */,
+				7B63B84D2017229800E5EB1C /* FlyBaseModel.m in Sources */,
+				7B63B84A2017228100E5EB1C /* FlyRequestObject.m in Sources */,
+				7B63B85F2017463000E5EB1C /* FlyTrainStateModel.m in Sources */,
+				7B63B84120171E3E00E5EB1C /* FlyCheckTrainRequestObject.m in Sources */,
+				7B63B8472017226D00E5EB1C /* FlyResponseObject.m in Sources */,
+				7B63B8502017256E00E5EB1C /* FlyHttpClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7B63B7DB2016FB7A00E5EB1C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B63B7DC2016FB7A00E5EB1C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B63B7E02016FB7A00E5EB1C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B63B7E12016FB7A00E5EB1C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B63B7E62016FB7A00E5EB1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7B63B7E72016FB7A00E5EB1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B63B7E92016FB7A00E5EB1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C0B967F3E2208F482C6E3E9 /* Pods-12306自动抢票.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
+				INFOPLIST_FILE = "12306自动抢票/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.test.-12306----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B63B7EA2016FB7A00E5EB1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCDD5F982DB156AFBC3AF4F5 /* Pods-12306自动抢票.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
+				INFOPLIST_FILE = "12306自动抢票/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.test.-12306----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B63B7CD2016FB7A00E5EB1C /* Build configuration list for PBXProject "12306自动抢票" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B63B7E62016FB7A00E5EB1C /* Debug */,
+				7B63B7E72016FB7A00E5EB1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B63B7E82016FB7A00E5EB1C /* Build configuration list for PBXNativeTarget "12306自动抢票" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B63B7E92016FB7A00E5EB1C /* Debug */,
+				7B63B7EA2016FB7A00E5EB1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B63B7CA2016FB7A00E5EB1C /* Project object */;
+}
