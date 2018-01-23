@@ -19,7 +19,8 @@
 @end
 
 @implementation FlyUserSettingManager
-+(instancetype)sharedInstance{
++ (instancetype)sharedInstance
+{
     static FlyUserSettingManager *manager  = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -46,7 +47,8 @@
     return self;
 }
 
--(void)setPassWord:(NSString *)passWord{
+- (void)setPassWord:(NSString *)passWord
+{
     _passWord = passWord;
     dispatch_async(_securityQueue, ^{
         [_userDefaults setValue:passWord forKey:FLY_PASSWORD];
@@ -54,7 +56,8 @@
     });
 }
 
--(void)setUseTouchID:(BOOL)useTouchID{
+- (void)setUseTouchID:(BOOL)useTouchID
+{
     _useTouchID = useTouchID;
     dispatch_async(_securityQueue, ^{
         [_userDefaults setBool:useTouchID forKey:FLY_USETOUCHID];
@@ -62,7 +65,8 @@
     });
 }
 
--(void)setLockTime:(NSInteger)lockTime{
+- (void)setLockTime:(NSInteger)lockTime
+{
     _lockTime = lockTime;
     dispatch_async(_securityQueue, ^{
         [_userDefaults setBool:lockTime forKey:FLY_LOCKTIME];
@@ -70,7 +74,8 @@
     });
 }
 
--(void)setClearPasteboard:(BOOL)clearPasteboard{
+- (void)setClearPasteboard:(BOOL)clearPasteboard
+{
     _clearPasteboard = clearPasteboard;
     dispatch_async(_securityQueue, ^{
         [_userDefaults setBool:clearPasteboard forKey:FLY_CLEARBOARD];
@@ -86,7 +91,8 @@
     }
 }
 
--(void)updateStates{
+- (void)updateStates
+{
     __block typeof(self) weakSelf = self;
     dispatch_async(_securityQueue, ^{
         weakSelf.useTouchID = [weakSelf.userDefaults boolForKey:FLY_USETOUCHID];
@@ -97,7 +103,8 @@
     });
 };
 
--(BOOL)needShowSecuriView{
+- (BOOL)needShowSecuriView
+{
     if (_useTouchID||_passWord)
     {
         return YES;

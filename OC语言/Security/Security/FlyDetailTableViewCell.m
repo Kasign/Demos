@@ -8,13 +8,13 @@
 
 #import "FlyDetailTableViewCell.h"
 
-@interface FlyDetailTableViewCell()
-
+@interface FlyDisPlayTableViewCell()
+@property (nonatomic, strong) UIButton  *  securityButton;
 @end
 
-@implementation FlyDetailTableViewCell
+@implementation FlyDisPlayTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -22,6 +22,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.contentView addSubview:self.leftField];
         [self.contentView addSubview:self.rightField];
+        [self.contentView addSubview:self.securityButton];
         
         CALayer *layer = [CALayer layer];
         layer.frame = CGRectMake(70, 0, 0.5, self.frame.size.height - 1.f);
@@ -31,7 +32,7 @@
     return self;
 }
 
--(UITextField *)leftField
+- (UITextField *)leftField
 {
     if (!_leftField) {
         _leftField = [[UITextField alloc] init];
@@ -45,7 +46,7 @@
     return _leftField;
 }
 
--(UITextField *)rightField
+- (UITextField *)rightField
 {
     if (!_rightField) {
         _rightField = [[UITextField alloc] init];
@@ -58,87 +59,59 @@
     return _rightField;
 }
 
--(void)setLeftString:(NSString *)leftString
+- (UIButton *)securityButton
+{
+    if (!_securityButton) {
+        _securityButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30.f, (CGRectGetHeight(self.frame) - 20)/2.0, 20, 20)];
+        [_securityButton.layer setCornerRadius:10.f];
+        [_securityButton.layer setMasksToBounds:YES];
+        [_securityButton.layer setBorderColor:[UIColor redColor].CGColor];
+        [_securityButton.layer setBorderWidth:1.0f];
+        [_securityButton setTitle:@"显" forState:UIControlStateNormal];
+        [_securityButton setTitle:@"隐" forState:UIControlStateSelected];
+        [_securityButton.titleLabel setFont:[UIFont systemFontOfSize:12.f]];
+        [_securityButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+        [_securityButton addTarget:self action:@selector(showPassword:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _securityButton;
+}
+
+- (void)setLeftString:(NSString *)leftString
 {
     [self.leftField setText:leftString];
 }
 
--(void)setRightString:(NSString *)rightString
+- (void)setRightString:(NSString *)rightString
 {
     [self.rightField setText:rightString];
 }
 
--(void)setTag:(NSInteger)tag
+- (void)setTag:(NSInteger)tag
 {
     self.rightField.tag = tag;
 }
 
-@end
-
-@interface FlyDisPlayTableViewCell()
-@property (nonatomic, strong) UILabel *leftLable;
-@property (nonatomic, strong) UILabel *rightLabel;
-@end
-
-@implementation FlyDisPlayTableViewCell
-
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)setShowSecurityButton:(BOOL)showSecurityButton
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self.contentView addSubview:self.leftLable];
-        [self.contentView addSubview:self.rightLabel];
-        
-        CALayer *layer = [CALayer layer];
-        layer.frame = CGRectMake(70, 0, 0.5, self.frame.size.height - 1.f);
-        layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-        [self.contentView.layer addSublayer:layer];
+    _showSecurityButton = showSecurityButton;
+    if (self.securityButton) {
+        self.securityButton.hidden = !showSecurityButton;
     }
-    return self;
 }
 
--(UILabel *)leftLable
+- (void)showPassword:(UIButton *)sender
 {
-    if (!_leftLable) {
-        _leftLable = [[UILabel alloc] init];
-        _leftLable.frame = CGRectMake(0, 0, 66, self.frame.size.height);
-        _leftLable.backgroundColor = [UIColor clearColor];
-        _leftLable.textColor = [UIColor blueColor];
-        _leftLable.font = [UIFont systemFontOfSize:Fly_FontSize];
-        _leftLable.textAlignment = NSTextAlignmentRight;
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self.rightField setSecureTextEntry:NO];
+    } else {
+        [self.rightField setSecureTextEntry:YES];
     }
-    return _leftLable;
 }
 
--(UILabel *)rightLabel
+- (void)layoutSubviews
 {
-    if (!_rightLabel) {
-        _rightLabel = [[UILabel alloc] init];
-        _rightLabel.frame = CGRectMake(73, 0, self.frame.size.width-75, self.frame.size.height);
-        _rightLabel.backgroundColor = [UIColor clearColor];
-        _rightLabel.textColor = [UIColor blueColor];
-        _rightLabel.font = [UIFont systemFontOfSize:Fly_FontSize];
-        _rightLabel.textAlignment = NSTextAlignmentLeft;
-    }
-    return _rightLabel;
+    [super layoutSubviews];
+    [self.securityButton setFrame:CGRectMake(CGRectGetWidth(self.frame) - 30.f, (CGRectGetHeight(self.frame) - 20)/2.0, 20, 20)];
 }
-
--(void)setTag:(NSInteger)tag
-{
-    self.rightLabel.tag = tag;
-}
-
-
--(void)setLeftString:(NSString *)leftString
-{
-    [self.leftLable setText:leftString];
-}
-
--(void)setRightString:(NSString *)rightString
-{
-     [self.rightLabel setText:rightString];
-}
-
 @end

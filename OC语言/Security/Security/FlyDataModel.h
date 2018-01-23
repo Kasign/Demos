@@ -10,20 +10,22 @@
 
 @interface FlyDataModel : NSObject
 
-@property (nonatomic, copy) NSString *dataType;
-@property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *security;
-@property (nonatomic, copy) NSString *note;
-@property (nonatomic, copy) NSString *detail1;
-@property (nonatomic, copy) NSString *detail2;
-@property (nonatomic, copy) NSString *detail3;
-@property (nonatomic, copy) NSString *creatTime;
-@property (nonatomic, copy) NSString *updateTime;
+@property (nonatomic, copy) NSString * itemId;
+@property (nonatomic, copy) NSString * dataType;
+@property (nonatomic, copy) NSString * userName;
+@property (nonatomic, copy) NSString * security;
+@property (nonatomic, copy) NSString * note;
+@property (nonatomic, copy) NSString * detail1;
+@property (nonatomic, copy) NSString * detail2;
+@property (nonatomic, copy) NSString * detail3;
+@property (nonatomic, copy) NSString * creatTime;
+@property (nonatomic, copy) NSString * updateTime;
 
-@property (nonatomic, strong) NSDictionary *valueDic;
+- (instancetype)initWithDataDic:(NSDictionary*)dataDic;
 
-@property (nonatomic, strong) NSDictionary *keyDic;
++ (NSDictionary *)modelKeyDictionary;
++ (NSArray *)modelKeyArray;
 
--(instancetype)initWithDataDic:(NSDictionary*)dataDic;
+- (NSDictionary *)toValueDictionary;
 
 @end

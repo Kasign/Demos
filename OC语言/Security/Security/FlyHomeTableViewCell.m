@@ -38,9 +38,10 @@
     if (!_titleLabel) {
         _titleLabel= [[UILabel alloc] init];
         _titleLabel.backgroundColor = [UIColor whiteColor];
-        _titleLabel.frame = CGRectMake(30, 0, 140, self.bounds.size.height);
+        _titleLabel.frame = CGRectMake(25, 0, 140, self.bounds.size.height);
         _titleLabel.textColor = [UIColor lightBlueColor];
         _titleLabel.font = [UIFont systemFontOfSize:14];
+        [_titleLabel setTextAlignment:NSTextAlignmentLeft];
     }
     return _titleLabel;
 }
@@ -49,8 +50,10 @@
 {
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
-        _imgView.frame = CGRectMake(6, 0, self.bounds.size.height, self.bounds.size.height);
-        _imgView.backgroundColor = [UIColor clearColor];
+        _imgView.frame = CGRectMake(14.f, 0, 3.0f, 12);
+        _imgView.backgroundColor = [UIColor redColor];
+        [_imgView.layer setCornerRadius:1.5];
+        [_imgView.layer setMasksToBounds:YES];
     }
     return _imgView;
 }
@@ -60,9 +63,11 @@
     [self.titleLabel setText:title];
 }
 
--(void)setImageName:(NSString *)imageName
+- (void)layoutSubviews
 {
-    self.imgView.image = [UIImage imageNamed:imageName];
+    [super layoutSubviews];
+    [self.imgView setCenter:CGPointMake(14 + 1.5f, CGRectGetHeight(self.frame)/2.0)];
+    [self.titleLabel setFrame:CGRectMake(25, 0, 140, self.bounds.size.height)];
 }
 
 @end

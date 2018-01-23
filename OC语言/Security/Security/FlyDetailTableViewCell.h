@@ -10,16 +10,14 @@
 
 static const int Fly_FontSize = 14.f;
 
-@interface FlyDetailTableViewCell : FlyBasicTableViewCell
-
-@property (nonatomic, strong) UITextField *leftField;
-@property (nonatomic, strong) UITextField *rightField;
-
-@property (nonatomic, strong) NSString *leftString;
-@property (nonatomic, strong) NSString *rightString;
-@end
-
 @interface FlyDisPlayTableViewCell : FlyBasicTableViewCell
-@property (nonatomic, strong) NSString *leftString;
-@property (nonatomic, strong) NSString *rightString;
+
+@property (nonatomic, strong) UITextField *  leftField;
+@property (nonatomic, strong) UITextField *  rightField;
+
+@property (nonatomic, strong) NSString    *  leftString;
+@property (nonatomic, strong) NSString    *  rightString;
+
+@property (nonatomic, assign) BOOL           showSecurityButton;
+
 @end

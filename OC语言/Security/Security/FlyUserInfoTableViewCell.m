@@ -13,16 +13,20 @@
 
 @implementation FlyUserInfoTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.backgroundColor = [UIColor whiteColor];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.accessoryType = UITableViewCellAccessoryCheckmark;
-    self.accessoryView = self.switchButton;
+    if (self) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.accessoryView = self.switchButton;
+    }
     return self;
 }
 
--(UISwitch *)switchButton{
+-(UISwitch *)switchButton
+{
     if (!_switchButton) {
         _switchButton = [[UISwitch alloc] init];
         [_switchButton addTarget:self action:@selector(switchClickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -30,12 +34,14 @@
     return _switchButton;
 }
 
--(void)setIsOn:(BOOL)isOn{
+-(void)setIsOn:(BOOL)isOn
+{
     _isOn = isOn;
     self.switchButton.on = isOn;
 }
 
--(void)switchClickAction:(UISwitch*)sender{
+-(void)switchClickAction:(UISwitch*)sender
+{
     _clickBlock(sender.on);
 }
 

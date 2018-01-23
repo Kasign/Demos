@@ -34,7 +34,7 @@ static NSString *SECURITY_TABLE_INSERT = @"INSERT OR REPLACE INTO security(datat
 
 static NSString *SECURITY_TABLE_UPDATE =@"UPDATE security SET ";
 
-static NSString *SECURITY_TABLE_DELETE =@"DELETE FROM security WHERE datatype=? and username=? and security=?";
+static NSString *SECURITY_TABLE_DELETE =@"DELETE FROM security WHERE id=? and datatype=?";
 
 static NSString *SECURITY_TALBE_SELE = @"SELECT * FROM security";
 
@@ -44,7 +44,7 @@ static inline NSString *path() {
     return [[NSFileManager docmentDirectory] stringByAppendingString:@"/base.db"];
 }
 
-+(instancetype)shareInstance{
++ (instancetype)shareInstance{
     static FlySQLManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -63,37 +63,39 @@ static inline NSString *path() {
 }
 
 
--(void)creatBaseTable{
+- (void)creatBaseTable
+{
     NSLog(@"数据库地址：%@",path());
     [self.currentUserDBQueue inDatabase:^(FMDatabase *db) {
         [db executeUpdate:SECURITY_TABLE_CREAT];
     }];
 }
 
--(NSArray *)readAllData{
+- (NSArray *)readAllData
+{
     __block NSMutableArray *mutableArray = [NSMutableArray array];
     [self.currentUserDBQueue inDatabase:^(FMDatabase *db) {
         FMResultSet *s = [db executeQuery:SECURITY_TALBE_SELE];
         while ([s next]) {
             FlyDataModel *model = [[FlyDataModel alloc] init];
+            model.itemId   = [s stringForColumn:@"id"];
             model.dataType = [s stringForColumn:@"datatype"];
             model.userName = [s stringForColumn:@"username"];
             model.security = [s stringForColumn:@"security"];
-            model.note = [s stringForColumn:@"note"];
-            model.detail1 = [s stringForColumn:@"detail1"];
-            model.detail2 = [s stringForColumn:@"detail2"];
-            model.detail3 = [s stringForColumn:@"detail3"];
+            model.note     = [s stringForColumn:@"note"];
+            model.detail1  = [s stringForColumn:@"detail1"];
+            model.detail2  = [s stringForColumn:@"detail2"];
+            model.detail3  = [s stringForColumn:@"detail3"];
             model.creatTime = [s stringForColumn:@"creattime"];
             model.updateTime = [s stringForColumn:@"updatetime"];
             [mutableArray addObject:model];
         }
     }];
-    
     return mutableArray;
 }
 
--(void)insertDateWithModel:(FlyDataModel*)model{
-    
+- (void)insertDateWithModel:(FlyDataModel*)model
+{
     NSString *nowTime = [self nowDateString];
     
     [self.currentUserDBQueue inDatabase:^(FMDatabase *db) {
@@ -101,30 +103,39 @@ static inline NSString *path() {
     }];
 }
 
--(void)updateDateWithModel:(FlyDataModel*)model{
+- (void)updateDateWithModel:(FlyDataModel*)model
+{
     NSString *updat_sql = SECURITY_TABLE_UPDATE;
-    NSDictionary *dic = [model valueDic];
+    NSDictionary *dic = [model toValueDictionary];
     for (NSString *key in dic.allKeys) {
-        updat_sql = [updat_sql stringByAppendingFormat:@"%@=\'%@\',",[key lowercaseString],[dic objectForKey:key]];
+        if (![key isEqualToString:@"updatetime"]) {
+            updat_sql = [updat_sql stringByAppendingFormat:@"%@=\'%@\',",[key lowercaseString],[dic objectForKey:key]];
+        }
     }
-    NSString *sele_sql = [NSString stringWithFormat:@"updatetime=\'%@\' WHERE datatype=\'%@\' and username =\'%@\' and security=\'%@\'",[self nowDateString],model.dataType,model.userName,model.security];
+    NSString *sele_sql = [NSString stringWithFormat:@"updatetime=\'%@\' WHERE id=\'%@\' and datatype=\'%@\'",[self nowDateString],model.itemId,model.dataType];
     updat_sql = [updat_sql stringByAppendingString:sele_sql];
     
     [self.currentUserDBQueue inDatabase:^(FMDatabase *db) {
-      
         [db executeUpdate:updat_sql];
     }];
 }
 
--(void)deleteDataWithUserName:(NSString*)userName securityCode:(NSString*)securityCode dataType:(NSString*)dataType{
+- (void)deleteDataWithItemID:(NSString *)itemId dataType:(NSString*)dataType;
+{
     [self.currentUserDBQueue inDatabase:^(FMDatabase *db) {
-        [db executeUpdate:SECURITY_TABLE_DELETE,dataType,userName,securityCode];
+        [db executeUpdate:SECURITY_TABLE_DELETE,itemId,dataType];
     }];
 }
 
--(NSString*)nowDateString{
++ (NSString *)stringFromDateFormat
+{
+    return @"yyyy-MM-dd hh:mm:ss";
+}
+
+- (NSString*)nowDateString
+{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    [dateFormat setDateFormat:[FlySQLManager stringFromDateFormat]];
     return [dateFormat stringFromDate:[NSDate date]];
 }
 

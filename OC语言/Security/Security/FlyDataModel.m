@@ -15,10 +15,13 @@
     self = [super init];
     if (self) {
         for (NSString *key in dataDic.allKeys) {
-            if ([key isEqualToString:@"dataType"]) {
+            if ([key isEqualToString:@"id"]) {
+                self.itemId = [dataDic objectForKey:key];
+            }
+            if ([key isEqualToString:@"datatype"]) {
                 self.dataType = [dataDic objectForKey:key];
             }
-            if ([key isEqualToString:@"userName"]) {
+            if ([key isEqualToString:@"username"]) {
                 self.userName = [dataDic objectForKey:key];
             }
             if ([key isEqualToString:@"security"]) {
@@ -42,30 +45,35 @@
     return self;
 }
 
--(NSDictionary *)keyDic
++ (NSDictionary *)modelKeyDictionary
 {
     return @{
-             @"dataType":@"类型",
-             @"userName":@"用户名",
+             @"datatype":@"类型",
+             @"username":@"用户名",
              @"security":@"密码",
              @"note":@"备注",
              @"detail1":@"说明1",
              @"detail2":@"说明2",
              @"detail3":@"说明3",
-             @"creatTime":@"创建时间",
-             @"updateTime":@"更新时间"
+             @"creattime":@"创建时间",
+             @"updatetime":@"更新时间"
              };
 }
 
--(NSDictionary *)valueDic
++ (NSArray *)modelKeyArray
+{
+    return @[@"datatype",@"username",@"security",@"note",@"detail1",@"detail2",@"detail3",@"creattime",@"updatetime"];
+}
+
+- (NSDictionary *)toValueDictionary
 {
     NSMutableDictionary *dataDic = [NSMutableDictionary dictionary];
     
     if (self.dataType) {
-        [dataDic setObject:_dataType forKey:@"dataType"];
+        [dataDic setObject:_dataType forKey:@"datatype"];
     }
     if (self.userName) {
-        [dataDic setObject:_userName forKey:@"userName"];
+        [dataDic setObject:_userName forKey:@"username"];
     }
     if (self.security) {
         [dataDic setObject:_security forKey:@"security"];
@@ -83,10 +91,10 @@
         [dataDic setObject:_detail3 forKey:@"detail3"];
     }
     if (self.creatTime) {
-        [dataDic setObject:_creatTime forKey:@"creatTime"];
+        [dataDic setObject:_creatTime forKey:@"creattime"];
     }
     if (self.updateTime) {
-        [dataDic setObject:_updateTime forKey:@"updateTime"];
+        [dataDic setObject:_updateTime forKey:@"updatetime"];
     }
     
     return [dataDic copy];

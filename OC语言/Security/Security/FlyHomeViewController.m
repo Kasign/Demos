@@ -37,7 +37,7 @@ static NSString *identifier = @"HOME_CELL";
     
     self.navigationBar.titleFont = [UIFont systemFontOfSize:FLYTITLEFONTSIZE];
     
-    UIButton *rightBtn = [[UIButton alloc] init];
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     rightBtn.backgroundColor = [UIColor clearColor];
     rightBtn.bounds = CGRectMake(0, 0, 40, 40);
     [rightBtn setTitle:@"添加" forState:UIControlStateNormal];
@@ -66,7 +66,7 @@ static NSString *identifier = @"HOME_CELL";
 
 -(void)addNewItemAction
 {
-    NSString * placeholderStr = @"必须添加，否则不能添加";
+    NSString * placeholderStr = @"必须输入，否则不能添加";
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"输入账号平台" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -102,10 +102,11 @@ static NSString *identifier = @"HOME_CELL";
 -(UITableView *)homeTableView
 {
     if (!_homeTableView) {
-        _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStylePlain];
+        _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-self.navigationBarHeight) style:UITableViewStyleGrouped];
         _homeTableView.backgroundColor = [UIColor clearColor];
         _homeTableView.dataSource = self;
-        _homeTableView.delegate = self;
+        _homeTableView.delegate   = self;
+        [_homeTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     }
     return _homeTableView;
 }
@@ -113,7 +114,6 @@ static NSString *identifier = @"HOME_CELL";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _homeListArray.count;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,6 +153,32 @@ static NSString *identifier = @"HOME_CELL";
     return @[deleAction];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView * headerView = tableView.tableHeaderView;
+    if (!headerView) {
+        headerView = [UIView new];
+    }
+    return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView * footerView = tableView.tableFooterView;
+    if (!footerView) {
+        footerView = [UIView new];
+    }
+    return footerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 2.5f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 14.f;
+}
 
 - (void)didReceiveMemoryWarning
 {

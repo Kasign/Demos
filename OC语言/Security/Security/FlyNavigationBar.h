@@ -10,13 +10,13 @@
 
 @interface FlyNavigationBar : UIView
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, strong) UIColor *titleColor;
-@property (nonatomic, strong) UIFont *titleFont;
+@property (nonatomic, copy)   NSString  * title;
+@property (nonatomic, strong) UIColor   * titleColor;
+@property (nonatomic, strong) UIFont    * titleFont;
 
-@property (nonatomic, strong) UIView *centerView;
+@property (nonatomic, strong) UIView    * centerView;
 
-@property (nonatomic, strong) UIButton *leftBtn;
-@property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, strong) UIButton  * leftBtn;
+@property (nonatomic, strong) UIButton  * rightBtn;
 
 @end

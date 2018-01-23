@@ -20,7 +20,8 @@
 
 static NSString *identifier = @"USERINFO_CELL";
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.navigationBar.title = @"个人设置";
@@ -35,15 +36,18 @@ static NSString *identifier = @"USERINFO_CELL";
     [self.view addSubview:_userTableView];
 }
 
-static inline NSArray *cellM(){
+static inline NSArray *cellM()
+{
     return @[@"密码解锁",@"指纹解锁",@"退出时自动清空粘贴板"];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return cellM().count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     FlyUserInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -106,7 +110,8 @@ static inline NSArray *cellM(){
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 

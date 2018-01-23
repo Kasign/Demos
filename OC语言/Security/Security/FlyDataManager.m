@@ -12,7 +12,8 @@
 
 @implementation FlyDataManager
 
-+(instancetype)sharedInstance{
++(instancetype)sharedInstance
+{
     static FlyDataManager *_sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -21,19 +22,23 @@
     return _sharedInstance;
 }
 
--(void)updateDataWithModel:(FlyDataModel*)model{
+-(void)updateDataWithModel:(FlyDataModel*)model
+{
     [[FlySQLManager shareInstance] updateDateWithModel:model];
 }
 
--(void)saveDataWithModel:(FlyDataModel*)model{
+-(void)saveDataWithModel:(FlyDataModel*)model
+{
     [[FlySQLManager shareInstance] insertDateWithModel:model];
 }
 
--(void)deleDataWithModel:(FlyDataModel*)model{
-    [[FlySQLManager shareInstance] deleteDataWithUserName:model.userName securityCode:model.security dataType:model.dataType];
+-(void)deleDataWithModel:(FlyDataModel*)model
+{
+    [[FlySQLManager shareInstance] deleteDataWithItemID:model.itemId dataType:model.dataType];
 }
 
--(NSArray*)readData{
+-(NSArray*)readData
+{
     NSArray *dataArray = [[FlySQLManager shareInstance] readAllData];
     return [dataArray mutableCopy];
 }
