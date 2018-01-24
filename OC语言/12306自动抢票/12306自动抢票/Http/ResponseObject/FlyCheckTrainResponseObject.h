@@ -7,6 +7,7 @@
 //
 
 #import "FlyResponseObject.h"
+#import "FlyTrainStateModel.h"
 
 @interface FlyCheckTrainResponseObject : FlyResponseObject
 

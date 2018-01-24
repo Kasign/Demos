@@ -10,58 +10,151 @@
 
 @implementation FlyTrainStateModel
 
-
-- (void)modelWithString:(NSString *)string
+- (instancetype)initWithString:(NSString *)string
 {
-    /*
-    |预订|24000Z401500|Z4015|BJP|HBB|BJP|CCT|08:20|19:26|11:06|N|flVM9Eae4OEIquzATgR23zNZ0AXVplk3So1ma%2FEqH%2FsVXQfT|20180211|3|PC|01|07|0|0||无||无|无||||||||||602040|624|0
-                      21 23 24           35    36 37
-    let paramStr = json.rawString()!
-    let params = paramStr.components(separatedBy: "|")
-    
-    SecretStr = params[0]                  //标识符
-    if SecretStr != nil{
-        SecretStr = SecretStr!.removingPercentEncoding
+    self = [super init];
+    if (self) {
+        NSArray * comArray  = [string componentsSeparatedByString:@"|"];
+        if (comArray.count > 0) {
+            [self setValuesWithArray:comArray];
+        }
     }
-    buttonTextInfo = params[1]             //票务描述
-    train_no = params[2]                   //车全号   24000Z401500
-    TrainCode = params[3]                  //车号     Z4015
-    start_station_telecode = params[4]     //始发站
-    end_station_telecode = params[5]       //终点站
-    FromStationCode = params[6]            //出发站
-    ToStationCode = params[7]              //目的站
-    start_time = params[8]                 //发车时间
-    arrive_time = params[9]                //到达时间
-    lishi = params[10]                     //历时时间
-    canWebBuy = params[11]                 //是否能买 -> 系统维护时间
-    yp_info = params[12]                   //flVM9Eae4OEIquzATgR23zNZ0AXVplk3So1ma%2FEqH%2FsVXQfT
-    start_train_date = params[13]          //发车日期  20180211
-    train_seat_feature = params[14]        //座位类型数 3
-    location_code = params[15]             //PC
-    from_station_no = params[16]           //01
-    to_station_no = params[17]             //07
-    is_support_card = params[18]           //0
-    controlled_train_flag = params[19]     //0
-    
-    Gg_Num = params[20]     //观光
-    Gr_Num = params[21]     //高级软卧
-    Qt_Num = params[22]     //其他
-    Rw_Num = params[23]     //软卧
-    Rz_Num = params[24]     //软座
-    Tz_Num = params[25]     //特等座
-    Wz_Num = params[26]     //无座
-    Yb_Num = params[27]     //迎宾
-    Yw_Num = params[28]     //硬卧
-    Yz_Num = params[29]     //硬座
-    Ze_Num = params[30]     // 二等座
-    Zy_Num = params[31]     //一等座
-    Swz_Num = params[32]    //商务座
-    
-    yp_ex = params[33]
-    seat_types = params[34]
-    */
-
+    return self;
 }
 
+- (void)setValuesWithArray:(NSArray *)array
+{
+    for (int i = 0; i < array.count; i ++) {
+        NSString * valueStr = [array objectAtIndex:i];
+        if (valueStr && [valueStr isKindOfClass:[NSString class]]) {
+            switch (i) {
+                case 0:
+                    _secretStr = valueStr;
+                    break;
+                case 1:
+                    _buttonTextInfo = valueStr;
+                    break;
+                case 2:
+                    _trainNo = valueStr;
+                    break;
+                case 3:
+                    _trainCode = valueStr;
+                    break;
+                case 4:
+                    _startStationCode = valueStr;
+                    break;
+                case 5:
+                    _endStationCode = valueStr;
+                    break;
+                case 6:
+                    _fromStationCode = valueStr;
+                    break;
+                case 7:
+                    _toStationCode = valueStr;
+                    break;
+                case 8:
+                    _startTime = valueStr;
+                    break;
+                case 9:
+                    _arriveTime = valueStr;
+                    break;
+                    
+                    
+                case 10:
+                    _totalTiem = valueStr;
+                    break;
+                case 11:
+                    _canWebBuy = valueStr;
+                    break;
+                case 12:
+                    _ypInfo = valueStr;
+                    break;
+                case 13:
+                    _startTrainDate = valueStr;
+                    break;
+                case 14:
+                    _trainSeatFeature = valueStr;
+                    break;
+                case 15:
+                    _locationCode = valueStr;
+                    break;
+                case 16:
+                    _fromStationNo = valueStr;
+                    break;
+                case 17:
+                    _toStationNo = valueStr;
+                    break;
+                case 18:
+                    _isSupportCard = valueStr;
+                    break;
+                case 19:
+                    _controlledTrainFlag = valueStr;
+                    break;
+                    
+                    
+                case 20:
+                    _ggNum = valueStr;
+                    break;
+                case 21:
+                    _grNum = valueStr;
+                    break;
+                case 22:
+                    _qtNum = valueStr;
+                    break;
+                case 23:
+                    _rwNum = valueStr;
+                    break;
+                case 24:
+                    _rzNum = valueStr;
+                    break;
+                case 25:
+                    _tzNum = valueStr;
+                    break;
+                case 26:
+                    _wzNum = valueStr;
+                    break;
+                case 27:
+                    _ybNum = valueStr;
+                    break;
+                case 28:
+                    _ywNum = valueStr;
+                    break;
+                case 29:
+                    _yzNum = valueStr;
+                    break;
+                    
+                    
+                case 30:
+                    _zeNum = valueStr;
+                    break;
+                case 31:
+                    _zyNum = valueStr;
+                    break;
+                case 32:
+                    _swzNum = valueStr;
+                    break;
+                case 33:
+                    _ypEx = valueStr;
+                    break;
+                case 34:
+                    _seatTypes = valueStr;
+                    break;
+                case 35:
+                    
+                    break;
+                case 36:
+                    
+                    break;
+                case 37:
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
+    }
+}
 
 @end
