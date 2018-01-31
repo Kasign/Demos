@@ -24,6 +24,10 @@
 		7B63B85C2017336200E5EB1C /* FlyStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B85B2017336200E5EB1C /* FlyStationModel.m */; };
 		7B63B862201822BA00E5EB1C /* FlyTrainStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B861201822BA00E5EB1C /* FlyTrainStateModel.m */; };
 		7B63B865201822CF00E5EB1C /* FlyCheckTrainResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63B863201822CF00E5EB1C /* FlyCheckTrainResponseObject.m */; };
+		7B9E99AF2021C442002DA891 /* FlyBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E99AE2021C442002DA891 /* FlyBaseViewController.m */; };
+		7B9E99B62021C529002DA891 /* FlyTrainInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E99B52021C529002DA891 /* FlyTrainInfoViewController.m */; };
+		7B9E99BA2021C79B002DA891 /* FlyTrainInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E99B92021C79B002DA891 /* FlyTrainInfoCell.m */; };
+		7B9E99BF2021D1C6002DA891 /* FlyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E99BE2021D1C6002DA891 /* FlyNavigationController.m */; };
 		9F9AF82155815606BCC81218 /* libPods-12306自动抢票.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14965A0177DF09B8444FB0BE /* libPods-12306自动抢票.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +66,14 @@
 		7B63B861201822BA00E5EB1C /* FlyTrainStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTrainStateModel.m; sourceTree = "<group>"; };
 		7B63B863201822CF00E5EB1C /* FlyCheckTrainResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyCheckTrainResponseObject.m; sourceTree = "<group>"; };
 		7B63B864201822CF00E5EB1C /* FlyCheckTrainResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyCheckTrainResponseObject.h; sourceTree = "<group>"; };
+		7B9E99AD2021C442002DA891 /* FlyBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyBaseViewController.h; sourceTree = "<group>"; };
+		7B9E99AE2021C442002DA891 /* FlyBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyBaseViewController.m; sourceTree = "<group>"; };
+		7B9E99B42021C529002DA891 /* FlyTrainInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTrainInfoViewController.h; sourceTree = "<group>"; };
+		7B9E99B52021C529002DA891 /* FlyTrainInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTrainInfoViewController.m; sourceTree = "<group>"; };
+		7B9E99B82021C79B002DA891 /* FlyTrainInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTrainInfoCell.h; sourceTree = "<group>"; };
+		7B9E99B92021C79B002DA891 /* FlyTrainInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTrainInfoCell.m; sourceTree = "<group>"; };
+		7B9E99BD2021D1C6002DA891 /* FlyNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyNavigationController.h; sourceTree = "<group>"; };
+		7B9E99BE2021D1C6002DA891 /* FlyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyNavigationController.m; sourceTree = "<group>"; };
 		FCDD5F982DB156AFBC3AF4F5 /* Pods-12306自动抢票.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-12306自动抢票.release.xcconfig"; path = "Pods/Target Support Files/Pods-12306自动抢票/Pods-12306自动抢票.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,14 +123,10 @@
 				7B63B7D62016FB7A00E5EB1C /* AppDelegate.m */,
 				7B63B7D82016FB7A00E5EB1C /* ViewController.h */,
 				7B63B7D92016FB7A00E5EB1C /* ViewController.m */,
-				7B63B85420172A5700E5EB1C /* FlyStationManager.h */,
-				7B63B85520172A5700E5EB1C /* FlyStationManager.m */,
-				7B63B85720172B1100E5EB1C /* FlyDataSource.h */,
-				7B63B85820172B1100E5EB1C /* FlyDataSource.m */,
-				7B63B85A2017336200E5EB1C /* FlyStationModel.h */,
-				7B63B85B2017336200E5EB1C /* FlyStationModel.m */,
-				7B63B860201822BA00E5EB1C /* FlyTrainStateModel.h */,
-				7B63B861201822BA00E5EB1C /* FlyTrainStateModel.m */,
+				7B9E99BC2021C7B3002DA891 /* TrainInfo */,
+				7B9E99B12021C477002DA891 /* Tool */,
+				7B9E99B02021C44F002DA891 /* Base */,
+				7B9E99AC2021BC2A002DA891 /* Model */,
 				7B63B7EE201713BD00E5EB1C /* Http */,
 				7B63B7DB2016FB7A00E5EB1C /* Main.storyboard */,
 				7B63B7DE2016FB7A00E5EB1C /* Assets.xcassets */,
@@ -172,6 +180,82 @@
 				7B63B863201822CF00E5EB1C /* FlyCheckTrainResponseObject.m */,
 			);
 			path = ResponseObject;
+			sourceTree = "<group>";
+		};
+		7B9E99AC2021BC2A002DA891 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E99B32021C4AD002DA891 /* StationInfo(SimCode) */,
+				7B9E99B22021C49D002DA891 /* TrainInfo(Ticket) */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B9E99B02021C44F002DA891 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E99AD2021C442002DA891 /* FlyBaseViewController.h */,
+				7B9E99AE2021C442002DA891 /* FlyBaseViewController.m */,
+				7B9E99BD2021D1C6002DA891 /* FlyNavigationController.h */,
+				7B9E99BE2021D1C6002DA891 /* FlyNavigationController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7B9E99B12021C477002DA891 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B85420172A5700E5EB1C /* FlyStationManager.h */,
+				7B63B85520172A5700E5EB1C /* FlyStationManager.m */,
+				7B63B85720172B1100E5EB1C /* FlyDataSource.h */,
+				7B63B85820172B1100E5EB1C /* FlyDataSource.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		7B9E99B22021C49D002DA891 /* TrainInfo(Ticket) */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B860201822BA00E5EB1C /* FlyTrainStateModel.h */,
+				7B63B861201822BA00E5EB1C /* FlyTrainStateModel.m */,
+			);
+			path = "TrainInfo(Ticket)";
+			sourceTree = "<group>";
+		};
+		7B9E99B32021C4AD002DA891 /* StationInfo(SimCode) */ = {
+			isa = PBXGroup;
+			children = (
+				7B63B85A2017336200E5EB1C /* FlyStationModel.h */,
+				7B63B85B2017336200E5EB1C /* FlyStationModel.m */,
+			);
+			path = "StationInfo(SimCode)";
+			sourceTree = "<group>";
+		};
+		7B9E99B72021C775002DA891 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E99B42021C529002DA891 /* FlyTrainInfoViewController.h */,
+				7B9E99B52021C529002DA891 /* FlyTrainInfoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B9E99BB2021C7A2002DA891 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E99B82021C79B002DA891 /* FlyTrainInfoCell.h */,
+				7B9E99B92021C79B002DA891 /* FlyTrainInfoCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7B9E99BC2021C7B3002DA891 /* TrainInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E99BB2021C7A2002DA891 /* Cell */,
+				7B9E99B72021C775002DA891 /* Controller */,
+			);
+			path = TrainInfo;
 			sourceTree = "<group>";
 		};
 		D7D544EE657BB9AFCA1AC222 /* Frameworks */ = {
@@ -308,6 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9E99BA2021C79B002DA891 /* FlyTrainInfoCell.m in Sources */,
+				7B9E99AF2021C442002DA891 /* FlyBaseViewController.m in Sources */,
 				7B63B85920172B1100E5EB1C /* FlyDataSource.m in Sources */,
 				7B63B7DA2016FB7A00E5EB1C /* ViewController.m in Sources */,
 				7B63B85620172A5700E5EB1C /* FlyStationManager.m in Sources */,
@@ -317,7 +403,9 @@
 				7B63B7D72016FB7A00E5EB1C /* AppDelegate.m in Sources */,
 				7B63B85C2017336200E5EB1C /* FlyStationModel.m in Sources */,
 				7B63B84D2017229800E5EB1C /* FlyBaseModel.m in Sources */,
+				7B9E99BF2021D1C6002DA891 /* FlyNavigationController.m in Sources */,
 				7B63B84A2017228100E5EB1C /* FlyRequestObject.m in Sources */,
+				7B9E99B62021C529002DA891 /* FlyTrainInfoViewController.m in Sources */,
 				7B63B862201822BA00E5EB1C /* FlyTrainStateModel.m in Sources */,
 				7B63B84120171E3E00E5EB1C /* FlyCheckTrainRequestObject.m in Sources */,
 				7B63B8472017226D00E5EB1C /* FlyResponseObject.m in Sources */,

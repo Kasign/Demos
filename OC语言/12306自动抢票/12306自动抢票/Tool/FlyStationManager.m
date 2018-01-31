@@ -7,8 +7,10 @@
 //
 
 #import "FlyStationManager.h"
+#import "FlyHttpClient.h"
 #import "FlyDataSource.h"
 #import "FlyStationModel.h"
+#import "FlyCheckTrainRequestObject.h"
 
 @implementation FlyStationManager
 
@@ -31,5 +33,18 @@
     return resultDictionary;
 }
 
++ (void)stationInfoWithServerFromStation:(FlyStationModel *)fromModel toStation:(FlyStationModel *)toModel data:(NSString *)data block:(void(^)(FlyCheckTrainResponseObject *responseObject,NSError * error))block
+{
+    FlyCheckTrainRequestObject * request = [[FlyCheckTrainRequestObject alloc] init];
+    request.from_station  = fromModel.stationCode;
+    request.to_station    = toModel.stationCode;
+    request.train_date    = data;
+    request.purpose_codes = @"ADULT";
+    
+    [[FlyHttpClient sharedInstance] getDataWithRequest:request block:^(FlyResponseObject *responseObject, NSError *error) {
+        FlyCheckTrainResponseObject * trainObject = (FlyCheckTrainResponseObject *)responseObject;
+        block(trainObject,error);
+    }];
+}
 
 @end

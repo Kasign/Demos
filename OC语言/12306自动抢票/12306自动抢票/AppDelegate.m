@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FlyNavigationController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +18,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [_window setBackgroundColor:[UIColor whiteColor]];
+    
+    ViewController * rootVC = [[ViewController alloc] init];
+    
+    FlyNavigationController * navigationController = [[FlyNavigationController alloc] initWithRootViewController:rootVC];
+    
+    [_window setRootViewController:navigationController];
+    
+    [_window makeKeyAndVisible];
     
     return YES;
 }

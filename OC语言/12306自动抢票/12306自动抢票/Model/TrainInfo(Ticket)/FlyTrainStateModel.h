@@ -10,27 +10,27 @@
 
 @interface FlyTrainStateModel : FlyBaseModel
 
-@property (nonatomic,copy) NSString * secretStr;            //标识符   0
-@property (nonatomic,copy) NSString * buttonTextInfo;       //票务描述  1
-@property (nonatomic,copy) NSString * trainNo;              //车全号  2 24000Z401500
-@property (nonatomic,copy) NSString * trainCode;            //车号   3 Z4015
+@property (nonatomic,copy) NSString * secretStr;            //标识符    0
+@property (nonatomic,copy) NSString * buttonTextInfo;       //票务描述   1
+@property (nonatomic,copy) NSString * trainNo;              //车全号    2 24000Z401500
+@property (nonatomic,copy) NSString * trainCode;            //车号      3 Z4015
 @property (nonatomic,copy) NSString * startStationCode;     //始发站    4
 @property (nonatomic,copy) NSString * endStationCode;       //终点站    5
-@property (nonatomic,copy) NSString * fromStationCode;      //出发站     6
-@property (nonatomic,copy) NSString * toStationCode;        //目的站     7
+@property (nonatomic,copy) NSString * fromStationCode;      //出发站    6
+@property (nonatomic,copy) NSString * toStationCode;        //目的站    7
 @property (nonatomic,copy) NSString * startTime;            //发车时间   8
 @property (nonatomic,copy) NSString * arriveTime;           //到达时间   9
 
-@property (nonatomic,copy) NSString * totalTiem;            //历时时间    10
+@property (nonatomic,copy) NSString * totalTiem;            //历时时间       10
 @property (nonatomic,copy) NSString * canWebBuy;            //是否购买时间    11
-@property (nonatomic,copy) NSString * ypInfo;               // 12
-@property (nonatomic,copy) NSString * startTrainDate;       //发车日期  20180211; 13
-@property (nonatomic,copy) NSString * trainSeatFeature;     //座位类型数 3   14
-@property (nonatomic,copy) NSString * locationCode;         //pc     15
-@property (nonatomic,copy) NSString * fromStationNo;        // 0      16
-@property (nonatomic,copy) NSString * toStationNo;          // 0      17
-@property (nonatomic,copy) NSString * isSupportCard;        // 0   18
-@property (nonatomic,copy) NSString * controlledTrainFlag;  // 0  19
+@property (nonatomic,copy) NSString * ypInfo;               //              12
+@property (nonatomic,copy) NSString * startTrainDate;       //发车日期       13   20180211;
+@property (nonatomic,copy) NSString * trainSeatFeature;     //座位类型数 3    14
+@property (nonatomic,copy) NSString * locationCode;         //pc            15
+@property (nonatomic,copy) NSString * fromStationNo;        // 0            16
+@property (nonatomic,copy) NSString * toStationNo;          // 0            17
+@property (nonatomic,copy) NSString * isSupportCard;        // 0            18
+@property (nonatomic,copy) NSString * controlledTrainFlag;  // 0            19
 
 @property (nonatomic,copy) NSString * ggNum;                //观光   20
 @property (nonatomic,copy) NSString * grNum;                //高级软卧 21
