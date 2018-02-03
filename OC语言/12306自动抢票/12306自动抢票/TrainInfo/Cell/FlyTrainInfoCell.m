@@ -8,6 +8,10 @@
 
 #import "FlyTrainInfoCell.h"
 
+@interface FlyTrainInfoCell ()
+
+@end
+
 @implementation FlyTrainInfoCell
 
 - (instancetype)initWithFrame:(CGRect)frame

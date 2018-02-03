@@ -1,0 +1,3 @@
+target "JPGChangeToWord" do
+pod 'AFNetworking'
+end
