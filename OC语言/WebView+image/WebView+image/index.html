@@ -27,17 +27,15 @@
 	打开工程啦
 	
 	file图片
-	<img src="file://private/var/mobile/Containers/Bundle/Application/883BB23F-0B6B-4E75-8DCA-98B693CE9321/Documents/91c0341baa4fecf81ccc4c6f7a0a5a2b/graphic/background/_background_背景_1 (4).jpg"/ width="375" height="180">
+	<img id="img" src="/var/mobile/Containers/Data/Application/1346827A-CA51-458C-9267-81DF30F63278/Documents/abcd.png"/ width="375" height="180">
 	http图片
-	<img src="http://pic.cgyouxi.com/orange/upload/201710/33044361_a1b17a537157effd515c965d795522cf.jpg!n1920"/>
+	<img src="https://pic.cgyouxi.com/orange/upload/201710/33044361_a1b17a537157effd515c965d795522cf.jpg!n1920"/ width="375" height="180">
 	
     <script type="text/javascript">
       var nativeCallJS = function(parameter) 
       {
-          document.getElementsByTagName('img')[0].setAttribute('src',parameter);
-          var result = document.getElementsByTagName('img')[0].getAttribute('src');
-          alert (result);
-       };
+          document.getElementById("img").src=parameter;
+      };
        function clickAction(abc){
          window.webkit.messageHandlers.jsCallNative.postMessage(abc);
          alert(abc);

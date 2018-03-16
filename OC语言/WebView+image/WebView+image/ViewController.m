@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
+#import "FourthViewController.h"
 
 @interface ViewController ()
 
@@ -31,6 +32,13 @@
     [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(jumpToWKWebView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightButton];
+    
+    UIButton * fourthButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 180, 40)];
+    [fourthButton setTitle:@"跳转JS-WKWebView" forState:UIControlStateNormal];
+    [fourthButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [fourthButton addTarget:self action:@selector(jumpToFourthWKWebView) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:fourthButton];
+    
     
     [self copyImage];
    
@@ -93,6 +101,12 @@
     
     ThirdViewController * vc = [[ThirdViewController alloc] init];
     
+    [self pushToVC:vc];
+}
+
+- (void)jumpToFourthWKWebView
+{
+    FourthViewController * vc = [[FourthViewController alloc] init];
     [self pushToVC:vc];
 }
 

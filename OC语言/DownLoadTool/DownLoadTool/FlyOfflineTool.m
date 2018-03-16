@@ -41,11 +41,11 @@
         
         _taskDic = [NSMutableDictionary dictionary];
         
-        NSURLSessionConfiguration * sessionConfi = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSessionConfiguration * sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         
         NSOperationQueue * operationQueue = [[NSOperationQueue alloc] init];
         
-        _offlineSession = [NSURLSession sessionWithConfiguration:sessionConfi delegate:self delegateQueue:operationQueue];
+        _offlineSession = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:operationQueue];
         
     }
     return self;
@@ -118,7 +118,6 @@ static NSString * fullPath(NSString * fileName){
 //    }
 //    self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:fullPath(name)];
 //    [self.fileHandle seekToEndOfFile];
-
 }
 
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask{

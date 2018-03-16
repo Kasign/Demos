@@ -1,56 +1,40 @@
 //
-//  ThirdViewController.m
+//  FourthViewController.m
 //  WebView+image
 //
-//  Created by qiuShan on 2017/10/27.
-//  Copyright © 2017年 秋山. All rights reserved.
+//  Created by qiuShan on 2018/3/14.
+//  Copyright © 2018年 秋山. All rights reserved.
 //
+
+#import "FourthViewController.h"
+#import <WebKit/WebKit.h>
 
 #define ScreenWidth                     [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight                    [UIScreen mainScreen].bounds.size.height
 
-#import "ThirdViewController.h"
-#import <WebKit/WebKit.h>
-#import "GCDWebServer.h"
-
-@interface ThirdViewController ()<UIScrollViewDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
-
+@interface FourthViewController ()<UIScrollViewDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 @property (nonatomic, strong)WKWebView   *  webView;
-@property (nonatomic, strong) GCDWebServer  *  webServer;
+
 @end
 
-@implementation ThirdViewController
+@implementation FourthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//
+//    NSString * lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
+//
+//    NSString * htmlPath = [documPath stringByAppendingPathComponent:lastPath];
     
-    NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    
-    NSString* lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
-    
-    NSString* htmlPath = [documPath stringByAppendingPathComponent:lastPath];
+    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html" inDirectory:@"/index/"];
     
     NSURL * fileURL = [NSURL fileURLWithPath:htmlPath];
     
-    NSURL * baseURL = [NSURL fileURLWithPath:documPath];
-    
+    NSURL * baseURL = [NSURL fileURLWithPath:htmlPath];
     
     [self.webView loadFileURL:fileURL allowingReadAccessToURL:baseURL];
-    
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://local-www.66rpg.com/h5/v2/48432?user=heshang&test=tsgs"]]];
-    
-    [self.view addSubview:self.webView];
-    
-    _webServer = [[GCDWebServer alloc]init];
-    
-    NSString *basePath =  [documPath stringByAppendingPathComponent:@""];
-    
-    [_webServer addGETHandlerForBasePath:@"/" directoryPath:basePath indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
-    if ([_webServer start]) {
-        NSLog(@"strt success");
-    }
 }
-
 
 #pragma mark - 清除缓存和cookie
 - (void)cleanCacheAndCookie {
@@ -101,12 +85,7 @@
 }
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-//    [webView evaluateJavaScript:@"globalObject.nativeCallJS('abc')" completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"error:%@",error);
-//        }
-//    }];
-    
+
 }
 // 页面加载失败时调用
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
@@ -171,11 +150,12 @@
             NSLog(@"\n data:%@ \n error:%@",data,error);
         }];
     }
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
