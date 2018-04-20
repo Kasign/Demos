@@ -10,4 +10,7 @@
 
 @interface FourthViewController : UIViewController
 
+@property (nonatomic, strong) NSString   *   htmlPath;
+
 @end
+

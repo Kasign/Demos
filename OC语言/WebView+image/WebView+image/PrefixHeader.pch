@@ -9,6 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define HtmlName @"index"
+#define HtmlName @"index2"
 
 #endif /* PrefixHeader_pch */

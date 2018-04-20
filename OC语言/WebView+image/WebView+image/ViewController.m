@@ -41,59 +41,66 @@
     
     
     [self copyImage];
-   
+    
 }
 
--(void)copyImage{
+-(void)copyImage
+{
     
-    NSFileManager * fileManager = [NSFileManager defaultManager];
-    
+    //copy image 
     NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     
-    NSString * imagePath = [documPath stringByAppendingPathComponent:@"/abcd.png"];
+    NSString * imageToPath = [[documPath stringByAppendingString:@"/image/"] stringByAppendingPathComponent:@"abcd.png"];
     
-    NSLog(@"%@",imagePath);
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"abcd" ofType:@"png"];
     
-    if (![fileManager fileExistsAtPath:imagePath]) {
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"abcd" ofType:@"png"];
-        
-        BOOL success = [fileManager copyItemAtPath:path toPath:imagePath error:nil];
-        
-        NSLog(@"imag成功：%d path:%@",success,imagePath);
+    [self copyItemFromPath:imagePath toPath:imageToPath];
+    
+    //copy html
+    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"index2" ofType:@"html"];
+    
+    NSString * htmlToPath = [[documPath stringByAppendingString:@"/html/"] stringByAppendingPathComponent:@"index2.html"];
+    [self copyItemFromPath:htmlPath toPath:htmlToPath];
+    
+    //copy js
+    
+    NSString * jsPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"js"];
+    NSString * jsToPath = [[documPath stringByAppendingString:@"/html/js"] stringByAppendingPathComponent:@"test.js"];
+    [self copyItemFromPath:jsPath toPath:jsToPath];
+}
+
+- (void)copyItemFromPath:(NSString *)path  toPath:(NSString *)toPath
+{
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    
+    NSString * targetDirect = [toPath stringByDeletingLastPathComponent];
+    
+    BOOL isDir = NO;
+    if (![fileManager fileExistsAtPath:targetDirect isDirectory:&isDir] && !isDir) {
+        NSError * error ;
+        BOOL success = [fileManager createDirectoryAtPath:targetDirect withIntermediateDirectories:YES attributes:nil error:&error];
+        if (success && !error) {
+            NSLog(@"  -----create dir success%@",targetDirect);
+        } else {
+            NSLog(@"  --fail to create dir error: %@ dir:%@",error,targetDirect);
+        }
     }
     
-    NSString * lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
-    
-    NSString *htmlPath = [documPath stringByAppendingPathComponent:lastPath];
-    
-    if (![fileManager fileExistsAtPath:htmlPath]) {
+    if ([fileManager fileExistsAtPath:path]) {
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html"];
-        
-        BOOL success = [fileManager copyItemAtPath:path toPath:htmlPath error:nil];
-        
-        NSLog(@"html成功：%d",success);
-        
-    }else{
-        
-        BOOL success = [fileManager removeItemAtPath:htmlPath error:nil];
-        
-        NSLog(@"移除成功：%d",success);
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html"];
-        
-        success = [fileManager copyItemAtPath:path toPath:htmlPath error:nil];
-        
-        NSLog(@"html成功：%d",success);
+        BOOL success = [fileManager removeItemAtPath:toPath error:nil];
+        NSLog(@" ------remove success  path：%@  success:%d",toPath.lastPathComponent,success);
+        success = [fileManager copyItemAtPath:path toPath:toPath error:nil];
+        NSLog(@" ----copy success  path：%@ success:%d",toPath.lastPathComponent,success);
+    } else {
+        NSLog(@" -- path not exist %@",path);
     }
-    
 }
 
 -(void)jumpToUIWebView{
     
     SecondViewController * vc = [[SecondViewController alloc] init];
-
+    
     [self pushToVC:vc];
 }
 
@@ -107,6 +114,13 @@
 - (void)jumpToFourthWKWebView
 {
     FourthViewController * vc = [[FourthViewController alloc] init];
+    
+    NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSString * htmlPath = [[documPath stringByAppendingString:@"/html/"] stringByAppendingPathComponent:@"index2.html"];
+    
+    vc.htmlPath = htmlPath;
+    
     [self pushToVC:vc];
 }
 

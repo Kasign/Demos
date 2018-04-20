@@ -19,25 +19,24 @@
 
 @implementation FourthViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-//    NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-//
-//    NSString * lastPath = [NSString stringWithFormat:@"/%@.html",HtmlName];
-//
-//    NSString * htmlPath = [documPath stringByAppendingPathComponent:lastPath];
     
-    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:HtmlName ofType:@"html" inDirectory:@"/index/"];
+    if (_htmlPath.length) {
+        NSURL * fileURL = [NSURL fileURLWithPath:_htmlPath];
+        NSURL * baseURL = [NSURL fileURLWithPath:[[_htmlPath stringByDeletingLastPathComponent] stringByAppendingString:@"/"]];
+        NSString * documentStr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSURL * documentUrl = [NSURL fileURLWithPath:[documentStr stringByAppendingString:@"image"]];
+        [self.webView loadFileURL:fileURL allowingReadAccessToURL:documentUrl];
+    }
     
-    NSURL * fileURL = [NSURL fileURLWithPath:htmlPath];
-    
-    NSURL * baseURL = [NSURL fileURLWithPath:htmlPath];
-    
-    [self.webView loadFileURL:fileURL allowingReadAccessToURL:baseURL];
+    [self.view addSubview:self.webView];
 }
 
 #pragma mark - 清除缓存和cookie
-- (void)cleanCacheAndCookie {
+- (void)cleanCacheAndCookie
+{
     //清除cookies
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
@@ -52,11 +51,11 @@
     [cache setMemoryCapacity:0];
 }
 
--(WKWebView *)webView{
+-(WKWebView *)webView
+{
     if (!_webView) {
         
         WKUserContentController *userContentController = [[WKUserContentController alloc] init];
-        [userContentController addScriptMessageHandler:self name:@"callNativeAndSend"];
         [userContentController addScriptMessageHandler:self name:@"jsCallNative"];
         // WKWebView的配置
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
@@ -65,7 +64,7 @@
         
         _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) configuration:configuration];
         
-        _webView.backgroundColor     = [UIColor whiteColor];
+        _webView.backgroundColor     = [UIColor redColor];
         [_webView.scrollView setBackgroundColor:[UIColor whiteColor]];
         _webView.scrollView.delegate = self;
         _webView.navigationDelegate  = self;
@@ -130,7 +129,16 @@
 // 警告框
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     NSLog(@"警告框%@",message);
-    completionHandler();
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"知道" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }];
+    
+    [alertController addAction:confirmAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
 }
 
 //js交互
@@ -142,7 +150,7 @@
         
         NSString * documPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         
-        NSString * imagePath = [documPath stringByAppendingPathComponent:@"/abcd.png"];
+        NSString * imagePath = [documPath stringByAppendingPathComponent:@"/image/abcd.png"];
         
         NSString * js = [NSString stringWithFormat:@"nativeCallJS('%@')",imagePath];
         
