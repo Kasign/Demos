@@ -10,8 +10,12 @@
 
 @interface FlyTestManager : NSObject
 
+@property (nonatomic, copy) void(^managerBlock)(void);
+
 + (instancetype)shareInstance;
 
-+ (void)resetToOriginal;
+- (void)abcWithBlock:(void(^)(void))block;
+
+- (void)sleepWithTimes:(NSTimeInterval)time;
 
 @end

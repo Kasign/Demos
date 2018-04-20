@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B01C0432089BCF8002E351D /* FlySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0422089BCF8002E351D /* FlySecondViewController.m */; };
+		7B01C0462089BD22002E351D /* FlyHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0452089BD22002E351D /* FlyHomeViewController.m */; };
+		7B01C0492089BE9D002E351D /* FlyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0482089BE9D002E351D /* FlyButton.m */; };
+		7B01C04C2089C48C002E351D /* FlyThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C04B2089C48C002E351D /* FlyThirdViewController.m */; };
+		7B01C04F2089E3EE002E351D /* FlyNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C04E2089E3EE002E351D /* FlyNSObject.m */; };
 		7BCDA9BB2085DF910069326C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCDA9BA2085DF910069326C /* AppDelegate.m */; };
-		7BCDA9BE2085DF910069326C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCDA9BD2085DF910069326C /* ViewController.m */; };
 		7BCDA9C12085DF910069326C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BCDA9BF2085DF910069326C /* Main.storyboard */; };
 		7BCDA9C32085DF930069326C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCDA9C22085DF930069326C /* Assets.xcassets */; };
 		7BCDA9C62085DF930069326C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BCDA9C42085DF930069326C /* LaunchScreen.storyboard */; };
@@ -36,11 +40,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B01C0412089BCF8002E351D /* FlySecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySecondViewController.h; sourceTree = "<group>"; };
+		7B01C0422089BCF8002E351D /* FlySecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySecondViewController.m; sourceTree = "<group>"; };
+		7B01C0442089BD22002E351D /* FlyHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyHomeViewController.h; sourceTree = "<group>"; };
+		7B01C0452089BD22002E351D /* FlyHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyHomeViewController.m; sourceTree = "<group>"; };
+		7B01C0472089BE9D002E351D /* FlyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyButton.h; sourceTree = "<group>"; };
+		7B01C0482089BE9D002E351D /* FlyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyButton.m; sourceTree = "<group>"; };
+		7B01C04A2089C48C002E351D /* FlyThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyThirdViewController.h; sourceTree = "<group>"; };
+		7B01C04B2089C48C002E351D /* FlyThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyThirdViewController.m; sourceTree = "<group>"; };
+		7B01C04D2089E3EE002E351D /* FlyNSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyNSObject.h; sourceTree = "<group>"; };
+		7B01C04E2089E3EE002E351D /* FlyNSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyNSObject.m; sourceTree = "<group>"; };
 		7BCDA9B62085DF910069326C /* 单例测试.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "单例测试.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCDA9B92085DF910069326C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BCDA9BA2085DF910069326C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7BCDA9BC2085DF910069326C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7BCDA9BD2085DF910069326C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7BCDA9C02085DF910069326C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BCDA9C22085DF930069326C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BCDA9C52085DF930069326C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,10 +118,18 @@
 			children = (
 				7BCDA9B92085DF910069326C /* AppDelegate.h */,
 				7BCDA9BA2085DF910069326C /* AppDelegate.m */,
-				7BCDA9BC2085DF910069326C /* ViewController.h */,
-				7BCDA9BD2085DF910069326C /* ViewController.m */,
+				7B01C0442089BD22002E351D /* FlyHomeViewController.h */,
+				7B01C0452089BD22002E351D /* FlyHomeViewController.m */,
+				7B01C0412089BCF8002E351D /* FlySecondViewController.h */,
+				7B01C0422089BCF8002E351D /* FlySecondViewController.m */,
+				7B01C04A2089C48C002E351D /* FlyThirdViewController.h */,
+				7B01C04B2089C48C002E351D /* FlyThirdViewController.m */,
 				7BCDA9EB2085E1B40069326C /* FlyTestManager.h */,
 				7BCDA9EC2085E1B40069326C /* FlyTestManager.m */,
+				7B01C0472089BE9D002E351D /* FlyButton.h */,
+				7B01C0482089BE9D002E351D /* FlyButton.m */,
+				7B01C04D2089E3EE002E351D /* FlyNSObject.h */,
+				7B01C04E2089E3EE002E351D /* FlyNSObject.m */,
 				7BCDA9BF2085DF910069326C /* Main.storyboard */,
 				7BCDA9C22085DF930069326C /* Assets.xcassets */,
 				7BCDA9C42085DF930069326C /* LaunchScreen.storyboard */,
@@ -199,6 +219,7 @@
 		7BCDA9AE2085DF910069326C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Fly;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Fly;
 				TargetAttributes = {
@@ -267,9 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BCDA9BE2085DF910069326C /* ViewController.m in Sources */,
+				7B01C0432089BCF8002E351D /* FlySecondViewController.m in Sources */,
 				7BCDA9ED2085E1B40069326C /* FlyTestManager.m in Sources */,
+				7B01C0462089BD22002E351D /* FlyHomeViewController.m in Sources */,
+				7B01C04F2089E3EE002E351D /* FlyNSObject.m in Sources */,
+				7B01C0492089BE9D002E351D /* FlyButton.m in Sources */,
 				7BCDA9C92085DF930069326C /* main.m in Sources */,
+				7B01C04C2089C48C002E351D /* FlyThirdViewController.m in Sources */,
 				7BCDA9BB2085DF910069326C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

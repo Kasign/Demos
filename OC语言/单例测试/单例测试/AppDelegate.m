@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FlyHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +15,12 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [_window setBackgroundColor:[UIColor whiteColor]];
+    UINavigationController * navi = [[UINavigationController alloc] initWithRootViewController:[[FlyHomeViewController alloc] init]];
+    [_window setRootViewController:navi];
+    [_window makeKeyAndVisible];
     return YES;
 }
 

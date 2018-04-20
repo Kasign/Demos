@@ -10,6 +10,11 @@
 
 @implementation FlyTestManager
 
+- (id)initWithZone:(NSZone *)zone
+{
+   return [[FlyTestManager alloc] initWithZone:zone];
+}
+
 + (instancetype)shareInstance
 {
     static FlyTestManager * _manager = nil;
@@ -23,9 +28,20 @@
     return _manager;
 }
 
-+ (void)resetToOriginal
+- (void)abcWithBlock:(void(^)(void))block
 {
-    
+    [NSThread sleepForTimeInterval:3.f];
+    if (block) {
+        block();
+    }
+}
+
+- (void)sleepWithTimes:(NSTimeInterval)time
+{
+    [NSThread sleepForTimeInterval:time];
+    if (_managerBlock) {
+        _managerBlock();
+    }
 }
 
 @end
