@@ -9,7 +9,7 @@
 #import "ThirdViewController.h"
 #import "iCarousel.h"
 
-#define OrgTransformSide    40.f
+#define OrgTransformSide    30.f
 #define OrgTransFormCount   5
 
 #define OrgScreenWidth  [UIScreen mainScreen].bounds.size.width
@@ -55,12 +55,12 @@
 
     //configure carousel
     
-    _width  = MIN(OrgScreenWidth, OrgScreenHeight) - 40.f;
+    _width  = MIN(OrgScreenWidth, OrgScreenHeight) - OrgTransformSide * 2;
     _height = _width * 139 / 300.f;
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(20, 200, _width, _height)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(OrgTransformSide, 200, _width, _height)];
     _carousel.backgroundColor = [UIColor clearColor];
-    _carousel.type = iCarouselTypeCoverFlow2;//iCarouselTypeCustom iCarouselTypeRotary
+    _carousel.type = iCarouselTypeRotary;//iCarouselTypeCustom iCarouselTypeRotary
     _carousel.delegate = self;
     _carousel.dataSource = self;
 //    [self autoScroll];
@@ -76,18 +76,18 @@
     }
     int time = 4;
  
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        __weak typeof(self) weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, time * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        dispatch_source_set_event_handler(_timer, ^{
+        weakSelf.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+        dispatch_source_set_timer(weakSelf.timer, DISPATCH_TIME_NOW, time * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(weakSelf.timer, ^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.carousel scrollByNumberOfItems:1 duration:2.2f];
             });
         });
-        dispatch_resume(_timer);
-//    });
+        dispatch_resume(weakSelf.timer);
+    });
 }
 
 - (void)viewWillLayoutSubviews {
@@ -142,13 +142,6 @@
         label = (UILabel *)[view viewWithTag:1];
     }
     
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
-//    label.text = [self.items[(NSUInteger)index] stringValue];
-    
     return view;
 }
 
@@ -165,9 +158,6 @@
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        //don't do anything specific to the index within
-        //this `if (view == nil) {...}` statement because the view will be
-        //recycled and used with other index values later
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0, 200.0)];
         ((UIImageView *)view).image = [UIImage imageNamed:@"1.jpg"];
         view.contentMode = UIViewContentModeCenter;
@@ -185,11 +175,6 @@
         label = (UILabel *)[view viewWithTag:1];
     }
     
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
     label.text = (index == 0)? @"[": @"]";
     
     return view;
@@ -197,17 +182,54 @@
 
 - (CATransform3D)carousel:(__unused iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
 {
-    //implement 'flip3D' style carousel
-    if (ABS(offset) < 0.1) {
-        offset = 0;
+    CGFloat tilt = 0.45;
+    CGFloat spacing = 0.25;
+    CGFloat clampedOffset = MAX(-1.0, MIN(1.0, offset));
+    CGFloat toggle = carousel.toggle;
+    CGFloat itemWidth = carousel.itemWidth;
+  
+    if (toggle > 0.0)
+    {
+        if (offset <= -0.5)
+        {
+            clampedOffset = -1.0;
+        }
+        else if (offset <= 0.5)
+        {
+            clampedOffset = -toggle;
+        }
+        else if (offset <= 1.5)
+        {
+            clampedOffset = 1.0 - toggle;
+        }
     }
-    transform = CATransform3DRotate(transform, M_PI / 10.0, 0.0, - offset, 0.0);
+    else
+    {
+        if (offset > 0.5)
+        {
+            clampedOffset = 1.0;
+        }
+        else if (offset > -0.5)
+        {
+            clampedOffset = -toggle;
+        }
+        else if (offset > -1.5)
+        {
+            clampedOffset = - 1.0 - toggle;
+        }
+    }
+    
+    CGFloat x = (clampedOffset * 0.5 * tilt + offset * spacing) * itemWidth * 0.8;
+    CGFloat z = fabs(clampedOffset) * -itemWidth * 0.5;
+    transform = CATransform3DTranslate(transform, x, 0, z);
+    transform = CATransform3DRotate(transform, -clampedOffset * M_PI_2 * tilt, 0.0, 1.0, 0.0);;
     return transform;
 }
 
 - (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {
     //customize carousel display
+//    CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius)
     switch (option)
     {
         case iCarouselOptionWrap:
@@ -220,7 +242,7 @@
         {
             //add a bit of spacing between the item views
             OrgLog(@" iCarouselOptionSpacing %f",value);
-            return value * 1.05f;
+            return value;
         }
         case iCarouselOptionFadeMax:
         {
@@ -265,7 +287,6 @@
         case iCarouselOptionTilt:
         {
             OrgLog(@" iCarouselOptionTilt %f",value);
-            value = 0.9;
             return value;
         }
         case iCarouselOptionFadeMin:

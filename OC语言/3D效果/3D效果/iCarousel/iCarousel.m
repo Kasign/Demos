@@ -548,7 +548,8 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             }
             else
             {
-                return CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius);
+                return transform;
+//                return CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius);
             }
         }
         case iCarouselTypeCylinder:
@@ -658,7 +659,6 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             }
             else
             {
-                NSLog(@" offset: %f  角度：%f",offset,-clampedOffset * M_PI_2 * tilt);
                 transform = CATransform3DTranslate(transform, x, 0.0, z);
                 return CATransform3DRotate(transform, -clampedOffset * M_PI_2 * tilt, 0.0, 1.0, 0.0);
             }
