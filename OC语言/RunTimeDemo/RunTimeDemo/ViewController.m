@@ -21,7 +21,6 @@
     [super viewDidLoad];
     [self exchangeMethod];
     
-    
     id p =  objc_msgSend(objc_getClass("Person"), sel_registerName("alloc"));
     p = objc_msgSend(p, sel_registerName("init"));
     SEL run = sel_registerName("run");
@@ -40,6 +39,21 @@
     }
     free(methodList);
     NSLog(@"%@",methodArray);//note:获取不到类方法
+    
+    //类方法都是在元类方法列表里
+    methodCount = 0;
+    const char *clsName = class_getName([Person class]);
+    Class metaClass = objc_getMetaClass(clsName);
+    Method * metaMethodList = class_copyMethodList(metaClass, &methodCount);
+    
+    for (int i = 0; i < methodCount ; i ++) {
+        Method method = metaMethodList[i];
+        SEL selector = method_getName(method);
+        const char *methodName = sel_getName(selector);
+        NSLog(@" 类方法>>>%s",methodName);
+    }
+    free(metaMethodList);
+    
     
     objc_msgSend([Person new], sel_registerName("walk"));
     objc_msgSend([Person class], sel_registerName("dance"));

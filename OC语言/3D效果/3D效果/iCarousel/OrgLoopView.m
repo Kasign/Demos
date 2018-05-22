@@ -1,12 +1,12 @@
 //
-//  iCarousel.m
+//  OrgLoopView.m
+//  3D效果
 //
-//  Version 1.8.3
+//  Created by Q on 2018/5/18.
+//  Copyright © 2018 Fly. All rights reserved.
 //
-//  Created by Nick Lockwood on 01/04/2011.
 
-
-#import "iCarousel.h"
+#import "OrgLoopView.h"
 #import <objc/message.h>
 #import <tgmath.h>
 
@@ -42,41 +42,41 @@
 #define DECELERATION_MULTIPLIER 30.0
 #define FLOAT_ERROR_MARGIN 0.000001
 
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
 #define MAX_VISIBLE_ITEMS 50
 #else
 #define MAX_VISIBLE_ITEMS 30
 #endif
 
 
-@implementation NSObject (iCarousel)
+@implementation NSObject (OrgLoopView)
 
-- (NSUInteger)numberOfPlaceholdersInCarousel:(__unused iCarousel *)carousel { return 0; }
-- (void)carouselWillBeginScrollingAnimation:(__unused iCarousel *)carousel {}
-- (void)carouselDidEndScrollingAnimation:(__unused iCarousel *)carousel {}
-- (void)carouselDidScroll:(__unused iCarousel *)carousel {}
+- (NSUInteger)numberOfPlaceholdersInCarousel:(__unused OrgLoopView *)carousel { return 0; }
+- (void)carouselWillBeginScrollingAnimation:(__unused OrgLoopView *)carousel {}
+- (void)carouselDidEndScrollingAnimation:(__unused OrgLoopView *)carousel {}
+- (void)carouselDidScroll:(__unused OrgLoopView *)carousel {}
 
-- (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel {}
-- (void)carouselWillBeginDragging:(__unused iCarousel *)carousel {}
-- (void)carouselDidEndDragging:(__unused iCarousel *)carousel willDecelerate:(__unused BOOL)decelerate {}
-- (void)carouselWillBeginDecelerating:(__unused iCarousel *)carousel {}
-- (void)carouselDidEndDecelerating:(__unused iCarousel *)carousel {}
+- (void)carouselCurrentItemIndexDidChange:(__unused OrgLoopView *)carousel {}
+- (void)carouselWillBeginDragging:(__unused OrgLoopView *)carousel {}
+- (void)carouselDidEndDragging:(__unused OrgLoopView *)carousel willDecelerate:(__unused BOOL)decelerate {}
+- (void)carouselWillBeginDecelerating:(__unused OrgLoopView *)carousel {}
+- (void)carouselDidEndDecelerating:(__unused OrgLoopView *)carousel {}
 
-- (BOOL)carousel:(__unused iCarousel *)carousel shouldSelectItemAtIndex:(__unused NSInteger)index { return YES; }
-- (void)carousel:(__unused iCarousel *)carousel didSelectItemAtIndex:(__unused NSInteger)index {}
+- (BOOL)carousel:(__unused OrgLoopView *)carousel shouldSelectItemAtIndex:(__unused NSInteger)index { return YES; }
+- (void)carousel:(__unused OrgLoopView *)carousel didSelectItemAtIndex:(__unused NSInteger)index {}
 
-- (CGFloat)carouselItemWidth:(__unused iCarousel *)carousel { return 0; }
-- (CATransform3D)carousel:(__unused iCarousel *)carousel
+- (CGFloat)carouselItemWidth:(__unused OrgLoopView *)carousel { return 0; }
+- (CATransform3D)carousel:(__unused OrgLoopView *)carousel
    itemTransformForOffset:(__unused CGFloat)offset
             baseTransform:(CATransform3D)transform { return transform; }
-- (CGFloat)carousel:(__unused iCarousel *)carousel
-     valueForOption:(__unused iCarouselOption)option
+- (CGFloat)carousel:(__unused OrgLoopView *)carousel
+     valueForOption:(__unused OrgLoopViewOption)option
         withDefault:(CGFloat)value { return value; }
 
 @end
 
 
-@interface iCarousel ()
+@interface OrgLoopView ()
 
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) NSMutableDictionary *itemViews;
@@ -103,12 +103,12 @@
 @property (nonatomic, assign) BOOL didDrag;
 @property (nonatomic, assign) NSTimeInterval toggleTime;
 
-NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *self);
+NSComparisonResult loopViewCompareViewDepth(UIView *view1, UIView *view2, OrgLoopView *self);
 
 @end
 
 
-@implementation iCarousel
+@implementation OrgLoopView
 
 #pragma mark -
 #pragma mark Initialisation
@@ -132,7 +132,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     _contentView = [[UIView alloc] initWithFrame:self.bounds];
     
     
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
     
     _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
@@ -167,7 +167,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 #ifndef USING_CHAMELEON
 
 - (id)initWithCoder:(NSCoder *)aDecoder
-{   
+{
     if ((self = [super initWithCoder:aDecoder]))
     {
         [self setUp];
@@ -181,7 +181,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 
 #endif
 
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
 
 - (id)initWithFrame:(CGRect)frame
 
@@ -200,11 +200,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 }
 
 - (void)dealloc
-{   
+{
     [self stopAnimation];
 }
 
-- (void)setDataSource:(id<iCarouselDataSource>)dataSource
+- (void)setDataSource:(id<OrgLoopViewDataSource>)dataSource
 {
     if (_dataSource != dataSource)
     {
@@ -216,7 +216,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     }
 }
 
-- (void)setDelegate:(id<iCarouselDelegate>)delegate
+- (void)setDelegate:(id<OrgLoopViewDelegate>)delegate
 {
     if (_delegate != delegate)
     {
@@ -228,7 +228,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     }
 }
 
-- (void)setType:(iCarouselType)type
+- (void)setType:(OrgLoopViewType)type
 {
     if (_type != type)
     {
@@ -354,7 +354,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 
 - (UIView *)itemViewAtPoint:(CGPoint)point
 {
-    for (UIView *view in [[[_itemViews allValues] sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))compareViewDepth context:(__bridge void *)self] reverseObjectEnumerator])
+    for (UIView *view in [[[_itemViews allValues] sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))loopViewCompareViewDepth context:(__bridge void *)self] reverseObjectEnumerator])
     {
         if ([view.superview.layer hitTest:point])
         {
@@ -421,36 +421,36 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     CGFloat fadeMinAlpha = 0.0;
     switch (_type)
     {
-        case iCarouselTypeTimeMachine:
+        case OrgLoopViewTypeTimeMachine:
         {
             fadeMax = 0.0;
             break;
         }
-        case iCarouselTypeInvertedTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
         {
             fadeMin = 0.0;
             break;
         }
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
-        case iCarouselTypeCustom:
-        case iCarouselTypeCylinder:
-        case iCarouselTypeInvertedCylinder:
-        case iCarouselTypeRotary:
-        case iCarouselTypeInvertedRotary:
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
-        case iCarouselTypeLinear:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
+        case OrgLoopViewTypeCustom:
+        case OrgLoopViewTypeCylinder:
+        case OrgLoopViewTypeInvertedCylinder:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeInvertedRotary:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
+        case OrgLoopViewTypeLinear:
         {
             //do nothing
         }
     }
-    fadeMin = [self valueForOption:iCarouselOptionFadeMin withDefault:fadeMin];
-    fadeMax = [self valueForOption:iCarouselOptionFadeMax withDefault:fadeMax];
-    fadeRange = [self valueForOption:iCarouselOptionFadeRange withDefault:fadeRange];
-    fadeMinAlpha = [self valueForOption:iCarouselOptionFadeMinAlpha withDefault:fadeMinAlpha];
-
-#ifdef ICAROUSEL_MACOS
+    fadeMin = [self valueForOption:OrgLoopViewOptionFadeMin withDefault:fadeMin];
+    fadeMax = [self valueForOption:OrgLoopViewOptionFadeMax withDefault:fadeMax];
+    fadeRange = [self valueForOption:OrgLoopViewOptionFadeRange withDefault:fadeRange];
+    fadeMinAlpha = [self valueForOption:OrgLoopViewOptionFadeMinAlpha withDefault:fadeMinAlpha];
+    
+#ifdef OrgLoopView_MACOS
     
     if (_vertical)
     {
@@ -472,28 +472,28 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     return 1.0 - MIN(factor, fadeRange) / fadeRange * (1.0 - fadeMinAlpha);
 }
 
-- (CGFloat)valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-{    
+- (CGFloat)valueForOption:(OrgLoopViewOption)option withDefault:(CGFloat)value
+{
     return _delegate? [_delegate carousel:self valueForOption:option withDefault:value]: value;
 }
 
 - (CATransform3D)transformForItemViewWithOffset:(CGFloat)offset
-{   
+{
     //set up base transform
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = _perspective;
     transform = CATransform3DTranslate(transform, -_viewpointOffset.width, -_viewpointOffset.height, 0.0);
-
+    
     //perform transform
     switch (_type)
     {
-        case iCarouselTypeCustom:
+        case OrgLoopViewTypeCustom:
         {
             return [_delegate carousel:self itemTransformForOffset:offset baseTransform:transform];
         }
-        case iCarouselTypeLinear:
+        case OrgLoopViewTypeLinear:
         {
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
             if (_vertical)
             {
                 return CATransform3DTranslate(transform, 0.0, offset * _itemWidth * spacing, 0.0);
@@ -503,41 +503,39 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                 return CATransform3DTranslate(transform, offset * _itemWidth * spacing, 0.0, 0.0);
             }
         }
-        case iCarouselTypeRotary:
-        case iCarouselTypeInvertedRotary:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeInvertedRotary:
         {
             CGFloat count = [self circularCarouselItemCount];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
-            CGFloat arc = [self valueForOption:iCarouselOptionArc withDefault:M_PI * 2.0];
-            CGFloat radius = [self valueForOption:iCarouselOptionRadius withDefault:MAX(_itemWidth * spacing / 2.0, _itemWidth * spacing / 2.0 / tan(arc/2.0/count))];
-            CGFloat angle = [self valueForOption:iCarouselOptionAngle withDefault:offset / count * arc];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
+            CGFloat arc = [self valueForOption:OrgLoopViewOptionArc withDefault:M_PI * 2.0];
+            CGFloat radius = [self valueForOption:OrgLoopViewOptionRadius withDefault:MAX(_itemWidth * spacing / 2.0, _itemWidth * spacing / 2.0 / tan(arc/2.0/count))];
+            CGFloat angle = [self valueForOption:OrgLoopViewOptionAngle withDefault:offset / count * arc];
             
-            if (_type == iCarouselTypeInvertedRotary)
+            if (_type == OrgLoopViewTypeInvertedRotary)
             {
                 radius = -radius;
                 angle = -angle;
             }
-            transform = [_delegate carousel:self itemTransformForOffset:offset baseTransform:transform];
             if (_vertical)
             {
                 return CATransform3DTranslate(transform, 0.0, radius * sin(angle), radius * cos(angle) - radius);
             }
             else
             {
-                return transform;
-//                return CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius);
+                return CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius);
             }
         }
-        case iCarouselTypeCylinder:
-        case iCarouselTypeInvertedCylinder:
+        case OrgLoopViewTypeCylinder:
+        case OrgLoopViewTypeInvertedCylinder:
         {
             CGFloat count = [self circularCarouselItemCount];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
-            CGFloat arc = [self valueForOption:iCarouselOptionArc withDefault:M_PI * 2.0];
-            CGFloat radius = [self valueForOption:iCarouselOptionRadius withDefault:MAX(0.01, _itemWidth * spacing / 2.0 / tan(arc/2.0/count))];
-            CGFloat angle = [self valueForOption:iCarouselOptionAngle withDefault:offset / count * arc];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
+            CGFloat arc = [self valueForOption:OrgLoopViewOptionArc withDefault:M_PI * 2.0];
+            CGFloat radius = [self valueForOption:OrgLoopViewOptionRadius withDefault:MAX(0.01, _itemWidth * spacing / 2.0 / tan(arc/2.0/count))];
+            CGFloat angle = [self valueForOption:OrgLoopViewOptionAngle withDefault:offset / count * arc];
             
-            if (_type == iCarouselTypeInvertedCylinder)
+            if (_type == OrgLoopViewTypeInvertedCylinder)
             {
                 radius = -radius;
                 angle = -angle;
@@ -556,16 +554,16 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                 return CATransform3DTranslate(transform, 0.0, 0.0, radius + 0.01);
             }
         }
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
         {
             CGFloat count = [self circularCarouselItemCount];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
-            CGFloat arc = [self valueForOption:iCarouselOptionArc withDefault:M_PI * 2.0];
-            CGFloat radius = [self valueForOption:iCarouselOptionRadius withDefault:_itemWidth * spacing * count / arc];
-            CGFloat angle = [self valueForOption:iCarouselOptionAngle withDefault:arc / count];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
+            CGFloat arc = [self valueForOption:OrgLoopViewOptionArc withDefault:M_PI * 2.0];
+            CGFloat radius = [self valueForOption:OrgLoopViewOptionRadius withDefault:_itemWidth * spacing * count / arc];
+            CGFloat angle = [self valueForOption:OrgLoopViewOptionAngle withDefault:arc / count];
             
-            if (_type == iCarouselTypeInvertedWheel)
+            if (_type == OrgLoopViewTypeInvertedWheel)
             {
                 radius = -radius;
                 angle = -angle;
@@ -584,14 +582,14 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                 return CATransform3DTranslate(transform, 0.0, -radius, offset * 0.01);
             }
         }
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
         {
-            CGFloat tilt = [self valueForOption:iCarouselOptionTilt withDefault:0.9];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:0.25];
+            CGFloat tilt = [self valueForOption:OrgLoopViewOptionTilt withDefault:0.9];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:0.25];
             CGFloat clampedOffset = MAX(-1.0, MIN(1.0, offset));
-
-            if (_type == iCarouselTypeCoverFlow2)
+            
+            if (_type == OrgLoopViewTypeCoverFlow2)
             {
                 if (_toggle > 0.0)
                 {
@@ -639,13 +637,13 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                 return CATransform3DRotate(transform, -clampedOffset * M_PI_2 * tilt, 0.0, 1.0, 0.0);
             }
         }
-        case iCarouselTypeTimeMachine:
-        case iCarouselTypeInvertedTimeMachine:
+        case OrgLoopViewTypeTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
         {
-            CGFloat tilt = [self valueForOption:iCarouselOptionTilt withDefault:0.3];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
+            CGFloat tilt = [self valueForOption:OrgLoopViewOptionTilt withDefault:0.3];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
             
-            if (_type == iCarouselTypeInvertedTimeMachine)
+            if (_type == OrgLoopViewTypeInvertedTimeMachine)
             {
                 tilt = -tilt;
                 offset = -offset;
@@ -654,7 +652,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             if (_vertical)
             {
                 
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
                 
                 //invert again
                 tilt = -tilt;
@@ -671,7 +669,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     }
 }
 
-NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *self)
+NSComparisonResult loopViewCompareViewDepth(UIView *view1, UIView *view2, OrgLoopView *self)
 {
     //compare depths
     CATransform3D t1 = view1.superview.layer.transform;
@@ -702,11 +700,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     return (difference < 0.0)? NSOrderedAscending: NSOrderedDescending;
 }
 
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
 
 - (void)depthSortViews
 {
-    for (UIView *view in [[_itemViews allValues] sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))compareViewDepth context:(__bridge void *)self])
+    for (UIView *view in [[_itemViews allValues] sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))loopViewCompareViewDepth context:(__bridge void *)self])
     {
         [_contentView bringSubviewToFront:(UIView *__nonnull)view.superview];
     }
@@ -742,7 +740,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }
     }
     
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
     
     if (_vertical)
     {
@@ -769,11 +767,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     frame.size.height = _vertical? _itemWidth: frame.size.height;
     UIView *containerView = [[UIView alloc] initWithFrame:frame];
     
-#ifdef ICAROUSEL_MACOS
-
+#ifdef OrgLoopView_MACOS
+    
     //clipping works differently on Mac OS
     [containerView setBoundsSize:view.frame.size];
-
+    
 #endif
     
     //set view frame
@@ -794,8 +792,8 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     
     //update alpha
     view.superview.layer.opacity = [self alphaForItemWithOffset:offset];
-
-#ifdef ICAROUSEL_IOS
+    
+#ifdef OrgLoopView_IOS
     
     //center view
     view.superview.center = CGPointMake(self.bounds.size.width/2.0 + _contentOffset.width,
@@ -803,28 +801,28 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     
     //enable/disable interaction
     view.superview.userInteractionEnabled = (!_centerItemWhenSelected || index == self.currentItemIndex);
-  
+    
     //account for retina
     view.superview.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
+    
     [view layoutIfNeeded];
-
+    
 #else
     
     //center view
     [view.superview setFrameOrigin:NSMakePoint(self.bounds.size.width/2.0 + _contentOffset.width,
                                                self.bounds.size.height/2.0 + _contentOffset.height)];
     view.superview.layer.anchorPoint = CGPointMake(0.5, 0.5);
-  
+    
     //account for retina
     view.superview.layer.rasterizationScale = view.window.screen.backingScaleFactor;
-
+    
 #endif
     
-    //special-case logic for iCarouselTypeCoverFlow2
+    //special-case logic for OrgLoopViewTypeCoverFlow2
     CGFloat clampedOffset = MAX(-1.0, MIN(1.0, offset));
     if (_decelerating || (_scrolling && !_dragging && !_didDrag) || (_autoscroll && !_dragging) ||
-       (!_wrapEnabled && (_scrollOffset < 0 || _scrollOffset >= _numberOfItems - 1)))
+        (!_wrapEnabled && (_scrollOffset < 0 || _scrollOffset >= _numberOfItems - 1)))
     {
         if (offset > 0)
         {
@@ -838,47 +836,47 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     
     //calculate transform
     CATransform3D transform = [self transformForItemViewWithOffset:offset];
-  
+    NSLog(@"  ************ index: %ld 缩放：x:%f  y:%f  all:%f ********",index,transform.m11,transform.m22,transform.m44);
     //transform view
     view.superview.layer.transform = transform;
     
     //backface culling
-    BOOL showBackfaces = view.layer.doubleSided;
+    BOOL showBackfaces = view.layer.contentsScale;
     if (showBackfaces)
     {
         switch (_type)
         {
-            case iCarouselTypeInvertedCylinder:
+            case OrgLoopViewTypeInvertedCylinder:
             {
                 showBackfaces = NO;
                 break;
             }
-            case iCarouselTypeCoverFlow:
-            case iCarouselTypeCoverFlow2:
-            case iCarouselTypeCustom:
-            case iCarouselTypeCylinder:
-            case iCarouselTypeRotary:
-            case iCarouselTypeInvertedRotary:
-            case iCarouselTypeWheel:
-            case iCarouselTypeInvertedWheel:
-            case iCarouselTypeLinear:
-            case iCarouselTypeTimeMachine:
-            case iCarouselTypeInvertedTimeMachine:
+            case OrgLoopViewTypeCoverFlow:
+            case OrgLoopViewTypeCoverFlow2:
+            case OrgLoopViewTypeCustom:
+            case OrgLoopViewTypeCylinder:
+            case OrgLoopViewTypeRotary:
+            case OrgLoopViewTypeInvertedRotary:
+            case OrgLoopViewTypeWheel:
+            case OrgLoopViewTypeInvertedWheel:
+            case OrgLoopViewTypeLinear:
+            case OrgLoopViewTypeTimeMachine:
+            case OrgLoopViewTypeInvertedTimeMachine:
             {
                 showBackfaces = YES;
                 break;
             }
         }
     }
-    showBackfaces = !![self valueForOption:iCarouselOptionShowBackfaces withDefault:showBackfaces];
+    showBackfaces = !![self valueForOption:OrgLoopViewOptionShowBackfaces withDefault:showBackfaces];
     
     //we can't just set the layer.doubleSided property because it doesn't block interaction
     //instead we'll calculate if the view is front-facing based on the transform
     view.superview.hidden = !(showBackfaces ?: (transform.m33 > 0.0));
-    NSLog(@" %s view.frame.origin.x:%f",__FUNCTION__,view.frame.origin.x);
+//    NSLog(@" %s view.frame.origin.x:%f",__FUNCTION__,view.frame.origin.x);
 }
 
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
 
 - (void)resizeSubviewsWithOldSize:(__unused NSSize)oldSize
 {
@@ -933,47 +931,47 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     //get number of visible items
     switch (_type)
     {
-        case iCarouselTypeLinear:
+        case OrgLoopViewTypeLinear:
         {
             //exact number required to fill screen
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
             CGFloat width = _vertical ? self.bounds.size.height: self.bounds.size.width;
             CGFloat itemWidth = _itemWidth * spacing;
             _numberOfVisibleItems = ceil(width / itemWidth) + 2;
             break;
         }
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
         {
             //exact number required to fill screen
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:0.25];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:0.25];
             CGFloat width = _vertical ? self.bounds.size.height: self.bounds.size.width;
             CGFloat itemWidth = _itemWidth * spacing;
             _numberOfVisibleItems = ceil(width / itemWidth) + 2;
             break;
         }
-        case iCarouselTypeRotary:
-        case iCarouselTypeCylinder:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeCylinder:
         {
             //based on count value
             _numberOfVisibleItems = [self circularCarouselItemCount];
             break;
         }
-        case iCarouselTypeInvertedRotary:
-        case iCarouselTypeInvertedCylinder:
+        case OrgLoopViewTypeInvertedRotary:
+        case OrgLoopViewTypeInvertedCylinder:
         {
             //TODO: improve this
             _numberOfVisibleItems = ceil([self circularCarouselItemCount] / 2.0);
             break;
         }
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
         {
             //TODO: improve this
             CGFloat count = [self circularCarouselItemCount];
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
-            CGFloat arc = [self valueForOption:iCarouselOptionArc withDefault:M_PI * 2.0];
-            CGFloat radius = [self valueForOption:iCarouselOptionRadius withDefault:_itemWidth * spacing * count / arc];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
+            CGFloat arc = [self valueForOption:OrgLoopViewOptionArc withDefault:M_PI * 2.0];
+            CGFloat radius = [self valueForOption:OrgLoopViewOptionRadius withDefault:_itemWidth * spacing * count / arc];
             if (radius - _itemWidth / 2.0 < MIN(self.bounds.size.width, self.bounds.size.height) / 2.0)
             {
                 _numberOfVisibleItems = count;
@@ -984,9 +982,9 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             }
             break;
         }
-        case iCarouselTypeTimeMachine:
-        case iCarouselTypeInvertedTimeMachine:
-        case iCarouselTypeCustom:
+        case OrgLoopViewTypeTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
+        case OrgLoopViewTypeCustom:
         {
             //slightly arbitrary number, chosen for performance reasons
             _numberOfVisibleItems = MAX_VISIBLE_ITEMS;
@@ -994,9 +992,9 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }
     }
     _numberOfVisibleItems = MIN(MAX_VISIBLE_ITEMS, _numberOfVisibleItems);
-    _numberOfVisibleItems = [self valueForOption:iCarouselOptionVisibleItems withDefault:_numberOfVisibleItems];
+    _numberOfVisibleItems = [self valueForOption:OrgLoopViewOptionVisibleItems withDefault:_numberOfVisibleItems];
     _numberOfVisibleItems = MAX(0, MIN(_numberOfVisibleItems, _numberOfItems + _numberOfPlaceholdersToShow));
-
+    
 }
 
 - (NSInteger)circularCarouselItemCount
@@ -1004,32 +1002,32 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     NSInteger count = 0;
     switch (_type)
     {
-        case iCarouselTypeRotary:
-        case iCarouselTypeInvertedRotary:
-        case iCarouselTypeCylinder:
-        case iCarouselTypeInvertedCylinder:
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeInvertedRotary:
+        case OrgLoopViewTypeCylinder:
+        case OrgLoopViewTypeInvertedCylinder:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
         {
             //slightly arbitrary number, chosen for aesthetic reasons
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
+            CGFloat spacing = [self valueForOption:OrgLoopViewOptionSpacing withDefault:1.0];
             CGFloat width = _vertical ? self.bounds.size.height: self.bounds.size.width;
             count = MIN(MAX_VISIBLE_ITEMS, MAX(12, ceil(width / (spacing * _itemWidth)) * M_PI));
             count = MIN(_numberOfItems + _numberOfPlaceholdersToShow, count);
             break;
         }
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
-        case iCarouselTypeTimeMachine:
-        case iCarouselTypeInvertedTimeMachine:
-        case iCarouselTypeLinear:
-        case iCarouselTypeCustom:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
+        case OrgLoopViewTypeTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
+        case OrgLoopViewTypeLinear:
+        case OrgLoopViewTypeCustom:
         {
             //not used for non-circular carousels
             return _numberOfItems + _numberOfPlaceholdersToShow;
         }
     }
-    return [self valueForOption:iCarouselOptionCount withDefault:count];
+    return [self valueForOption:OrgLoopViewOptionCount withDefault:count];
 }
 
 - (void)layOutItemViews
@@ -1039,32 +1037,32 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     {
         return;
     }
-
+    
     //update wrap
     switch (_type)
     {
-        case iCarouselTypeRotary:
-        case iCarouselTypeInvertedRotary:
-        case iCarouselTypeCylinder:
-        case iCarouselTypeInvertedCylinder:
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeInvertedRotary:
+        case OrgLoopViewTypeCylinder:
+        case OrgLoopViewTypeInvertedCylinder:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
         {
             _wrapEnabled = YES;
             break;
         }
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
-        case iCarouselTypeTimeMachine:
-        case iCarouselTypeInvertedTimeMachine:
-        case iCarouselTypeLinear:
-        case iCarouselTypeCustom:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
+        case OrgLoopViewTypeTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
+        case OrgLoopViewTypeLinear:
+        case OrgLoopViewTypeCustom:
         {
             _wrapEnabled = NO;
             break;
         }
     }
-    _wrapEnabled = !![self valueForOption:iCarouselOptionWrap withDefault:_wrapEnabled];
+    _wrapEnabled = !![self valueForOption:OrgLoopViewOptionWrap withDefault:_wrapEnabled];
     
     //no placeholders on wrapped carousels
     _numberOfPlaceholdersToShow = _wrapEnabled? 0: _numberOfPlaceholders;
@@ -1081,29 +1079,29 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     //update offset multiplier
     switch (_type)
     {
-        case iCarouselTypeCoverFlow:
-        case iCarouselTypeCoverFlow2:
+        case OrgLoopViewTypeCoverFlow:
+        case OrgLoopViewTypeCoverFlow2:
         {
             _offsetMultiplier = 2.0;
             break;
         }
-        case iCarouselTypeCylinder:
-        case iCarouselTypeInvertedCylinder:
-        case iCarouselTypeWheel:
-        case iCarouselTypeInvertedWheel:
-        case iCarouselTypeRotary:
-        case iCarouselTypeInvertedRotary:
-        case iCarouselTypeTimeMachine:
-        case iCarouselTypeInvertedTimeMachine:
-        case iCarouselTypeLinear:
-        case iCarouselTypeCustom:
+        case OrgLoopViewTypeCylinder:
+        case OrgLoopViewTypeInvertedCylinder:
+        case OrgLoopViewTypeWheel:
+        case OrgLoopViewTypeInvertedWheel:
+        case OrgLoopViewTypeRotary:
+        case OrgLoopViewTypeInvertedRotary:
+        case OrgLoopViewTypeTimeMachine:
+        case OrgLoopViewTypeInvertedTimeMachine:
+        case OrgLoopViewTypeLinear:
+        case OrgLoopViewTypeCustom:
         {
             _offsetMultiplier = 1.0;
             break;
         }
     }
-    _offsetMultiplier = [self valueForOption:iCarouselOptionOffsetMultiplier withDefault:_offsetMultiplier];
-
+    _offsetMultiplier = [self valueForOption:OrgLoopViewOptionOffsetMultiplier withDefault:_offsetMultiplier];
+    
     //align
     if (!_scrolling && !_decelerating && !_autoscroll)
     {
@@ -1216,7 +1214,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }
         containerView.bounds = frame;
         
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
         
         //clipping works differently on Mac OS
         [containerView setBoundsSize:view.frame.size];
@@ -1313,7 +1311,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 }
 
 - (void)reloadData
-{    
+{
     //remove old views
     for (UIView *view in [_itemViews allValues])
     {
@@ -1330,7 +1328,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     _numberOfVisibleItems = 0;
     _numberOfItems = [_dataSource numberOfItemsInCarousel:self];
     _numberOfPlaceholders = [_dataSource numberOfPlaceholdersInCarousel:self];
-
+    
     //reset view pools
     self.itemViews = [NSMutableDictionary dictionary];
     self.itemViewPool = [NSMutableSet set];
@@ -1383,7 +1381,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 }
 
 - (NSInteger)currentItemIndex
-{   
+{
     return [self clampedIndex:round(_scrollOffset)];
 }
 
@@ -1476,7 +1474,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 }
 
 - (void)scrollToItemAtIndex:(NSInteger)index animated:(BOOL)animated
-{   
+{
     [self scrollToItemAtIndex:index duration:animated? SCROLL_DURATION: 0];
 }
 
@@ -1488,7 +1486,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     if (animated)
     {
         
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.1];
@@ -1505,20 +1503,20 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [UIView setAnimationDidStopSelector:@selector(depthSortViews)];
         [self removeViewAtIndex:index];
         _numberOfItems --;
-        _wrapEnabled = !![self valueForOption:iCarouselOptionWrap withDefault:_wrapEnabled];
+        _wrapEnabled = !![self valueForOption:OrgLoopViewOptionWrap withDefault:_wrapEnabled];
         [self updateNumberOfVisibleItems];
         _scrollOffset = self.currentItemIndex;
         [self didScroll];
         [UIView commitAnimations];
         
 #else
-		[NSAnimationContext beginGrouping];
-		[[NSAnimationContext currentContext] setAllowsImplicitAnimation:YES];
+        [NSAnimationContext beginGrouping];
+        [[NSAnimationContext currentContext] setAllowsImplicitAnimation:YES];
         [CATransaction begin];
         [CATransaction setAnimationDuration:0.1];
         [CATransaction setCompletionBlock:^{
             [self queueItemView:itemView];
-            [itemView.superview removeFromSuperview]; 
+            [itemView.superview removeFromSuperview];
         }];
         itemView.superview.layer.opacity = 0.0;
         [CATransaction commit];
@@ -1526,15 +1524,15 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [CATransaction begin];
         [CATransaction setAnimationDuration:INSERT_DURATION];
         [CATransaction setCompletionBlock:^{
-            [self depthSortViews]; 
+            [self depthSortViews];
         }];
         [self removeViewAtIndex:index];
         _numberOfItems --;
-        _wrapEnabled = !![self valueForOption:iCarouselOptionWrap withDefault:_wrapEnabled];
+        _wrapEnabled = !![self valueForOption:OrgLoopViewOptionWrap withDefault:_wrapEnabled];
         _scrollOffset = self.currentItemIndex;
         [self didScroll];
         [CATransaction commit];
-		[NSAnimationContext endGrouping];        
+        [NSAnimationContext endGrouping];
 #endif
         
     }
@@ -1545,7 +1543,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [itemView.superview removeFromSuperview];
         [self removeViewAtIndex:index];
         _numberOfItems --;
-        _wrapEnabled = !![self valueForOption:iCarouselOptionWrap withDefault:_wrapEnabled];
+        _wrapEnabled = !![self valueForOption:OrgLoopViewOptionWrap withDefault:_wrapEnabled];
         _scrollOffset = self.currentItemIndex;
         [self didScroll];
         [self depthSortViews];
@@ -1556,7 +1554,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 - (void)insertItemAtIndex:(NSInteger)index animated:(BOOL)animated
 {
     _numberOfItems ++;
-    _wrapEnabled = !![self valueForOption:iCarouselOptionWrap withDefault:_wrapEnabled];
+    _wrapEnabled = !![self valueForOption:OrgLoopViewOptionWrap withDefault:_wrapEnabled];
     [self updateNumberOfVisibleItems];
     
     index = [self clampedIndex:index];
@@ -1570,8 +1568,8 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     
     if (animated)
     {
-
-#ifdef ICAROUSEL_IOS
+        
+#ifdef OrgLoopView_IOS
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:INSERT_DURATION];
@@ -1581,8 +1579,8 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [UIView commitAnimations];
         
 #else
-		[NSAnimationContext beginGrouping];
-		[[NSAnimationContext currentContext] setAllowsImplicitAnimation:YES];
+        [NSAnimationContext beginGrouping];
+        [[NSAnimationContext currentContext] setAllowsImplicitAnimation:YES];
         [CATransaction begin];
         [CATransaction setAnimationDuration:INSERT_DURATION];
         [CATransaction setCompletionBlock:^{
@@ -1590,9 +1588,9 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }];
         [self transformItemViews];
         [CATransaction commit];
-		[NSAnimationContext endGrouping];
+        [NSAnimationContext endGrouping];
 #endif
-    
+        
     }
     else
     {
@@ -1642,11 +1640,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                                             repeats:YES];
         
         [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
-
-#ifdef ICAROUSEL_IOS
+        
+#ifdef OrgLoopView_IOS
         
         [[NSRunLoop mainRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
-
+        
 #endif
         
     }
@@ -1717,7 +1715,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     distance = _endOffset - _startOffset;
     
     _startTime = CACurrentMediaTime();
-    _scrollDuration = fabs(distance) / fabs(0.5 * _startVelocity);   
+    _scrollDuration = fabs(distance) / fabs(0.5 * _startVelocity);
     
     if (distance != 0.0)
     {
@@ -1817,7 +1815,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
     [self popAnimationState];
 }
 
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
 
 - (void)didMoveToSuperview
 
@@ -1867,7 +1865,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         _toggleTime = CACurrentMediaTime();
         _toggle = MAX(-1, MIN(1, difference));
         
-#ifdef ICAROUSEL_MACOS
+#ifdef OrgLoopView_MACOS
         
         if (_vertical)
         {
@@ -1880,7 +1878,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [self startAnimation];
     }
     
-    [self loadUnloadViews];    
+    [self loadUnloadViews];
     [self transformItemViews];
     
     //notify delegate of offset change
@@ -1898,14 +1896,14 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [_delegate carouselCurrentItemIndexDidChange:self];
         [self popAnimationState];
     }
-
+    
     //update previous index
     _previousScrollOffset = _scrollOffset;
     _previousItemIndex = self.currentItemIndex;
-} 
+}
 
 
-#ifdef ICAROUSEL_IOS
+#ifdef OrgLoopView_IOS
 
 
 #pragma mark -
@@ -2064,14 +2062,15 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             [self scrollToItemAtIndex:self.currentItemIndex animated:YES];
         }
     }
-    else 
+    else
     {
-    	[self scrollToItemAtIndex:self.currentItemIndex animated:YES];
+        [self scrollToItemAtIndex:self.currentItemIndex animated:YES];
     }
 }
 
 - (void)didPan:(UIPanGestureRecognizer *)panGesture
 {
+    NSLog(@"panGesture.state: %ld",panGesture.state);
     if (_scrollEnabled && _numberOfItems)
     {
         switch (panGesture.state)
@@ -2082,12 +2081,12 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
                 _scrolling = NO;
                 _decelerating = NO;
                 _previousTranslation = _vertical? [panGesture translationInView:self].y: [panGesture translationInView:self].x;
-
+                
 #if defined(USING_CHAMELEON) && USING_CHAMELEON
-
+                
                 _previousTranslation = -_previousTranslation;
 #endif
-
+                
                 [_delegate carouselWillBeginDragging:self];
                 break;
             }
@@ -2144,13 +2143,13 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
             {
                 CGFloat translation = _vertical? [panGesture translationInView:self].y: [panGesture translationInView:self].x;
                 CGFloat velocity = _vertical? [panGesture velocityInView:self].y: [panGesture velocityInView:self].x;
-
+                
 #if defined(USING_CHAMELEON) && USING_CHAMELEON
-
+                
                 translation = -translation;
                 velocity = -velocity;
 #endif
-
+                
                 CGFloat factor = 1.0;
                 if (!_wrapEnabled && _bounces)
                 {
@@ -2253,7 +2252,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         [self pushAnimationState:YES];
         [_delegate carouselDidEndDragging:self willDecelerate:_decelerating];
         [self popAnimationState];
-
+        
         if (!_decelerating && !_autoscroll)
         {
             if ([self shouldScroll])

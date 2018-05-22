@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0FFCEB20AE9A2800E60CA7 /* OrgLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0FFCEA20AE9A2800E60CA7 /* OrgLoopView.m */; };
 		7B4921EF20A1A31C0048E34A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4921EE20A1A31C0048E34A /* AppDelegate.m */; };
 		7B4921F220A1A31C0048E34A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4921F120A1A31C0048E34A /* ViewController.m */; };
 		7B4921F520A1A31C0048E34A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4921F320A1A31C0048E34A /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B0FFCE920AE9A2800E60CA7 /* OrgLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrgLoopView.h; sourceTree = "<group>"; };
+		7B0FFCEA20AE9A2800E60CA7 /* OrgLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrgLoopView.m; sourceTree = "<group>"; };
 		7B4921EA20A1A31C0048E34A /* 3D效果.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3D效果.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4921ED20A1A31C0048E34A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B4921EE20A1A31C0048E34A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			children = (
 				7B49224120A2920F0048E34A /* iCarousel.h */,
 				7B49224220A2920F0048E34A /* iCarousel.m */,
+				7B0FFCE920AE9A2800E60CA7 /* OrgLoopView.h */,
+				7B0FFCEA20AE9A2800E60CA7 /* OrgLoopView.m */,
 			);
 			path = iCarousel;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				7B49223F20A291980048E34A /* ThirdViewController.m in Sources */,
 				7B4921FD20A1A31F0048E34A /* main.m in Sources */,
 				7B49222120A1A3A20048E34A /* OrgLoopLayout.m in Sources */,
+				7B0FFCEB20AE9A2800E60CA7 /* OrgLoopView.m in Sources */,
 				7B49224420A2920F0048E34A /* iCarousel.m in Sources */,
 				7B4921EF20A1A31C0048E34A /* AppDelegate.m in Sources */,
 			);

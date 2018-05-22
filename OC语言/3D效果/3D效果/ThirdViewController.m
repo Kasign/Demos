@@ -7,10 +7,12 @@
 //
 
 #import "ThirdViewController.h"
-#import "iCarousel.h"
+#import "OrgLoopView.h"
+#import <math.h>
 
-#define OrgTransformSide    30.f
-#define OrgTransFormCount   5
+#define OrgTransformSide    20.f
+#define OrgTransFormCount   25
+
 
 #define OrgScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define OrgScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -18,14 +20,14 @@
 //#define OrgLog(...) NSLog(__VA_ARGS__)
 #define OrgLog(...)
 
-@interface ThirdViewController ()<iCarouselDataSource, iCarouselDelegate>{
+@interface ThirdViewController ()<OrgLoopViewDataSource, OrgLoopViewDelegate>{
     CGFloat _width;
     CGFloat _height;
 }
 
 @property (nonatomic, assign) BOOL wrap;
 @property (nonatomic, strong) NSMutableArray *items;
-@property (nonatomic, strong) iCarousel *carousel;
+@property (nonatomic, strong) OrgLoopView *carousel;
 @property (nonatomic, strong) dispatch_source_t  timer;
 
 @end
@@ -55,18 +57,39 @@
 
     //configure carousel
     
-    _width  = MIN(OrgScreenWidth, OrgScreenHeight) - OrgTransformSide * 2;
+    _width  = 414.f;
     _height = _width * 139 / 300.f;
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(OrgTransformSide, 200, _width, _height)];
-    _carousel.backgroundColor = [UIColor clearColor];
-    _carousel.type = iCarouselTypeRotary;//iCarouselTypeCustom iCarouselTypeRotary
+    _carousel = [[OrgLoopView alloc] initWithFrame:CGRectMake(OrgTransformSide, 200, 414.f, _height)];
+    _carousel.backgroundColor = [[UIColor cyanColor] colorWithAlphaComponent:0.4];
+    _carousel.type = OrgLoopViewTypeCoverFlow;//OrgLoopViewTypeCustom OrgLoopViewTypeRotary
     _carousel.delegate = self;
     _carousel.dataSource = self;
 //    [self autoScroll];
     _carousel.pagingEnabled = YES;
     _carousel.bounceDistance = 0.35;
+    [_carousel setClipsToBounds:YES];
     [self.view addSubview:_carousel];
+    
+    
+    CGFloat screenWidth = OrgScreenWidth;
+    CGFloat distance    = 0;
+    CGFloat perspective = -0.002;
+    
+    CGFloat itemWidth = screenWidth - 2 * distance;//item 宽
+    CGFloat itemHight = itemWidth * 139 / 300.f;//item 高
+    CGFloat scale = 1/(-itemWidth * 0.5 * perspective + 1);//缩放比例
+    CGFloat disY = (1 - scale) * itemHight * 0.5;//y方向上边界距离
+    CGFloat disX = itemWidth * (1 - scale) * 0.5;//平移前x方向上边界距离
+    CGFloat resultDis = (disX + disY)/scale;//让x方向与y方向平移后显示的移出距离
+    
+    distance = ((itemWidth * (1 - (1/(-itemWidth * 0.5 * perspective + 1))) * 0.5) + ((1 - (1/(-itemWidth * 0.5 * perspective + 1))) * (itemWidth * 139 / 300.f) * 0.5))/(1/(-itemWidth * 0.5 * perspective + 1));
+    
+    
+    CGFloat spacing = resultDis/itemWidth;//确定spacing的值
+    
+    NSLog(@"%f   %f",resultDis,spacing);
+    
 }
 
 - (void)autoScroll {
@@ -88,6 +111,7 @@
         });
         dispatch_resume(weakSelf.timer);
     });
+    
 }
 
 - (void)viewWillLayoutSubviews {
@@ -97,19 +121,19 @@
 }
 
 #pragma mark -
-#pragma mark iCarousel methods
+#pragma mark OrgLoopView methods
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
+- (CGFloat)carouselItemWidth:(OrgLoopView *)carousel {
     
-    return _width - OrgTransformSide;
+    return _width - OrgTransformSide * 2;
 }
 
-- (NSInteger)numberOfItemsInCarousel:(__unused iCarousel *)carousel
+- (NSInteger)numberOfItemsInCarousel:(__unused OrgLoopView *)carousel
 {
     return (NSInteger)[self.items count];
 }
 
-- (UIView *)carousel:(__unused iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+- (UIView *)carousel:(__unused OrgLoopView *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     UILabel *label = nil;
     
@@ -135,6 +159,8 @@
         } else if (index % 3 == 2) {
             view.backgroundColor = [UIColor redColor];
         }
+        
+        [label setText:[NSString stringWithFormat:@"%@",[_items objectAtIndex:index]]];
     }
     else
     {
@@ -145,13 +171,13 @@
     return view;
 }
 
-- (NSInteger)numberOfPlaceholdersInCarousel:(__unused iCarousel *)carousel
+- (NSInteger)numberOfPlaceholdersInCarousel:(__unused OrgLoopView *)carousel
 {
     //note: placeholder views are only displayed on some carousels if wrapping is disabled
     return 2;
 }
 
-- (UIView *)carousel:(__unused iCarousel *)carousel placeholderViewAtIndex:(NSInteger)index reusingView:(UIView *)view
+- (UIView *)carousel:(__unused OrgLoopView *)carousel placeholderViewAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     UILabel *label = nil;
     
@@ -180,150 +206,147 @@
     return view;
 }
 
-- (CATransform3D)carousel:(__unused iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
+- (CATransform3D)carousel:(__unused OrgLoopView *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
 {
-    CGFloat tilt = 0.45;
+    CGFloat tilt = 35/360.f;
     CGFloat spacing = 0.25;
-    CGFloat clampedOffset = MAX(-1.0, MIN(1.0, offset));
-    CGFloat toggle = carousel.toggle;
+    CGFloat clampedOffset = MAX(-1.0, MIN(1.0, offset)); //offset [-1.0 , 1.0]
+//    CGFloat toggle    = carousel.toggle;
     CGFloat itemWidth = carousel.itemWidth;
-  
-    if (toggle > 0.0)
-    {
-        if (offset <= -0.5)
-        {
-            clampedOffset = -1.0;
-        }
-        else if (offset <= 0.5)
-        {
-            clampedOffset = -toggle;
-        }
-        else if (offset <= 1.5)
-        {
-            clampedOffset = 1.0 - toggle;
-        }
-    }
-    else
-    {
-        if (offset > 0.5)
-        {
-            clampedOffset = 1.0;
-        }
-        else if (offset > -0.5)
-        {
-            clampedOffset = -toggle;
-        }
-        else if (offset > -1.5)
-        {
-            clampedOffset = - 1.0 - toggle;
-        }
-    }
     
     CGFloat x = (clampedOffset * 0.5 * tilt + offset * spacing) * itemWidth * 0.8;
+    x = clampedOffset * 0.23 * itemWidth;
     CGFloat z = fabs(clampedOffset) * -itemWidth * 0.5;
+    CGFloat angle = -clampedOffset * M_PI_2 * tilt;
+    if (fabs(offset) == 1) {
+        NSLog(@" **** offset:%f    x: %f   angle: %f ****",offset,x,angle);
+    }
+    
     transform = CATransform3DTranslate(transform, x, 0, z);
-    transform = CATransform3DRotate(transform, -clampedOffset * M_PI_2 * tilt, 0.0, 1.0, 0.0);;
+    transform = CATransform3DRotate(transform, angle, 0.0, 1.0, 0.0);;
     return transform;
 }
 
-- (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+- (CGFloat)carousel:(__unused OrgLoopView *)carousel valueForOption:(OrgLoopViewOption)option withDefault:(CGFloat)value
 {
-    //customize carousel display
-//    CATransform3DTranslate(transform, radius * sin(angle), 0.0, radius * cos(angle) - radius)
     switch (option)
     {
-        case iCarouselOptionWrap:
+        case OrgLoopViewOptionWrap:
         {
             //normally you would hard-code this to YES or NO
-            OrgLog(@" iCarouselOptionWrap %f",value);
+            OrgLog(@" OrgLoopViewOptionWrap %f",value);
             return self.wrap;
         }
-        case iCarouselOptionSpacing:
+        case OrgLoopViewOptionSpacing:
         {
             //add a bit of spacing between the item views
-            OrgLog(@" iCarouselOptionSpacing %f",value);
+            OrgLog(@" OrgLoopViewOptionSpacing %f",value);
+            CGFloat itemWidth = carousel.itemWidth;//item 宽
+            CGFloat itemHight = carousel.bounds.size.height;//item 高
+            CGFloat scale = 1/(-itemWidth * 0.5 * carousel.perspective + 1);//缩放比例
+            CGFloat disY = (1 - scale) * itemHight * 0.5;//y方向上边界距离
+            CGFloat disX = itemWidth * (1 - scale) * 0.5;//平移前x方向上边界距离
+            CGFloat resultDis = (disX + disY)/scale;//让x方向与y方向平移后显示的移出距离
+            CGFloat spacing = resultDis/itemWidth;//确定spacing的值
+            
+            return spacing;
             return value;
         }
-        case iCarouselOptionFadeMax:
+        case OrgLoopViewOptionFadeMax:
         {
-            if (self.carousel.type == iCarouselTypeCustom)
+            if (self.carousel.type == OrgLoopViewTypeCustom)
             {
                 //set opacity based on distance from camera
-                OrgLog(@" iCarouselOptionFadeMax %f",value);
+                OrgLog(@" OrgLoopViewOptionFadeMax %f",value);
                 return carousel.itemWidth * 0.5f;
             }
             return value;
         }
-        case iCarouselOptionShowBackfaces:
+        case OrgLoopViewOptionShowBackfaces:
         {
-            OrgLog(@" iCarouselOptionShowBackfaces %f",value);
+            OrgLog(@" OrgLoopViewOptionShowBackfaces %f",value);
             return YES;
         }
-        case iCarouselOptionVisibleItems:
+        case OrgLoopViewOptionVisibleItems:
         {
-            OrgLog(@" iCarouselOptionVisibleItems %f",value);
-            return 3;
+            OrgLog(@" OrgLoopViewOptionVisibleItems %f",value);
+            return value;
         }
-        case iCarouselOptionAngle:
+        case OrgLoopViewOptionAngle:
         {
-            OrgLog(@"iCarouselOptionAngle %f",value);
+            OrgLog(@"OrgLoopViewOptionAngle %f",value);
             return value ;
         }
-        case iCarouselOptionCount:
+        case OrgLoopViewOptionCount:
         {
-            OrgLog(@" iCarouselOptionCount %f",value);
+            OrgLog(@" OrgLoopViewOptionCount %f",value);
             return value;
         }
-        case iCarouselOptionRadius:
+        case OrgLoopViewOptionRadius:
         {
-            OrgLog(@"iCarouselOptionRadius %f",value);
+            OrgLog(@"OrgLoopViewOptionRadius %f",value);
             return value;
         }
-        case iCarouselOptionArc:
+        case OrgLoopViewOptionArc:
         {
-            OrgLog(@" iCarouselOptionArc %f",value);
+            OrgLog(@" OrgLoopViewOptionArc %f",value);
             return value;
         }
-        case iCarouselOptionTilt:
+        case OrgLoopViewOptionTilt:
         {
-            OrgLog(@" iCarouselOptionTilt %f",value);
+            OrgLog(@" OrgLoopViewOptionTilt %f",value);
+            return 0;
             return value;
         }
-        case iCarouselOptionFadeMin:
+        case OrgLoopViewOptionFadeMin:
         {
-            OrgLog(@" iCarouselOptionFadeMin %f",value);
+            OrgLog(@" OrgLoopViewOptionFadeMin %f",value);
             return value;
         }
-        case iCarouselOptionFadeMinAlpha:
+        case OrgLoopViewOptionFadeMinAlpha:
         {
-            OrgLog(@" iCarouselOptionFadeMinAlpha %f",value);
+            OrgLog(@" OrgLoopViewOptionFadeMinAlpha %f",value);
             return value;
         }
-        case iCarouselOptionFadeRange:
+        case OrgLoopViewOptionFadeRange:
         {
-            OrgLog(@" iCarouselOptionFadeRange %f",value);
+            OrgLog(@" OrgLoopViewOptionFadeRange %f",value);
             return value;
         }
-        case iCarouselOptionOffsetMultiplier:
+        case OrgLoopViewOptionOffsetMultiplier:
         {
-            OrgLog(@" iCarouselOptionOffsetMultiplier %f",value);
+            OrgLog(@" OrgLoopViewOptionOffsetMultiplier %f",value);
             return value;
         }
     }
 }
 
 #pragma mark -
-#pragma mark iCarousel taps
+#pragma mark OrgLoopView taps
 
-- (void)carousel:(__unused iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+- (void)carousel:(__unused OrgLoopView *)carousel didSelectItemAtIndex:(NSInteger)index
 {
     NSNumber *item = (self.items)[(NSUInteger)index];
     OrgLog(@"Tapped view number: %@", item);
 }
 
-- (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel
+- (void)carouselCurrentItemIndexDidChange:(__unused OrgLoopView *)carousel
 {
     OrgLog(@"Index: %@", @(self.carousel.currentItemIndex));
+}
+
+- (void)carouselWillBeginDragging:(OrgLoopView *)carousel {
+    
+    if (_timer) {
+        dispatch_source_cancel(_timer);
+    }
+}
+
+- (void)carouselDidEndDragging:(OrgLoopView *)carousel willDecelerate:(BOOL)decelerate {
+    
+    if (_timer) {
+        dispatch_resume(_timer);
+    }
 }
 
 
