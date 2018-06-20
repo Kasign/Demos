@@ -31,78 +31,84 @@
     
     __block typeof(_imageView) blockImageView = _imageView;
     [UIView animateWithDuration:1.6 animations:^{
-        CATransform3D trans = CATransform3DIdentity;
-//        trans.m34 = -1/200.0;
-        trans = CATransform3DRotate(trans, 20*M_PI/180.f, 1, 1, 0);
-        //        trans = CATransform3DTranslate (trans, 20.f, 10.f, 15.f);
-        //        trans = CATransform3DScale (trans, 1.2, 1.3, 1.4);
+        //        CATransform3D trans = CATransform3DIdentity;
+        //        trans.m34 = -1/500.0;
+        //        CGFloat angle = 0.2;
+        //        trans = CATransform3DRotate(trans, angle, 1, 0, 0);
+        //        CATransform3D transForm = CATransform3DMakeRotation(angle, 0, 1, 0);
+        //        blockImageView.layer.transform   = CATransform3DConcat(trans, transForm);
         
-      CATransform3D transForm = CATransform3DMakeRotation(0.32, 1, 1, 1);
-//        trans.m11 = 1;
-//        trans.m22 = 1;
-//        trans.m33 = 1;
-        //        trans.m41 = 0;
-        //        trans.m42 = 0;
-        //        trans.m43 = 0;
-        //        blockImageView.layer.anchorPoint = CGPointMake(1.0, 0.5);
+        CGAffineTransform transform = CGAffineTransformMake(1,1,1,1,1,1);
+        blockImageView.transform = transform;
         
-        blockImageView.layer.transform   = CATransform3DConcat(trans, transForm);
+        transform = CGAffineTransformMakeRotation(0.22);//绕z旋转
+        blockImageView.transform = transform;
     }];
     
-    //    CATransform3DRotate(trans, M_PI/90.f, 0, 1, 0) CATransform3D t, CGFloat angle, CGFloat x, CGFloat y, CGFloat z
-    //    (m11 = 1, m12 = 0, m13 = -0.034, m14 = 0.00034,
-    //     m21 = 0, m22 = 1, m23 = 0, m24 = 0,
-    //     m31 = 0.034, m32 = 0, m33 = 1, m34 = -0.01,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
-    
-    //    (m11 = 1, m12 = 0, m13 = -0.034, m14 = 0,
-    //     m21 = 0, m22 = 1, m23 = 0, m24 = 0,
-    //     m31 = 0.034, m32 = 0, m33 = 1, m34 = 0,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
-    
-    //    CATransform3DRotate(trans, M_PI/90.f, 0, 0, 1);
-    //    (m11 = 1, m12 = 0.034, m13 = 0,  m14 = 0,
-    //     m21 = -0.034, m22 = 1, m23 = 0, m24 = 0,
-    //     m31 = 0, m32 = 0, m33 = 1,      m34 = 0,
-    //     m41 = 0, m42 = 0, m43 = 0,      m44 = 1)
-    
-    //    (m11 = 1, m12 = 0, m13 = 0, m14 = 0,
-    //     m21 = 0, m22 = 1, m23 = 0.034, m24 = 0,
-    //     m31 = 0, m32 = -0.034, m33 = 1, m34 = 0,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
-    
-    //    CATransform3DTranslate (trans, 20.f,10.f, 15.f) CATransform3D t, CGFloat tx, CGFloat ty, CGFloat tz
-    //    (m11 = 1, m12 = 0, m13 = 0, m14 = 0,
-    //     m21 = 0, m22 = 1, m23 = 0, m24 = 0,
-    //     m31 = 0, m32 = 0, m33 = 1, m34 = -0.01,
-    //     m41 = 20, m42 = 10, m43 = 15, m44 = 0.85)
-    
-    //    CATransform3DScale (trans, 1.2, 1.3, 1.4) CATransform3D t, CGFloat sx, CGFloat sy, CGFloat sz
-    //    (m11 = 1.2, m12 = 0, m13 = 0, m14 = 0,
-    //     m21 = 0, m22 = 1.3, m23 = 0, m24 = 0,
-    //     m31 = 0, m32 = 0, m33 = 1.4, m34 = -0.014,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
-    
-    //    CATransform3DRotate(trans, 20*M_PI/180.f, 1, 1, 0)  M_PI/9.0 = 0.348
-    //    (m11 = 0.96984631039295421,  m12 = 0.030153689607045779, m13 = -0.24184476264797522, m14 = 0,
-    //     m21 = 0.030153689607045779, m22 = 0.96984631039295421,  m23 = 0.24184476264797522, m24 = 0,
-    //     m31 = 0.24184476264797522,  m32 = -0.24184476264797522, m33 = 0.93969262078590842, m34 = 0,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
     
     
-    //    (m11 = 0.96615694538829389, m12 = 0.1985366157556234, m13 = -0.16469356114391728, m14 = 0,
-    //     m21 = -0.16469356114391728, m22 = 0.96615694538829389, m23 = 0.1985366157556234, m24 = 0,
-    //     m31 = 0.1985366157556234, m32 = -0.16469356114391728, m33 = 0.96615694538829389, m34 = 0,
-    //     m41 = 0, m42 = 0, m43 = 0, m44 = 1)
+    //    CATransform3DMakeRotation(0.22, 1, 1, 1)
+    //    (m11 = 0.9839316328870702,   m12 = 0.1340291151873553,   m13 = -0.11796074807442565, m14 = 0,
+    //     m21 = -0.11796074807442565, m22 = 0.9839316328870702,   m23 = 0.1340291151873553,   m24 = 0,
+    //     m31 = 0.1340291151873553,   m32 = -0.11796074807442565, m33 = 0.9839316328870702,   m34 = 0,
+    //     m41 = 0,                    m42 = 0,                    m43 = 0,                    m44 = 1)
+  
+    //    CATransform3DMakeRotation(0.22, 1, 1, 0);
+    //    (m11 = 0.9879487246653027,   m12 = 0.012051275334697239, m13 = -0.15431164633626698, m14 = 0,
+    //     m21 = 0.012051275334697239, m22 = 0.9879487246653027,   m23 = 0.15431164633626698,  m24 = 0,
+    //     m31 = 0.15431164633626698,  m32 = -0.15431164633626698, m33 = 0.97589744933060551,  m34 = 0,
+    //     m41 = 0,                    m42 = 0,                    m43 = 0,                    m44 = 1)
+    
+    //    CATransform3DMakeRotation(0.22, 0, 1, 0)
+    //    (m11 = 0.97589744933060551, m12 = 0, m13 = -0.21822962308086932, m14 = 0,
+    //     m21 = 0,                   m22 = 1, m23 = 0,                    m24 = 0,
+    //     m31 = 0.21822962308086932, m32 = 0, m33 = 0.97589744933060551,  m34 = 0,
+    //     m41 = 0,                   m42 = 0, m43 = 0,                    m44 = 1)
+    
+    
+    
+    //    CATransform3DMakeRotation(0.22, 1, 0, 0)
+    //    (m11 = 1, m12 = 0,                    m13 = 0,                   m14 = 0,
+    //     m21 = 0, m22 = 0.97589744933060551,  m23 = 0.21822962308086932, m24 = 0,
+    //     m31 = 0, m32 = -0.21822962308086932, m33 = 0.97589744933060551, m34 = 0,
+    //     m41 = 0, m42 = 0,                    m43 = 0,                   m44 = 1)
+    
+    //    CATransform3DMakeRotation(0.22, 0, 0, 1);
+    //    (m11 = 0.97589744933060551,  m12 = 0.21822962308086932, m13 = 0, m14 = 0,
+    //     m21 = -0.21822962308086932, m22 = 0.97589744933060551, m23 = 0, m24 = 0,
+    //     m31 = 0,                    m32 = 0,                   m33 = 1, m34 = 0,
+    //     m41 = 0,                    m42 = 0,                   m43 = 0, m44 = 1)
+
+    
+    //    CATransform3DMakeRotation(0.22, 1, 0, 1);
+    //    (m11 = 0.9879487246653027,   m12 = 0.15431164633626698,  m13 = 0.012051275334697239, m14 = 0,
+    //     m21 = -0.15431164633626698, m22 = 0.97589744933060551,  m23 = 0.15431164633626698,  m24 = 0,
+    //     m31 = 0.012051275334697239, m32 = -0.15431164633626698, m33 = 0.9879487246653027,   m34 = 0,
+    //     m41 = 0,                    m42 = 0,                    m43 = 0,                    m44 = 1)
+    
+    
+    
+    //    cos(0.22) = 0.97589744933060551
+    //    tan(0.22) = 0.22361942151868408
+    //    sin(0.22) = 0.21822962308086932
+    
+    //    sqrt(a) 开平方
+    //    pow(a, b) a的b次幂
+    
+    //    确定版
+    //    float u = x/sqrt(x*x + y*y + z*z)//sqrt为开方
+    //    falot v = y/sqrt(x*x + y*y + z*z)
+    //    float w = z/sqrt(x*x + y*y + z*z)
+    //    float θ = angle
     
     //    struct CATransform3D
     //    {
-    //        CGFloat m11 = sx,         m12 = angle * z,   m13 = angle * - y,  m14 = 0;
-    //        CGFloat m21 = angle * -z, m22 = sy,          m23 = angle * x,    m24 = 0;
-    //        CGFloat m31 = angle * y,  m32 = angle * -x,  m33 = sz,           m34 = 0;
-    //        CGFloat m41 = tx,         m42 = ty,          m43 = tz,           m44 = 1;
+    //        CGFloat m11 = u²+(1-u²)*cosθ,         m12 = uv*(1-cosθ)-w*sinθ,     m13 = uw*(1-cosθ)+v*sinθ,    m14 = 0;
+    //        CGFloat m21 = uv*(1-cosθ)+w*sinθ,     m22 = v²+(1-v²)*cosθ,         m23 = vw*(1-cosθ)-u*sinθ,    m24 = 0;
+    //        CGFloat m31 = uw*(1-cosθ)-v*sinθ,     m32 = vw*(1-cosθ)+u*sinθ,     m33 = w²+(1-w²)*cosθ,        m34 = 0;
+    //        CGFloat m41 = 0,                      m42 = 0,                      m43 = 0,                     m44 = 1;
     //    };
-    //
+    
     
     //    struct CATransform3D
     //    {
@@ -112,6 +118,7 @@
     //        CGFloat m41, m42, m43, m44;
     //    };
     
+    
     //    sin(A+B) = sinAcosB + cosAsinB
     //    sin(A-B) = sinAcosB - cosAsinB
     //    cos(A+B) = cosAcosB - sinAsinB
@@ -120,25 +127,25 @@
     
     //    从m11到m44定义的含义如下：
     //
-    //    m11：x轴方向进行缩放
-    //    m12：和m21一起决定z轴的旋转
-    //    m13:和m31一起决定y轴的旋转
+    //    m11: x轴方向进行缩放
+    //    m12: 影响x、y、z的切变
+    //    m13: 影响x、y、z的切变
     //    m14:
     
-    //    m21:和m12一起决定z轴的旋转
-    //    m22:y轴方向进行缩放
-    //    m23:和m32一起决定x轴的旋转
+    //    m21: 影响x、y、z的切变
+    //    m22: y轴方向进行缩放
+    //    m23: 影响x、y、z的切变
     //    m24:
     
-    //    m31:和m13一起决定y轴的旋转
-    //    m32:和m23一起决定x轴的旋转
-    //    m33:z轴方向进行缩放
-    //    m34:透视效果m34= -1/D，D越小，透视效果越明显，必须在有旋转效果的前提下，才会看到透视效果
+    //    m31: 影响x、y、z的切变
+    //    m32: 影响x、y、z的切变
+    //    m33: z轴方向进行缩放
+    //    m34: 透视效果m34= -1/D，D越小，透视效果越明显，必须在有旋转效果的前提下，才会看到透视效果
     
-    //   m41:x轴方向进行平移
-    //   m42:y轴方向进行平移
-    //   m43:z轴方向进行平移
-    //   m44:初始为1
+    //   m41: x轴方向进行平移
+    //   m42: y轴方向进行平移
+    //   m43: z轴方向进行平移
+    //   m44: 初始为1
 }
 
 - (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
@@ -150,17 +157,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

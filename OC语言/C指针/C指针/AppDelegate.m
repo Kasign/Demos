@@ -1,14 +1,13 @@
 //
 //  AppDelegate.m
-//  3D效果
+//  C指针
 //
-//  Created by Q on 2018/5/8.
+//  Created by Q on 2018/6/13.
 //  Copyright © 2018 Fly. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "ThirdViewController.h"
-#import "SecondViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,13 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [_window setBackgroundColor:[UIColor whiteColor]];
-//    ThirdViewController * rootVC = [[ThirdViewController alloc] init];
-    SecondViewController * rootVC = [[SecondViewController alloc] init];
-    [_window setRootViewController:rootVC];
-    [_window makeKeyAndVisible];
-    
+    // Override point for customization after application launch.
     return YES;
 }
 

@@ -71,7 +71,6 @@
     [_carousel setClipsToBounds:YES];
     [self.view addSubview:_carousel];
     
-    
     CGFloat screenWidth = OrgScreenWidth;
     CGFloat distance    = 0;
     CGFloat perspective = -0.002;
