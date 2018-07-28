@@ -71,7 +71,13 @@
         
         id result = nil;
         [invocation getReturnValue:&result];
+        
+        // 6.强应用参数和返回值
+        
+        [invocation retainArguments];
         NSLog(@"返回值：%@",result);
+        
+        //这里有时候会因为result被release而崩溃，只要在id前加 __autoreleasing 即可解决（有时间要了解一下）
     }
     
 }

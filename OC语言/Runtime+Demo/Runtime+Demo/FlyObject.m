@@ -72,6 +72,7 @@
     // 5. 获取方法返回值
     NSNumber *num = nil;
     [invocation getReturnValue:&num];
+    [invocation retainArguments];
     NSLog(@"返回值：%@",num);
     
 }
