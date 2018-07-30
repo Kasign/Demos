@@ -22,6 +22,7 @@
     _whiteLayer.bounds = CGRectMake(0, 0, 100, 100);
     _whiteLayer.position = CGPointMake(100, 100);
     _whiteLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    
     [self.view.layer addSublayer:_whiteLayer];
     
     _blueLayer = [CALayer layer];
