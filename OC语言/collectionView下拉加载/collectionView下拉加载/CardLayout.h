@@ -14,7 +14,7 @@
 
 @end
 
-@interface CardLayout : UICollectionViewLayout
+@interface CardLayout : UICollectionViewFlowLayout
 
 @property(nonatomic, assign)CGFloat offsetY;
 @property(nonatomic, assign)CGFloat contentSizeHeight;

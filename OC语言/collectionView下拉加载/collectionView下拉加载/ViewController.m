@@ -25,46 +25,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
     
-    _dataSourceArr = @[@"abc"];
+    [self.view setBackgroundColor:[UIColor cyanColor]];
+    
+    _dataSourceArr = @[@"1",@"2",@"3"];
 //    _dataSourceArr = @[@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3"];
     
     [self.view addSubview:self.collectionView];
     
     
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
 
-    [self.collectionView.downRefreshView setRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-
-            NSArray *newDataSource = @[@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3"];
-//            NSMutableArray *source = [NSMutableArray arrayWithArray:weakSelf.dataSourceArr];
-            
-            NSMutableArray *source = [weakSelf.dataSourceArr mutableCopy];
-            
-            [source insertObjects:newDataSource atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newDataSource.count)]];
-            
-            weakSelf.dataSourceArr = source;
-            [weakSelf.collectionView reloadData];
-            
-            // 让刷新控件停止刷新
-            [weakSelf.collectionView.downRefreshView endRefreshing];
-            
-            
-        });
- 
-        
-    }];
+//    [self.collectionView.downRefreshView setRefreshingBlock:^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//
+//            NSArray *newDataSource = @[@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3"];
+////            NSMutableArray *source = [NSMutableArray arrayWithArray:weakSelf.dataSourceArr];
+//
+//            NSMutableArray *source = [weakSelf.dataSourceArr mutableCopy];
+//
+//            [source insertObjects:newDataSource atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newDataSource.count)]];
+//
+//            weakSelf.dataSourceArr = source;
+//            [weakSelf.collectionView reloadData];
+//
+//            // 让刷新控件停止刷新
+//            [weakSelf.collectionView.downRefreshView endRefreshing];
+//
+//
+//        });
+//    }];
 }
 
--(UICollectionView *)collectionView{
+-(UICollectionView *)collectionView {
+    
     if (!_collectionView) {
-        CardLayout *layout = [[CardLayout alloc] initWithOffsetY:0];
+        
+//        CardLayout *layout = [[CardLayout alloc] initWithOffsetY:0];
+        
+        UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
+        
+        layout.itemSize = CGSizeMake(414, 100);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-        
+        [_collectionView setBackgroundColor:[UIColor whiteColor]];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cardCell"];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -87,17 +93,16 @@
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
     [cell setBackgroundColor:[self getGameColor:indexPath.row]];
     
-    for (UIView *subView in cell.subviews) {
-        if ([subView isKindOfClass:[UILabel class]]) {
-            [subView removeFromSuperview];
-        }
-    }
+    UILabel *label = [cell.contentView viewWithTag:20181001];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
+        [label setTag:20181001];
+        [cell.contentView addSubview:label];
+    }
     
     label.text = [NSString stringWithFormat:@"Item %d",(int)indexPath.row];
     [label setCenter:CGPointMake(cell.frame.size.width/2.0, 40)];
-    [cell addSubview:label];
     
     return cell;
 }
@@ -108,8 +113,6 @@
     UIColor* color = [colorList objectAtIndex:(index%10)];
     return color;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

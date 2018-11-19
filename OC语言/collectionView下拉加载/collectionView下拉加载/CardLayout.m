@@ -69,10 +69,10 @@ static CGFloat cellHeight;  //卡片宽度
     }
 }
 
-- (CGSize)collectionViewContentSize
-{
-    return CGSizeMake(self.collectionView.frame.size.width,[self getContentSizeY]);
-}
+//- (CGSize)collectionViewContentSize
+//{
+//    return CGSizeMake(self.collectionView.frame.size.width,[self getContentSizeY]);
+//}
 
 //目标offset，在应用layout的时候会调用这个回调来设置collectionView的contentOffset
 -(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
