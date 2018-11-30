@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B346B2D21AF898000C7FD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B2C21AF898000C7FD8D /* AppDelegate.swift */; };
+		7B346B2F21AF898000C7FD8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B2E21AF898000C7FD8D /* ViewController.swift */; };
+		7B346B3221AF898000C7FD8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B346B3021AF898000C7FD8D /* Main.storyboard */; };
+		7B346B3421AF898200C7FD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B346B3321AF898200C7FD8D /* Assets.xcassets */; };
+		7B346B3721AF898200C7FD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B346B3521AF898200C7FD8D /* LaunchScreen.storyboard */; };
+		7B346B4221AF898200C7FD8D /* _____ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B4121AF898200C7FD8D /* _____ViewTests.swift */; };
+		7B346B4D21AF898200C7FD8D /* _____ViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B4C21AF898200C7FD8D /* _____ViewUITests.swift */; };
+		7B346B5B21AF89B800C7FD8D /* FlyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B5A21AF89B800C7FD8D /* FlyCollectionView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B346B3E21AF898200C7FD8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B346B2121AF897F00C7FD8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B346B2821AF898000C7FD8D;
+			remoteInfo = "自定义列表View";
+		};
+		7B346B4921AF898200C7FD8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B346B2121AF897F00C7FD8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B346B2821AF898000C7FD8D;
+			remoteInfo = "自定义列表View";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B346B2921AF898000C7FD8D /* 自定义列表View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "自定义列表View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B346B2C21AF898000C7FD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B346B2E21AF898000C7FD8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B346B3121AF898000C7FD8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B346B3321AF898200C7FD8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B346B3621AF898200C7FD8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B346B3821AF898200C7FD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B346B3D21AF898200C7FD8D /* 自定义列表ViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义列表ViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B346B4121AF898200C7FD8D /* _____ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_____ViewTests.swift"; sourceTree = "<group>"; };
+		7B346B4321AF898200C7FD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B346B4821AF898200C7FD8D /* 自定义列表ViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义列表ViewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B346B4C21AF898200C7FD8D /* _____ViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_____ViewUITests.swift"; sourceTree = "<group>"; };
+		7B346B4E21AF898200C7FD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B346B5A21AF89B800C7FD8D /* FlyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyCollectionView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B346B2621AF898000C7FD8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B3A21AF898200C7FD8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B4521AF898200C7FD8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B346B2021AF897F00C7FD8D = {
+			isa = PBXGroup;
+			children = (
+				7B346B2B21AF898000C7FD8D /* 自定义列表View */,
+				7B346B4021AF898200C7FD8D /* 自定义列表ViewTests */,
+				7B346B4B21AF898200C7FD8D /* 自定义列表ViewUITests */,
+				7B346B2A21AF898000C7FD8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B346B2A21AF898000C7FD8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B346B2921AF898000C7FD8D /* 自定义列表View.app */,
+				7B346B3D21AF898200C7FD8D /* 自定义列表ViewTests.xctest */,
+				7B346B4821AF898200C7FD8D /* 自定义列表ViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B346B2B21AF898000C7FD8D /* 自定义列表View */ = {
+			isa = PBXGroup;
+			children = (
+				7B346B2C21AF898000C7FD8D /* AppDelegate.swift */,
+				7B346B2E21AF898000C7FD8D /* ViewController.swift */,
+				7B346B5A21AF89B800C7FD8D /* FlyCollectionView.swift */,
+				7B346B3021AF898000C7FD8D /* Main.storyboard */,
+				7B346B3321AF898200C7FD8D /* Assets.xcassets */,
+				7B346B3521AF898200C7FD8D /* LaunchScreen.storyboard */,
+				7B346B3821AF898200C7FD8D /* Info.plist */,
+			);
+			path = "自定义列表View";
+			sourceTree = "<group>";
+		};
+		7B346B4021AF898200C7FD8D /* 自定义列表ViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B346B4121AF898200C7FD8D /* _____ViewTests.swift */,
+				7B346B4321AF898200C7FD8D /* Info.plist */,
+			);
+			path = "自定义列表ViewTests";
+			sourceTree = "<group>";
+		};
+		7B346B4B21AF898200C7FD8D /* 自定义列表ViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B346B4C21AF898200C7FD8D /* _____ViewUITests.swift */,
+				7B346B4E21AF898200C7FD8D /* Info.plist */,
+			);
+			path = "自定义列表ViewUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B346B2821AF898000C7FD8D /* 自定义列表View */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B346B5121AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表View" */;
+			buildPhases = (
+				7B346B2521AF898000C7FD8D /* Sources */,
+				7B346B2621AF898000C7FD8D /* Frameworks */,
+				7B346B2721AF898000C7FD8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "自定义列表View";
+			productName = "自定义列表View";
+			productReference = 7B346B2921AF898000C7FD8D /* 自定义列表View.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B346B3C21AF898200C7FD8D /* 自定义列表ViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B346B5421AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表ViewTests" */;
+			buildPhases = (
+				7B346B3921AF898200C7FD8D /* Sources */,
+				7B346B3A21AF898200C7FD8D /* Frameworks */,
+				7B346B3B21AF898200C7FD8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B346B3F21AF898200C7FD8D /* PBXTargetDependency */,
+			);
+			name = "自定义列表ViewTests";
+			productName = "自定义列表ViewTests";
+			productReference = 7B346B3D21AF898200C7FD8D /* 自定义列表ViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B346B4721AF898200C7FD8D /* 自定义列表ViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B346B5721AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表ViewUITests" */;
+			buildPhases = (
+				7B346B4421AF898200C7FD8D /* Sources */,
+				7B346B4521AF898200C7FD8D /* Frameworks */,
+				7B346B4621AF898200C7FD8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B346B4A21AF898200C7FD8D /* PBXTargetDependency */,
+			);
+			name = "自定义列表ViewUITests";
+			productName = "自定义列表ViewUITests";
+			productReference = 7B346B4821AF898200C7FD8D /* 自定义列表ViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B346B2121AF897F00C7FD8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Fly;
+				TargetAttributes = {
+					7B346B2821AF898000C7FD8D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7B346B3C21AF898200C7FD8D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7B346B2821AF898000C7FD8D;
+					};
+					7B346B4721AF898200C7FD8D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7B346B2821AF898000C7FD8D;
+					};
+				};
+			};
+			buildConfigurationList = 7B346B2421AF897F00C7FD8D /* Build configuration list for PBXProject "自定义列表View" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B346B2021AF897F00C7FD8D;
+			productRefGroup = 7B346B2A21AF898000C7FD8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B346B2821AF898000C7FD8D /* 自定义列表View */,
+				7B346B3C21AF898200C7FD8D /* 自定义列表ViewTests */,
+				7B346B4721AF898200C7FD8D /* 自定义列表ViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B346B2721AF898000C7FD8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B346B3721AF898200C7FD8D /* LaunchScreen.storyboard in Resources */,
+				7B346B3421AF898200C7FD8D /* Assets.xcassets in Resources */,
+				7B346B3221AF898000C7FD8D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B3B21AF898200C7FD8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B4621AF898200C7FD8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B346B2521AF898000C7FD8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B346B2F21AF898000C7FD8D /* ViewController.swift in Sources */,
+				7B346B5B21AF89B800C7FD8D /* FlyCollectionView.swift in Sources */,
+				7B346B2D21AF898000C7FD8D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B3921AF898200C7FD8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B346B4221AF898200C7FD8D /* _____ViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B346B4421AF898200C7FD8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B346B4D21AF898200C7FD8D /* _____ViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B346B3F21AF898200C7FD8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B346B2821AF898000C7FD8D /* 自定义列表View */;
+			targetProxy = 7B346B3E21AF898200C7FD8D /* PBXContainerItemProxy */;
+		};
+		7B346B4A21AF898200C7FD8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B346B2821AF898000C7FD8D /* 自定义列表View */;
+			targetProxy = 7B346B4921AF898200C7FD8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B346B3021AF898000C7FD8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B346B3121AF898000C7FD8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B346B3521AF898200C7FD8D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B346B3621AF898200C7FD8D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B346B4F21AF898200C7FD8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B346B5021AF898200C7FD8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B346B5221AF898200C7FD8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B346B5321AF898200C7FD8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B346B5521AF898200C7FD8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表ViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----ViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/自定义列表View.app/自定义列表View";
+			};
+			name = Debug;
+		};
+		7B346B5621AF898200C7FD8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表ViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----ViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/自定义列表View.app/自定义列表View";
+			};
+			name = Release;
+		};
+		7B346B5821AF898200C7FD8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表ViewUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----ViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "自定义列表View";
+			};
+			name = Debug;
+		};
+		7B346B5921AF898200C7FD8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "自定义列表ViewUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----ViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "自定义列表View";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B346B2421AF897F00C7FD8D /* Build configuration list for PBXProject "自定义列表View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B346B4F21AF898200C7FD8D /* Debug */,
+				7B346B5021AF898200C7FD8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B346B5121AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B346B5221AF898200C7FD8D /* Debug */,
+				7B346B5321AF898200C7FD8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B346B5421AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表ViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B346B5521AF898200C7FD8D /* Debug */,
+				7B346B5621AF898200C7FD8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B346B5721AF898200C7FD8D /* Build configuration list for PBXNativeTarget "自定义列表ViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B346B5821AF898200C7FD8D /* Debug */,
+				7B346B5921AF898200C7FD8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B346B2121AF897F00C7FD8D /* Project object */;
+}
