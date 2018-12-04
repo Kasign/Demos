@@ -6,8 +6,9 @@
 //  Copyright © 2018 Fly. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#import "Header.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,19 +43,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat minimumLineSpacing;
 @property (nonatomic) CGFloat minimumInteritemSpacing;
 @property (nonatomic) CGSize itemSize;
-@property (nonatomic) CGSize estimatedItemSize NS_AVAILABLE_IOS(8_0); // defaults to CGSizeZero - setting a non-zero size enables cells that self-size via -preferredLayoutAttributesFittingAttributes:
-@property (nonatomic) UICollectionViewScrollDirection scrollDirection; // default is UICollectionViewScrollDirectionVertical
+@property (nonatomic) CGSize estimatedItemSize;
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection;
 @property (nonatomic) CGSize headerReferenceSize;
 @property (nonatomic) CGSize footerReferenceSize;
 @property (nonatomic) UIEdgeInsets sectionInset;
 
-
-// Set these properties to YES to get headers that pin to the top of the screen and footers that pin to the bottom while scrolling (similar to UITableView).
 @property (nonatomic) BOOL sectionHeadersPinToVisibleBounds NS_AVAILABLE_IOS(9_0);
 @property (nonatomic) BOOL sectionFootersPinToVisibleBounds NS_AVAILABLE_IOS(9_0);
 
-//UICollectionViewLayoutAttributes
 @property (nonatomic, weak) id<FlyCollectionViewLayoutDelegate> delegate;
+
+
+- (void)prepareLayout;
+
+- (CGSize)collectionViewContentSize;
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UICollectionViewLayoutAttributes *)layoutAttributesForHeadterInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
 
 @end
 

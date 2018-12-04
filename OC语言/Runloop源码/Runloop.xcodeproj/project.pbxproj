@@ -51,7 +51,6 @@
 		3931ACA31F1CA738009664C4 /* RunloopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunloopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3931ACA71F1CA738009664C4 /* RunloopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopUITests.m; sourceTree = "<group>"; };
 		3931ACA91F1CA738009664C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3931AD611F1CA765009664C4 /* CF-855.17.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CF-855.17.xcodeproj"; path = "../../../../Desktop/CF-855.17/CF-855.17.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +105,6 @@
 				3931AC861F1CA737009664C4 /* AppDelegate.m */,
 				3931AC881F1CA737009664C4 /* ViewController.h */,
 				3931AC891F1CA737009664C4 /* ViewController.m */,
-				3931AD611F1CA765009664C4 /* CF-855.17.xcodeproj */,
 				3931AC8B1F1CA737009664C4 /* Main.storyboard */,
 				3931AC8E1F1CA737009664C4 /* Assets.xcassets */,
 				3931AC901F1CA737009664C4 /* LaunchScreen.storyboard */,
@@ -140,13 +138,6 @@
 				3931ACA91F1CA738009664C4 /* Info.plist */,
 			);
 			path = RunloopUITests;
-			sourceTree = "<group>";
-		};
-		3931AD621F1CA765009664C4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,12 +232,6 @@
 			mainGroup = 3931AC761F1CA737009664C4;
 			productRefGroup = 3931AC801F1CA737009664C4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3931AD621F1CA765009664C4 /* Products */;
-					ProjectRef = 3931AD611F1CA765009664C4 /* CF-855.17.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				3931AC7E1F1CA737009664C4 /* Runloop */,

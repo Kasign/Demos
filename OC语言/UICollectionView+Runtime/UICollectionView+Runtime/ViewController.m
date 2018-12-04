@@ -26,7 +26,7 @@
 static NSString * kIdentifier_CELL = @"cell_identifier";
 static NSString * kIdentifier_HEADER = @"header_identifier";
 static NSString * kIdentifier_FOOTER = @"footer_identifier";
-
+static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -64,7 +64,9 @@ static NSString * kIdentifier_FOOTER = @"footer_identifier";
         _collectionView.dataSource = self;
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kIdentifier_CELL];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER_A];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_FOOTER];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:@"ABCD_ABCD" withReuseIdentifier:@"EUEUEUEU"];
 
         [_collectionView setBackgroundColor:[UIColor cyanColor]];
     }
@@ -110,12 +112,13 @@ static NSString * kIdentifier_FOOTER = @"footer_identifier";
     UICollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
     
     [reusableView setBackgroundColor:[UIColor redColor]];
-    
+    FlyLog(@"kind %@",kind);
     return reusableView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    _itemHeight += indexPath.row * 5.f;
     return CGSizeMake(kScreenWidth - 30.f, _itemHeight);
 }
 
@@ -147,7 +150,6 @@ static NSString * kIdentifier_FOOTER = @"footer_identifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@"didSelectItemAtIndexPath");
-    _itemHeight += 10.f;
 //    [self getClassMethods:self.collectionView];
 //    [self getClassMethods:self.layout];
 }

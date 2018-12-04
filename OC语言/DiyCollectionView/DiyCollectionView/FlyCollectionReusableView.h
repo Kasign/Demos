@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FlyCollectionReusableView : UIView
 
-@property (nonatomic, copy, nullable) NSString *reuseIdentifier;
+@property (nonatomic, strong, readonly) UIView   *   contentView;
+@property (nonatomic, copy, nullable) NSString * reuseIdentifier;
 @property (nonatomic, strong, nullable) UICollectionViewLayoutAttributes   *   layoutAttributes;
 
 @end

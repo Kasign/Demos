@@ -63,6 +63,7 @@
 		7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionViewObject.m; sourceTree = "<group>"; };
 		7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionReusableView.h; sourceTree = "<group>"; };
 		7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionReusableView.m; sourceTree = "<group>"; };
+		7BFE3EE421B53ADE0012C2F8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +126,7 @@
 				7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */,
 				7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */,
 				7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */,
+				7BFE3EE421B53ADE0012C2F8 /* Header.h */,
 				7B346B6E21AF8A4C00C7FD8D /* Main.storyboard */,
 				7B346B7121AF8A4E00C7FD8D /* Assets.xcassets */,
 				7B346B7321AF8A4E00C7FD8D /* LaunchScreen.storyboard */,

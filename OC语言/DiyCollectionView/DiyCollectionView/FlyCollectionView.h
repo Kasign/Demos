@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<__kindof FlyCollectionReusableView *> *visibleCells;
 @property (nonatomic, readonly) NSArray<NSIndexPath *> *indexPathsForVisibleItems;
 #else
-- (NSArray<__kindof UICollectionViewCell *> *)visibleCells;
+- (NSArray<__kindof FlyCollectionReusableView *> *)visibleCells;
 - (NSArray<NSIndexPath *> *)indexPathsForVisibleItems;
 #endif
 
@@ -157,7 +157,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateInteractiveMovementTargetPosition:(CGPoint)targetPosition NS_AVAILABLE_IOS(9_0);
 - (void)endInteractiveMovement NS_AVAILABLE_IOS(9_0);
 - (void)cancelInteractiveMovement NS_AVAILABLE_IOS(9_0);
-
 
 @end
 
