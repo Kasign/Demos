@@ -81,9 +81,12 @@
 - (CGSize)collectionViewContentSize
 {
     CGSize contentSize = CGSizeMake(_collectionViewSize.width, 0);
-    UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
-    UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
-    contentSize = CGSizeMake(MAX(CGRectGetWidth(firstAttri.frame), CGRectGetWidth(lastAttri.frame)), CGRectGetMaxY(lastAttri.frame) - CGRectGetMinY(firstAttri.frame));
+    if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
+        UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
+        contentSize.height =  CGRectGetMaxY(lastAttri.frame) - CGRectGetMinY(firstAttri.frame);
+    }
+    
     FlyLog(@"----->>>>>contentSize:%@",[NSValue valueWithCGSize:contentSize]);
     return contentSize;
 }
@@ -167,9 +170,26 @@
     supplementAttributes.frame  = supplemenFrame;
     supplementAttributes.bounds = CGRectMake(0, 0, itemSize.width, itemSize.height);
     
-    
-    
+    if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+            [self calculateHeaderLayoutAttributesWhenDirectionVertical:supplementAttributes indexPath:indexPath];
+        } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+            [self calculateFooterLayoutAttributesWhenDirectionVertical:supplementAttributes indexPath:indexPath];
+        }
+    } else if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        
+    }
     return supplementAttributes;
+}
+
+- (void)calculateHeaderLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (void)calculateFooterLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 
@@ -218,17 +238,6 @@
     
 }
 
-- (CGSize)referenceSizeForKind:(NSString *)kind inSection:(NSInteger)section
-{
-    CGSize referenceSize = CGSizeZero;
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        referenceSize = [self cachedReferenceSizeForHeaderInSection:section];
-    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        referenceSize = [self cachedReferenceSizeForFooterInSection:section];
-    }
-    return referenceSize;
-}
-
 //上面的优先级高
 - (NSIndexPath *)calculateNearestIndexPathWithCurrentIndexPath:(NSIndexPath *)indexPath
 {
@@ -253,6 +262,17 @@
     }
     
     return targetIndexPath;
+}
+
+- (CGSize)referenceSizeForKind:(NSString *)kind inSection:(NSInteger)section
+{
+    CGSize referenceSize = CGSizeZero;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        referenceSize = [self cachedReferenceSizeForHeaderInSection:section];
+    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        referenceSize = [self cachedReferenceSizeForFooterInSection:section];
+    }
+    return referenceSize;
 }
 
 #pragma mark - cached
