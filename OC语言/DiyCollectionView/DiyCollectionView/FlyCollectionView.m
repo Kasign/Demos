@@ -10,10 +10,6 @@
 #import "FlyCollectionViewObject.h"
 #import <objc/runtime.h>
 
-
-
-static NSString * kCollectionViewNotificationName = @"kCollectionViewNoti_SCROLL";
-
 @interface FlyCollectionView ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary   *   cellReuseQueues;//复用池 identifier : NSDictionary
