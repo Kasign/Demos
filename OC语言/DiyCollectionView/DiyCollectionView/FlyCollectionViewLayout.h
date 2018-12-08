@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)collectionViewContentSize;
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (UICollectionViewLayoutAttributes *)layoutAttributesForHeadterInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
 
 @end

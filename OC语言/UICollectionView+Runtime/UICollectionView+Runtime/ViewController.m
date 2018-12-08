@@ -80,6 +80,9 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (section == 1) {
+        return 0;
+    }
     return 3;
 }
 
@@ -111,8 +114,23 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     }
     UICollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
     
-    [reusableView setBackgroundColor:[UIColor redColor]];
-    FlyLog(@"kind %@",kind);
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        [reusableView setBackgroundColor:[UIColor purpleColor]];
+    } else {
+        [reusableView setBackgroundColor:[UIColor redColor]];
+    }
+    
+    UILabel * label = [reusableView viewWithTag:10086];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:reusableView.bounds];
+        [label setTag:10086];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setTextColor:[UIColor blackColor]];
+        [reusableView addSubview:label];
+    }
+    
+    [label setText:kind];
+    
     return reusableView;
 }
 
@@ -134,7 +152,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+    return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

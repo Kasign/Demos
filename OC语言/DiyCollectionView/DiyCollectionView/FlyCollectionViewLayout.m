@@ -87,7 +87,7 @@
         contentSize.height =  CGRectGetMaxY(lastAttri.frame) - CGRectGetMinY(firstAttri.frame);
     }
     
-    FlyLog(@"----->>>>>contentSize:%@",[NSValue valueWithCGSize:contentSize]);
+//    FlyLog(@"----->>>>>contentSize:%@",[NSValue valueWithCGSize:contentSize]);
     return contentSize;
 }
 
@@ -99,14 +99,14 @@
         NSIndexPath * supplementIndexPath = [NSIndexPath indexPathForItem:0 inSection:section];
         NSInteger numberOfCellsInSection = [self.collectionView numberOfItemsInSection:section];
         UICollectionViewLayoutAttributes * headerAttributes = [self cachedLayoutAttributesForHeaderInSection:supplementIndexPath.section];
-        UICollectionViewLayoutAttributes * footerAttributes = [self cachedLayoutAttributesForFooterInSection:supplementIndexPath.section];
         [allAttributesArray addObject:headerAttributes];
-        [allAttributesArray addObject:footerAttributes];
         for (NSInteger item = 0; item < numberOfCellsInSection; item++) {
             NSIndexPath * itemIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
             UICollectionViewLayoutAttributes * itemAttributes = [self cachedLayoutAttributesForItemAtIndexPath:itemIndexPath];
             [allAttributesArray addObject:itemAttributes];
         }
+        UICollectionViewLayoutAttributes * footerAttributes = [self cachedLayoutAttributesForFooterInSection:supplementIndexPath.section];
+        [allAttributesArray addObject:footerAttributes];
     }
     _layoutAttributesArr = [allAttributesArray copy];
 }
@@ -184,12 +184,50 @@
 
 - (void)calculateHeaderLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
 {
+    CGRect currentRect = layoutAttributes.frame;
+    CGFloat attributes_x = 0;
+    CGFloat attributes_y = 0;
+    CGRect lastRect = CGRectZero;
+    NSIndexPath * nearestInexPath = nil;
+    if (indexPath.section > 0) {
+        nearestInexPath = [NSIndexPath indexPathForItem:0 inSection:indexPath.section - 1];
+    }
+    if (nearestInexPath) {
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedFooterAttributes objectForKey:nearestInexPath];
+        lastRect = lastLayoutAttributes.frame;
+    }
+    attributes_y = CGRectGetMaxY(lastRect);
     
+    currentRect.origin.x = attributes_x;
+    currentRect.origin.y = attributes_y;
+    layoutAttributes.frame = currentRect;
 }
 
 - (void)calculateFooterLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
 {
+    CGRect currentRect = layoutAttributes.frame;
+    CGFloat attributes_x = 0;
+    CGFloat attributes_y = 0;
+    CGRect lastRect = CGRectZero;
+    NSIndexPath * nearestInexPath = nil;
+    NSInteger rowCount = [self.collectionView numberOfItemsInSection:indexPath.section];
+    if (rowCount > 0) {
+        nearestInexPath = [NSIndexPath indexPathForItem:rowCount - 1 inSection:indexPath.section];
+    }
+    UIEdgeInsets sectionInsets = [self cachedInsetForSectionAtIndex:indexPath.section];
+    if (nearestInexPath) {
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedItemAttributes objectForKey:nearestInexPath];
+        lastRect = lastLayoutAttributes.frame;
+        attributes_y = CGRectGetMaxY(lastRect) + sectionInsets.bottom;
+    } else {
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
+        lastRect = lastLayoutAttributes.frame;
+        attributes_y = CGRectGetMaxY(lastRect) + sectionInsets.bottom + sectionInsets.top;
+    }
     
+    currentRect.origin.x = attributes_x;
+    currentRect.origin.y = attributes_y;
+    layoutAttributes.frame = currentRect;
 }
 
 
@@ -214,8 +252,9 @@
         lastSectionInsets = [self insetForSectionAtIndex:indexPath.section - 1];
     }
     if (indexPath.row == 0) {
+       UICollectionViewLayoutAttributes * headerLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
         attributes_x = sectionInsets.left;
-        attributes_y = CGRectGetMaxY(lastRect) + lastSectionInsets.bottom + sectionInsets.top;
+        attributes_y = CGRectGetMaxY(headerLayoutAttributes.frame) + sectionInsets.top;
     } else {
         attributes_x = CGRectGetMaxX(lastRect) + itemSpacing;
         attributes_y = CGRectGetMinY(lastRect);
@@ -228,7 +267,7 @@
     currentRect.origin.x = attributes_x;
     currentRect.origin.y = attributes_y;
     layoutAttributes.frame = currentRect;
-    FlyLog(@"当前：%ld 最近的：%ld lastFrame : %@ frame :%@",indexPath.row,nearestInexPath.row,[NSValue valueWithCGRect:lastRect],[NSValue valueWithCGRect:currentRect]);
+//    FlyLog(@"当前：%ld 最近的：%ld lastFrame : %@ frame :%@",indexPath.row,nearestInexPath.row,[NSValue valueWithCGRect:lastRect],[NSValue valueWithCGRect:currentRect]);
 }
 
 //横向滑动
@@ -447,7 +486,7 @@
     return itemAttributes;
 }
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForHeadterInSection:(NSInteger)section
+- (UICollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section
 {
     UICollectionViewLayoutAttributes * headerAttributes = [self cachedLayoutAttributesForHeaderInSection:section];
     return headerAttributes;

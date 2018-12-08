@@ -33,10 +33,12 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
         layout.itemSize = CGSizeMake(375.f, 100.f);
         layout.minimumLineSpacing = 10.f;
         layout.minimumInteritemSpacing = 10.f;
+        layout.sectionInset = UIEdgeInsetsMake(20.f, 20.f, 20.f, 20.f);
         
         _collectionView = [[FlyCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
         [_collectionView registerClass:[FlyCollectionReusableView class] forCellWithReuseIdentifier:kIdentifier_CELL];
         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER];
+         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_HEADER];
         _collectionView.delegate   = self;
         _collectionView.dataSource = self;
         [_collectionView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.3]];
@@ -44,9 +46,17 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     return _collectionView;
 }
 
+- (NSInteger)numberOfSectionsInFlyCollectionView:(FlyCollectionView *)collectionView
+{
+    return 10;
+}
+
 - (NSInteger)flyCollectionView:(FlyCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    if (section == 1) {
+        return 2;
+    }
+    return 10;
 }
 
 - (__kindof FlyCollectionReusableView *)flyCollectionView:(FlyCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +79,24 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 - (FlyCollectionReusableView *)flyCollectionView:(FlyCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     FlyCollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kIdentifier_HEADER forIndexPath:indexPath];
-    [reusableView setBackgroundColor:[UIColor redColor]];
+    
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        [reusableView setBackgroundColor:[UIColor purpleColor]];
+    } else {
+        [reusableView setBackgroundColor:[UIColor redColor]];
+    }
+    
+    UILabel * label = [reusableView viewWithTag:10086];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:reusableView.bounds];
+        [label setTag:10086];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setTextColor:[UIColor blackColor]];
+        [reusableView addSubview:label];
+    }
+    
+    [label setText:kind];
+    
     return reusableView;
 }
 
@@ -84,7 +111,12 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(375.f, 20.f);
+    return CGSizeMake(414.f, 45.f);
+}
+
+- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    
+    return CGSizeMake(414.f, 30.f);
 }
 
 
