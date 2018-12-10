@@ -54,9 +54,9 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 - (NSInteger)flyCollectionView:(FlyCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 2;
+        return 0;
     }
-    return 10;
+    return section;
 }
 
 - (__kindof FlyCollectionReusableView *)flyCollectionView:(FlyCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

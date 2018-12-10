@@ -75,7 +75,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    return 10;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -83,7 +83,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     if (section == 1) {
         return 0;
     }
-    return 3;
+    return 10;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -136,7 +136,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    _itemHeight += indexPath.row * 5.f;
+//    _itemHeight += indexPath.row * 5.f;
     return CGSizeMake(kScreenWidth - 30.f, _itemHeight);
 }
 
@@ -157,12 +157,12 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth - 30.f, 30.f);
+    return CGSizeMake(kScreenWidth - 130.f, 30.f);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth - 30.f, 40);
+    return CGSizeMake(kScreenWidth - 130.f, 40);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
