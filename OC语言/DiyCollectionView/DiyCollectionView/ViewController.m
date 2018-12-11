@@ -30,7 +30,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 {
     if (!_collectionView) {
         FlyCollectionViewLayout * layout = [[FlyCollectionViewLayout alloc] init];
-        layout.itemSize = CGSizeMake(375.f, 100.f);
+        layout.itemSize = CGSizeMake(100.f, 100.f);
         layout.minimumLineSpacing = 10.f;
         layout.minimumInteritemSpacing = 10.f;
         layout.sectionInset = UIEdgeInsetsMake(20.f, 20.f, 20.f, 20.f);
@@ -72,6 +72,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
         [label setBackgroundColor:[[UIColor cyanColor] colorWithAlphaComponent:0.3]];
         [cell addSubview:label];
     }
+    [label setFrame:cell.bounds];
     [label setText:[NSString stringWithFormat:@"%@ - %p",@(indexPath.row),cell]];
     return cell;
 }
@@ -94,7 +95,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
         [label setTextColor:[UIColor blackColor]];
         [reusableView addSubview:label];
     }
-    
+    [label setFrame:reusableView.bounds];
     [label setText:kind];
     
     return reusableView;
@@ -103,23 +104,31 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height = 50.f;
-    if (indexPath.row > 10) {
+    CGFloat weight = 100.f;
+    if (indexPath.row % 3 == 1) {
         height = 150.f;
+    } else if (indexPath.row % 3 == 2) {
+        height = 100.f;
     }
-    return CGSizeMake(375.f, height);
+    if (indexPath.row % 4 == 1) {
+        weight = 50.f;
+    } else if (indexPath.row % 4 == 2) {
+        weight = 100.f;
+    } else if (indexPath.row % 4 == 3) {
+        weight = 150.f;
+    }
+    return CGSizeMake(weight, height);
 }
 
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(414.f, 45.f);
+    return CGSizeMake(100.f, 45.f);
 }
 
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
-    return CGSizeMake(414.f, 30.f);
+    return CGSizeMake(100.f, 30.f);
 }
-
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

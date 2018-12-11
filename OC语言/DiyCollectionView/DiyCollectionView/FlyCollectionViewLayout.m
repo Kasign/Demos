@@ -80,11 +80,17 @@
 
 - (CGSize)collectionViewContentSize
 {
-    CGSize contentSize = CGSizeMake(_collectionViewSize.width, 0);
+    CGSize contentSize = CGSizeZero;
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        contentSize = CGSizeMake(_collectionViewSize.width, 0);
         UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
         UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
         contentSize.height =  CGRectGetMaxY(lastAttri.frame) - CGRectGetMinY(firstAttri.frame);
+    } else if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        contentSize = CGSizeMake(0, _collectionViewSize.height);
+        UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
+        UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
+        contentSize.width =  CGRectGetMaxX(lastAttri.frame) - CGRectGetMaxX(firstAttri.frame);
     }
     
 //    FlyLog(@"----->>>>>contentSize:%@",[NSValue valueWithCGSize:contentSize]);
@@ -460,6 +466,11 @@
     if ([self delegateResponseSEL:@selector(flyCollectionView:layout:referenceSizeForHeaderInSection:)]) {
         headerReferenceSize = [self.delegate flyCollectionView:self.collectionView layout:self referenceSizeForHeaderInSection:section];
     }
+    if (_scrollDirection == UICollectionViewScrollDirectionVertical) {
+        headerReferenceSize.width = _collectionViewSize.width;
+    } else if (_scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        headerReferenceSize.height = _collectionViewSize.height;
+    }
     return headerReferenceSize;
 }
 
@@ -468,6 +479,11 @@
     CGSize footerReferenceSize = _footerReferenceSize;
     if ([self delegateResponseSEL:@selector(flyCollectionView:layout:referenceSizeForFooterInSection:)]) {
         footerReferenceSize = [self.delegate flyCollectionView:self.collectionView layout:self referenceSizeForFooterInSection:section];
+    }
+    if (_scrollDirection == UICollectionViewScrollDirectionVertical) {
+        footerReferenceSize.width = _collectionViewSize.width;
+    } else if (_scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        footerReferenceSize.height = _collectionViewSize.height;
     }
     return footerReferenceSize;
 }

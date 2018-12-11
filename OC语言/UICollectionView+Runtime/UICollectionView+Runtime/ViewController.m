@@ -17,7 +17,7 @@
 #ifdef DEBUG
 //#define FlyLog(FORMAT, ...) fprintf(stderr, "\n\n******(class)%s(begin)******\n(SEL)%s\n(data)%s\n******(class)%s(end)******\n\n", [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __FUNCTION__, [[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String], [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String]);
 
-#define FlyLog(FORMAT, ...) fprintf(stderr, "\n\n%s\n\n",[[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+#define FlyLog(FORMAT, ...) fprintf(stderr, "\n%s\n",[[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
 
 #else
 #define FlyLog(FORMAT, ...) nil
@@ -31,7 +31,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView  * collectionView;
-@property (nonatomic,strong) FlyFlowLayout  * layout;
+@property (nonatomic,strong) UICollectionViewFlowLayout  * layout;
 
 @property (nonatomic,strong) NSArray  * dataSourceArr;
 
@@ -48,10 +48,11 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     [self.view addSubview:self.collectionView];
 }
 
-- (FlyFlowLayout *)layout
+- (UICollectionViewFlowLayout *)layout
 {
     if (!_layout) {
-        _layout = [[FlyFlowLayout alloc] init];
+        _layout = [[UICollectionViewFlowLayout alloc] init];
+//        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     return _layout;
 }
@@ -75,11 +76,13 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    FlyLog(@" 1---->>>>numberOfSectionsInCollectionView");
     return 10;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    FlyLog(@" 2---->>>>numberOfItemsInSection section:%ld",section);
     if (section == 1) {
         return 0;
     }
@@ -100,6 +103,8 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     }
     [label setText:[@(indexPath.row) stringValue]];
     [cell setBackgroundColor:[UIColor purpleColor]];
+    
+    FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
     
     return cell;
 }
@@ -131,45 +136,58 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     
     [label setText:kind];
     
+    FlyLog(@" 4---->>>>viewForSupplemen kind:%@ index:%@",kind,indexPath);
+    
     return reusableView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    FlyLog(@" 5---->>>>sizeForItemAtIndexPath index:%@",indexPath);
 //    _itemHeight += indexPath.row * 5.f;
-    return CGSizeMake(kScreenWidth - 30.f, _itemHeight);
+    return CGSizeMake(kScreenWidth - 130.f, _itemHeight);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
+    FlyLog(@" 6---->>>>minimumLineSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
+    FlyLog(@" 7---->>>>minimumInteritemSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
+    FlyLog(@" 8---->>>>insetForSectionAtIndex section:%ld",section);
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth - 130.f, 30.f);
+    FlyLog(@" 9---->>>>referenceSizeForHeaderInSection section:%ld",section);
+    return CGSizeMake(kScreenWidth - 230.f, 30.f);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth - 130.f, 40);
+    FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
+    return CGSizeMake(kScreenWidth - 230.f, 40);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@"didSelectItemAtIndexPath");
-//    [self getClassMethods:self.collectionView];
-//    [self getClassMethods:self.layout];
+    [self getClassMethods:self.collectionView];
+    [self getClassMethods:self.layout];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%ld",scrollView.contentOffset.y);
 }
 
 - (void)getClassMethods:(id)instance
@@ -196,7 +214,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     for (int i = 0; i < methodCount ; i ++) {
         Method method = metaMethodList[i];
         SEL selector = method_getName(method);
-        const char *methodName = sel_getName(selector);
+        const char * methodCharName = sel_getName(selector);
         [methodArray addObject:NSStringFromSelector(selector)];
     }
     free(metaMethodList);
@@ -204,28 +222,40 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     
     
     //获取成员变量和属性
-    NSMutableArray * propotysArr = [NSMutableArray array];
+    NSMutableDictionary * nameTypeDict = [NSMutableDictionary dictionary];
     unsigned int ivarCount;
     Ivar *ivars = class_copyIvarList([instance class], &ivarCount);
     for (int i = 0; i<ivarCount; i++) {
         Ivar ivar = ivars[i];
-        NSString *name = [NSString stringWithCString:ivar_getName(ivar) encoding:NSUTF8StringEncoding];
-        [propotysArr addObject:name];
+        const char * ivarCharName = ivar_getName(ivar);
+        const char * ivarCharType = ivar_getTypeEncoding(ivar);
+        NSString * ivarName = [NSString stringWithCString:ivarCharName encoding:NSUTF8StringEncoding];
+        NSString * ivarType = [NSString stringWithCString:ivarCharType encoding:NSUTF8StringEncoding];
+        [nameTypeDict setObject:ivarType forKey:ivarName];
     }
     free(ivars);
-    FlyLog(@"成员变量和属性:%@",propotysArr);
+    FlyLog(@"成员变量和属性:%@",nameTypeDict);
     
     //获取属性
-    [propotysArr removeAllObjects];
+    [nameTypeDict removeAllObjects];
     unsigned int outCount;
     objc_property_t *propertyList = class_copyPropertyList([instance class], &outCount);
     for (int i = 0; i<outCount; i++) {
         objc_property_t property = propertyList[i];
-        NSString *name = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        [propotysArr addObject:name];
+        const char * propertyChar = property_getName(property);
+        const char * attributesChar = property_getAttributes(property);
+        NSString * propertyName = [NSString stringWithCString:propertyChar encoding:NSUTF8StringEncoding];
+        char * attributeValue = property_copyAttributeValue(property, attributesChar);
+        NSString * attributesStr = @"";
+        if (!attributesChar) {
+            attributesStr = @"NULL";
+        } else {
+            attributesStr = [NSString stringWithCString:attributesChar encoding:NSUTF8StringEncoding];
+        }
+        [nameTypeDict setObject:attributesStr forKey:propertyName];
     }
     free(propertyList);
-    FlyLog(@"属性:%@",propotysArr);
+    FlyLog(@"属性:%@",nameTypeDict);
 
     //获取协议列表
     NSMutableArray *protocoArray = [NSMutableArray array];
