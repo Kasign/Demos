@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FlyFlowLayout.h"
 #import <objc/runtime.h>
+#import "FlyMenuController.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -23,9 +24,9 @@
 #define FlyLog(FORMAT, ...) nil
 #endif
 
-static NSString * kIdentifier_CELL = @"cell_identifier";
-static NSString * kIdentifier_HEADER = @"header_identifier";
-static NSString * kIdentifier_FOOTER = @"footer_identifier";
+static NSString * kIdentifier_CELL     = @"cell_identifier";
+static NSString * kIdentifier_HEADER   = @"header_identifier";
+static NSString * kIdentifier_FOOTER   = @"footer_identifier";
 static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -33,19 +34,58 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 @property (nonatomic,strong) UICollectionView  * collectionView;
 @property (nonatomic,strong) UICollectionViewFlowLayout  * layout;
 
-@property (nonatomic,strong) NSArray  * dataSourceArr;
-
 @property (nonatomic, assign) CGFloat   itemHeight;
+
+@property (nonatomic, strong) NSMutableArray   *   dataSourceArr;
+
+@property (nonatomic, strong) NSIndexPath   *   currentIndexPath;
+@property (nonatomic, strong) FlyMenuItem   *   repeatItem;
+@property (nonatomic, strong) FlyMenuItem   *   pasteItem;
+@property (nonatomic, strong) FlyMenuItem   *   deleteItem;
+@property (nonatomic, strong) FlyMenuController   *   menuController;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     _itemHeight = 100.f;
+    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
+}
+
+- (FlyMenuController *)menuController
+{
+    if (!_menuController) {
+        _menuController = [FlyMenuController sharedMenuController];
+        _repeatItem = [[FlyMenuItem alloc] initWithTitle:@"复制" fontSize:14.f];
+        _pasteItem = [[FlyMenuItem alloc] initWithTitle:@"粘贴" fontSize:14.f];
+        _deleteItem = [[FlyMenuItem alloc] initWithTitle:@"删除" fontSize:14.f];
+        [_menuController setMenuItems:@[_repeatItem,_deleteItem]];
+        __weak typeof(self) weakSelf = self;
+        _menuController.flyMenuClickBlock = ^(FlyMenuItem * _Nonnull menuItem, UIView * _Nonnull relyView) {
+            [weakSelf menuDidClick:menuItem];
+        };
+    }
+    return _menuController;
+}
+
+- (void)menuDidClick:(FlyMenuItem *)menuItem
+{
+    id object = _dataSourceArr[_currentIndexPath.row];
+    if (menuItem == _repeatItem) {
+        [_dataSourceArr insertObject:object atIndex:_currentIndexPath.row];
+        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
+    } else if (menuItem == _pasteItem) {
+        
+        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
+    } else if (menuItem == _deleteItem) {
+        [_dataSourceArr removeObjectAtIndex:_currentIndexPath.row];
+        [self.collectionView deleteItemsAtIndexPaths:@[_currentIndexPath]];
+    }
 }
 
 - (UICollectionViewFlowLayout *)layout
@@ -61,13 +101,14 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 {
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
-        _collectionView.delegate = self;
+        [_collectionView setContentInset:UIEdgeInsetsMake(60.f, 15.f, 60.f, 15.f)];
+        _collectionView.delegate   = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kIdentifier_CELL];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER_A];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_FOOTER];
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:@"ABCD_ABCD" withReuseIdentifier:@"EUEUEUEU"];
+//        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:@"ABCD_ABCD" withReuseIdentifier:@"EUEUEUEU"];
 
         [_collectionView setBackgroundColor:[UIColor cyanColor]];
     }
@@ -77,16 +118,13 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     FlyLog(@" 1---->>>>numberOfSectionsInCollectionView");
-    return 10;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     FlyLog(@" 2---->>>>numberOfItemsInSection section:%ld",section);
-    if (section == 1) {
-        return 0;
-    }
-    return 10;
+    return _dataSourceArr.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -99,10 +137,14 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
         [label setTag:10086];
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setTextColor:[UIColor blackColor]];
+        [label setNumberOfLines:0];
         [cell.contentView addSubview:label];
     }
-    [label setText:[@(indexPath.row) stringValue]];
     [cell setBackgroundColor:[UIColor purpleColor]];
+    [label setFrame:cell.bounds];
+//    [label setText:[NSString stringWithFormat:@"%@-%@\n %p",@(indexPath.section),@(indexPath.row),cell]];
+    
+    [label setText:_dataSourceArr[indexPath.row]];
     
     FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
     
@@ -136,7 +178,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     
     [label setText:kind];
     
-    FlyLog(@" 4---->>>>viewForSupplemen kind:%@ index:%@",kind,indexPath);
+    FlyLog(@" 4---->>>>viewForSupplemen kind:%@ index:%@ point : %@",kind,indexPath,[NSValue valueWithCGPoint:reusableView.frame.origin]);
     
     return reusableView;
 }
@@ -144,8 +186,21 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@" 5---->>>>sizeForItemAtIndexPath index:%@",indexPath);
-//    _itemHeight += indexPath.row * 5.f;
-    return CGSizeMake(kScreenWidth - 130.f, _itemHeight);
+    CGFloat height = 50.f;
+    CGFloat weight = 100.f;
+    if (indexPath.row % 3 == 1) {
+        height = 150.f;
+    } else if (indexPath.row % 3 == 2) {
+        height = 100.f;
+    }
+    if (indexPath.row % 4 == 1) {
+        weight = 50.f;
+    } else if (indexPath.row % 4 == 2) {
+        weight = 100.f;
+    } else if (indexPath.row % 4 == 3) {
+        weight = 150.f;
+    }
+    return CGSizeMake(weight, height);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
@@ -169,25 +224,33 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     FlyLog(@" 9---->>>>referenceSizeForHeaderInSection section:%ld",section);
-    return CGSizeMake(kScreenWidth - 230.f, 30.f);
+    return CGSizeMake(100.f, 45.f);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
-    return CGSizeMake(kScreenWidth - 230.f, 40);
+    return CGSizeMake(100.f, 30.f);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@"didSelectItemAtIndexPath");
-    [self getClassMethods:self.collectionView];
-    [self getClassMethods:self.layout];
+    
+    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
+    if (cell) {
+        _currentIndexPath = indexPath;
+        [self.menuController showRelyView:cell inView:collectionView];
+        [self.menuController setMenuVisible:YES animated:YES];
+    }
+    
+//    [self getClassMethods:self.collectionView];
+//    [self getClassMethods:self.layout];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%ld",scrollView.contentOffset.y);
+    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
 }
 
 - (void)getClassMethods:(id)instance

@@ -20,7 +20,8 @@
 @property (nonatomic, strong) NSMutableDictionary   *   supplementaryViewClassDict;//key:className
 @property (nonatomic, strong) NSMutableDictionary   *   visibleSupplementaryViewsDict;//kind:{indexPath:view}
 
-@property (nonatomic, readwrite) NSInteger numberOfSections;
+@property (nonatomic, readwrite) NSInteger    numberOfSections;
+@property (nonatomic, strong) NSMutableDictionary   *   itemCountInSectionDict;
 @property (nonatomic, assign) NSInteger       moreCount;
 
 @end
@@ -42,9 +43,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        self.alwaysBounceVertical = YES;
-        self.showsVerticalScrollIndicator = NO;
         self.backgroundColor = [UIColor clearColor];
         self.collectionViewLayout = layout;
         [self fly_setUp];
@@ -54,13 +52,15 @@
 
 - (void)fly_setUp {
     
-    _cellReuseQueues = [NSMutableDictionary dictionary];
+    _cellReuseQueues  = [NSMutableDictionary dictionary];
     _visibleCellsDict = [NSMutableDictionary dictionary];
     _cellClassDict = [NSMutableDictionary dictionary];
     _supplementaryViewClassDict = [NSMutableDictionary dictionary];
     _visibleSupplementaryViewsDict = [NSMutableDictionary dictionary];
     _supplementaryViewReuseQueues  = [NSMutableDictionary dictionary];
+    _itemCountInSectionDict = [NSMutableDictionary dictionary];
     _moreCount = 2;
+    _numberOfSections = -1;
     self.collectionViewLayout.collectionView = self;
 }
 
@@ -71,9 +71,10 @@
 
 - (NSInteger)numberOfSections
 {
-    _numberOfSections = 1;
-    if ([self dataSourceResponseSEL:@selector(numberOfSectionsInFlyCollectionView:)]) {
-        _numberOfSections = [self.dataSource numberOfSectionsInFlyCollectionView:self];
+    if (_numberOfSections == -1) {
+        if ([self dataSourceResponseSEL:@selector(numberOfSectionsInFlyCollectionView:)]) {
+            _numberOfSections = [self.dataSource numberOfSectionsInFlyCollectionView:self];
+        }
     }
     return _numberOfSections;
 }
@@ -81,9 +82,16 @@
 - (NSInteger)numberOfItemsInSection:(NSInteger)section
 {
     NSInteger numerOfItems = 0;
-    if ([self dataSourceResponseSEL:@selector(flyCollectionView:numberOfItemsInSection:)]) {
-        numerOfItems = [self.dataSource flyCollectionView:self numberOfItemsInSection:section];
+    NSNumber * itemsCountNum = [_itemCountInSectionDict objectForKey:@(section)];
+    if (!itemsCountNum) {
+        if ([self dataSourceResponseSEL:@selector(flyCollectionView:numberOfItemsInSection:)]) {
+            numerOfItems = [self.dataSource flyCollectionView:self numberOfItemsInSection:section];
+            [_itemCountInSectionDict setObject:@(numerOfItems) forKey:@(section)];
+        }
+    } else {
+        numerOfItems = [itemsCountNum integerValue];
     }
+    
     return numerOfItems;
 }
 
@@ -487,6 +495,55 @@
         resultString = [NSString stringWithFormat:@"%@/%@",kind,identifier];
     }
     return resultString;
+}
+
+#pragma mark - touches
+//"touchesBegan:withEvent:",
+//"touchesMoved:withEvent:",
+//"touchesEnded:withEvent:",
+//"touchesCancelled:withEvent:",
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    FlyLog(@"touchesBegan %@",touches);
+    
+    [super touchesBegan:touches withEvent:event];
+    if (touches.count == 1) {
+        UITouch * touch = [touches anyObject];
+        CGPoint touchPoint = [touch locationInView:self];
+//        NSIndexPath * currentIndexPath = [self indexPathForCell:touch.view];
+//        [self.delegate flyCollectionView:self didSelectItemAtIndexPath:currentIndexPath];
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+    FlyLog(@"touchesMoved %@",touches);
+    if (touches.count == 1) {
+        UITouch * touch = [touches anyObject];
+        CGPoint touchPoint = [touch locationInView:self];
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    FlyLog(@"touchesEnded %@",touches);
+    if (touches.count == 1) {
+        UITouch * touch = [touches anyObject];
+        CGPoint touchPoint = [touch locationInView:self];
+    }
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+    FlyLog(@"touchesCancelled %@",touches);
+    if (touches.count == 1) {
+        UITouch * touch = [touches anyObject];
+        CGPoint touchPoint = [touch locationInView:self];
+    }
 }
 
 @end

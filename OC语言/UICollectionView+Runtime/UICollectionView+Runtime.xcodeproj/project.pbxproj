@@ -14,6 +14,7 @@
 		39D70B5421B23EDD009229DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D70B5221B23EDD009229DB /* LaunchScreen.storyboard */; };
 		39D70B5721B23EDD009229DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D70B5621B23EDD009229DB /* main.m */; };
 		39D70B5F21B2CEDD009229DB /* FlyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */; };
+		7B127F8A21D37FD000A6630B /* FlyMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B127F8921D37FD000A6630B /* FlyMenuController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		39D70B5621B23EDD009229DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39D70B5D21B2CEDD009229DB /* FlyFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFlowLayout.h; sourceTree = "<group>"; };
 		39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFlowLayout.m; sourceTree = "<group>"; };
+		7B127F8821D37FD000A6630B /* FlyMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyMenuController.h; sourceTree = "<group>"; };
+		7B127F8921D37FD000A6630B /* FlyMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyMenuController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				39D70B4B21B23ED1009229DB /* ViewController.m */,
 				39D70B5D21B2CEDD009229DB /* FlyFlowLayout.h */,
 				39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */,
+				7B127F8821D37FD000A6630B /* FlyMenuController.h */,
+				7B127F8921D37FD000A6630B /* FlyMenuController.m */,
 				39D70B4D21B23ED1009229DB /* Main.storyboard */,
 				39D70B5021B23EDD009229DB /* Assets.xcassets */,
 				39D70B5221B23EDD009229DB /* LaunchScreen.storyboard */,
@@ -149,6 +154,7 @@
 				39D70B4C21B23ED1009229DB /* ViewController.m in Sources */,
 				39D70B5721B23EDD009229DB /* main.m in Sources */,
 				39D70B4921B23ED1009229DB /* AppDelegate.m in Sources */,
+				7B127F8A21D37FD000A6630B /* FlyMenuController.m in Sources */,
 				39D70B5F21B2CEDD009229DB /* FlyFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
