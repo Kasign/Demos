@@ -75,6 +75,15 @@
     [self.collectionView setContentSize:[self collectionViewContentSize]];
 }
 
+- (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection
+{
+    if (_scrollDirection != scrollDirection) {
+        _scrollDirection = scrollDirection;
+        [self.collectionView setContentOffset:CGPointZero];
+        [self.collectionView reloadData];
+    }
+}
+
 - (id)delegate
 {
     return self.collectionView.delegate;
@@ -172,7 +181,7 @@
     CGSize itemSize  = [self cachedSizeForItemAtIndexPath:indexPath];
     itemFrame.size   = itemSize;
     cellAttribute.frame  = itemFrame;
-    cellAttribute.bounds = CGRectMake(0, 0, itemSize.width, itemSize.height);
+    
     if (_scrollDirection == UICollectionViewScrollDirectionVertical) {//竖向滑动
         [self calculateCellLayoutAttributesWhenDirectionVertical:cellAttribute indexPath:indexPath];
     } else if (_scrollDirection == UICollectionViewScrollDirectionHorizontal) {//横向滑动
@@ -191,7 +200,6 @@
     CGSize supplemenSize  = [self referenceSizeForKind:elementKind inSection:indexPath.section];
     supplemenFrame.size = supplemenSize;
     supplementAttributes.frame  = supplemenFrame;
-    supplementAttributes.bounds = CGRectMake(0, 0, supplemenSize.width, supplemenSize.height);
     
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {

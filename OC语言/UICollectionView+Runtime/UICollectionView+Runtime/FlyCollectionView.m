@@ -7,6 +7,7 @@
 //
 
 #import "FlyCollectionView.h"
+#import "Header.h"
 
 @implementation FlyCollectionView
 
@@ -52,5 +53,51 @@
     }
 }
 
+
+@end
+
+@implementation UICollectionReusableView (x)
+
+//- (void)setFrame:(CGRect)frame
+//{
+//    FlyLog(@"-->>重设了frame： %@ \n-->>%@",self,[NSValue valueWithCGRect:frame]);
+//    [self logIndexPath];
+//    [super setFrame:frame];
+//}
+//
+//- (void)willMoveToSuperview:(UIView *)newSuperview
+//{
+//    FlyLog(@"-->>willMoveToSuperview%@\n-->>%@",self,newSuperview);
+//    [self logIndexPath];
+//    [super willMoveToSuperview:newSuperview];
+//}
+//
+//- (void)didMoveToSuperview
+//{
+//    FlyLog(@"-->>didMoveToSuperview%@\n -->> %@",self,self.superview);
+//    [self logIndexPath];
+//    [super didMoveToSuperview];
+//    [self logIndexPath];
+//}
+//
+//- (void)removeFromSuperview
+//{
+//    FlyLog(@"-->>移除了%@",self);
+//    [self logIndexPath];
+//    [super removeFromSuperview];
+//}
+//
+//- (void)logIndexPath
+//{
+//    UICollectionView * superView = (UICollectionView *)self.superview;
+//    if ([superView isKindOfClass:[UICollectionView class]]) {
+//        NSIndexPath * indexPath = [superView indexPathForCell:self];
+//        if (indexPath) {
+//            FlyLog(@"-->>logIndexPath: %ld - %ld",indexPath.section,indexPath.row);
+//        }
+//    } else {
+//        FlyLog(@"-->>logIndexPath: %@",superView);
+//    }
+//}
 
 @end

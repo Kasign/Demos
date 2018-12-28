@@ -53,7 +53,8 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 {
     [super viewDidLoad];
     _itemHeight = 100.f;
-    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+//    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"] mutableCopy];
     
     UIMenuItem * repeatItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(a)];
     UIMenuItem * deleteItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(a)];
@@ -129,13 +130,13 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    FlyLog(@" 1---->>>>numberOfSectionsInCollectionView");
+    FlyLog(@" 1、SectionNum---->>>>numberOfSectionsInCollectionView");
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    FlyLog(@" 2---->>>>numberOfItemsInSection section:%ld",section);
+    FlyLog(@" 2、ItemsNum---->>>>numberOfItemsInSection section:%ld",section);
     return _dataSourceArr.count;
 }
 
@@ -150,17 +151,61 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setTextColor:[UIColor blackColor]];
         [label setNumberOfLines:0];
+        [label setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.3]];
+        //        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClickAction)];
+        //        [label addGestureRecognizer:tap];
+        //        [label setUserInteractionEnabled:YES];
         [cell.contentView addSubview:label];
     }
+    
+    UIButton * button = [cell.contentView viewWithTag:10087];
+    if (!button) {
+        button = [[UIButton alloc] initWithFrame:cell.bounds];
+        [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchUpInside];
+        [button setTag:10087];
+        [button setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.3]];
+        [cell.contentView addSubview:button];
+    }
+    
+    UIView * view = [cell.contentView viewWithTag:10088];
+    if (!view) {
+        view = [[UIView alloc] initWithFrame:cell.bounds];
+        [view setTag:10088];
+        [view setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.3]];
+        //        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClickAction)];
+        //        [view addGestureRecognizer:tap];
+        [cell.contentView addSubview:view];
+    }
+    
     [cell setBackgroundColor:[UIColor purpleColor]];
-    [label setFrame:cell.bounds];
+    CGRect cellBounds = cell.bounds;
+    
+    [label setFrame:CGRectMake(0, 0, cellBounds.size.width * 0.5, cellBounds.size.height)];
+    [button setFrame:CGRectMake(cellBounds.size.width * 0.5, 0, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
+    [view setFrame:CGRectMake(cellBounds.size.width * 0.5, cellBounds.size.height * 0.5, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
 //    [label setText:[NSString stringWithFormat:@"%@-%@\n %p",@(indexPath.section),@(indexPath.row),cell]];
     
-    [label setText:_dataSourceArr[indexPath.row]];
+    [label setText:[NSString stringWithFormat:@"%@-%@",@(indexPath.section),@(indexPath.row)]];
+//    [label setText:_dataSourceArr[indexPath.row]];
     
-    FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
+    FlyLog(@" 3、cell---->>>>cellForItemAtIndexPath index:%@",indexPath);
     
     return cell;
+}
+
+- (void)buttonClickAction
+{
+    FlyLog(@"buttonClickAction");
+}
+
+- (void)labelClickAction
+{
+    FlyLog(@"labelClickAction");
+}
+
+- (void)viewClickAction
+{
+    FlyLog(@"viewClickAction");
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -187,17 +232,17 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
         [label setTextColor:[UIColor blackColor]];
         [reusableView addSubview:label];
     }
-    
+    [label setFrame:reusableView.bounds];
     [label setText:kind];
     
-    FlyLog(@" 4---->>>>viewForSupplemen kind:%@ index:%@ point : %@",kind,indexPath,[NSValue valueWithCGPoint:reusableView.frame.origin]);
+    FlyLog(@" 4、Suppleme---->>>>viewForSupplemen kind:%@ index:%@ point : %@",kind,indexPath,[NSValue valueWithCGPoint:reusableView.frame.origin]);
     
     return reusableView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlyLog(@" 5---->>>>sizeForItemAtIndexPath index:%@",indexPath);
+    FlyLog(@" 5、itemSize---->>>>sizeForItemAtIndexPath index:%@",indexPath);
     CGFloat height = 50.f;
     CGFloat weight = 100.f;
     if (indexPath.row % 3 == 1) {
@@ -217,38 +262,53 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 6---->>>>minimumLineSpacingForSectionAtIndex section:%ld",section);
+    FlyLog(@" 6、LineSpacing---->>>>minimumLineSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 7---->>>>minimumInteritemSpacingForSectionAtIndex section:%ld",section);
+    FlyLog(@" 7、InteritemSpacing---->>>>minimumInteritemSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 8---->>>>insetForSectionAtIndex section:%ld",section);
+    FlyLog(@" 8、inset---->>>>insetForSectionAtIndex section:%ld",section);
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    FlyLog(@" 9---->>>>referenceSizeForHeaderInSection section:%ld",section);
+    FlyLog(@" 9、SizeForHeader---->>>>referenceSizeForHeaderInSection section:%ld",section);
     return CGSizeMake(100.f, 45.f);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
+    FlyLog(@" 10、SizeForFooter---->>>>referenceSizeForFooterInSection section:%ld",section);
     return CGSizeMake(100.f, 30.f);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlyLog(@"didSelectItemAtIndexPath");
-    
+    FlyLog(@" ---->>>>>>>>didSelectItemAtIndexPath");
+    if (indexPath.row % 3 == 0) {
+        FlyLog(@" *->>reload : %ld - %ld",indexPath.section,indexPath.row);
+        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    } else if (indexPath.row % 3 == 1) {
+        FlyLog(@" *->>insert : %ld - %ld",indexPath.section,indexPath.row);
+        [self.dataSourceArr insertObject:@"1" atIndex:indexPath.row];
+        [collectionView insertItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    } else {
+        FlyLog(@" *->>delete : %ld - %ld",indexPath.section,indexPath.row);
+        [self.dataSourceArr removeObjectAtIndex:indexPath.row];
+        [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    }
+//    [self.collectionView reloadData];
 //    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
 //    if (cell) {
 //        _currentIndexPath = indexPath;
@@ -257,7 +317,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 //    }
     
 //    [self getClassMethods:self.collectionView];
-    [self getClassMethods:[UITextView new]];
+//    [self getClassMethods:[UITextView new]];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -277,7 +337,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
+//    FlyLog(@" 11、scroll---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
 }
 
 - (void)getClassMethods:(id)instance

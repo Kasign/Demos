@@ -32,7 +32,8 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+//    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"] mutableCopy];
     [self.view addSubview:self.collectionView];
 }
 
@@ -87,13 +88,13 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (NSInteger)numberOfSectionsInFlyCollectionView:(FlyCollectionView *)collectionView
 {
-    FlyLog(@" 1---->>>>numberOfSectionsInCollectionView");
-    return 4;
+    FlyLog(@" 1、SectionNum---->>>>numberOfSectionsInCollectionView");
+    return 1;
 }
 
 - (NSInteger)flyCollectionView:(FlyCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    FlyLog(@" 2---->>>>numberOfItemsInSection section:%ld",section);
+    FlyLog(@" 2、ItemsNum---->>>>numberOfItemsInSection section:%ld",section);
     return _dataSourceArr.count;
 }
 
@@ -141,10 +142,10 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     [button setFrame:CGRectMake(cellBounds.size.width * 0.5, 0, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
     [view setFrame:CGRectMake(cellBounds.size.width * 0.5, cellBounds.size.height * 0.5, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
     
-    //    [label setText:[NSString stringWithFormat:@"%@-%@\n %p",@(indexPath.section),@(indexPath.row),cell]];
+    [label setText:[NSString stringWithFormat:@"%@-%@",@(indexPath.section),@(indexPath.row)]];
     
-    [label setText:_dataSourceArr[indexPath.row]];
-    FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
+//    [label setText:_dataSourceArr[indexPath.row]];
+    FlyLog(@" 3、cell---->>>>cellForItemAtIndexPath index:%@",indexPath);
     
     return cell;
 }
@@ -185,14 +186,14 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     [label setFrame:reusableView.bounds];
     [label setText:kind];
     
-    FlyLog(@" 4---->>>>viewForSupplemen kind:%@ index:%@ point : %@",kind,indexPath,[NSValue valueWithCGPoint:reusableView.frame.origin]);
+    FlyLog(@" 4、Suppleme---->>>>viewForSupplemen kind:%@ index:%@ point : %@",kind,indexPath,[NSValue valueWithCGPoint:reusableView.frame.origin]);
     
     return reusableView;
 }
 
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlyLog(@" 5---->>>>sizeForItemAtIndexPath index:%@",indexPath);
+    FlyLog(@" 5、itemSize---->>>>sizeForItemAtIndexPath index:%@",indexPath);
     CGFloat height = 50.f;
     CGFloat weight = 100.f;
     if (indexPath.row % 3 == 1) {
@@ -212,53 +213,66 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 6---->>>>minimumLineSpacingForSectionAtIndex section:%ld",section);
+    FlyLog(@" 6、LineSpacing---->>>>minimumLineSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 -(CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 7---->>>>minimumInteritemSpacingForSectionAtIndex section:%ld",section);
+    FlyLog(@" 7、InteritemSpacing---->>>>minimumInteritemSpacingForSectionAtIndex section:%ld",section);
     return 10.f;
 }
 
 - (UIEdgeInsets)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    FlyLog(@" 8---->>>>insetForSectionAtIndex section:%ld",section);
+    FlyLog(@" 8、inset---->>>>insetForSectionAtIndex section:%ld",section);
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    FlyLog(@" 9---->>>>referenceSizeForHeaderInSection section:%ld",section);
+    FlyLog(@" 9、SizeForHeader---->>>>referenceSizeForHeaderInSection section:%ld",section);
     return CGSizeMake(100.f, 45.f);
 }
 
-//- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-//{
-//    FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
-//    return CGSizeMake(100.f, 30.f);
-//}
+- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    FlyLog(@" 10、SizeForFooter---->>>>referenceSizeForFooterInSection section:%ld",section);
+    return CGSizeMake(100.f, 30.f);
+}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
+//    FlyLog(@" 11、scroll---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
 }
 
 - (void)flyCollectionView:(FlyCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@"didSelectItemAtIndexPath");
     
-    FlyCollectionReusableView * cell = [collectionView cellForItemAtIndexPath:indexPath];
-    if (cell) {
-        _currentIndexPath = indexPath;
-        [self.menuController showRelyView:cell inView:collectionView];
-        [self.menuController setMenuVisible:YES animated:YES];
-    }
+//    FlyCollectionReusableView * cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    if (cell) {
+//        _currentIndexPath = indexPath;
+//        [self.menuController showRelyView:cell inView:collectionView];
+//        [self.menuController setMenuVisible:YES animated:YES];
+//    }
     
-    //    [self getClassMethods:self.collectionView];
-    //    [self getClassMethods:self.layout];
+    if (indexPath.row % 3 == 0) {
+        FlyLog(@" *->>reload : %ld - %ld",indexPath.section,indexPath.row);
+        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    } else if (indexPath.row % 3 == 1) {
+        FlyLog(@" *->>insert : %ld - %ld",indexPath.section,indexPath.row);
+        [self.dataSourceArr insertObject:@"1" atIndex:indexPath.row];
+        [collectionView insertItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    } else {
+        FlyLog(@" *->>delete : %ld - %ld",indexPath.section,indexPath.row);
+        [self.dataSourceArr removeObjectAtIndex:indexPath.row];
+        [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    }
 }
 
 @end

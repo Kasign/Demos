@@ -35,6 +35,7 @@
 		7B127F8921D37FD000A6630B /* FlyMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyMenuController.m; sourceTree = "<group>"; };
 		7B127F8E21D3928700A6630B /* FlyCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionView.h; sourceTree = "<group>"; };
 		7B127F8F21D3928700A6630B /* FlyCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionView.m; sourceTree = "<group>"; };
+		7BBB0D7221D6000B006F527E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = ../../DiyCollectionView/DiyCollectionView/Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 				39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */,
 				7B127F8821D37FD000A6630B /* FlyMenuController.h */,
 				7B127F8921D37FD000A6630B /* FlyMenuController.m */,
+				7BBB0D7221D6000B006F527E /* Header.h */,
 				39D70B4D21B23ED1009229DB /* Main.storyboard */,
 				39D70B5021B23EDD009229DB /* Assets.xcassets */,
 				39D70B5221B23EDD009229DB /* LaunchScreen.storyboard */,
