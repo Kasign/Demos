@@ -12,13 +12,12 @@
 
 @interface FlyCollectionView ()<UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSMutableDictionary   *   cellReuseQueues;//复用池 identifier : NSDictionary
-@property (nonatomic, strong) NSMutableDictionary   *   visibleCellsDict;
-@property (nonatomic, strong) NSMutableDictionary   *   cellClassDict;
-
-@property (nonatomic, strong) NSMutableDictionary   *   supplementaryViewReuseQueues;//key：NSMutableSet{}
-@property (nonatomic, strong) NSMutableDictionary   *   supplementaryViewClassDict;//key:className
-@property (nonatomic, strong) NSMutableDictionary   *   visibleSupplementaryViewsDict;//kind:{indexPath:view}
+@property (nonatomic, strong) NSMutableDictionary   *   cellReuseQueues;//复用池 identifier : NSMutableSet
+@property (nonatomic, strong) NSMutableDictionary   *   visibleCellsDict;//可见的cell indexPath:FlyCollectionReusableView
+@property (nonatomic, strong) NSMutableDictionary   *   cellClassDict;//注册的类名表 identifier:className
+@property (nonatomic, strong) NSMutableDictionary   *   supplementaryViewReuseQueues;//复用池 key：NSMutableSet{}
+@property (nonatomic, strong) NSMutableDictionary   *   supplementaryViewClassDict;//注册的类名表 key:className
+@property (nonatomic, strong) NSMutableDictionary   *   visibleSupplementaryViewsDict;//可见的 kind:{indexPath:view}
 
 @property (nonatomic, readwrite) NSInteger    numberOfSections;
 @property (nonatomic, strong) NSMutableDictionary   *   itemCountInSectionDict;
@@ -52,21 +51,35 @@
 
 - (void)fly_setUp {
     
-    _cellReuseQueues  = [NSMutableDictionary dictionary];
-    _visibleCellsDict = [NSMutableDictionary dictionary];
+    _cellReuseQueues = [NSMutableDictionary dictionary];
     _cellClassDict = [NSMutableDictionary dictionary];
     _supplementaryViewClassDict = [NSMutableDictionary dictionary];
-    _visibleSupplementaryViewsDict = [NSMutableDictionary dictionary];
-    _supplementaryViewReuseQueues  = [NSMutableDictionary dictionary];
+    _supplementaryViewReuseQueues = [NSMutableDictionary dictionary];
     _itemCountInSectionDict = [NSMutableDictionary dictionary];
-    _moreCount = 2;
-    _numberOfSections = -1;
     self.collectionViewLayout.collectionView = self;
+    _numberOfSections = -1;
+    _visibleCellsDict = [NSMutableDictionary dictionary];
+    _visibleSupplementaryViewsDict = [NSMutableDictionary dictionary];
 }
 
-- (void)setDelegate:(id<FlyCollectionViewDelegate>)delegate
+- (void)reset_cachedData
 {
-    [super setDelegate:delegate];
+    _numberOfSections = -1;
+    _itemCountInSectionDict = [NSMutableDictionary dictionary];
+    [self reload_cachedData];
+    for (NSIndexPath * indexPath in _visibleCellsDict.allKeys) {
+        FlyCollectionReusableView * cell = [_visibleCellsDict objectForKey:indexPath];
+        [self p_setCellToReuseQueues:cell];
+    }
+    
+}
+
+- (void)reload_cachedData
+{
+    for (NSInteger section = 0; section < [self numberOfSections]; section++) {
+        [self p_numberOfItemsInSection:section];
+    }
+    
 }
 
 - (NSInteger)numberOfSections
@@ -76,16 +89,18 @@
             _numberOfSections = [self.dataSource numberOfSectionsInFlyCollectionView:self];
         }
     }
+    _numberOfSections = MAX(_numberOfSections, 0);
     return _numberOfSections;
 }
 
-- (NSInteger)numberOfItemsInSection:(NSInteger)section
+- (NSInteger)p_numberOfItemsInSection:(NSInteger)section
 {
     NSInteger numerOfItems = 0;
     NSNumber * itemsCountNum = [_itemCountInSectionDict objectForKey:@(section)];
     if (!itemsCountNum) {
         if ([self dataSourceResponseSEL:@selector(flyCollectionView:numberOfItemsInSection:)]) {
             numerOfItems = [self.dataSource flyCollectionView:self numberOfItemsInSection:section];
+            numerOfItems = MAX(numerOfItems, 0);
             [_itemCountInSectionDict setObject:@(numerOfItems) forKey:@(section)];
         }
     } else {
@@ -95,64 +110,23 @@
     return numerOfItems;
 }
 
-#pragma mark - public method
-- (FlyCollectionReusableView *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewLayoutAttributes * layoutAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-    FlyCollectionReusableView * reusableView = [_visibleCellsDict objectForKey:indexPath];
-    if (!reusableView) {
-        reusableView = [self reusableCellViewWithIdentifier:identifier layoutAttributes:layoutAttributes];
-    }
-    reusableView.frame = layoutAttributes.frame;
-
-    if (reusableView) {
-        [_visibleCellsDict setObject:reusableView forKey:indexPath];
-    }
-
-    return reusableView;
-}
+#pragma mark - register
 
 - (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier
 {
     if ([identifier isKindOfClass:[NSString class]] && cellClass)
     {
-//        FlyCollectionViewObject * cellObject = [FlyCollectionViewObject initWithClass:cellClass identifier:identifier type:0];
         [_cellClassDict setObject:cellClass forKey:identifier];
         NSMutableSet * mutableSet = [NSMutableSet set];
         [_cellReuseQueues setObject:mutableSet forKey:identifier];
     }
 }
 
-#pragma mark supplement
-- (FlyCollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind withReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewLayoutAttributes * layoutAttributes = [self layoutAttributesForSupplementaryElementOfKind:elementKind atIndexPath:indexPath];
-    FlyCollectionReusableView * reusableView = nil;
-    NSDictionary * supplementDict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
-    if (supplementDict) {
-        reusableView = [supplementDict objectForKey:indexPath];
-    }
-    if (!reusableView) {
-        reusableView = [self supplementaryViewForElementKind:elementKind identifier:identifier layoutAttributes:layoutAttributes];
-    }
-    reusableView.frame = layoutAttributes.frame;
-    if (reusableView) {
-        NSMutableDictionary * mutableDict = [[_visibleSupplementaryViewsDict objectForKey:elementKind] mutableCopy];
-        if (!mutableDict) {
-            mutableDict = [@{} mutableCopy];
-        }
-        [mutableDict setObject:reusableView forKey:indexPath];
-        [_visibleSupplementaryViewsDict setObject:mutableDict forKey:elementKind];
-    }
-//    FlyLog(@"dequeueReusable -> \n %p -- %@",reusableView,indexPath);
-    return reusableView;
-}
-
 - (void)registerClass:(Class)viewClass forSupplementaryViewOfKind:(NSString *)elementKind withReuseIdentifier:(NSString *)identifier
 {
-    if ([identifier isKindOfClass:[NSString class]] && [elementKind isKindOfClass:[NSString class]] && viewClass)
+    if (viewClass && [identifier isKindOfClass:[NSString class]] && [elementKind isKindOfClass:[NSString class]])
     {
-        [_visibleSupplementaryViewsDict setObject:[@{} mutableCopy] forKey:elementKind];
+        [_visibleSupplementaryViewsDict setObject:[NSMutableDictionary dictionary] forKey:elementKind];
         NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
         if (reuseKey) {
             [_supplementaryViewClassDict setObject:viewClass forKey:reuseKey];
@@ -162,59 +136,94 @@
     }
 }
 
-#pragma mark - show subViews
+#pragma mark - reload & 刷新
 - (void)reloadData
 {
-//    [self fly_setUp];
+    [self reset_cachedData];
     [self.collectionViewLayout prepareLayout];
     [self reloadVisibleViews];
 }
 
 - (void)reloadVisibleViews
 {
-    NSMutableArray * visibleIndexPaths = [[self indexPathsForVisibleItems] mutableCopy];
-    [visibleIndexPaths removeObjectsInArray:_visibleCellsDict.allKeys];
-    [self reloadItemsAtIndexPaths:visibleIndexPaths.copy];
-    
-//    FlyLog(@"刷新了cell：%@",visibleIndexPaths);
-    
-    NSMutableArray * visibleHeaderIndexPaths = [[self indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionHeader] mutableCopy];
-    NSDictionary * headerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader];
-    if (headerDict) {
-       [visibleHeaderIndexPaths removeObjectsInArray:headerDict.allKeys];
-    }
-    [self reloadSupplementaryElementsOfKind:UICollectionElementKindSectionHeader atIndexPaths:visibleHeaderIndexPaths];
-//    FlyLog(@"刷新了head：%@",visibleHeaderIndexPaths);
-
-    
-    NSMutableArray * visibleFooterIndexPaths = [[self indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionFooter] mutableCopy];
-    NSDictionary * footerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter];
-    if (footerDict) {
-        [visibleFooterIndexPaths removeObjectsInArray:footerDict.allKeys];
-    }
-    [self reloadSupplementaryElementsOfKind:UICollectionElementKindSectionFooter atIndexPaths:visibleFooterIndexPaths];
-//    FlyLog(@"刷新了foot：%@",visibleFooterIndexPaths);
-
+    [self reloadVisibleHeaders];
+    [self reloadVisibleCells];
+    [self reloadVisibleFooters];
 }
 
-- (FlyCollectionReusableView *)reusableCellViewWithIdentifier:(NSString *)identifier layoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+- (void)reloadVisibleCells
 {
-    FlyCollectionReusableView * reusableView = nil;
-    if (identifier) {
-        NSMutableSet * mutableSet = [_cellReuseQueues objectForKey:identifier];
-        reusableView = [mutableSet anyObject];
-        if (!reusableView) {
-            reusableView = [[FlyCollectionReusableView alloc] initWithFrame:layoutAttributes.bounds];
-            reusableView.reuseIdentifier = identifier;
-        } else {
-            [mutableSet removeObject:reusableView];
-        }
-        [reusableView setFrame:layoutAttributes.frame];
-    }
-    return reusableView;
+    NSMutableArray * visibleIndexPaths = [[self p_indexPathsForVisibleItems] mutableCopy];
+    [visibleIndexPaths removeObjectsInArray:_visibleCellsDict.allKeys];
+    [self p_reloadItemsAtIndexPaths:visibleIndexPaths.copy];
 }
 
-- (nullable FlyCollectionReusableView *)supplementaryViewForElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
+- (void)reloadVisibleHeaders
+{
+    NSArray * allKeys = _supplementaryViewClassDict.allKeys;
+    BOOL shouldReload = NO;
+    for (NSString * key in allKeys) {
+        if ([key containsString:UICollectionElementKindSectionHeader]) {
+            shouldReload = YES;
+            break;
+        }
+    }
+    if (shouldReload) {
+        NSMutableArray * visibleHeaderIndexPaths = [[self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionHeader] mutableCopy];
+        NSDictionary * headerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader];
+        if (headerDict) {
+            [visibleHeaderIndexPaths removeObjectsInArray:headerDict.allKeys];
+        }
+        [self p_reloadSupplementaryElementsOfKind:UICollectionElementKindSectionHeader atIndexPaths:visibleHeaderIndexPaths];
+    }
+}
+
+- (void)reloadVisibleFooters
+{
+    NSArray * allKeys = _supplementaryViewClassDict.allKeys;
+    BOOL shouldReload = NO;
+    for (NSString * key in allKeys) {
+        if ([key containsString:UICollectionElementKindSectionFooter]) {
+            shouldReload = YES;
+            break;
+        }
+    }
+    if (shouldReload) {
+        NSMutableArray * visibleFooterIndexPaths = [[self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionFooter] mutableCopy];
+        NSDictionary * footerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter];
+        if (footerDict) {
+            [visibleFooterIndexPaths removeObjectsInArray:footerDict.allKeys];
+        }
+        [self p_reloadSupplementaryElementsOfKind:UICollectionElementKindSectionFooter atIndexPaths:visibleFooterIndexPaths];
+    }
+}
+
+- (void)p_reloadItemsAtIndexPaths:(NSArray <NSIndexPath *> *)indexPaths
+{
+    if ([indexPaths isKindOfClass:[NSArray class]]) {
+        for (NSIndexPath * indexPath in indexPaths) {
+            FlyCollectionReusableView * cellView = [self p_cellForItemAtIndexPath:indexPath];
+            if (cellView && cellView.superview != self) {
+                [self addSubview:cellView];
+            }
+        }
+    }
+}
+
+- (void)p_reloadSupplementaryElementsOfKind:(NSString *)elementKind atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
+{
+    if ([indexPaths isKindOfClass:[NSArray class]] && [elementKind isKindOfClass:[NSString class]]) {
+        for (NSIndexPath * indexPath in indexPaths) {
+            FlyCollectionReusableView * supplementaryView = [self p_supplementaryViewForElementKind:elementKind atIndexPath:indexPath];
+            if (supplementaryView && supplementaryView.superview != self) {
+                [self addSubview:supplementaryView];
+            }
+        }
+    }
+}
+
+#pragma mark 单个刷新，会调用delegate方法
+- (nullable FlyCollectionReusableView *)p_supplementaryViewForElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
     FlyCollectionReusableView * reusableView = nil;
     if ([self dataSourceResponseSEL:@selector(flyCollectionView:viewForSupplementaryElementOfKind:atIndexPath:)]) {
@@ -223,89 +232,7 @@
     return reusableView;
 }
 
-- (FlyCollectionReusableView *)supplementaryViewForElementKind:(NSString *)elementKind identifier:(NSString *)identifier layoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
-{
-    FlyCollectionReusableView * reusableView = nil;
-    if (identifier && elementKind) {
-        NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
-        if (reuseKey) {
-            NSMutableSet * mutableSet = [_supplementaryViewReuseQueues objectForKey:reuseKey];
-            reusableView = [mutableSet anyObject];
-            if (!reusableView) {
-                reusableView = [[FlyCollectionReusableView alloc] initWithFrame:layoutAttributes.bounds];
-                reusableView.reuseIdentifier = identifier;
-            } else {
-                [mutableSet removeObject:reusableView];
-            }
-            [reusableView setFrame:layoutAttributes.frame];
-        }
-    }
-    return reusableView;
-}
-
-#pragma mark - sys
-- (NSArray *)indexPathsForVisibleItems
-{
-    NSMutableArray * indexPaths = [NSMutableArray array];
-    NSInteger sectionNum = self.numberOfSections;
-    for (NSInteger section = 0; section < sectionNum; section ++) {
-        NSInteger itemsInSection = [self numberOfItemsInSection:section];
-        for (NSInteger row = 0; row < itemsInSection; row ++) {
-            NSIndexPath * indexPath = [NSIndexPath indexPathForItem:row inSection:section];
-            UICollectionViewLayoutAttributes * layoutAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-            if ([self isVisibleFrame:layoutAttributes.frame]) {
-                [indexPaths addObject:indexPath];
-            }
-        }
-    }
-    return [indexPaths copy];
-}
-
-- (NSArray *)indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind
-{
-    NSMutableArray * indexPaths = [NSMutableArray array];
-    NSInteger sectionNum = self.numberOfSections;
-    for (NSInteger section = 0; section < sectionNum; section ++) {
-        NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
-        UICollectionViewLayoutAttributes * layoutAttributes = [self layoutAttributesForSupplementaryElementOfKind:elementKind atIndexPath:indexPath];
-        if ([self isVisibleFrame:layoutAttributes.frame]) {
-            [indexPaths addObject:indexPath];
-        }
-    }
-    return [indexPaths copy];
-}
-
-- (void)reloadItemsAtIndexPaths:(NSArray *)indexPaths
-{
-    if ([indexPaths isKindOfClass:[NSArray class]]) {
-        for (NSIndexPath * indexPath in indexPaths) {
-            FlyCollectionReusableView * cellView = [self cellForItemAtIndexPath:indexPath];
-            if (cellView && cellView.superview != self) {
-                [self addSubview:cellView];
-            }
-        }
-    }
-}
-
-- (void)reloadSupplementaryElementsOfKind:(NSString *)elementKind atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
-{
-    if ([indexPaths isKindOfClass:[NSArray class]] && [elementKind isKindOfClass:[NSString class]]) {
-        for (NSIndexPath * indexPath in indexPaths) {
-            FlyCollectionReusableView * supplementaryView = [self supplementaryViewForElementKind:elementKind atIndexPath:indexPath];
-            if (supplementaryView && supplementaryView.superview != self) {
-                [self addSubview:supplementaryView];
-            }
-        }
-    }
-}
-
-//重新排序
-- (NSArray *)reorderedItems
-{
-    return nil;
-}
-
-- (FlyCollectionReusableView *)cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (FlyCollectionReusableView *)p_cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyCollectionReusableView * reusableView = nil;
     if ([self dataSourceResponseSEL:@selector(flyCollectionView:cellForItemAtIndexPath:)]) {
@@ -314,17 +241,407 @@
     return reusableView;
 }
 
-- (NSIndexPath *)indexPathForCell:(FlyCollectionReusableView *)cell
+#pragma mark - dequeueReusable
+- (FlyCollectionReusableView *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes * layoutAttributes = [self p_layoutAttributesForItemAtIndexPath:indexPath];
+    FlyCollectionReusableView * reusableView = [self p_getCellFromVisibleDict:indexPath];
+    if (!reusableView) {
+        reusableView = [self p_reusableCellViewWithIdentifier:identifier layoutAttributes:layoutAttributes];
+    }
+    reusableView.frame = layoutAttributes.frame;
+    
+    if (reusableView) {
+        [_visibleCellsDict setObject:reusableView forKey:indexPath];
+    }
+    
+    return reusableView;
+}
+
+- (FlyCollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind withReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes * layoutAttributes = [self p_layoutAttributesForSupplementaryElementOfKind:elementKind atIndexPath:indexPath];
+    FlyCollectionReusableView * reusableView = [self p_getSupplementaryFromVisibleDict:indexPath kind:elementKind];
+    if (!reusableView) {
+        reusableView = [self p_supplementaryViewForElementKind:elementKind identifier:identifier layoutAttributes:layoutAttributes];
+    }
+    reusableView.frame = layoutAttributes.frame;
+    
+    if (reusableView) {
+        [self p_insertSupplementaryToVisibleDict:reusableView kind:elementKind indexPath:indexPath];
+    }
+    return reusableView;
+}
+
+#pragma mark - 生成或者从复用池取
+- (FlyCollectionReusableView *)p_reusableCellViewWithIdentifier:(NSString *)identifier layoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if (identifier) {
+        reusableView = [self p_getCellFromReuseQueues:identifier];
+        if (!reusableView) {
+            Class cellClass = [_cellClassDict objectForKey:identifier];
+            reusableView = [[cellClass alloc] initWithFrame:layoutAttributes.bounds];
+            reusableView.reuseIdentifier = identifier;
+        }
+    }
+    return reusableView;
+}
+
+- (FlyCollectionReusableView *)p_supplementaryViewForElementKind:(NSString *)elementKind identifier:(NSString *)identifier layoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if (identifier && elementKind) {
+        NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
+        if (reuseKey) {
+            reusableView = [self p_getSupplementaryFromReuseQueues:identifier kind:elementKind];
+            if (!reusableView) {
+                Class supplementaryClass = [_supplementaryViewClassDict objectForKey:reuseKey];
+                reusableView = [[supplementaryClass alloc] initWithFrame:layoutAttributes.bounds];
+                reusableView.reuseIdentifier = identifier;
+            }
+        }
+    }
+    return reusableView;
+}
+
+#pragma mark - 复用池 ↔ visible
+#pragma mark 1、cell重新进入复用池
+- (void)p_setCellToReuseQueues:(FlyCollectionReusableView *)reusableView
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            [self p_deleteCellToVisibleDict:reusableView indexPath:nil];
+            [self p_insertCellToReuseQueues:reusableView];
+        }
+    }
+}
+
+#pragma mark 2、cell从复用池进入可见区域
+- (void)p_setCellToVisibleDict:(FlyCollectionReusableView *)reusableView indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [indexPath isKindOfClass:[NSIndexPath class]] && [self isVisibleFrame:reusableView.frame]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            [self p_deleteCellFromReuseQueues:reusableView];
+            [self p_insertCellToVisibleDict:reusableView indexPath:indexPath];
+        }
+    }
+}
+
+#pragma mark 3、Supplementary重新进入复用池
+- (void)p_setSupplementaryToReuseQueues:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            [self p_deleteSupplementaryFromVisibleDict:reusableView kind:elementKind indexPath:indexPath];
+            [self p_insertSupplementaryToReuseQueues:reusableView kind:elementKind];
+        }
+    }
+}
+
+#pragma mark 4、Supplementary从复用池进入可见区域
+- (void)p_setSupplementaryToVisibleDict:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [indexPath isKindOfClass:[NSIndexPath class]] && [self isVisibleFrame:reusableView.frame]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            [self p_deleteSupplementaryFromReuseQueues:reusableView kind:elementKind];
+            [self p_insertSupplementaryToVisibleDict:reusableView kind:elementKind indexPath:indexPath];
+        }
+    }
+}
+
+#pragma mark ①、CellReuseQueues
+- (void)p_insertCellToReuseQueues:(FlyCollectionReusableView *)reusableView
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            NSMutableSet * mutableSet = [_cellReuseQueues objectForKey:identifier];
+            if (mutableSet) {
+                [reusableView removeFromSuperview];
+                [mutableSet addObject:reusableView];
+            }
+        }
+    }
+}
+
+- (void)p_deleteCellFromReuseQueues:(FlyCollectionReusableView *)reusableView
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            NSMutableSet * mutableSet = [_cellReuseQueues objectForKey:identifier];
+            if (mutableSet) {
+                [mutableSet removeObject:reusableView];
+            }
+        }
+    }
+}
+
+- (FlyCollectionReusableView *)p_getCellFromReuseQueues:(NSString *)identifier
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if ([identifier isKindOfClass:[NSString class]]) {
+        NSMutableSet * mutableSet = [_cellReuseQueues objectForKey:identifier];
+        if (mutableSet) {
+            reusableView = [mutableSet anyObject];
+            if (reusableView) {
+                [reusableView setReuseIdentifier:identifier];
+                [mutableSet removeObject:reusableView];
+            }
+        } else {
+            FlyLog(@"mutableSet 丢失 %s",__FUNCTION__);
+        }
+    }
+    return reusableView;
+}
+
+#pragma mark ②、VisibleCell
+- (void)p_insertCellToVisibleDict:(FlyCollectionReusableView *)reusableView indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [indexPath isKindOfClass:[NSIndexPath class]]) {
+        [_visibleCellsDict setObject:reusableView forKey:indexPath];
+    }
+}
+
+- (void)p_deleteCellToVisibleDict:(FlyCollectionReusableView *)reusableView indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]]) {
+        NSIndexPath * deleteIndexPath = nil;
+        if ([indexPath isKindOfClass:[NSIndexPath class]]) {
+            FlyCollectionReusableView * currentCell = [_visibleCellsDict objectForKey:indexPath];
+            if (currentCell == reusableView) {
+                deleteIndexPath = indexPath;
+            }
+        }
+        if (!deleteIndexPath) {
+            for (NSIndexPath * subIndexPath in _visibleCellsDict.allKeys) {
+                FlyCollectionReusableView * currentCell = [_visibleCellsDict objectForKey:subIndexPath];
+                if (currentCell == reusableView) {
+                    deleteIndexPath = subIndexPath;
+                    break;
+                }
+            }
+        }
+        if (deleteIndexPath) {
+            [_visibleCellsDict removeObjectForKey:deleteIndexPath];
+        }
+    }
+}
+
+- (FlyCollectionReusableView *)p_getCellFromVisibleDict:(NSIndexPath *)indexPath
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if ([indexPath isKindOfClass:[NSIndexPath class]]) {
+       reusableView = [_visibleCellsDict objectForKey:indexPath];
+    }
+    return reusableView;
+}
+
+#pragma mark ③、SupplementaryReuseQueues
+- (void)p_insertSupplementaryToReuseQueues:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [elementKind isKindOfClass:[NSString class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
+            NSMutableSet * mutableSet = [_supplementaryViewReuseQueues objectForKey:reuseKey];
+            if (mutableSet) {
+                [reusableView removeFromSuperview];
+                [mutableSet addObject:reusableView];
+            } else {
+                FlyLog(@"mutableSet 丢失 %s",__FUNCTION__);
+            }
+        }
+    }
+}
+
+- (void)p_deleteSupplementaryFromReuseQueues:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [elementKind isKindOfClass:[NSString class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
+            NSMutableSet * mutableSet = [_supplementaryViewReuseQueues objectForKey:reuseKey];
+            if (mutableSet) {
+                [mutableSet removeObject:reusableView];
+            }
+        }
+    }
+}
+
+- (FlyCollectionReusableView *)p_getSupplementaryFromReuseQueues:(NSString *)identifier kind:(NSString *)elementKind
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if ([identifier isKindOfClass:[NSString class]] && [elementKind isKindOfClass:[NSString class]]) {
+        NSString * reuseKey = [FlyCollectionView reuseKeyForSupplementaryViewOfKind:elementKind withReuseIdentifier:identifier];
+        NSMutableSet * mutableSet = [_supplementaryViewReuseQueues objectForKey:reuseKey];
+        if (mutableSet) {
+            reusableView = [mutableSet anyObject];
+            if (reusableView) {
+                [reusableView setReuseIdentifier:identifier];
+                [mutableSet removeObject:reusableView];
+            }
+        } else {
+            FlyLog(@"mutableSet 丢失 %s",__FUNCTION__);
+        }
+    }
+    return reusableView;
+}
+
+
+#pragma mark ④、VisibleSupplementary
+- (void)p_insertSupplementaryToVisibleDict:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [elementKind isKindOfClass:[NSString class]] && [indexPath isKindOfClass:[NSIndexPath class]]) {
+        NSString * identifier = reusableView.reuseIdentifier;
+        if (identifier) {
+            NSMutableDictionary * mutableDict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+            if (mutableDict) {
+                [mutableDict setObject:reusableView forKey:indexPath];
+            } else {
+                FlyLog(@"数据丢失 %s",__FUNCTION__);
+            }
+        }
+    }
+}
+
+- (void)p_deleteSupplementaryFromVisibleDict:(FlyCollectionReusableView *)reusableView kind:(NSString *)elementKind indexPath:(NSIndexPath *)indexPath
+{
+    if ([reusableView isKindOfClass:[FlyCollectionReusableView class]] && [elementKind isKindOfClass:[NSString class]]) {
+        NSMutableDictionary * mutableDict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+        NSIndexPath * deleteIndexPath = nil;
+        if ([indexPath isKindOfClass:[NSIndexPath class]]) {
+            FlyCollectionReusableView * currentView = [mutableDict objectForKey:indexPath];
+            if (currentView == reusableView) {
+                deleteIndexPath = indexPath;
+            }
+        }
+        if (!deleteIndexPath) {
+            for (NSIndexPath * subIndexPath in mutableDict.allKeys) {
+                FlyCollectionReusableView * currentView = [mutableDict objectForKey:subIndexPath];
+                if (currentView == reusableView) {
+                    deleteIndexPath = subIndexPath;
+                    break;
+                }
+            }
+        }
+        if (deleteIndexPath) {
+            [mutableDict removeObjectForKey:deleteIndexPath];
+        }
+    }
+}
+
+- (FlyCollectionReusableView *)p_getSupplementaryFromVisibleDict:(NSIndexPath *)indexPath kind:(NSString *)elementKind
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if ([indexPath isKindOfClass:[NSIndexPath class]] && [elementKind isKindOfClass:[NSString class]]) {
+        NSMutableDictionary * mutableDict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+        if (mutableDict) {
+            reusableView = [mutableDict objectForKey:indexPath];
+        }
+    }
+    return reusableView;
+}
+
+#pragma mark - private
+
+- (NSIndexPath *)p_indexPathForSupplementaryView:(FlyCollectionReusableView *)supplementaryView isHeader:(BOOL *)isHeader isFooter:(BOOL *)isFooter
 {
     NSIndexPath * targetIndexPath = nil;
-    for (NSIndexPath * indexPath in _visibleCellsDict.allKeys) {
-        FlyCollectionReusableView * reusabelView = [_visibleCellsDict objectForKey:indexPath];
-        if (reusabelView == cell) {
+    BOOL isInHeader = NO;
+    BOOL isInFooter = NO;
+    
+    NSMutableDictionary * visibleHeaderDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader];
+    NSMutableDictionary * visibleFooterDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter];
+    
+    for (NSIndexPath * indexPath in visibleHeaderDict.allKeys) {
+        FlyCollectionReusableView * reusabelView = [visibleHeaderDict objectForKey:indexPath];
+        if (reusabelView == supplementaryView) {
             targetIndexPath = indexPath;
+            isInHeader = YES;
             break;
         }
     }
+    
+    if (!targetIndexPath) {
+        for (NSIndexPath * indexPath in visibleFooterDict.allKeys) {
+            FlyCollectionReusableView * reusabelView = [visibleFooterDict objectForKey:indexPath];
+            if (reusabelView == supplementaryView) {
+                targetIndexPath = indexPath;
+                isInFooter = YES;
+                break;
+            }
+        }
+    }
+    
+    if (isHeader) {
+        *isHeader = isInHeader;
+    }
+    if (isFooter) {
+        *isFooter = isInFooter;
+    }
+    
     return targetIndexPath;
+}
+
+#warning 可优化
+- (NSArray *)p_indexPathsForVisibleItems
+{
+    NSMutableArray * indexPaths = [NSMutableArray array];
+    NSInteger sectionNum = self.numberOfSections;
+    for (NSInteger section = 0; section < sectionNum; section ++) {
+        NSInteger itemsInSection = [self p_numberOfItemsInSection:section];
+        for (NSInteger row = 0; row < itemsInSection; row ++) {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForItem:row inSection:section];
+            UICollectionViewLayoutAttributes * layoutAttributes = [self p_layoutAttributesForItemAtIndexPath:indexPath];
+            if ([self isVisibleFrame:layoutAttributes.frame]) {
+                [indexPaths addObject:indexPath];
+            }
+        }
+    }
+    return [indexPaths copy];
+}
+
+- (NSArray *)p_indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind
+{
+    NSMutableArray * indexPaths = [NSMutableArray array];
+    NSInteger sectionNum = self.numberOfSections;
+    for (NSInteger section = 0; section < sectionNum; section ++) {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
+        UICollectionViewLayoutAttributes * layoutAttributes = [self p_layoutAttributesForSupplementaryElementOfKind:elementKind atIndexPath:indexPath];
+        if ([self isVisibleFrame:layoutAttributes.frame]) {
+            [indexPaths addObject:indexPath];
+        }
+    }
+    return [indexPaths copy];
+}
+
+- (NSIndexPath *)p_indexPathForCell:(FlyCollectionReusableView *)cell
+{
+    NSIndexPath * targetIndexPath = nil;
+    if ([cell isKindOfClass:[FlyCollectionReusableView class]]) {
+        for (NSIndexPath * indexPath in _visibleCellsDict.allKeys) {
+            FlyCollectionReusableView * reusabelView = [_visibleCellsDict objectForKey:indexPath];
+            if (reusabelView == cell) {
+                targetIndexPath = indexPath;
+                break;
+            }
+        }
+    }
+    return targetIndexPath;
+}
+
+#pragma mark - sys
+
+//重新排序
+- (NSArray *)reorderedItems
+{
+    return nil;
 }
 
 - (NSArray *)visibleViews
@@ -337,8 +654,9 @@
     
 }
 
-- (BOOL)isViewInReuseQueue:(NSDictionary *)reuseQueue
+- (BOOL)isViewInReuseQueue:(FlyCollectionReusableView *)reusableView
 {
+    
     return NO;
 }
 
@@ -363,13 +681,13 @@
 //_scrollFirstResponderCellToVisible:
 
 #pragma mark - layoutAttributes
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewLayoutAttributes *)p_layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes * layoutAttributes = [self.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath];
     return layoutAttributes;
 }
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewLayoutAttributes *)p_layoutAttributesForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes * layoutAttributes = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
@@ -479,7 +797,7 @@
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:@"contentOffset"];
+    
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
@@ -488,6 +806,7 @@
     [self reloadData];
 }
 
+#pragma mark - key
 + (NSString *)reuseKeyForSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)identifier
 {
     NSString * resultString = nil;
@@ -497,52 +816,155 @@
     return resultString;
 }
 
-#pragma mark - touches
-//"touchesBegan:withEvent:",
-//"touchesMoved:withEvent:",
-//"touchesEnded:withEvent:",
-//"touchesCancelled:withEvent:",
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+#pragma mark - 公有方法
+- (nullable FlyCollectionReusableView *)supplementaryViewForElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
-    FlyLog(@"touchesBegan %@",touches);
+    FlyCollectionReusableView * reusableView = nil;
+    if (elementKind && indexPath) {
+        NSDictionary * dict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+        reusableView = [dict objectForKey:indexPath];
+    }
+    return reusableView;
+}
+
+- (NSArray<FlyCollectionReusableView *> *)visibleCells
+{
+    return _visibleCellsDict.allValues;
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsForVisibleItems
+{
+    return _visibleCellsDict.allKeys;
+}
+
+- (NSArray<FlyCollectionReusableView *> *)visibleSupplementaryViewsOfKind:(NSString *)elementKind
+{
+    NSArray * supplementaryViews = nil;
+    if (elementKind) {
+        NSDictionary * dict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+        supplementaryViews = dict.allValues;
+    }
+    return supplementaryViews;
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind
+{
+    NSArray * indexPaths = nil;
+    if (elementKind) {
+        NSDictionary * dict = [_visibleSupplementaryViewsDict objectForKey:elementKind];
+        indexPaths = dict.allKeys;
+    }
+    return [indexPaths copy];
+}
+
+- (NSIndexPath *)indexPathForCell:(FlyCollectionReusableView *)cell
+{
+    NSIndexPath * targetIndexPath = [self p_indexPathForCell:cell];
+    return targetIndexPath;
+}
+
+- (FlyCollectionReusableView *)cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FlyCollectionReusableView * reusableView = nil;
+    if (indexPath) {
+        reusableView = [_visibleCellsDict objectForKey:indexPath];
+    }
+    return reusableView;
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)section
+{
+    NSNumber * itemsCountNum = [_itemCountInSectionDict objectForKey:@(section)];
+    return [itemsCountNum integerValue];
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes * layoutAttributes = [self.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath];
+    return layoutAttributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes * layoutAttributes = nil;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        layoutAttributes = [self.collectionViewLayout layoutAttributesForHeaderInSection:indexPath.section];
+    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        layoutAttributes = [self.collectionViewLayout layoutAttributesForFooterInSection:indexPath.section];
+    }
+    return layoutAttributes;
+}
+
+#pragma mark - insert delete
+- (void)insertSections:(NSIndexSet *)sections
+{
     
-    [super touchesBegan:touches withEvent:event];
-    if (touches.count == 1) {
-        UITouch * touch = [touches anyObject];
-        CGPoint touchPoint = [touch locationInView:self];
-//        NSIndexPath * currentIndexPath = [self indexPathForCell:touch.view];
-//        [self.delegate flyCollectionView:self didSelectItemAtIndexPath:currentIndexPath];
-    }
 }
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)deleteSections:(NSIndexSet *)sections
 {
-    [super touchesMoved:touches withEvent:event];
-    FlyLog(@"touchesMoved %@",touches);
-    if (touches.count == 1) {
-        UITouch * touch = [touches anyObject];
-        CGPoint touchPoint = [touch locationInView:self];
-    }
+    
 }
 
+- (void)reloadSections:(NSIndexSet *)sections
+{
+    
+}
+
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection
+{
+    
+}
+
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
+{
+    
+}
+
+- (void)deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
+{
+    
+}
+
+- (void)reloadItemsAtIndexPaths:(NSArray *)indexPaths
+{
+    [self p_reloadItemsAtIndexPaths:indexPaths];
+}
+
+- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
+{
+    
+}
+
+#pragma mark - touches
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
-    FlyLog(@"touchesEnded %@",touches);
     if (touches.count == 1) {
         UITouch * touch = [touches anyObject];
-        CGPoint touchPoint = [touch locationInView:self];
-    }
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [super touchesCancelled:touches withEvent:event];
-    FlyLog(@"touchesCancelled %@",touches);
-    if (touches.count == 1) {
-        UITouch * touch = [touches anyObject];
-        CGPoint touchPoint = [touch locationInView:self];
+        UIView * view = touch.view;
+        while (view && ![view isKindOfClass:[FlyCollectionReusableView class]] && ![view isKindOfClass:[FlyCollectionView class]]) {
+            view = view.superview;
+        }
+        
+        if ([view isKindOfClass:[FlyCollectionReusableView class]]) {
+            NSIndexPath * indexPath = [self p_indexPathForCell:(FlyCollectionReusableView *)view];
+            if (indexPath) {//是cell
+                if ([self delegateResponseSEL:@selector(flyCollectionView:didSelectItemAtIndexPath:)]) {
+                    [self.delegate flyCollectionView:self didSelectItemAtIndexPath:indexPath];
+                }
+            } else {
+                BOOL isHeader = NO;
+                BOOL isFooter = NO;
+                indexPath = [self p_indexPathForSupplementaryView:(FlyCollectionReusableView *)view isHeader:&isHeader isFooter:&isFooter];
+                if (indexPath) {
+                    
+                }
+            }
+        } else if ([view isKindOfClass:[FlyCollectionView class]]) {//点击在空白处
+            
+            
+        }
     }
 }
 

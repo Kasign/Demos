@@ -189,6 +189,14 @@
     }
 }
 
+- (void)setTriangPosition:(CGPoint)triangPosition {
+    
+    if (!CGPointEqualToPoint(_triangPosition, triangPosition)) {
+        _triangPosition = triangPosition;
+        [self setNeedsDisplay];
+    }
+}
+
 @end
 
 
@@ -321,7 +329,7 @@
             contentY = relyMinY - contentHeight;
         } else if (directionType == FlyViewDirectionTypeBottom) {//显示在下面
             contentY = relyMaxY;
-        } else if (directionType == FlyViewDirectionTypeMiddle) {
+        } else if (directionType == FlyViewDirectionTypeMiddle) {//显示在中间
             if ([inView isKindOfClass:[UIScrollView class]]) {
                 UIScrollView * scrollView = (UIScrollView *)inView;
                 CGFloat offsetY = scrollView.contentOffset.y;
@@ -335,7 +343,10 @@
         CGFloat triangPositionX = 1.f * (relyFrame.origin.x + relyFrame.size.width * 0.5) / CGRectGetWidth(inView.frame);
         [self.contentView setTriangPosition:CGPointMake(triangPositionX, 0)];
         
-        [self.contentView setFrame:CGRectMake((FlyScreenWidth - CGRectGetWidth(self.contentView.frame)) * 0.5, contentY, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
+//        [self.contentView setFrame:CGRectMake((FlyScreenWidth - CGRectGetWidth(self.contentView.frame)) * 0.5, contentY, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
+        
+        [self.contentView setFrame:CGRectMake(CGRectGetMinX(relyFrame) + CGRectGetWidth(relyFrame) * 0.5 - triangPositionX * CGRectGetWidth(self.contentView.frame), contentY, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
+        
         [self.contentView setDirectionType:directionType];
         
         CGFloat scrollViewY = 0;

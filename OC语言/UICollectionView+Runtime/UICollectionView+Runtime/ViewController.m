@@ -10,6 +10,7 @@
 #import "FlyFlowLayout.h"
 #import <objc/runtime.h>
 #import "FlyMenuController.h"
+#import "FlyCollectionView.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -53,8 +54,19 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     [super viewDidLoad];
     _itemHeight = 100.f;
     _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+    
+    UIMenuItem * repeatItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(a)];
+    UIMenuItem * deleteItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(a)];
+    
+    [[UIMenuController sharedMenuController] setMenuItems:@[repeatItem, deleteItem]];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
+}
+
+- (void)a
+{
+    
 }
 
 - (FlyMenuController *)menuController
@@ -100,7 +112,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
+        _collectionView = [[FlyCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
         [_collectionView setContentInset:UIEdgeInsetsMake(60.f, 15.f, 60.f, 15.f)];
         _collectionView.delegate   = self;
         _collectionView.dataSource = self;
@@ -237,15 +249,30 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 {
     FlyLog(@"didSelectItemAtIndexPath");
     
-    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
-    if (cell) {
-        _currentIndexPath = indexPath;
-        [self.menuController showRelyView:cell inView:collectionView];
-        [self.menuController setMenuVisible:YES animated:YES];
-    }
+//    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    if (cell) {
+//        _currentIndexPath = indexPath;
+//        [self.menuController showRelyView:cell inView:collectionView];
+//        [self.menuController setMenuVisible:YES animated:YES];
+//    }
     
 //    [self getClassMethods:self.collectionView];
-//    [self getClassMethods:self.layout];
+    [self getClassMethods:[UITextView new]];
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender
+{
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender
+{
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

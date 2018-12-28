@@ -1,6 +1,6 @@
+
+
 -------------------------********-------------------------
-
-
 
 当前类名：UICollectionView
 
@@ -460,174 +460,162 @@
     dataSource
 )
 
-
-
 类方法：(
     "fallback_debugHierarchyValueForPropertyWithName:onObject:outOptions:outError:",
     "fallback_debugHierarchyPropertyDescriptions",
     "_reuseKeyForSupplementaryViewOfKind:withReuseIdentifier:"
 )
 
+成员变量和属性:{
+    "_autoscrollTimer" = "@\"NSTimer\"";
+    "_backgroundView" = "@\"UIView\"";
+    "_cancellingToIndexPath" = "@\"NSIndexPath\"";
+    "_cellClassDict" = "@\"NSMutableDictionary\"";
+    "_cellNibDict" = "@\"NSMutableDictionary\"";
+    "_cellNibExternalObjectsTables" = "@\"NSMutableDictionary\"";
+    "_cellReuseQueues" = "@\"NSMutableDictionary\"";
+    "_clonedCellsDict" = "@\"NSMutableDictionary\"";
+    "_clonedDecorationViewsDict" = "@\"NSMutableDictionary\"";
+    "_clonedSupplementaryViewsDict" = "@\"NSMutableDictionary\"";
+    "_collectionViewData" = "@\"UICollectionViewData\"";
+    "_collectionViewFlags" = "{?=\"delegateShouldHighlightItemAtIndexPath\"b1\"delegateDidHighlightItemAtIndexPath\"b1\"delegateDidUnhighlightItemAtIndexPath\"b1\"delegateShouldSelectItemAtIndexPath\"b1\"delegateShouldDeselectItemAtIndexPath\"b1\"delegateDidSelectItemAtIndexPath\"b1\"delegateDidDeselectItemAtIndexPath\"b1\"delegateSupportsMenus\"b1\"delegateWillDisplayCell\"b1\"delegateWillDisplaySupplementaryView\"b1\"delegateDidEndDisplayingCell\"b1\"delegateDidEndDisplayingSupplementaryView\"b1\"delegateIndexForReferenceItemDuringLayoutTransition\"b1\"delegateOverrideForTransitionOffsetSize\"b1\"delegateTargetContentOffsetForProposedContentOffsetSPI\"b1\"delegateTargetContentOffsetForProposedContentOffset\"b1\"delegateTargetIndexPathForMoveSPI\"b1\"delegateTargetIndexPathForMove\"b1\"delegateCanFocusItemAtIndexPath_deprecated\"b1\"delegateDidFocusItemAtIndexPath_deprecated\"b1\"delegateCanFocusItemAtIndexPath\"b1\"delegateDidFocusItemAtIndexPath\"b1\"delegateDidUnfocusItemAtIndexPath\"b1\"delegateIndexPathForPreferredFocusedItem\"b1\"delegateShouldUpdateFocusFromRowAtIndexPathToView\"b1\"delegateIndexPathForPreferredFocusedView\"b1\"delegateShouldUpdateFocusInContext\"b1\"delegateDidUpdateFocusInContext\"b1\"delegateTemplateLayoutCell\"b1\"delegateWillLayoutCellUsingTemplateLayoutCell\"b1\"delegateWasNonNil\"b1\"dataSourceNumberOfSections\"b1\"dataSourceViewForSupplementaryElement\"b1\"dataSourceCanMoveItemAtIndexPathSPI\"b1\"dataSourceMoveItemAtIndexPathSPI\"b1\"dataSourceCanMoveItemAtIndexPath\"b1\"dataSourceMoveItemAtIndexPath\"b1\"dataSourceSectionIndexTitlesSPI\"b1\"dataSourceSectionIndexTitlesTrimmedToCountSPI\"b1\"dataSourceIndexPathForSectionIndexSPI\"b1\"dataSourceIndexTitles\"b1\"dataSourceIndexPathForIndex\"b1\"dataSourceWasNonNil\"b1\"prefetchDataSourcePrefetchItemsAtIndexPaths\"b1\"prefetchDataSourceCancelPrefetchingForItemsAtIndexPaths\"b1\"prefetchDataSourceWasNonNil\"b1\"reloadSkippedDuringSuspension\"b1\"scheduledUpdateVisibleCells\"b1\"scheduledUpdateVisibleCellLayoutAttributes\"b1\"allowsSelection\"b1\"allowsMultipleSelection\"b1\"allowsSelectionDuringEditing\"b1\"allowsMultipleSelectionDuringEditing\"b1\"fadeCellsForBoundsChange\"b1\"updatingLayout\"b1\"needsReload\"b1\"reloading\"b1\"skipLayoutDuringSnapshotting\"b1\"layoutInvalidatedSinceLastCellUpdate\"b1\"doneFirstLayout\"b1\"loadingOffscreenViews\"b1\"updating\"b1\"updatingVisibleCells\"b1\"preRotationBoundsSet\"b1\"updateFocusAfterItemAnimations\"b1\"remembersLastFocusedIndexPath\"b1\"updateFocusAfterLoadingCells\"b1\"performingLayout\"b1\"keepsFirstResponderVisibleOnBoundsChange\"b1\"inCreateTemplateCell\"b1\"editing\"b1\"shouldDeriveVisibleBoundsFromContainingScrollView\"b1\"usingCustomLayoutMargins\"b1\"settingDefaultLayoutMargins\"b1\"defaultLayoutMarginsSetFromViewController\"b1\"shouldPrefetchCellsWhenPerformingReloadData\"b1\"scheduledReloadPrefetchDuringNextLayoutPass\"b1\"indexTitlesLoaded\"b1\"shouldApplyShadowUpdates\"b1\"preventNotificationOfRebaseObserversWhenApplyingUpdates\"b1\"allowsVisibleCellUpdatesDuringUpdateAnimations\"b1\"isCompletingInteractiveMovement\"b1\"isRegisteredForGeometryChanges\"b1}";
+    "_containerScrollViewVisitationCount" = q;
+    "_contentFocusContainerGuide" = "@\"UIFocusContainerGuide\"";
+    "_currentCenterOffset" = "{CGPoint=\"x\"d\"y\"d}";
+    "_currentInteractiveTransitionProgress" = d;
+    "_currentInteractiveTransitionTimeStamp" = d;
+    "_currentPrefetchingContext" = "@\"_UICollectionViewPrefetchingContext\"";
+    "_currentPromiseFulfillmentCell" = "@\"UICollectionViewCell\"";
+    "_currentTouch" = "@\"UITouch\"";
+    "_currentUpdate" = "@\"UICollectionViewUpdate\"";
+    "_dataSource" = "@\"<UICollectionViewDataSource_Private>\"";
+    "_defaultLayoutMargins" = "{UIEdgeInsets=\"top\"d\"left\"d\"bottom\"d\"right\"d}";
+    "_deleteItems" = "@\"NSMutableArray\"";
+    "_dragAndDropController" = "@\"_UICollectionViewDragAndDropController\"";
+    "_dragDelegate" = "@\"<UICollectionViewDragDelegate_Private>\"";
+    "_dragDestinationController" = "@\"_UICollectionViewDragDestinationController\"";
+    "_dragDestinationDelegate" = "@\"<UICollectionViewDragDestination>\"";
+    "_dragInteractionEnabledState" = q;
+    "_dragPlaceholderInsertionCadence" = q;
+    "_dragReorderingCadence" = q;
+    "_dragSourceController" = "@\"_UICollectionViewDragSourceController\"";
+    "_dragSourceDelegate" = "@\"<UICollectionViewDragSource>\"";
+    "_dropDelegate" = "@\"<UICollectionViewDropDelegate_Private>\"";
+    "_endInteractiveTransitionAnimationGroup" = "@\"_UIDynamicAnimationGroup\"";
+    "_endOfContentFocusContainerGuide" = "@\"UIFocusContainerGuide\"";
+    "_firstResponderIndexPath" = "@\"NSIndexPath\"";
+    "_firstResponderView" = "@\"UICollectionReusableView\"";
+    "_firstResponderViewKind" = "@\"NSString\"";
+    "_firstResponderViewType" = q;
+    "_focusedCell" = "@\"UICollectionReusableView\"";
+    "_focusedCellElementKind" = "@\"NSString\"";
+    "_focusedCellIndexPath" = "@\"NSIndexPath\"";
+    "_focusedViewType" = q;
+    "_highlightedSpringLoadedItem" = "@\"NSIndexPath\"";
+    "_indexPathsForHighlightedItems" = "@\"NSMutableSet\"";
+    "_indexPathsForSelectedItems" = "@\"NSMutableSet\"";
+    "_insertItems" = "@\"NSMutableArray\"";
+    "_interactiveCompletionHandler" = "@?";
+    "_interactiveTransitionInfos" = "@\"NSMutableDictionary\"";
+    "_interactiveTransitionValueTrackingDict" = "@\"NSMutableDictionary\"";
+    "_invalidatedDecorationIndexPaths" = "@\"NSMutableDictionary\"";
+    "_invalidatedItemIndexPaths" = "@\"NSMutableSet\"";
+    "_invalidatedSupplementaryIndexPaths" = "@\"NSMutableDictionary\"";
+    "_invalidationBlock" = "@?";
+    "_isInInteractiveTransition" = B;
+    "_lastLayoutOffset" = "{CGPoint=\"x\"d\"y\"d}";
+    "_layout" = "@\"UICollectionViewLayout\"";
+    "_moveItems" = "@\"NSMutableArray\"";
+    "_navigationCompletion" = "@?";
+    "_newContentView" = "@\"UIView\"";
+    "_nextLayoutForInteractiveTranstion" = "@\"UICollectionViewLayout\"";
+    "_notifiedDisplayedCells" = "@\"NSHashTable\"";
+    "_originalDeleteItems" = "@\"NSArray\"";
+    "_originalInsertItems" = "@\"NSArray\"";
+    "_pendingDeselectionIndexPaths" = "@\"NSMutableSet\"";
+    "_pendingSelectionIndexPath" = "@\"NSIndexPath\"";
+    "_performUsingPresentationValuesRefCount" = q;
+    "_postUpdateBlock" = "@?";
+    "_preRotationBounds" = "{CGRect=\"origin\"{CGPoint=\"x\"d\"y\"d}\"size\"{CGSize=\"width\"d\"height\"d}}";
+    "_prefetchCacheItems" = "@\"NSMutableDictionary\"";
+    "_prefetchDataSource" = "@\"<UICollectionViewDataSourcePrefetching>\"";
+    "_prefetchMode" = q;
+    "_prefetchVelocityIntegrator" = "@\"_UIVelocityIntegrator\"";
+    "_prefetchingEnabled" = B;
+    "_previousCenterOffset" = "{CGPoint=\"x\"d\"y\"d}";
+    "_previousInteractiveTransitionProgress" = d;
+    "_previousInteractiveTransitionTimeStamp" = d;
+    "_reloadItems" = "@\"NSMutableArray\"";
+    "_reloadingSuspendedCount" = q;
+    "_reorderFeedbackGenerator" = "@\"_UIDragSnappingFeedbackGenerator\"";
+    "_reorderingCadence" = q;
+    "_reorderingTargetPosition" = "{CGPoint=\"x\"d\"y\"d}";
+    "_rotationAnimationCount" = q;
+    "_rotationBoundsOffset" = "{CGPoint=\"x\"d\"y\"d}";
+    "_shouldAccumulateTrackedLayoutValues" = B;
+    "_startTimeStamp" = d;
+    "_supplementaryViewClassDict" = "@\"NSMutableDictionary\"";
+    "_supplementaryViewNibDict" = "@\"NSMutableDictionary\"";
+    "_supplementaryViewNibExternalObjectsTables" = "@\"NSMutableDictionary\"";
+    "_supplementaryViewRegisteredKinds" = "@\"NSMutableSet\"";
+    "_supplementaryViewReuseQueues" = "@\"NSMutableDictionary\"";
+    "_templateLayoutCells" = "@\"NSMutableDictionary\"";
+    "_trackedValuesKeys" = "@\"NSMutableArray\"";
+    "_transitionLayoutAttributes" = "@\"UICollectionViewLayoutAttributes\"";
+    "_updateAnimationCount" = q;
+    "_updateCompletionHandler" = "@?";
+    "_updateCount" = q;
+    "_visibleBounds" = "{CGRect=\"origin\"{CGPoint=\"x\"d\"y\"d}\"size\"{CGSize=\"width\"d\"height\"d}}";
+    "_visibleCellsDict" = "@\"NSMutableDictionary\"";
+    "_visibleDecorationViewsDict" = "@\"NSMutableDictionary\"";
+    "_visibleRectInsets" = "{UIEdgeInsets=\"top\"d\"left\"d\"bottom\"d\"right\"d}";
+    "_visibleSupplementaryViewsDict" = "@\"NSMutableDictionary\"";
+}
 
-
-成员变量和属性:(
-    "_layout",
-    "_dataSource",
-    "_backgroundView",
-    "_indexPathsForSelectedItems",
-    "_cellReuseQueues",
-    "_supplementaryViewReuseQueues",
-    "_indexPathsForHighlightedItems",
-    "_notifiedDisplayedCells",
-    "_reloadingSuspendedCount",
-    "_updateAnimationCount",
-    "_firstResponderView",
-    "_newContentView",
-    "_firstResponderViewType",
-    "_firstResponderViewKind",
-    "_firstResponderIndexPath",
-    "_visibleCellsDict",
-    "_visibleSupplementaryViewsDict",
-    "_visibleDecorationViewsDict",
-    "_clonedCellsDict",
-    "_clonedSupplementaryViewsDict",
-    "_clonedDecorationViewsDict",
-    "_templateLayoutCells",
-    "_pendingSelectionIndexPath",
-    "_pendingDeselectionIndexPaths",
-    "_collectionViewData",
-    "_currentUpdate",
-    "_visibleBounds",
-    "_visibleRectInsets",
-    "_preRotationBounds",
-    "_rotationBoundsOffset",
-    "_rotationAnimationCount",
-    "_updateCount",
-    "_insertItems",
-    "_deleteItems",
-    "_reloadItems",
-    "_moveItems",
-    "_originalInsertItems",
-    "_originalDeleteItems",
-    "_currentTouch",
-    "_updateCompletionHandler",
-    "_postUpdateBlock",
-    "_cellClassDict",
-    "_cellNibDict",
-    "_supplementaryViewClassDict",
-    "_supplementaryViewNibDict",
-    "_cellNibExternalObjectsTables",
-    "_supplementaryViewNibExternalObjectsTables",
-    "_supplementaryViewRegisteredKinds",
-    "_transitionLayoutAttributes",
-    "_isInInteractiveTransition",
-    "_shouldAccumulateTrackedLayoutValues",
-    "_interactiveTransitionInfos",
-    "_interactiveCompletionHandler",
-    "_currentInteractiveTransitionTimeStamp",
-    "_previousInteractiveTransitionTimeStamp",
-    "_startTimeStamp",
-    "_currentCenterOffset",
-    "_previousCenterOffset",
-    "_currentInteractiveTransitionProgress",
-    "_previousInteractiveTransitionProgress",
-    "_endInteractiveTransitionAnimationGroup",
-    "_nextLayoutForInteractiveTranstion",
-    "_reorderFeedbackGenerator",
-    "_interactiveTransitionValueTrackingDict",
-    "_trackedValuesKeys",
-    "_invalidatedItemIndexPaths",
-    "_invalidatedSupplementaryIndexPaths",
-    "_invalidatedDecorationIndexPaths",
-    "_invalidationBlock",
-    "_reorderingTargetPosition",
-    "_autoscrollTimer",
-    "_focusedViewType",
-    "_contentFocusContainerGuide",
-    "_collectionViewFlags",
-    "_lastLayoutOffset",
-    "_cancellingToIndexPath",
-    "_prefetchMode",
-    "_currentPrefetchingContext",
-    "_prefetchCacheItems",
-    "_prefetchVelocityIntegrator",
-    "_prefetchDataSource",
-    "_containerScrollViewVisitationCount",
-    "_dragAndDropController",
-    "_performUsingPresentationValuesRefCount",
-    "_dragDelegate",
-    "_dropDelegate",
-    "_dragInteractionEnabledState",
-    "_dragDestinationDelegate",
-    "_dragSourceDelegate",
-    "_dragSourceController",
-    "_dragDestinationController",
-    "_dragReorderingCadence",
-    "_dragPlaceholderInsertionCadence",
-    "_reorderingCadence",
-    "_highlightedSpringLoadedItem",
-    "_prefetchingEnabled",
-    "_focusedCellIndexPath",
-    "_focusedCell",
-    "_focusedCellElementKind",
-    "_navigationCompletion",
-    "_endOfContentFocusContainerGuide",
-    "_currentPromiseFulfillmentCell",
-    "_defaultLayoutMargins"
-)
-
-
-
-属性:(
-    hash,
-    superclass,
-    description,
-    debugDescription,
-    currentTouch,
-    focusedCellIndexPath,
-    focusedCell,
-    focusedCellElementKind,
-    defaultLayoutMargins,
-    currentUpdate,
-    collectionViewData,
-    visibleViews,
-    "_editing",
-    allowsEffectiveSelection,
-    allowsEffectiveMultipleSelection,
-    navigationCompletion,
-    endOfContentFocusContainerGuide,
-    currentPromiseFulfillmentCell,
-    reorderedItems,
-    reorderingTargetPosition,
-    dataSourceSupportsReordering,
-    collectionViewLayout,
-    delegate,
-    dataSource,
-    prefetchDataSource,
-    prefetchingEnabled,
-    dragDelegate,
-    dropDelegate,
-    dragInteractionEnabled,
-    reorderingCadence,
-    backgroundView,
-    allowsSelection,
-    allowsMultipleSelection,
-    indexPathsForSelectedItems,
-    hasUncommittedUpdates,
-    numberOfSections,
-    visibleCells,
-    indexPathsForVisibleItems,
-    remembersLastFocusedIndexPath,
-    hasActiveDrag,
-    hasActiveDrop,
-    hash,
-    superclass,
-    description,
-    debugDescription,
-    keepsFirstResponderVisibleOnBoundsChange
-)
-
-
+属性:{
+    "_editing" = "TB,R,N,G_isEditing";
+    allowsEffectiveMultipleSelection = "TB,R,N,G_allowsEffectiveMultipleSelection";
+    allowsEffectiveSelection = "TB,R,N,G_allowsEffectiveSelection";
+    allowsMultipleSelection = "TB,N";
+    allowsSelection = "TB,N";
+    backgroundView = "T@\"UIView\",&,N,V_backgroundView";
+    collectionViewData = "T@\"UICollectionViewData\",R,N,G_collectionViewData";
+    collectionViewLayout = "T@\"UICollectionViewLayout\",&,N,V_layout";
+    currentPromiseFulfillmentCell = "T@\"UICollectionViewCell\",&,N,G_currentPromiseFulfillmentCell,S_setCurrentPromiseFulfillmentCell:,V_currentPromiseFulfillmentCell";
+    currentTouch = "T@\"UITouch\",&,N,G_currentTouch,S_setCurrentTouch:,V_currentTouch";
+    currentUpdate = "T@\"UICollectionViewUpdate\",R,N,G_currentUpdate";
+    dataSource = "T@\"<UICollectionViewDataSource>\",W,N,V_dataSource";
+    dataSourceSupportsReordering = "TB,R,N,G_dataSourceSupportsReordering";
+    debugDescription = "T@\"NSString\",R,C";
+    defaultLayoutMargins = "T{UIEdgeInsets=dddd},N,G_defaultLayoutMargins,S_setDefaultLayoutMargins:,V_defaultLayoutMargins";
+    delegate = "T@\"<UICollectionViewDelegate>\",W,D,N";
+    description = "T@\"NSString\",R,C";
+    dragDelegate = "T@\"<UICollectionViewDragDelegate>\",W,N";
+    dragInteractionEnabled = "TB,N";
+    dropDelegate = "T@\"<UICollectionViewDropDelegate>\",W,N";
+    endOfContentFocusContainerGuide = "T@\"UIFocusContainerGuide\",R,N,G_endOfContentFocusContainerGuide,V_endOfContentFocusContainerGuide";
+    focusedCell = "T@\"UICollectionReusableView\",&,N,G_focusedCell,S_setFocusedCell:,V_focusedCell";
+    focusedCellElementKind = "T@\"NSString\",C,N,G_focusedCellElementKind,S_setFocusedCellElementKind:,V_focusedCellElementKind";
+    focusedCellIndexPath = "T@\"NSIndexPath\",C,N,G_focusedCellIndexPath,S_setFocusedCellIndexPath:,V_focusedCellIndexPath";
+    hasActiveDrag = "TB,R,N";
+    hasActiveDrop = "TB,R,N";
+    hasUncommittedUpdates = "TB,R,N";
+    hash = "TQ,R";
+    indexPathsForSelectedItems = "T@\"NSArray\",R,N";
+    indexPathsForVisibleItems = "T@\"NSArray\",R,N";
+    keepsFirstResponderVisibleOnBoundsChange = "TB,N,G_keepsFirstResponderVisibleOnBoundsChange,S_setKeepsFirstResponderVisibleOnBoundsChange:";
+    navigationCompletion = "T@?,C,N,G_navigationCompletion,S_setNavigationCompletion:,V_navigationCompletion";
+    numberOfSections = "Tq,R,N";
+    prefetchDataSource = "T@\"<UICollectionViewDataSourcePrefetching>\",W,N";
+    prefetchingEnabled = "TB,N,GisPrefetchingEnabled,V_prefetchingEnabled";
+    remembersLastFocusedIndexPath = "TB,N";
+    reorderedItems = "T@\"NSArray\",R,N,G_reorderedItems";
+    reorderingCadence = "Tq,N";
+    reorderingTargetPosition = "T{CGPoint=dd},R,N,G_reorderingTargetPosition";
+    superclass = "T#,R";
+    visibleCells = "T@\"NSArray\",R,N";
+    visibleViews = "T@\"NSArray\",R,N,G_visibleViews";
+}
 
 协议列表：(
     "DebugHierarchyObject_Fallback",
@@ -635,175 +623,5 @@
     "_UIDataSourceBackedView",
     UIDataSourceTranslating
 )
-
-
-
--------------------------********-------------------------
-
-
-
--------------------------********-------------------------
-
-
-
-当前类名：UICollectionViewFlowLayout
-
-
-
-实例方法：(
-    ".cxx_destruct",
-    "encodeWithCoder:",
-    "initWithCoder:",
-    init,
-    "setMinimumLineSpacing:",
-    "setEstimatedItemSize:",
-    "_setCollectionView:",
-    "invalidationContextForBoundsChange:",
-    "invalidateLayoutWithContext:",
-    finalizeCollectionViewUpdates,
-    "indexPathForItemAtPoint:",
-    prepareLayout,
-    "shouldInvalidateLayoutForBoundsChange:",
-    "layoutAttributesForElementsInRect:",
-    "layoutAttributesForItemAtIndexPath:",
-    "layoutAttributesForSupplementaryViewOfKind:atIndexPath:",
-    collectionViewContentSize,
-    "_shouldScrollToContentBeginningInRightToLeft",
-    "shouldInvalidateLayoutForPreferredLayoutAttributes:withOriginalAttributes:",
-    "invalidationContextForPreferredLayoutAttributes:withOriginalAttributes:",
-    "_estimatesSizes",
-    "_willPerformUpdateVisibleCellsPass",
-    "_didPerformUpdateVisibleCellsPass",
-    "_contentOffsetForScrollingToSection:",
-    "_focusFastScrollingIndexBarInsets",
-    developmentLayoutDirection,
-    "_cellsShouldConferWithAutolayoutEngineForSizingInfo",
-    scrollDirection,
-    itemSize,
-    "setItemSize:",
-    "setScrollDirection:",
-    "_resetCachedItems",
-    "_getSizingInfosWithExistingSizingDictionary:",
-    "_updateItemsLayoutForRect:allowsPartialUpdate:",
-    "_fetchItemsInfoForRect:",
-    "indexesForSectionHeadersInRect:usingData:",
-    "indexesForSectionFootersInRect:usingData:",
-    "_frameForHeaderInSection:usingData:",
-    "_frameForFooterInSection:usingData:",
-    "_existingLayoutAttributesForItemAtIndexPath:",
-    "_frameForItem:inSection:usingData:",
-    "_fetchAndCacheNewLayoutAttributesForCellWithIndexPath:frame:",
-    "layoutAttributesForHeaderInSection:usingData:",
-    "layoutAttributesForFooterInSection:usingData:",
-    "_sectionArrayIndexForIndexPath:",
-    "layoutAttributesForItemAtIndexPath:usingData:",
-    "_boundsAndInsetsAreValidForReferenceDimension",
-    "_layoutAttributesForItemsInRect:",
-    "_updateCollectionViewScrollableAxis",
-    "_dimensionFromCollectionView",
-    "_effectiveEstimatedItemSize",
-    "_adjustedSectionInsetForSectionInset:forAxis:",
-    minimumInteritemSpacing,
-    minimumLineSpacing,
-    "_updateDelegateFlags",
-    "_headerFollowsSectionMargins",
-    "_footerFollowsSectionMargins",
-    sectionInset,
-    "layoutAttributesForHeaderInSection:",
-    "indexesForSectionHeadersInRect:",
-    "indexesForSectionFootersInRect:",
-    "layoutAttributesForFooterInSection:",
-    "_calculateAttributesForRect:",
-    "setMinimumInteritemSpacing:",
-    "setHeaderReferenceSize:",
-    "setFooterReferenceSize:",
-    "setSectionInset:",
-    "_setNeedsLayoutComputationWithoutInvalidation",
-    "initialLayoutAttributesForInsertedItemAtIndexPath:",
-    "initialLayoutAttributesForHeaderInInsertedSection:",
-    "initialLayoutAttributesForFooterInInsertedSection:",
-    "finalLayoutAttributesForDeletedItemAtIndexPath:",
-    "finalLayoutAttributesForHeaderInDeletedSection:",
-    "finalLayoutAttributesForFooterInDeletedSection:",
-    synchronizeLayout,
-    "_invalidateButKeepDelegateInfo",
-    "_invalidateButKeepAllInfo",
-    "_setRowAlignmentsOptions:",
-    "_rowAlignmentOptions",
-    "_updateContentSizeScrollingDimensionWithDelta:",
-    "_setRoundsToScreenScale:",
-    "_roundsToScreenScale",
-    "_setHeaderFollowsSectionMargins:",
-    "_setFooterFollowsSectionMargins:",
-    "setSectionHeadersPinToVisibleBounds:",
-    sectionHeadersPinToVisibleBounds,
-    "setSectionFootersPinToVisibleBounds:",
-    sectionFootersPinToVisibleBounds,
-    headerReferenceSize,
-    footerReferenceSize,
-    estimatedItemSize,
-    sectionInsetReference,
-    "setSectionInsetReference:"
-)
-
-
-
-类方法：(
-    invalidationContextClass
-)
-
-
-
-成员变量和属性:(
-    "_gridLayoutFlags",
-    "_interitemSpacing",
-    "_lineSpacing",
-    "_itemSize",
-    "_estimatedItemSize",
-    "_headerReferenceSize",
-    "_footerReferenceSize",
-    "_sectionInset",
-    "_data",
-    "_currentLayoutSize",
-    "_insertedItemsAttributesDict",
-    "_insertedSectionHeadersAttributesDict",
-    "_insertedSectionFootersAttributesDict",
-    "_deletedItemsAttributesDict",
-    "_deletedSectionHeadersAttributesDict",
-    "_deletedSectionFootersAttributesDict",
-    "_scrollDirection",
-    "_rowAlignmentsOptionsDictionary",
-    "_contentOffsetAdjustment",
-    "_contentSizeAdjustment",
-    "_indexPathsToValidate",
-    "_cachedItemAttributes",
-    "_cachedItemFrames",
-    "_updateVisibleCellsContext",
-    "_sectionInsetReference"
-)
-
-
-
-属性:(
-    estimatesSizes,
-    minimumLineSpacing,
-    minimumInteritemSpacing,
-    itemSize,
-    estimatedItemSize,
-    scrollDirection,
-    headerReferenceSize,
-    footerReferenceSize,
-    sectionInset,
-    sectionInsetReference,
-    sectionHeadersPinToVisibleBounds,
-    sectionFootersPinToVisibleBounds
-)
-
-
-
-协议列表：(
-)
-
-
 
 -------------------------********-------------------------

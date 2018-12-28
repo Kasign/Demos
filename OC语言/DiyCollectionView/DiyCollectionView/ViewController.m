@@ -32,7 +32,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
     [self.view addSubview:self.collectionView];
 }
 
@@ -77,7 +77,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
         [_collectionView setContentInset:UIEdgeInsetsMake(60.f, 15.f, 60.f, 15.f)];
         [_collectionView registerClass:[FlyCollectionReusableView class] forCellWithReuseIdentifier:kIdentifier_CELL];
         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER];
-         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_HEADER];
+//         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_FOOTER];
         _collectionView.delegate   = self;
         _collectionView.dataSource = self;
         [_collectionView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.3]];
@@ -88,7 +88,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 - (NSInteger)numberOfSectionsInFlyCollectionView:(FlyCollectionView *)collectionView
 {
     FlyLog(@" 1---->>>>numberOfSectionsInCollectionView");
-    return 1;
+    return 4;
 }
 
 - (NSInteger)flyCollectionView:(FlyCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -101,23 +101,67 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 {
     FlyCollectionReusableView * cell = [collectionView dequeueReusableCellWithReuseIdentifier:kIdentifier_CELL forIndexPath:indexPath];
     
-    UILabel * label = [cell viewWithTag:10086];
+    UILabel * label = [cell.contentView viewWithTag:10086];
     if (!label) {
         label = [[UILabel alloc] initWithFrame:cell.bounds];
         [label setTag:10086];
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setTextColor:[UIColor blackColor]];
         [label setNumberOfLines:0];
-        [cell addSubview:label];
+        [label setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.3]];
+//        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClickAction)];
+//        [label addGestureRecognizer:tap];
+//        [label setUserInteractionEnabled:YES];
+        [cell.contentView addSubview:label];
     }
+    
+    UIButton * button = [cell.contentView viewWithTag:10087];
+    if (!button) {
+        button = [[UIButton alloc] initWithFrame:cell.bounds];
+        [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchUpInside];
+        [button setTag:10087];
+        [button setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.3]];
+        [cell.contentView addSubview:button];
+    }
+    
+    UIView * view = [cell.contentView viewWithTag:10088];
+    if (!view) {
+        view = [[UIView alloc] initWithFrame:cell.bounds];
+        [view setTag:10088];
+        [view setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.3]];
+//        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClickAction)];
+//        [view addGestureRecognizer:tap];
+        [cell.contentView addSubview:view];
+    }
+    
     [cell setBackgroundColor:[UIColor purpleColor]];
-    [label setFrame:cell.bounds];
+    CGRect cellBounds = cell.bounds;
+    
+    [label setFrame:CGRectMake(0, 0, cellBounds.size.width * 0.5, cellBounds.size.height)];
+    [button setFrame:CGRectMake(cellBounds.size.width * 0.5, 0, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
+    [view setFrame:CGRectMake(cellBounds.size.width * 0.5, cellBounds.size.height * 0.5, cellBounds.size.width * 0.5, cellBounds.size.height * 0.5)];
+    
     //    [label setText:[NSString stringWithFormat:@"%@-%@\n %p",@(indexPath.section),@(indexPath.row),cell]];
     
     [label setText:_dataSourceArr[indexPath.row]];
-//    FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
+    FlyLog(@" 3---->>>>cellForItemAtIndexPath index:%@",indexPath);
     
     return cell;
+}
+
+- (void)buttonClickAction
+{
+    FlyLog(@"buttonClickAction");
+}
+
+- (void)labelClickAction
+{
+    FlyLog(@"labelClickAction");
+}
+
+- (void)viewClickAction
+{
+    FlyLog(@"viewClickAction");
 }
 
 - (FlyCollectionReusableView *)flyCollectionView:(FlyCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -190,16 +234,16 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     return CGSizeMake(100.f, 45.f);
 }
 
-- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
-    return CGSizeMake(100.f, 30.f);
-}
+//- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+//{
+//    FlyLog(@" 10---->>>>referenceSizeForFooterInSection section:%ld",section);
+//    return CGSizeMake(100.f, 30.f);
+//}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
+//    FlyLog(@" 11---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
 }
 
 - (void)flyCollectionView:(FlyCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

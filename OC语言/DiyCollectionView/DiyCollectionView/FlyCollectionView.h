@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
 
 - (nullable NSIndexPath *)indexPathForItemAtPoint:(CGPoint)point;
-- (nullable NSIndexPath *)indexPathForCell:(UICollectionViewCell *)cell;
+- (nullable NSIndexPath *)indexPathForCell:(FlyCollectionReusableView *)cell;
 
 - (nullable FlyCollectionReusableView *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 #if UIKIT_DEFINE_AS_PROPERTIES
@@ -135,8 +135,8 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 
 - (nullable FlyCollectionReusableView *)supplementaryViewForElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(9_0);
-- (NSArray<FlyCollectionReusableView *> *)visibleSupplementaryViewsOfKind:(NSString *)elementKind NS_AVAILABLE_IOS(9_0);
-- (NSArray<NSIndexPath *> *)indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind NS_AVAILABLE_IOS(9_0);
+- (NSArray<FlyCollectionReusableView *> *)visibleSupplementaryViewsOfKind:(NSString *)elementKind;
+- (NSArray<NSIndexPath *> *)indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind;
 
 
 - (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated;

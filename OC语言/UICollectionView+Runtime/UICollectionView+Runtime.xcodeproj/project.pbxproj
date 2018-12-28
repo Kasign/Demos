@@ -15,6 +15,7 @@
 		39D70B5721B23EDD009229DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D70B5621B23EDD009229DB /* main.m */; };
 		39D70B5F21B2CEDD009229DB /* FlyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */; };
 		7B127F8A21D37FD000A6630B /* FlyMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B127F8921D37FD000A6630B /* FlyMenuController.m */; };
+		7B127F9021D3928700A6630B /* FlyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B127F8F21D3928700A6630B /* FlyCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFlowLayout.m; sourceTree = "<group>"; };
 		7B127F8821D37FD000A6630B /* FlyMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyMenuController.h; sourceTree = "<group>"; };
 		7B127F8921D37FD000A6630B /* FlyMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyMenuController.m; sourceTree = "<group>"; };
+		7B127F8E21D3928700A6630B /* FlyCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionView.h; sourceTree = "<group>"; };
+		7B127F8F21D3928700A6630B /* FlyCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				39D70B4821B23ED1009229DB /* AppDelegate.m */,
 				39D70B4A21B23ED1009229DB /* ViewController.h */,
 				39D70B4B21B23ED1009229DB /* ViewController.m */,
+				7B127F8E21D3928700A6630B /* FlyCollectionView.h */,
+				7B127F8F21D3928700A6630B /* FlyCollectionView.m */,
 				39D70B5D21B2CEDD009229DB /* FlyFlowLayout.h */,
 				39D70B5E21B2CEDD009229DB /* FlyFlowLayout.m */,
 				7B127F8821D37FD000A6630B /* FlyMenuController.h */,
@@ -151,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B127F9021D3928700A6630B /* FlyCollectionView.m in Sources */,
 				39D70B4C21B23ED1009229DB /* ViewController.m in Sources */,
 				39D70B5721B23EDD009229DB /* main.m in Sources */,
 				39D70B4921B23ED1009229DB /* AppDelegate.m in Sources */,
