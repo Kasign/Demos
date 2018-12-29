@@ -62,6 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (UICollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
 
+- (CGRect)rectForSection:(NSInteger)section;
+
 @end
 
 NS_ASSUME_NONNULL_END

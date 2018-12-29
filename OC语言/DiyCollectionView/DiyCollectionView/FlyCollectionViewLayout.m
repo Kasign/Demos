@@ -613,4 +613,9 @@
     return footerAttributes;
 }
 
+- (CGRect)rectForSection:(NSInteger)section
+{
+    return [self support_rectForSection:section currentRow:-1];
+}
+
 @end

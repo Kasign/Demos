@@ -783,6 +783,71 @@
     [self reloadVisibleViews];
 }
 
+- (void)scrollToSection:(NSInteger)section atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated
+{
+    NSInteger sectionCount = [self numberOfSections];
+    if (section >= 0 && sectionCount > section) {
+        CGRect indexRect = [self.collectionViewLayout rectForSection:section];
+        [self p_orgScrollToRect:indexRect atScrollPosition:scrollPosition animated:animated];
+    }
+}
+
+- (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated
+{
+//    if (![self isValidIndexPath:indexPath]) {
+//        return;
+//    }
+
+    CGRect indexRect = [self layoutAttributesForItemAtIndexPath:indexPath].frame;
+    if (CGRectEqualToRect(indexRect, CGRectZero)) {
+        if ([self numberOfSections] > indexPath.section) {
+            indexRect = [self.collectionViewLayout rectForSection:indexPath.section];
+        } else {
+            return;
+        }
+    }
+    [self p_orgScrollToRect:indexRect atScrollPosition:scrollPosition animated:animated];
+}
+
+- (void)p_orgScrollToRect:(CGRect)rect atScrollPosition:(UICollectionViewScrollPosition)position animated:(BOOL)animated
+{
+    CGRect currentRect = rect;
+    if (CGRectEqualToRect(currentRect, CGRectZero)) {
+        return;
+    }
+    CGPoint currentOffset   = self.contentOffset;
+    CGFloat contentHeight   = self.contentSize.height;
+    CGFloat collectionViewHeight = CGRectGetHeight(self.frame);
+    CGFloat offsetX = currentOffset.x;
+    CGFloat offsetY = currentOffset.y;
+    
+    CGFloat insetBottom = self.contentInset.bottom;//键盘弹起会有值，不然为0
+    switch (position) {
+        case UICollectionViewScrollPositionNone:
+            if (offsetY + collectionViewHeight <= currentRect.origin.y) {
+                offsetY = currentRect.origin.y + currentRect.size.height - collectionViewHeight  + insetBottom;
+            }
+            break;
+        case UICollectionViewScrollPositionTop:
+            offsetY = currentRect.origin.y + insetBottom;
+            break;
+        case UICollectionViewScrollPositionCenteredVertically:
+            offsetY = currentRect.origin.y + currentRect.size.height * 0.5 - collectionViewHeight * 0.5 + insetBottom;
+            break;
+        case UICollectionViewScrollPositionBottom:
+            offsetY = currentRect.origin.y + currentRect.size.height - collectionViewHeight + insetBottom;
+            break;
+            
+        default:
+            break;
+    }
+    CGFloat maxOffSetY = contentHeight + insetBottom - collectionViewHeight;
+    offsetY = MAX(MIN(maxOffSetY, offsetY), 0);
+    offsetY = MAX(offsetY, 0);
+    
+    [self setContentOffset:CGPointMake(offsetX, offsetY) animated:animated];
+}
+
 - (void)p_insertUnVisibleViewToReuseQueuesFromVisibleDicts
 {
     NSMutableDictionary * visibleCellsDict = [_visibleCellsDict mutableCopy];
