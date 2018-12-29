@@ -18,7 +18,6 @@
 		7B346B8D21AF8A4E00C7FD8D /* DiyCollectionViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B8C21AF8A4E00C7FD8D /* DiyCollectionViewUITests.m */; };
 		7B346B9C21AF8A5F00C7FD8D /* FlyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */; };
 		7B346B9F21AF90FD00C7FD8D /* FlyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */; };
-		7B346BA221AF980E00C7FD8D /* FlyCollectionViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */; };
 		7BBD166A21B11B6300D045CF /* FlyCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +61,6 @@
 		7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionView.m; sourceTree = "<group>"; };
 		7B346B9D21AF90FD00C7FD8D /* FlyCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionViewLayout.h; sourceTree = "<group>"; };
 		7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionViewLayout.m; sourceTree = "<group>"; };
-		7B346BA021AF980E00C7FD8D /* FlyCollectionViewObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionViewObject.h; sourceTree = "<group>"; };
-		7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionViewObject.m; sourceTree = "<group>"; };
 		7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionReusableView.h; sourceTree = "<group>"; };
 		7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionReusableView.m; sourceTree = "<group>"; };
 		7BFE3EE421B53ADE0012C2F8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -125,8 +122,6 @@
 				7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */,
 				7B346B9D21AF90FD00C7FD8D /* FlyCollectionViewLayout.h */,
 				7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */,
-				7B346BA021AF980E00C7FD8D /* FlyCollectionViewObject.h */,
-				7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */,
 				7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */,
 				7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */,
 				7B127F8B21D3862F00A6630B /* FlyMenuController.h */,
@@ -296,7 +291,6 @@
 				7B346B7821AF8A4E00C7FD8D /* main.m in Sources */,
 				7BBD166A21B11B6300D045CF /* FlyCollectionReusableView.m in Sources */,
 				7B346B6A21AF8A4C00C7FD8D /* AppDelegate.m in Sources */,
-				7B346BA221AF980E00C7FD8D /* FlyCollectionViewObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

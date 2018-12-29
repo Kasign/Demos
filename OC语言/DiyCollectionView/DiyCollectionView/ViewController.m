@@ -32,8 +32,8 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
-    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"] mutableCopy];
+    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"] mutableCopy];
+//    _dataSourceArr = [@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"] mutableCopy];
     [self.view addSubview:self.collectionView];
 }
 
@@ -78,7 +78,7 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
         [_collectionView setContentInset:UIEdgeInsetsMake(60.f, 15.f, 60.f, 15.f)];
         [_collectionView registerClass:[FlyCollectionReusableView class] forCellWithReuseIdentifier:kIdentifier_CELL];
         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentifier_HEADER];
-//         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_FOOTER];
+         [_collectionView registerClass:[FlyCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kIdentifier_FOOTER];
         _collectionView.delegate   = self;
         _collectionView.dataSource = self;
         [_collectionView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.3]];
@@ -167,7 +167,11 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 
 - (FlyCollectionReusableView *)flyCollectionView:(FlyCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    FlyCollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kIdentifier_HEADER forIndexPath:indexPath];
+    NSString * identifier = kIdentifier_FOOTER;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        identifier = kIdentifier_HEADER;
+    }
+    FlyCollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         [reusableView setBackgroundColor:[UIColor purpleColor]];
@@ -194,6 +198,9 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@" 5、itemSize---->>>>sizeForItemAtIndexPath index:%@",indexPath);
+    
+    NSString * model = [_dataSourceArr objectAtIndex:indexPath.row];
+    
     CGFloat height = 50.f;
     CGFloat weight = 100.f;
     if (indexPath.row % 3 == 1) {
@@ -208,6 +215,9 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     } else if (indexPath.row % 4 == 3) {
         weight = 150.f;
     }
+    
+    height = 100;
+    weight = 10 * [model intValue];
     return CGSizeMake(weight, height);
 }
 
@@ -241,7 +251,6 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     return CGSizeMake(100.f, 30.f);
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    FlyLog(@" 11、scroll---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
@@ -257,14 +266,14 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 //        [self.menuController showRelyView:cell inView:collectionView];
 //        [self.menuController setMenuVisible:YES animated:YES];
 //    }
-    
+ 
     if (indexPath.row % 3 == 0) {
         FlyLog(@" *->>reload : %ld - %ld",indexPath.section,indexPath.row);
         [collectionView reloadItemsAtIndexPaths:@[indexPath]];
         //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     } else if (indexPath.row % 3 == 1) {
         FlyLog(@" *->>insert : %ld - %ld",indexPath.section,indexPath.row);
-        [self.dataSourceArr insertObject:@"1" atIndex:indexPath.row];
+        [self.dataSourceArr insertObject:@"4" atIndex:indexPath.row];
         [collectionView insertItemsAtIndexPaths:@[indexPath]];
         //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     } else {

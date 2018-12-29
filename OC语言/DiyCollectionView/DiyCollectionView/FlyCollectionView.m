@@ -7,7 +7,6 @@
 //
 
 #import "FlyCollectionView.h"
-#import "FlyCollectionViewObject.h"
 #import <objc/runtime.h>
 
 @interface FlyCollectionView ()<UIScrollViewDelegate>
@@ -165,11 +164,8 @@
 - (void)reloadVisibleHeaders
 {
     if ([self isValidForElementKind:UICollectionElementKindSectionHeader]) {
-        NSArray * visibleHeaderIndexPaths = nil;
         NSDictionary * headerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader];
-        if ([headerDict isKindOfClass:[NSDictionary class]]) {
-            visibleHeaderIndexPaths = [self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionHeader exceptArr:headerDict.allKeys];
-        }
+        NSArray * visibleHeaderIndexPaths = [self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionHeader exceptArr:headerDict.allKeys];
         [self p_reloadSupplementaryElementsOfKind:UICollectionElementKindSectionHeader atIndexPaths:visibleHeaderIndexPaths];
     }
 }
@@ -177,12 +173,9 @@
 - (void)reloadVisibleFooters
 {
     if ([self isValidForElementKind:UICollectionElementKindSectionFooter]) {
-        NSArray * visibleHeaderIndexPaths = nil;
-        NSDictionary * headerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter];
-        if ([headerDict isKindOfClass:[NSDictionary class]]) {
-            visibleHeaderIndexPaths = [self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionFooter exceptArr:headerDict.allKeys];
-        }
-        [self p_reloadSupplementaryElementsOfKind:UICollectionElementKindSectionFooter atIndexPaths:visibleHeaderIndexPaths];
+        NSDictionary * footerDict = [_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter];
+        NSArray * visibleFooterIndexPaths = [self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionFooter exceptArr:footerDict.allKeys];
+        [self p_reloadSupplementaryElementsOfKind:UICollectionElementKindSectionFooter atIndexPaths:visibleFooterIndexPaths];
     }
 }
 
@@ -637,8 +630,8 @@
 - (NSArray *)p_indexPathsForVisibleSupplementaryElementsOfKind:(NSString *)elementKind exceptArr:(NSArray<NSIndexPath *> *)exceptArr
 {
     NSArray * remainIndexPaths = nil;
-    NSMutableArray * visibleHeaderIndexPaths = [[self p_indexPathsForVisibleSupplementaryElementsOfKind:UICollectionElementKindSectionHeader] mutableCopy];
-    if ([exceptArr isKindOfClass:[NSArray class]]) {
+    NSMutableArray * visibleHeaderIndexPaths = [[self p_indexPathsForVisibleSupplementaryElementsOfKind:elementKind] mutableCopy];
+    if ([exceptArr isKindOfClass:[NSArray class]] && exceptArr.count > 0 && exceptArr.count > 0) {
         [visibleHeaderIndexPaths removeObjectsInArray:exceptArr];
     }
     remainIndexPaths = [visibleHeaderIndexPaths copy];
@@ -800,9 +793,9 @@
         }
     }
     
-    NSDictionary * visibleHeaderDict = [[_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader] copy];
-    NSDictionary * visibleFooterDict = [[_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter] copy];
+    
     if ([self isValidForElementKind:UICollectionElementKindSectionHeader]) {
+        NSDictionary * visibleHeaderDict = [[_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionHeader] copy];
         for (NSIndexPath * indexPath in visibleHeaderDict.allKeys) {
             FlyCollectionReusableView * itemView = [visibleHeaderDict objectForKey:indexPath];
             if (![self isVisibleFrame:itemView.frame]) {
@@ -812,6 +805,7 @@
     }
     
     if ([self isValidForElementKind:UICollectionElementKindSectionFooter]) {
+        NSDictionary * visibleFooterDict = [[_visibleSupplementaryViewsDict objectForKey:UICollectionElementKindSectionFooter] copy];
         for (NSIndexPath * indexPath in visibleFooterDict.allKeys) {
             FlyCollectionReusableView * itemView = [visibleFooterDict objectForKey:indexPath];
             if (![self isVisibleFrame:itemView.frame]) {
@@ -845,7 +839,7 @@
             }
             NSIndexPath * resultIndexPath = indexPath;
             if (largeTime != 0) {
-                resultIndexPath = [NSIndexPath indexPathForItem:MIN(0,(indexPath.item + largeTime)) inSection:indexPath.section];
+                resultIndexPath = [NSIndexPath indexPathForItem:MAX(0,(indexPath.item + largeTime)) inSection:indexPath.section];
             }
             if (view && resultIndexPath) {
                 [resultDict setObject:view forKey:resultIndexPath];
@@ -1060,20 +1054,19 @@
 - (void)deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
 {
     if ([indexPaths isKindOfClass:[NSArray class]] && indexPaths.count > 0) {
-//        [self reload_cachedData];
-//        [self.collectionViewLayout prepareLayout];
-//        for (NSIndexPath * deleteIndexPath in indexPaths) {
-//            FlyCollectionReusableView * itemView = [self p_getCellFromVisibleDict:deleteIndexPath];
-//            [self p_insertCellToReuseQueueFromVisibleDict:itemView indexPath:deleteIndexPath];
-//        }
-//        [self p_resetKeysWithReloadItems:indexPaths isInsert:NO];
-//        NSArray * needLayoutArr = [self p_indexPathsForVisibleItemsExceptArr:indexPaths];
-//        NSMutableArray * needReloadArr = [needLayoutArr mutableCopy];
-//        [needReloadArr removeObjectsInArray:_visibleCellsDict.allKeys];
-//        [self p_reloadItemsAtIndexPaths:needReloadArr];
-//        [UIView animateWithDuration:0.25 animations:^{
-//            [self p_reLayoutItemsAtIndexPaths:needLayoutArr];
-//        }];
+        [self reload_cachedData];
+        [self.collectionViewLayout prepareLayout];
+        [self p_removeCellFromVisibleCells:indexPaths];
+        [self p_resetKeysWithReloadItems:indexPaths isInsert:NO];
+        NSArray * needLayoutArr = [self p_indexPathsForVisibleItemsExceptArr:nil];
+        
+        NSMutableArray * needReloadArr = [needLayoutArr mutableCopy];
+        [needReloadArr removeObjectsInArray:_visibleCellsDict.allKeys];
+        [self p_reloadItemsAtIndexPaths:needReloadArr];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            [self p_reLayoutItemsAtIndexPaths:needLayoutArr];
+        }];
     }
 }
 
