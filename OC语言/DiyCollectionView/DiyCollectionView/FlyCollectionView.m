@@ -821,7 +821,8 @@
     CGFloat offsetX = currentOffset.x;
     CGFloat offsetY = currentOffset.y;
     
-    CGFloat insetBottom = self.contentInset.bottom;//键盘弹起会有值，不然为0
+    CGFloat insetBottom = self.contentInset.bottom;
+    CGFloat insetTop    = self.contentInset.top;
     switch (position) {
         case UICollectionViewScrollPositionNone:
             if (offsetY + collectionViewHeight <= currentRect.origin.y) {
@@ -842,9 +843,7 @@
             break;
     }
     CGFloat maxOffSetY = contentHeight + insetBottom - collectionViewHeight;
-    offsetY = MAX(MIN(maxOffSetY, offsetY), 0);
-    offsetY = MAX(offsetY, 0);
-    
+    offsetY = MAX(MIN(maxOffSetY, offsetY), - insetTop);
     [self setContentOffset:CGPointMake(offsetX, offsetY) animated:animated];
 }
 
