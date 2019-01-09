@@ -815,9 +815,9 @@
     if (CGRectEqualToRect(currentRect, CGRectZero)) {
         return;
     }
-    CGPoint currentOffset   = self.contentOffset;
-    CGFloat contentHeight   = self.contentSize.height;
-    CGFloat collectionViewHeight = CGRectGetHeight(self.frame);
+    CGPoint currentOffset = self.contentOffset;
+    CGFloat contentHeight = self.contentSize.height;
+    CGFloat collectionHeight = CGRectGetHeight(self.frame);
     CGFloat offsetX = currentOffset.x;
     CGFloat offsetY = currentOffset.y;
     
@@ -825,26 +825,28 @@
     CGFloat insetTop    = self.contentInset.top;
     switch (position) {
         case UICollectionViewScrollPositionNone:
-            if (offsetY + collectionViewHeight <= currentRect.origin.y) {
-                offsetY = currentRect.origin.y + currentRect.size.height - collectionViewHeight  + insetBottom;
+            if (offsetY + collectionHeight <= currentRect.origin.y) {
+                offsetY = currentRect.origin.y + currentRect.size.height - collectionHeight;
             }
             break;
         case UICollectionViewScrollPositionTop:
-            offsetY = currentRect.origin.y + insetBottom;
+            offsetY = currentRect.origin.y;
             break;
         case UICollectionViewScrollPositionCenteredVertically:
-            offsetY = currentRect.origin.y + currentRect.size.height * 0.5 - collectionViewHeight * 0.5 + insetBottom;
+            offsetY = currentRect.origin.y + currentRect.size.height * 0.5 - collectionHeight * 0.5;
             break;
         case UICollectionViewScrollPositionBottom:
-            offsetY = currentRect.origin.y + currentRect.size.height - collectionViewHeight + insetBottom;
+            offsetY = currentRect.origin.y + currentRect.size.height - collectionHeight;
             break;
             
         default:
             break;
     }
-    CGFloat maxOffSetY = contentHeight + insetBottom - collectionViewHeight;
+    CGFloat maxOffSetY = contentHeight + insetBottom - collectionHeight;
     offsetY = MAX(MIN(maxOffSetY, offsetY), - insetTop);
-    [self setContentOffset:CGPointMake(offsetX, offsetY) animated:animated];
+    if (offsetX != currentOffset.x && offsetY != currentOffset.y) {
+        [self setContentOffset:CGPointMake(offsetX, offsetY) animated:animated];
+    }
 }
 
 - (void)p_insertUnVisibleViewToReuseQueuesFromVisibleDicts
