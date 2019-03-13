@@ -55,22 +55,33 @@
 
 - (void)prepareLayout
 {
-    _cachedItemAttributes = [NSMutableDictionary dictionary];
+    _cachedItemAttributes   = [NSMutableDictionary dictionary];
     _cachedHeaderAttributes = [NSMutableDictionary dictionary];
     _cachedFooterAttributes = [NSMutableDictionary dictionary];
     
-    _cachedItemSize = [NSMutableDictionary dictionary];
+    _cachedItemSize   = [NSMutableDictionary dictionary];
     _cachedHeaderSize = [NSMutableDictionary dictionary];
     _cachedFooterSize = [NSMutableDictionary dictionary];
-    _cachedSectionInset = [NSMutableDictionary dictionary];
+    _cachedSectionInset   = [NSMutableDictionary dictionary];
     _cachedMinItemSpacing = [NSMutableDictionary dictionary];
     _cachedMinLineSpacing = [NSMutableDictionary dictionary];
     
     _indexPathsToValidate = [NSMutableArray array];
-    _collectionViewSize = self.collectionView.bounds.size;
-    _collectionInsets = self.collectionView.contentInset;
+    _collectionViewSize   = self.collectionView.bounds.size;
+    _collectionInsets     = self.collectionView.contentInset;
+    _collectionViewSize.width  = _collectionViewSize.width - _collectionInsets.left - _collectionInsets.right;
+    _collectionViewSize.height = _collectionViewSize.height - _collectionInsets.top - _collectionInsets.bottom;
     [self cachedAllItemsAttributes];
     [self.collectionView setContentSize:[self collectionViewContentSize]];
+}
+
+- (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection
+{
+    if (_scrollDirection != scrollDirection) {
+        _scrollDirection = scrollDirection;
+        [self.collectionView setContentOffset:CGPointZero];
+        [self.collectionView reloadData];
+    }
 }
 
 - (id)delegate
@@ -83,17 +94,32 @@
     CGSize contentSize = CGSizeZero;
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         contentSize = CGSizeMake(_collectionViewSize.width, 0);
-        UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
-        UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
-        contentSize.height =  CGRectGetMaxY(lastAttri.frame) - CGRectGetMinY(firstAttri.frame);
+        NSInteger lastSection = _collectionView.numberOfSections - 1;
+        if (lastSection <= 0) {
+            lastSection = 0;
+        }
+        UICollectionViewLayoutAttributes * lastFooterAttributes = [self cachedLayoutAttributesForFooterInSection:lastSection];
+        if ([lastFooterAttributes isKindOfClass:[UICollectionViewLayoutAttributes class]]) {
+            contentSize.height = CGRectGetMaxY(lastFooterAttributes.frame);
+        } else {
+            CGRect lastRect    = [self support_rectForSection:lastSection toRow:-1];
+            contentSize.height = CGRectGetMaxY(lastRect);
+        }
     } else if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
         contentSize = CGSizeMake(0, _collectionViewSize.height);
-        UICollectionViewLayoutAttributes * firstAttri = [_layoutAttributesArr firstObject];
-        UICollectionViewLayoutAttributes * lastAttri  = [_layoutAttributesArr lastObject];
-        contentSize.width =  CGRectGetMaxX(lastAttri.frame) - CGRectGetMaxX(firstAttri.frame);
+        NSInteger lastSection = _collectionView.numberOfSections - 1;
+        if (lastSection <= 0) {
+            lastSection = 0;
+        }
+        UICollectionViewLayoutAttributes * lastFooterAttributes = [self cachedLayoutAttributesForFooterInSection:lastSection];
+        if ([lastFooterAttributes isKindOfClass:[UICollectionViewLayoutAttributes class]]) {
+            contentSize.width = CGRectGetMaxX(lastFooterAttributes.frame);
+        } else {
+            CGRect lastRect   = [self support_rectForSection:lastSection toRow:-1];
+            contentSize.width = CGRectGetMaxX(lastRect);
+        }
     }
     
-//    FlyLog(@"----->>>>>contentSize:%@",[NSValue valueWithCGSize:contentSize]);
     return contentSize;
 }
 
@@ -152,10 +178,10 @@
 {
     UICollectionViewLayoutAttributes *cellAttribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     CGRect itemFrame = CGRectZero;
-    CGSize itemSize = [self cachedSizeForItemAtIndexPath:indexPath];
-    itemFrame.size = itemSize;
+    CGSize itemSize  = [self cachedSizeForItemAtIndexPath:indexPath];
+    itemFrame.size   = itemSize;
     cellAttribute.frame  = itemFrame;
-    cellAttribute.bounds = CGRectMake(0, 0, itemSize.width, itemSize.height);
+    
     if (_scrollDirection == UICollectionViewScrollDirectionVertical) {//竖向滑动
         [self calculateCellLayoutAttributesWhenDirectionVertical:cellAttribute indexPath:indexPath];
     } else if (_scrollDirection == UICollectionViewScrollDirectionHorizontal) {//横向滑动
@@ -171,10 +197,9 @@
     UICollectionViewLayoutAttributes * supplementAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:elementKind withIndexPath:indexPath];
     
     CGRect supplemenFrame = CGRectZero;
-    CGSize itemSize = [self referenceSizeForKind:elementKind inSection:indexPath.section];
-    supplemenFrame.size = itemSize;
+    CGSize supplemenSize  = [self cachedReferenceSizeForKind:elementKind inSection:indexPath.section];
+    supplemenFrame.size = supplemenSize;
     supplementAttributes.frame  = supplemenFrame;
-    supplementAttributes.bounds = CGRectMake(0, 0, itemSize.width, itemSize.height);
     
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
@@ -183,25 +208,103 @@
             [self calculateFooterLayoutAttributesWhenDirectionVertical:supplementAttributes indexPath:indexPath];
         }
     } else if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        
+        if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+            [self calculateHeaderLayoutAttributesWhenDirectionHorizontal:supplementAttributes indexPath:indexPath];
+        } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+            [self calculateFooterLayoutAttributesWhenDirectionHorizontal:supplementAttributes indexPath:indexPath];
+        }
     }
+    
+//    FlyLog(@"calculateLayoutAttributesForSupplementaryViewOfKind :%@ %@ %@",indexPath,elementKind,[NSValue valueWithCGRect:supplementAttributes.frame]);
     return supplementAttributes;
 }
 
-- (void)calculateHeaderLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+#pragma mark 竖向滑动 cell attributes
+- (void)calculateCellLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
 {
-    CGRect currentRect = layoutAttributes.frame;
+    CGRect  currentRect  = layoutAttributes.frame;
     CGFloat attributes_x = 0;
     CGFloat attributes_y = 0;
-    CGRect lastRect = CGRectZero;
-    NSIndexPath * nearestInexPath = nil;
-    if (indexPath.section > 0) {
-        nearestInexPath = [NSIndexPath indexPathForItem:0 inSection:indexPath.section - 1];
+    
+    CGFloat lineSpacing = [self cachedMinimumLineSpacingForSectionAtIndex:indexPath.section];
+    CGFloat itemSpacing = [self cachedMinimumInteritemSpacingForSectionAtIndex:indexPath.section];
+    UIEdgeInsets sectionInsets = [self cachedInsetForSectionAtIndex:indexPath.section];
+    
+    if (indexPath.row == 0) {
+       UICollectionViewLayoutAttributes * headerLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
+        attributes_x = sectionInsets.left;
+        attributes_y = CGRectGetMaxY(headerLayoutAttributes.frame) + sectionInsets.top;
+    } else {
+        
+        CGRect lastRect = CGRectZero;
+        CGRect upRect = [self support_rectForSection:indexPath.section toRow:indexPath.row];
+        NSIndexPath * lastIndexPath = [NSIndexPath indexPathForItem:indexPath.row - 1 inSection:indexPath.section];
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedItemAttributes objectForKey:lastIndexPath];
+        lastRect = lastLayoutAttributes.frame;
+        
+        attributes_x = CGRectGetMaxX(lastRect) + itemSpacing;
+        attributes_y = CGRectGetMinY(lastRect);
+        if (attributes_x + CGRectGetMaxX(currentRect) + sectionInsets.right > _collectionViewSize.width) {//需要折行
+            attributes_x = sectionInsets.left;
+            attributes_y = CGRectGetMaxY(upRect) + lineSpacing;
+        }
     }
-    if (nearestInexPath) {
-        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedFooterAttributes objectForKey:nearestInexPath];
+    
+    currentRect.origin.x = attributes_x;
+    currentRect.origin.y = attributes_y;
+    layoutAttributes.frame = currentRect;
+//    FlyLog(@"当前：%ld - %ld frame :%@",indexPath.section, indexPath.row, [NSValue valueWithCGRect:currentRect]);
+}
+
+#pragma mark 横向滑动 cell attributes
+- (void)calculateCellLayoutAttributesWhenDirectionHorizontal:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+{
+    CGRect  currentRect  = layoutAttributes.frame;
+    CGFloat attributes_x = 0;
+    CGFloat attributes_y = 0;
+    
+    CGFloat lineSpacing = [self cachedMinimumLineSpacingForSectionAtIndex:indexPath.section];
+    CGFloat itemSpacing = [self cachedMinimumInteritemSpacingForSectionAtIndex:indexPath.section];
+    UIEdgeInsets sectionInsets = [self cachedInsetForSectionAtIndex:indexPath.section];
+    
+    if (indexPath.row == 0) {
+        UICollectionViewLayoutAttributes * headerLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
+        attributes_x = CGRectGetMaxX(headerLayoutAttributes.frame) + sectionInsets.left;
+        attributes_y = sectionInsets.top;
+    } else {
+        CGRect lastRect = CGRectZero;
+        CGRect upRect = [self support_rectForSection:indexPath.section toRow:indexPath.row];
+        NSIndexPath * lastIndexPath = [NSIndexPath indexPathForItem:indexPath.row - 1 inSection:indexPath.section];
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedItemAttributes objectForKey:lastIndexPath];
+        lastRect = lastLayoutAttributes.frame;
+        attributes_x = CGRectGetMinX(lastRect);
+        attributes_y = CGRectGetMaxY(lastRect) + itemSpacing;;
+        if (attributes_y + CGRectGetMaxY(currentRect) + sectionInsets.bottom > _collectionViewSize.height) {//需要折行
+            attributes_x = CGRectGetMaxX(upRect) + lineSpacing;
+            attributes_y = sectionInsets.top;
+        }
+    }
+    
+    currentRect.origin.x = attributes_x;
+    currentRect.origin.y = attributes_y;
+    layoutAttributes.frame = currentRect;
+}
+
+#pragma mark 竖向滑动 header attributes
+- (void)calculateHeaderLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+{
+    CGRect currentRect   = layoutAttributes.frame;
+    CGFloat attributes_x = 0;
+    CGFloat attributes_y = 0;
+    CGRect lastRect      = CGRectZero;
+    
+    NSIndexPath * lastInexPath = nil;
+    if (indexPath.section > 0) {
+        lastInexPath = [NSIndexPath indexPathForItem:0 inSection:indexPath.section - 1];
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedFooterAttributes objectForKey:lastInexPath];
         lastRect = lastLayoutAttributes.frame;
     }
+    
     attributes_y = CGRectGetMaxY(lastRect);
     
     currentRect.origin.x = attributes_x;
@@ -209,26 +312,43 @@
     layoutAttributes.frame = currentRect;
 }
 
+#pragma mark 横向滑动 header attributes
+- (void)calculateHeaderLayoutAttributesWhenDirectionHorizontal:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+{
+    CGRect currentRect   = layoutAttributes.frame;
+    CGFloat attributes_x = 0;
+    CGFloat attributes_y = 0;
+    CGRect lastRect   = CGRectZero;
+    
+    NSIndexPath * lastInexPath = nil;
+    if (indexPath.section > 0) {
+        lastInexPath = [NSIndexPath indexPathForItem:0 inSection:indexPath.section - 1];
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedFooterAttributes objectForKey:lastInexPath];
+        lastRect = lastLayoutAttributes.frame;
+    }
+    
+    attributes_x = CGRectGetMaxX(lastRect);
+    
+    currentRect.origin.x = attributes_x;
+    currentRect.origin.y = attributes_y;
+    layoutAttributes.frame = currentRect;
+}
+
+#pragma mark 竖向滑动 footer attributes
 - (void)calculateFooterLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
 {
     CGRect currentRect = layoutAttributes.frame;
     CGFloat attributes_x = 0;
     CGFloat attributes_y = 0;
-    CGRect lastRect = CGRectZero;
-    NSIndexPath * nearestInexPath = nil;
     NSInteger rowCount = [self.collectionView numberOfItemsInSection:indexPath.section];
-    if (rowCount > 0) {
-        nearestInexPath = [NSIndexPath indexPathForItem:rowCount - 1 inSection:indexPath.section];
-    }
     UIEdgeInsets sectionInsets = [self cachedInsetForSectionAtIndex:indexPath.section];
-    if (nearestInexPath) {
-        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedItemAttributes objectForKey:nearestInexPath];
-        lastRect = lastLayoutAttributes.frame;
-        attributes_y = CGRectGetMaxY(lastRect) + sectionInsets.bottom;
-    } else {
+    
+    if (rowCount > 0) {
+        CGRect sectionRect = [self support_rectForSection:indexPath.section toRow:rowCount];
+        attributes_y = CGRectGetMaxY(sectionRect) + sectionInsets.top;
+    } else { //item数为0
         UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
-        lastRect = lastLayoutAttributes.frame;
-        attributes_y = CGRectGetMaxY(lastRect) + sectionInsets.bottom + sectionInsets.top;
+        attributes_y = CGRectGetMaxY(lastLayoutAttributes.frame) + sectionInsets.bottom + sectionInsets.top;
     }
     
     currentRect.origin.x = attributes_x;
@@ -236,88 +356,84 @@
     layoutAttributes.frame = currentRect;
 }
 
-
-//竖向滑动
-- (void)calculateCellLayoutAttributesWhenDirectionVertical:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+#pragma mark 横向滑动 footer attributes
+- (void)calculateFooterLayoutAttributesWhenDirectionHorizontal:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
 {
     CGRect currentRect = layoutAttributes.frame;
     CGFloat attributes_x = 0;
     CGFloat attributes_y = 0;
-    CGRect lastRect = CGRectZero;
-    NSIndexPath * nearestInexPath = [self calculateNearestIndexPathWithCurrentIndexPath:indexPath];
-    if (nearestInexPath) {
-        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedItemAttributes objectForKey:nearestInexPath];
-        lastRect = lastLayoutAttributes.frame;
-    }
-    
-    CGFloat lineSpacing = [self cachedMinimumLineSpacingForSectionAtIndex:indexPath.section];
-    CGFloat itemSpacing = [self cachedMinimumInteritemSpacingForSectionAtIndex:indexPath.section];
+    NSInteger rowCount = [self.collectionView numberOfItemsInSection:indexPath.section];
     UIEdgeInsets sectionInsets = [self cachedInsetForSectionAtIndex:indexPath.section];
-    UIEdgeInsets lastSectionInsets = UIEdgeInsetsZero;
-    if (indexPath.section - 1 >= 0) {
-        lastSectionInsets = [self insetForSectionAtIndex:indexPath.section - 1];
-    }
-    if (indexPath.row == 0) {
-       UICollectionViewLayoutAttributes * headerLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
-        attributes_x = sectionInsets.left;
-        attributes_y = CGRectGetMaxY(headerLayoutAttributes.frame) + sectionInsets.top;
-    } else {
-        attributes_x = CGRectGetMaxX(lastRect) + itemSpacing;
-        attributes_y = CGRectGetMinY(lastRect);
-        if (attributes_x + CGRectGetMaxX(currentRect) + sectionInsets.right > _collectionViewSize.width) {//需要折行
-            attributes_x = sectionInsets.left;
-            attributes_y = CGRectGetMaxY(lastRect) + lineSpacing;
-        }
+    
+    if (rowCount > 0) {
+        CGRect sectionRect = [self support_rectForSection:indexPath.section toRow:rowCount];
+        attributes_x = CGRectGetMaxX(sectionRect) + sectionInsets.left;
+    } else { //item数为0
+        UICollectionViewLayoutAttributes * lastLayoutAttributes = [_cachedHeaderAttributes objectForKey:indexPath];
+        attributes_x = CGRectGetMaxX(lastLayoutAttributes.frame) + sectionInsets.left + sectionInsets.right;
     }
     
     currentRect.origin.x = attributes_x;
     currentRect.origin.y = attributes_y;
     layoutAttributes.frame = currentRect;
-//    FlyLog(@"当前：%ld 最近的：%ld lastFrame : %@ frame :%@",indexPath.row,nearestInexPath.row,[NSValue valueWithCGRect:lastRect],[NSValue valueWithCGRect:currentRect]);
 }
 
-//横向滑动
-- (void)calculateCellLayoutAttributesWhenDirectionHorizontal:(UICollectionViewLayoutAttributes *)layoutAttributes indexPath:(NSIndexPath *)indexPath
+#pragma mark - support method
+- (CGRect)support_rectForSection:(NSInteger)section toRow:(NSInteger)toRow
 {
-    
-    
+    CGRect sectionRect = [self support_rectForSection:section toRow:toRow needSupplement:NO];
+    return sectionRect;
 }
 
-//上面的优先级高
-- (NSIndexPath *)calculateNearestIndexPathWithCurrentIndexPath:(NSIndexPath *)indexPath
+- (CGRect)support_rectForSection:(NSInteger)section toRow:(NSInteger)toRow needSupplement:(BOOL)needSupplement
 {
-    NSIndexPath * targetIndexPath = nil;
-    NSArray * visibleIndexPaths = [_indexPathsToValidate copy];
-    
-    if ([visibleIndexPaths containsObject:indexPath]) {
-        NSInteger index = [visibleIndexPaths indexOfObject:indexPath];
-        if (index != 0) {
-            targetIndexPath = [visibleIndexPaths objectAtIndex:index - 1];
-        } else {
-            
+    CGRect sectionRect = CGRectZero;
+    CGFloat minX = CGFLOAT_MAX;
+    CGFloat minY = CGFLOAT_MAX;
+    CGFloat maxX = CGFLOAT_MIN;
+    CGFloat maxY = CGFLOAT_MIN;
+   
+    if (needSupplement) {
+        NSIndexPath * suppleIndexPath = [NSIndexPath indexPathForItem:0 inSection:section];
+        UICollectionViewLayoutAttributes * headerAttributes = [_cachedHeaderAttributes objectForKey:suppleIndexPath];
+        if ([headerAttributes isKindOfClass:[UICollectionViewLayoutAttributes class]]) {
+            minX = MIN(minX, CGRectGetMinX(headerAttributes.frame));
+            minY = MIN(minY, CGRectGetMinY(headerAttributes.frame));
+            maxX = MAX(maxX, CGRectGetMaxX(headerAttributes.frame));
+            maxY = MAX(maxY, CGRectGetMaxY(headerAttributes.frame));
         }
-    } else {
-        NSIndexPath * firstVisibleIndexPath = visibleIndexPaths.firstObject;
-        NSIndexPath * lastVisibleIndexPath  = visibleIndexPaths.lastObject;
-         if ([lastVisibleIndexPath compare:indexPath] == NSOrderedAscending) {
-            targetIndexPath = lastVisibleIndexPath;
-         } else if ([firstVisibleIndexPath compare:indexPath] == NSOrderedDescending) {
-             targetIndexPath = firstVisibleIndexPath;
-         }
+        UICollectionViewLayoutAttributes * footerAttributes = [_cachedFooterAttributes objectForKey:suppleIndexPath];
+        if ([footerAttributes isKindOfClass:[UICollectionViewLayoutAttributes class]]) {
+            minX = MIN(minX, CGRectGetMinX(footerAttributes.frame));
+            minY = MIN(minY, CGRectGetMinY(footerAttributes.frame));
+            maxX = MAX(maxX, CGRectGetMaxX(footerAttributes.frame));
+            maxY = MAX(maxY, CGRectGetMaxY(footerAttributes.frame));
+        }
     }
     
-    return targetIndexPath;
+    if (toRow < 0) {
+        NSInteger rowCount = [self.collectionView numberOfItemsInSection:section];
+        toRow = rowCount;
+    }
+    
+    for (NSInteger row = 0; row < toRow; row ++) {
+        NSIndexPath * loopIndexPath = [NSIndexPath indexPathForItem:row inSection:section];
+        UICollectionViewLayoutAttributes * loopLayoutAttributes = [_cachedItemAttributes objectForKey:loopIndexPath];
+        if ([loopLayoutAttributes isKindOfClass:[UICollectionViewLayoutAttributes class]]) {
+            minX = MIN(minX, CGRectGetMinX(loopLayoutAttributes.frame));
+            minY = MIN(minY, CGRectGetMinY(loopLayoutAttributes.frame));
+            maxX = MAX(maxX, CGRectGetMaxX(loopLayoutAttributes.frame));
+            maxY = MAX(maxY, CGRectGetMaxY(loopLayoutAttributes.frame));
+        }
+    }
+    sectionRect = CGRectMake(minX, minY, maxX - minX, maxY - minY);
+    return sectionRect;
 }
 
-- (CGSize)referenceSizeForKind:(NSString *)kind inSection:(NSInteger)section
+- (CGRect)support_rectForSection:(NSInteger)section
 {
-    CGSize referenceSize = CGSizeZero;
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        referenceSize = [self cachedReferenceSizeForHeaderInSection:section];
-    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        referenceSize = [self cachedReferenceSizeForFooterInSection:section];
-    }
-    return referenceSize;
+    CGRect sectionRect = [self support_rectForSection:section toRow:-1 needSupplement:YES];
+    return sectionRect;
 }
 
 #pragma mark - cached
@@ -359,11 +475,22 @@
 {
     NSValue * itemSizeValue = [_cachedItemSize objectForKey:indexPath];
     CGSize itemSize = [itemSizeValue CGSizeValue];
-    if (!itemSizeValue) {
+    if (!itemSizeValue && indexPath) {
         itemSize = [self sizeForItemAtIndexPath:indexPath];
         [_cachedItemSize setObject:[NSValue valueWithCGSize:itemSize] forKey:indexPath];
     }
     return itemSize;
+}
+
+- (CGSize)cachedReferenceSizeForKind:(NSString *)kind inSection:(NSInteger)section
+{
+    CGSize referenceSize = CGSizeZero;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        referenceSize = [self cachedReferenceSizeForHeaderInSection:section];
+    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        referenceSize = [self cachedReferenceSizeForFooterInSection:section];
+    }
+    return referenceSize;
 }
 
 - (CGSize)cachedReferenceSizeForHeaderInSection:(NSInteger)section
@@ -392,7 +519,7 @@
 - (UIEdgeInsets)cachedInsetForSectionAtIndex:(NSInteger)section
 {
     NSValue * sectionInsetValue = [_cachedSectionInset objectForKey:@(section)];
-    UIEdgeInsets sectionInset = [sectionInsetValue UIEdgeInsetsValue];
+    UIEdgeInsets sectionInset   = [sectionInsetValue UIEdgeInsetsValue];
     if (!sectionInsetValue) {
         sectionInset = [self insetForSectionAtIndex:section];
         [_cachedSectionInset setObject:[NSValue valueWithUIEdgeInsets:sectionInset] forKey:@(section)];
@@ -512,6 +639,11 @@
 {
     UICollectionViewLayoutAttributes * footerAttributes = [self cachedLayoutAttributesForFooterInSection:section];
     return footerAttributes;
+}
+
+- (CGRect)rectForSection:(NSInteger)section
+{
+    return [self support_rectForSection:section];
 }
 
 @end

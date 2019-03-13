@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "Header.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,19 +19,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (UIEdgeInsets)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
+- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UIEdgeInsets)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
 //spacing
-- (CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
-- (CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
+- (CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
+- (CGFloat)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
 
-- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
-- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
+- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
+- (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
 
 
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout flyoutAttributesForItemInSection:(NSIndexPath *)indexPath;
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout flyoutAttributesForHeaderInSection:(NSInteger)section;
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout*)collectionViewLayout flyoutAttributesForFooterInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForItemInSection:(NSIndexPath *)indexPath;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForHeaderInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForFooterInSection:(NSInteger)section;
 
 @end
 
@@ -62,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
+
+- (CGRect)rectForSection:(NSInteger)section;
 
 @end
 

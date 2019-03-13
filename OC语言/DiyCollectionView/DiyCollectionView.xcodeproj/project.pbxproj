@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B127F8D21D3862F00A6630B /* FlyMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B127F8C21D3862F00A6630B /* FlyMenuController.m */; };
 		7B346B6A21AF8A4C00C7FD8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B6921AF8A4C00C7FD8D /* AppDelegate.m */; };
 		7B346B6D21AF8A4C00C7FD8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B6C21AF8A4C00C7FD8D /* ViewController.m */; };
 		7B346B7021AF8A4C00C7FD8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B346B6E21AF8A4C00C7FD8D /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		7B346B8D21AF8A4E00C7FD8D /* DiyCollectionViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B8C21AF8A4E00C7FD8D /* DiyCollectionViewUITests.m */; };
 		7B346B9C21AF8A5F00C7FD8D /* FlyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */; };
 		7B346B9F21AF90FD00C7FD8D /* FlyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */; };
-		7B346BA221AF980E00C7FD8D /* FlyCollectionViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */; };
 		7BBD166A21B11B6300D045CF /* FlyCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B127F8B21D3862F00A6630B /* FlyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlyMenuController.h; path = "../../UICollectionView+Runtime/UICollectionView+Runtime/FlyMenuController.h"; sourceTree = "<group>"; };
+		7B127F8C21D3862F00A6630B /* FlyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlyMenuController.m; path = "../../UICollectionView+Runtime/UICollectionView+Runtime/FlyMenuController.m"; sourceTree = "<group>"; };
 		7B346B6521AF8A4C00C7FD8D /* DiyCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiyCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B346B6821AF8A4C00C7FD8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B346B6921AF8A4C00C7FD8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,8 +61,6 @@
 		7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionView.m; sourceTree = "<group>"; };
 		7B346B9D21AF90FD00C7FD8D /* FlyCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionViewLayout.h; sourceTree = "<group>"; };
 		7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionViewLayout.m; sourceTree = "<group>"; };
-		7B346BA021AF980E00C7FD8D /* FlyCollectionViewObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionViewObject.h; sourceTree = "<group>"; };
-		7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionViewObject.m; sourceTree = "<group>"; };
 		7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCollectionReusableView.h; sourceTree = "<group>"; };
 		7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCollectionReusableView.m; sourceTree = "<group>"; };
 		7BFE3EE421B53ADE0012C2F8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -122,10 +122,10 @@
 				7B346B9B21AF8A5F00C7FD8D /* FlyCollectionView.m */,
 				7B346B9D21AF90FD00C7FD8D /* FlyCollectionViewLayout.h */,
 				7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */,
-				7B346BA021AF980E00C7FD8D /* FlyCollectionViewObject.h */,
-				7B346BA121AF980E00C7FD8D /* FlyCollectionViewObject.m */,
 				7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */,
 				7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */,
+				7B127F8B21D3862F00A6630B /* FlyMenuController.h */,
+				7B127F8C21D3862F00A6630B /* FlyMenuController.m */,
 				7BFE3EE421B53ADE0012C2F8 /* Header.h */,
 				7B346B6E21AF8A4C00C7FD8D /* Main.storyboard */,
 				7B346B7121AF8A4E00C7FD8D /* Assets.xcassets */,
@@ -286,11 +286,11 @@
 			files = (
 				7B346B9C21AF8A5F00C7FD8D /* FlyCollectionView.m in Sources */,
 				7B346B6D21AF8A4C00C7FD8D /* ViewController.m in Sources */,
+				7B127F8D21D3862F00A6630B /* FlyMenuController.m in Sources */,
 				7B346B9F21AF90FD00C7FD8D /* FlyCollectionViewLayout.m in Sources */,
 				7B346B7821AF8A4E00C7FD8D /* main.m in Sources */,
 				7BBD166A21B11B6300D045CF /* FlyCollectionReusableView.m in Sources */,
 				7B346B6A21AF8A4C00C7FD8D /* AppDelegate.m in Sources */,
-				7B346BA221AF980E00C7FD8D /* FlyCollectionViewObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +461,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DiyCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,6 +470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.DiyCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -477,7 +479,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DiyCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,6 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.DiyCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
