@@ -293,21 +293,21 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FlyLog(@" ---->>>>>>>>didSelectItemAtIndexPath");
-    if (indexPath.row % 3 == 0) {
-        FlyLog(@" *->>reload : %ld - %ld",indexPath.section,indexPath.row);
-        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    } else if (indexPath.row % 3 == 1) {
-        FlyLog(@" *->>insert : %ld - %ld",indexPath.section,indexPath.row);
-        [self.dataSourceArr insertObject:@"1" atIndex:indexPath.row];
-        [collectionView insertItemsAtIndexPaths:@[indexPath]];
-        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    } else {
-        FlyLog(@" *->>delete : %ld - %ld",indexPath.section,indexPath.row);
-        [self.dataSourceArr removeObjectAtIndex:indexPath.row];
-        [collectionView deleteItemsAtIndexPaths:@[indexPath]];
-        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    }
+//    if (indexPath.row % 3 == 0) {
+//        FlyLog(@" *->>reload : %ld - %ld",indexPath.section,indexPath.row);
+//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+//    } else if (indexPath.row % 3 == 1) {
+//        FlyLog(@" *->>insert : %ld - %ld",indexPath.section,indexPath.row);
+//        [self.dataSourceArr insertObject:@"1" atIndex:indexPath.row];
+//        [collectionView insertItemsAtIndexPaths:@[indexPath]];
+//        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+//    } else {
+//        FlyLog(@" *->>delete : %ld - %ld",indexPath.section,indexPath.row);
+//        [self.dataSourceArr removeObjectAtIndex:indexPath.row];
+//        [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+//        //        [self.layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//    }
 //    [self.collectionView reloadData];
 //    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
 //    if (cell) {
@@ -317,7 +317,9 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 //    }
     
 //    [self getClassMethods:self.collectionView];
-//    [self getClassMethods:[UITextView new]];
+    id instance = [NSClassFromString(@"UIScrollViewPanGestureRecognizer") new];
+    instance = [UIGestureRecognizer new];
+    [self getClassMethods:instance];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
