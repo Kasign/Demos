@@ -317,9 +317,8 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 //    }
     
 //    [self getClassMethods:self.collectionView];
-    id instance = [NSClassFromString(@"UIScrollViewPanGestureRecognizer") new];
-    instance = [UIGestureRecognizer new];
-    [self getClassMethods:instance];
+    id instance = [NSClassFromString(@"_UILabelLayer") new];
+    [self loopInstanceSuperClass:instance];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -340,6 +339,14 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    FlyLog(@" 11、scroll---->>>>scrollViewDidScroll contentOffset.y:%f %@",scrollView.contentOffset.y,[NSValue valueWithCGSize:scrollView.contentSize]);
+}
+
+- (void)loopInstanceSuperClass:(id)instance
+{
+    while (![instance isMemberOfClass:[NSObject class]]) {
+        [self getClassMethods:instance];
+        instance = [[instance superclass] new];
+    }
 }
 
 - (void)getClassMethods:(id)instance
@@ -376,7 +383,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     //获取成员变量和属性
     NSMutableDictionary * nameTypeDict = [NSMutableDictionary dictionary];
     unsigned int ivarCount;
-    Ivar *ivars = class_copyIvarList([instance class], &ivarCount);
+    Ivar * ivars = class_copyIvarList([instance class], &ivarCount);
     for (int i = 0; i<ivarCount; i++) {
         Ivar ivar = ivars[i];
         const char * ivarCharName = ivar_getName(ivar);
@@ -391,7 +398,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     //获取属性
     [nameTypeDict removeAllObjects];
     unsigned int outCount;
-    objc_property_t *propertyList = class_copyPropertyList([instance class], &outCount);
+    objc_property_t * propertyList = class_copyPropertyList([instance class], &outCount);
     for (int i = 0; i<outCount; i++) {
         objc_property_t property = propertyList[i];
         const char * propertyChar = property_getName(property);
@@ -412,9 +419,9 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     //获取协议列表
     NSMutableArray *protocoArray = [NSMutableArray array];
     unsigned int protocoCount = 0;
-    __unsafe_unretained Protocol **protocolList =  class_copyProtocolList([instance class], &protocoCount);
+    __unsafe_unretained Protocol ** protocolList =  class_copyProtocolList([instance class], &protocoCount);
     for (int i = 0; i<protocoCount; i++) {
-        Protocol *protocol = protocolList[i];
+        Protocol * protocol = protocolList[i];
         const char *protocolName =  protocol_getName(protocol);
         [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
     }

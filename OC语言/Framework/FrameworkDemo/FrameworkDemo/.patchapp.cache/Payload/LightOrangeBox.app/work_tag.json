@@ -1,0 +1,842 @@
+{
+    "version": 6,
+    "currentTime": "1538027323",
+    "relation": {
+        "1": "5,6,7,8,9,10,11,12,13,14,15,29,30,31,32,16",
+        "2": "5,6,7,8,9,10,11,12,13,14,15,33,34,35,36,37,38,39,16",
+        "3": "5,6,7,8,9,10,11,12,13,14,15,40,32,42,16",
+        "4": "5,6,7,8,9,10,11,12,13,14,15,43,44,45,46,47,16"
+    },
+    "relation_2": {
+        "2_1_1": "5,6,7,8,9,10,11,12,13,14,15,29,30,31,32,16",
+        "2_1_2": "5,6,7,8,9,10,11,12,13,14,15,33,34,35,36,37,38,39,16",
+        "2_1_3": "5,6,7,8,9,10,11,12,13,14,15,40,32,42,16",
+        "2_1_4": "5,6,7,8,9,10,11,12,13,14,15,43,44,45,46,47,16",
+        "5_1_1": "48,49,50,51,52,53,54,55,56",
+        "5_1_2": "48,49,50,51,52,53,54,55,56",
+        "5_1_3": "48,49,50,51,52,53,54,55,56",
+        "5_1_4": "48,49,50,51,52,53,54,55,56,57,58,59"
+    },
+    "step": [
+        {
+            "stepId": "1",
+            "isActivity": 0,
+            "tidList": "1,2,3,4",
+            "title": "基础背景设定",
+            "description": "请为你的作品选择对应的故事背景与风格设定",
+            "maxSelected": 1,
+            "isSelected": 1,
+            "relationStepId": ""
+        },
+        {
+            "stepId": "2",
+            "isActivity": 0,
+            "tidList": "",
+            "title": "类型",
+            "description": "请为你的作品选择对应的故事主题与元素类型",
+            "maxSelected": 1,
+            "isSelected": 0,
+            "relationStepId": "1"
+        },
+        {
+            "stepId": "5",
+            "isActivity": 0,
+            "tidList": "48,49,50,51,52,53,54,55,56",
+            "title": "情绪",
+            "description": "请为你的作品选择故事的主要情绪",
+            "maxSelected": 1,
+            "isSelected": 1,
+            "relationStepId": "1"
+        },
+        {
+            "stepId": "3",
+            "isActivity": 0,
+            "tidList": "17,18,19,20,21",
+            "title": "创作结构特性",
+            "description": "请为你的作品选择对应的创作特色与叙事结构",
+            "maxSelected": 1,
+            "isSelected": 0,
+            "relationStepId": ""
+        },
+        {
+            "stepId": "4",
+            "isActivity": 0,
+            "tidList": "22,23,24,25,26,27,28,60,61",
+            "title": "高能预警",
+            "description": "请为你的作品选择所包含的特殊元素与高能亮点",
+            "maxSelected": 1,
+            "isSelected": 0,
+            "relationStepId": ""
+        }
+    ],
+    "data": {
+        "1": {
+            "tname": "古风",
+            "startTime": "1538027323",
+            "tid": "1",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "2": {
+            "tname": "现代",
+            "startTime": "1538027323",
+            "tid": "2",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "3": {
+            "tname": "幻想",
+            "startTime": "1538027323",
+            "tid": "3",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "4": {
+            "tname": "现实世界",
+            "startTime": "1538027323",
+            "tid": "4",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "5": {
+            "tname": "爱情",
+            "startTime": "1538027323",
+            "tid": "5",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "6": {
+            "tname": "喜剧",
+            "startTime": "1538027323",
+            "tid": "6",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "7": {
+            "tname": "逆袭&复仇",
+            "startTime": "1538027323",
+            "tid": "7",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "8": {
+            "tname": "悬疑&惊悚",
+            "startTime": "1538027323",
+            "tid": "8",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "9": {
+            "tname": "科普",
+            "startTime": "1538027323",
+            "tid": "9",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "10": {
+            "tname": "历史文化",
+            "startTime": "1538027323",
+            "tid": "10",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "11": {
+            "tname": "冒险&动作",
+            "startTime": "1538027323",
+            "tid": "11",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "12": {
+            "tname": "旅途&公路",
+            "startTime": "1538027323",
+            "tid": "12",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "13": {
+            "tname": "侦探推理",
+            "startTime": "1538027323",
+            "tid": "13",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "14": {
+            "tname": "纪录片&传记",
+            "startTime": "1538027323",
+            "tid": "14",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "15": {
+            "tname": "经营养成",
+            "startTime": "1538027323",
+            "tid": "15",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "16": {
+            "tname": "其他",
+            "startTime": "1538027323",
+            "tid": "16",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "17": {
+            "tname": "单结局故事",
+            "startTime": "1538027323",
+            "tid": "17",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "18": {
+            "tname": "双结局故事",
+            "startTime": "1538027323",
+            "tid": "18",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "19": {
+            "tname": "多结局故事",
+            "startTime": "1538027323",
+            "tid": "19",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "20": {
+            "tname": "情景单元剧",
+            "startTime": "1538027323",
+            "tid": "20",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "21": {
+            "tname": "多人多视角多结局",
+            "startTime": "1538027323",
+            "tid": "21",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "22": {
+            "tname": "LGBT",
+            "startTime": "1538027323",
+            "tid": "22",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "23": {
+            "tname": "耽美",
+            "startTime": "1538027323",
+            "tid": "23",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "24": {
+            "tname": "百合",
+            "startTime": "1538027323",
+            "tid": "24",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "25": {
+            "tname": "恐怖元素",
+            "startTime": "1538027323",
+            "tid": "25",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "26": {
+            "tname": "争议立场",
+            "startTime": "1538027323",
+            "tid": "26",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "27": {
+            "tname": "时事改编",
+            "startTime": "1538027323",
+            "tid": "27",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "28": {
+            "tname": "18+建议",
+            "startTime": "1538027323",
+            "tid": "28",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "29": {
+            "tname": "宫闱府宅",
+            "startTime": "1538027323",
+            "tid": "29",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "30": {
+            "tname": "王权朝堂",
+            "startTime": "1538027323",
+            "tid": "30",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "31": {
+            "tname": "仙侠江湖",
+            "startTime": "1538027323",
+            "tid": "31",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "32": {
+            "tname": "玄幻魔幻",
+            "startTime": "1538027323",
+            "tid": "32",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "33": {
+            "tname": "娱乐圈",
+            "startTime": "1538027323",
+            "tid": "33",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "34": {
+            "tname": "民国",
+            "startTime": "1538027323",
+            "tid": "34",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "35": {
+            "tname": "豪门",
+            "startTime": "1538027323",
+            "tid": "35",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "36": {
+            "tname": "网络生活",
+            "startTime": "1538027323",
+            "tid": "36",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "37": {
+            "tname": "竞技&体育",
+            "startTime": "1538027323",
+            "tid": "37",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "38": {
+            "tname": "都市轻幻",
+            "startTime": "1538027323",
+            "tid": "38",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "39": {
+            "tname": "校园轻幻",
+            "startTime": "1538027323",
+            "tid": "39",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "40": {
+            "tname": "科幻未来",
+            "startTime": "1538027323",
+            "tid": "40",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "41": {
+            "tname": "#大型翻车现场#",
+            "startTime": "1538027323",
+            "tid": "41",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "42": {
+            "tname": "架空世界",
+            "startTime": "1538027323",
+            "tid": "42",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "43": {
+            "tname": "青春",
+            "startTime": "1538027323",
+            "tid": "43",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "44": {
+            "tname": "职场",
+            "startTime": "1538027323",
+            "tid": "44",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "45": {
+            "tname": "家庭",
+            "startTime": "1538027323",
+            "tid": "45",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "46": {
+            "tname": "社会问题",
+            "startTime": "1538027323",
+            "tid": "46",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "47": {
+            "tname": "大千世界",
+            "startTime": "1538027323",
+            "tid": "47",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "48": {
+            "tname": "浪漫甜蜜",
+            "startTime": "1538027323",
+            "tid": "48",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "49": {
+            "tname": "温馨感人",
+            "startTime": "1538027323",
+            "tid": "49",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "50": {
+            "tname": "轻松搞笑",
+            "startTime": "1538027323",
+            "tid": "50",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "51": {
+            "tname": "悲情伤感",
+            "startTime": "1538027323",
+            "tid": "51",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "52": {
+            "tname": "发人深省",
+            "startTime": "1538027323",
+            "tid": "52",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "53": {
+            "tname": "悬疑惊悚",
+            "startTime": "1538027323",
+            "tid": "53",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "54": {
+            "tname": "积极向上",
+            "startTime": "1538027323",
+            "tid": "54",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "55": {
+            "tname": "high爽刺激",
+            "startTime": "1538027323",
+            "tid": "55",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "56": {
+            "tname": "令人气愤",
+            "startTime": "1538027323",
+            "tid": "56",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "57": {
+            "tname": "毛骨悚然",
+            "startTime": "1538027323",
+            "tid": "57",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "58": {
+            "tname": "蔑视反感",
+            "startTime": "1538027323",
+            "tid": "58",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "59": {
+            "tname": "令人钦佩",
+            "startTime": "1538027323",
+            "tid": "59",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "60": {
+            "tname": "#星座攻略手册#",
+            "startTime": "1538027323",
+            "tid": "60",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "61": {
+            "tname": "#谜团与真相#",
+            "startTime": "1538027323",
+            "tid": "61",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "100": {
+            "tname": "怀旧类",
+            "startTime": "1538027323",
+            "tid": "100",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "101": {
+            "tname": "年轻时的兴趣与梦想",
+            "startTime": "1538027323",
+            "tid": "101",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "102": {
+            "tname": "回不去的故乡",
+            "startTime": "1538027323",
+            "tid": "102",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "200": {
+            "tname": "分享快乐类",
+            "startTime": "1538027323",
+            "tid": "200",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "201": {
+            "tname": "低俗笑料",
+            "startTime": "1538027323",
+            "tid": "201",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "202": {
+            "tname": "热辣荷尔蒙激荡",
+            "startTime": "1538027323",
+            "tid": "202",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "203": {
+            "tname": "爽文",
+            "startTime": "1538027323",
+            "tid": "203",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "204": {
+            "tname": "烧脑有智商",
+            "startTime": "1538027323",
+            "tid": "204",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "300": {
+            "tname": "窥视类",
+            "startTime": "1538027323",
+            "tid": "300",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "301": {
+            "tname": "丑闻",
+            "startTime": "1538027323",
+            "tid": "301",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "302": {
+            "tname": "组织的黑历史",
+            "startTime": "1538027323",
+            "tid": "302",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "303": {
+            "tname": "现实世界的黑暗面",
+            "startTime": "1538027323",
+            "tid": "303",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "304": {
+            "tname": "围观奇葩人士",
+            "startTime": "1538027323",
+            "tid": "304",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "400": {
+            "tname": "焦虑类",
+            "startTime": "1538027323",
+            "tid": "400",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "401": {
+            "tname": "健康焦虑",
+            "startTime": "1538027323",
+            "tid": "401",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "402": {
+            "tname": "中年危机",
+            "startTime": "1538027323",
+            "tid": "402",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "403": {
+            "tname": "青年未知的未来",
+            "startTime": "1538027323",
+            "tid": "403",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "404": {
+            "tname": "女性身份焦虑",
+            "startTime": "1538027323",
+            "tid": "404",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "405": {
+            "tname": "安全焦虑",
+            "startTime": "1538027323",
+            "tid": "405",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "406": {
+            "tname": "法律焦虑",
+            "startTime": "1538027323",
+            "tid": "406",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "500": {
+            "tname": "同理心类",
+            "startTime": "1538027323",
+            "tid": "500",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "501": {
+            "tname": "令人同情",
+            "startTime": "1538027323",
+            "tid": "501",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "502": {
+            "tname": "悲壮的牺牲",
+            "startTime": "1538027323",
+            "tid": "502",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "503": {
+            "tname": "不被关注的人群/人生",
+            "startTime": "1538027323",
+            "tid": "503",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "504": {
+            "tname": "父母皆祸害",
+            "startTime": "1538027323",
+            "tid": "504",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "600": {
+            "tname": "发现类",
+            "startTime": "1538027323",
+            "tid": "600",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "601": {
+            "tname": "争议类话题",
+            "startTime": "1538027323",
+            "tid": "601",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "602": {
+            "tname": "多种可能的人生",
+            "startTime": "1538027323",
+            "tid": "602",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "603": {
+            "tname": "高瞻远瞩",
+            "startTime": "1538027323",
+            "tid": "603",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "604": {
+            "tname": "历史的侧面或可能性",
+            "startTime": "1538027323",
+            "tid": "604",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "605": {
+            "tname": "不为人知的地方",
+            "startTime": "1538027323",
+            "tid": "605",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "606": {
+            "tname": "行业细节",
+            "startTime": "1538027323",
+            "tid": "606",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "700": {
+            "tname": "表现手法类",
+            "startTime": "1538027323",
+            "tid": "700",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "701": {
+            "tname": "有趣的多种多样结局",
+            "startTime": "1538027323",
+            "tid": "701",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        },
+        "702": {
+            "tname": "快速卖梗",
+            "startTime": "1538027323",
+            "tid": "702",
+            "stopTime": "1538027323",
+            "type": 0,
+            "hidden": 0
+        }
+    }
+}
