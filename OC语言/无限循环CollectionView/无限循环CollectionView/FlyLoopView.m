@@ -252,31 +252,59 @@
         FlyLog(@"\nold : %@\nnew : %@\ndis : %ld\n", reusableView, layoutAttributes, dis);
         reusableView.oldIndexPath = layoutAttributes.indexPath;
         dis = ABS(dis);
+//        if (dis >= self.bounds.size.width) {
+//            layoutAttributes.hidden = YES;
+//        } else {
+//            layoutAttributes.hidden = NO;
+//        }
+
+        [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews|UIViewKeyframeAnimationOptionBeginFromCurrentState animations:^{
+           
+            [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1 animations:^{
+                if (!CGRectEqualToRect(reusableView.frame, layoutAttributes.frame)) {
+                    [reusableView setFrame:layoutAttributes.frame];
+                }
+                if (!CGAffineTransformEqualToTransform(layoutAttributes.transform, reusableView.transform)) {
+                    reusableView.transform = layoutAttributes.transform;
+                }
+                if (!CATransform3DEqualToTransform(layoutAttributes.transform3D, reusableView.layer.transform)) {
+                    reusableView.layer.transform = layoutAttributes.transform3D;
+                }
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.1 relativeDuration:0.9 animations:^{
+                if (reusableView.layer.zPosition != layoutAttributes.zIndex) {
+                    reusableView.layer.zPosition = layoutAttributes.zIndex;
+                }
+                if (reusableView.alpha != layoutAttributes.alpha) {
+                    reusableView.alpha = layoutAttributes.alpha;
+                }
+                if (reusableView.hidden != layoutAttributes.hidden) {
+                    reusableView.hidden = layoutAttributes.hidden;
+                }
+            }];
+        } completion:^(BOOL finished) {
+            
+        }];
         
-        
-        if (dis >= self.bounds.size.width) {
-            layoutAttributes.hidden = YES;
-        } else {
-            layoutAttributes.hidden = NO;
-        }
-        if (reusableView.layer.zPosition != layoutAttributes.zIndex) {
-            reusableView.layer.zPosition = layoutAttributes.zIndex;
-        }
-        if (reusableView.alpha != layoutAttributes.alpha) {
-            reusableView.alpha = layoutAttributes.alpha;
-        }
-        if (!CGRectEqualToRect(reusableView.frame, layoutAttributes.frame)) {
-            [reusableView setFrame:layoutAttributes.frame];
-        }
-        if (!CGAffineTransformEqualToTransform(layoutAttributes.transform, reusableView.transform)) {
-            reusableView.transform = layoutAttributes.transform;
-        }
-        if (!CATransform3DEqualToTransform(layoutAttributes.transform3D, reusableView.layer.transform)) {
-            reusableView.layer.transform = layoutAttributes.transform3D;
-        }
-        if (reusableView.hidden != layoutAttributes.hidden) {
-            reusableView.hidden = layoutAttributes.hidden;
-        }
+//
+//        if (reusableView.layer.zPosition != layoutAttributes.zIndex) {
+//            reusableView.layer.zPosition = layoutAttributes.zIndex;
+//        }
+//        if (reusableView.alpha != layoutAttributes.alpha) {
+//            reusableView.alpha = layoutAttributes.alpha;
+//        }
+//        if (!CGRectEqualToRect(reusableView.frame, layoutAttributes.frame)) {
+//            [reusableView setFrame:layoutAttributes.frame];
+//        }
+//        if (!CGAffineTransformEqualToTransform(layoutAttributes.transform, reusableView.transform)) {
+//            reusableView.transform = layoutAttributes.transform;
+//        }
+//        if (!CATransform3DEqualToTransform(layoutAttributes.transform3D, reusableView.layer.transform)) {
+//            reusableView.layer.transform = layoutAttributes.transform3D;
+//        }
+//        if (reusableView.hidden != layoutAttributes.hidden) {
+//            reusableView.hidden = layoutAttributes.hidden;
+//        }
     }
 }
 

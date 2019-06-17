@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 #import "FlyLoopView.h"
 #import "FlyLayout.h"
+#import "ThirdViewController.h"
 
 @interface FlyCell : UICollectionViewCell
 
@@ -66,7 +67,8 @@
 
 - (void)taction {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    ThirdViewController * vc = [[ThirdViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

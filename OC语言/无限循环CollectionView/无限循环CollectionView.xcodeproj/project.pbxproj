@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B42D41B22B7642900502C78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B42D41922B7642900502C78 /* iCarousel.m */; };
+		7B42D41E22B7645500502C78 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B42D41D22B7645500502C78 /* ThirdViewController.m */; };
+		7B42D42122B76B2300502C78 /* FlyDiyLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B42D42022B76B2300502C78 /* FlyDiyLayout.m */; };
 		7BDE8A5522AE050C003480FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE8A5422AE050C003480FB /* AppDelegate.m */; };
 		7BDE8A5822AE050C003480FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE8A5722AE050C003480FB /* ViewController.m */; };
 		7BDE8A5B22AE050C003480FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BDE8A5922AE050C003480FB /* Main.storyboard */; };
@@ -22,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B42D41922B7642900502C78 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		7B42D41A22B7642900502C78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		7B42D41C22B7645500502C78 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		7B42D41D22B7645500502C78 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		7B42D41F22B76B2300502C78 /* FlyDiyLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyDiyLayout.h; sourceTree = "<group>"; };
+		7B42D42022B76B2300502C78 /* FlyDiyLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyDiyLayout.m; sourceTree = "<group>"; };
 		7BDE8A5022AE050C003480FB /* 无限循环CollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "无限循环CollectionView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDE8A5322AE050C003480FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BDE8A5422AE050C003480FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,14 +91,20 @@
 				7BDE8A5722AE050C003480FB /* ViewController.m */,
 				7BDE8A7522B10311003480FB /* SecondViewController.h */,
 				7BDE8A7622B10311003480FB /* SecondViewController.m */,
+				7B42D41C22B7645500502C78 /* ThirdViewController.h */,
+				7B42D41D22B7645500502C78 /* ThirdViewController.m */,
 				7BDE8A7222B0F776003480FB /* FlyLoopView.h */,
 				7BDE8A7322B0F776003480FB /* FlyLoopView.m */,
 				7BDE8A6922AE0687003480FB /* FlyLayout.h */,
 				7BDE8A6A22AE0687003480FB /* FlyLayout.m */,
+				7B42D41A22B7642900502C78 /* iCarousel.h */,
+				7B42D41922B7642900502C78 /* iCarousel.m */,
 				7BDE8A7822B10898003480FB /* FlyCollectionViewLayout.h */,
 				7BDE8A7922B10898003480FB /* FlyCollectionViewLayout.m */,
 				7BDE8A6F22AF86DC003480FB /* LXReorderableCollectionViewFlowLayout.h */,
 				7BDE8A7022AF86DC003480FB /* LXReorderableCollectionViewFlowLayout.m */,
+				7B42D41F22B76B2300502C78 /* FlyDiyLayout.h */,
+				7B42D42022B76B2300502C78 /* FlyDiyLayout.m */,
 				7BDE8A6C22AE3EB8003480FB /* Aspects.h */,
 				7BDE8A6D22AE3EB8003480FB /* Aspects.m */,
 				7BDE8A5922AE050C003480FB /* Main.storyboard */,
@@ -171,10 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B42D42122B76B2300502C78 /* FlyDiyLayout.m in Sources */,
 				7BDE8A7122AF86DC003480FB /* LXReorderableCollectionViewFlowLayout.m in Sources */,
+				7B42D41B22B7642900502C78 /* iCarousel.m in Sources */,
 				7BDE8A7A22B10898003480FB /* FlyCollectionViewLayout.m in Sources */,
 				7BDE8A6E22AE3EB8003480FB /* Aspects.m in Sources */,
 				7BDE8A5822AE050C003480FB /* ViewController.m in Sources */,
+				7B42D41E22B7645500502C78 /* ThirdViewController.m in Sources */,
 				7BDE8A7422B0F776003480FB /* FlyLoopView.m in Sources */,
 				7BDE8A7722B10311003480FB /* SecondViewController.m in Sources */,
 				7BDE8A6322AE0510003480FB /* main.m in Sources */,
