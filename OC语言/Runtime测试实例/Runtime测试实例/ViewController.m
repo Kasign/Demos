@@ -119,14 +119,15 @@
     
     [super touchesEnded:touches withEvent:event];
     
-    [self createTextLayer];
+//    [self createTextLayer];
+    [self loopInstanceSuperClass:[UICollectionViewLayoutAttributes new]];
 }
 
 - (void)loopInstanceSuperClass:(id)instance
 {
     Class cls = [instance class];
     id oriInstance = instance;
-    while (![oriInstance isMemberOfClass:[NSObject class]]) {
+    while (![oriInstance isMemberOfClass:[NSObject class]] && !class_isMetaClass(cls)) {
         [self getClassMethods:instance class:cls];
         cls = [oriInstance superclass];
         oriInstance = [cls new];
@@ -200,7 +201,8 @@
         } else {
             attributesStr = [NSString stringWithCString:attributesChar encoding:NSUTF8StringEncoding];
         }
-        id value = [instance valueForKey:propertyName];
+        id value = @"";
+        value = [instance valueForKey:propertyName];
         if (!value) {
             value = @"NULL";
         }
@@ -222,5 +224,15 @@
     FlyLog(@"-------------------------********-------------------------");
 }
 
+
+@end
+
+
+@implementation NSObject (Forward)
+
+- (id)valueForUndefinedKey:(NSString *)key {
+    
+    return @"NULL";
+}
 
 @end

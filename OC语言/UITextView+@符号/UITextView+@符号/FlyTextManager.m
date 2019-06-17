@@ -55,7 +55,7 @@
             }
         }
     }
-
+    
     return [attributedString copy];
 }
 
@@ -73,21 +73,24 @@
         NSString * firstSymbol = symbolArr.firstObject;
         NSString * lastSymbol  = symbolArr.lastObject;
         NSString * symString   = [firstSymbol stringByAppendingString:lastSymbol];
-        NSRange firstRang = [textStr rangeOfString:firstSymbol];
-        NSRange lastRang  = [textStr rangeOfString:lastSymbol];
+        NSRange firstRang  = [textStr rangeOfString:firstSymbol];
+        NSRange lastRang   = [textStr rangeOfString:lastSymbol];
         NSString * showStr = nil;
+        
+        NSRange oriFirstRang = [textStr rangeOfString:firstSymbol];
+        NSRange oriLastRang  = [textStr rangeOfString:lastSymbol];
         
         [oriRangeDic  setObject:oriRangeArr  forKey:symString];
         [showRangeDic setObject:showRangeArr forKey:symString];
         
         while (firstRang.length != 0 && lastRang.length != 0 && lastRang.location > firstRang.location + firstRang.length) {
             
-            NSRange originalRang  = NSMakeRange(firstRang.location, lastRang.location + lastRang.length - firstRang.location);
+            NSRange currentRang = NSMakeRange(firstRang.location, lastRang.location + lastRang.length - firstRang.location);
             NSRange showRang = NSMakeRange(firstRang.location + firstRang.length, lastRang.location - firstRang.location - firstRang.length);
             
             showStr = [NSString stringWithFormat:@"【%@:怨气值】",[textStr substringWithRange:showRang]];
             
-            textStr = [textStr stringByReplacingCharactersInRange:originalRang withString:showStr];
+            textStr = [textStr stringByReplacingCharactersInRange:currentRang withString:showStr];
             
             showRang.location = showRang.location - firstSymbol.length;
             showRang.length   = showStr.length;
@@ -95,7 +98,11 @@
             firstRang = [textStr rangeOfString:firstSymbol];
             lastRang  = [textStr rangeOfString:lastSymbol];
             
-            [oriRangeArr addObject:[NSValue valueWithRange:originalRang]];
+            NSRange oriRange = NSMakeRange(oriFirstRang.location, NSMaxRange(oriLastRang) - oriFirstRang.location);
+            oriFirstRang = [string rangeOfString:firstSymbol options:NSLiteralSearch range:NSMakeRange(NSMaxRange(oriFirstRang), string.length - NSMaxRange(oriFirstRang))];
+            oriLastRang = [string rangeOfString:lastSymbol options:NSLiteralSearch range:NSMakeRange(NSMaxRange(oriLastRang), string.length - NSMaxRange(oriLastRang))];
+            
+            [oriRangeArr addObject:[NSValue valueWithRange:oriRange]];
             [showRangeArr addObject:[NSValue valueWithRange:showRang]];
         }
         resultStr = textStr;
@@ -111,9 +118,9 @@
     return resultStr;
 }
 
-+ (NSString *)stringWhenChangedWithOriText:(NSString *)oriText showText:(NSString *)showText oriRangeDic:(NSDictionary *)oriRangeDic showRangeDic:(NSDictionary *)showRangeDic replaceRange:(NSRange)replaceRange replaceText:(NSString *)replaceText {
++ (NSString *)stringWhenChangedWithOriText:(NSString *)oriText showText:(NSString *)showText oriRangeDic:(NSDictionary *)oriRangeDic showRangeDic:(NSDictionary *)showRangeDic replaceRange:(NSRange)replaceRange replaceText:(NSString *)replaceText selectRange:(NSRange *)selected_range {
     
-    NSRange currentRang = replaceRange;
+    NSRange selectedRange = replaceRange;
     for (NSString * key in showRangeDic.allKeys) {
         NSArray * oriArr  = [oriRangeDic  objectForKey:key];
         NSArray * showArr = [showRangeDic objectForKey:key];
@@ -125,16 +132,18 @@
             NSRange showRange = [showValue rangeValue];
             
             if ([self isIntersectRange1:replaceRange range2:showRange]) {
-                replaceRange.length   = replaceRange.length + replaceRange.location - MIN(replaceRange.location, oriRange.location);
-                replaceRange.location = MAX(replaceRange.location, oriRange.location);
+                replaceRange.location = MIN(replaceRange.location - showRange.location + oriRange.location, oriRange.location);
+                replaceRange.length   = MAX(NSMaxRange(replaceRange), NSMaxRange(oriRange)) - replaceRange.location;
+                selectedRange.location = MIN(showRange.location, selectedRange.location);
                 break;
             } else {
-                
-                //            【数值001:爸爸的怨气值】
-                
-                if (NSMaxRange(showRange) < replaceRange.location) {//在后面
-                    replaceRange.location = replaceRange.location - NSMaxRange(showRange) + NSMaxRange(oriRange);
+                if (NSMaxRange(showRange) <= replaceRange.location) {//在后面
+                    if (index == showArr.count - 1) {
+                        replaceRange.location = replaceRange.location - NSMaxRange(showRange) + NSMaxRange(oriRange);
+                        break;
+                    }
                 } else {//在前面
+                    replaceRange.location = replaceRange.location - showRange.location + oriRange.location;
                     break;
                 }
             }
@@ -142,6 +151,9 @@
         }
     }
     oriText = [oriText stringByReplacingCharactersInRange:replaceRange withString:replaceText];
+    if (selected_range) {
+        *selected_range = NSMakeRange(selectedRange.location + replaceText.length, 0);
+    }
     
     return oriText;
 }
@@ -149,7 +161,8 @@
 + (BOOL)isIntersectRange1:(NSRange)range1 range2:(NSRange)range2 {
     
     BOOL result = NO;
-    if (NSLocationInRange(range1.location, range2) && NSLocationInRange(range2.location, range1)) {
+    
+    if (((range1.location > range2.location) && (range1.location - range2.location) < range2.length) || ((range2.location > range1.location) && (range2.location - range1.location) < range1.length)) {
         result = YES;
     }
     return result;

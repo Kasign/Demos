@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSAttributedString *)attributedStringWtihOriStr:(NSString *)oriStr symbolArr:(NSArray *)symbolArr configDict:(NSMutableDictionary *)configDic oriBlockDict:(NSDictionary *_Nullable*_Nonnull)ori_blockRangeDic showBlockDict:(NSDictionary *_Nullable*_Nonnull)show_blockRangeDic;
 
-+ (NSString *)stringWhenChangedWithOriText:(NSString *)oriText showText:(NSString *)showText oriRangeDic:(NSDictionary *)oriRangeDic showRangeDic:(NSDictionary *)showRangeDic replaceRange:(NSRange)replaceRange replaceText:(NSString *)replaceText;
++ (NSString *)stringWhenChangedWithOriText:(NSString *)oriText showText:(NSString *)showText oriRangeDic:(NSDictionary *)oriRangeDic showRangeDic:(NSDictionary *)showRangeDic replaceRange:(NSRange)replaceRange replaceText:(NSString *)replaceText selectRange:(NSRange *)selected_range;
 
 @end
 

@@ -7,15 +7,18 @@
 //
 
 #import "ViewController.h"
+#import "FlyTextView.h"
 #import "FlyTextManager.h"
 
-@interface ViewController ()<UITextViewDelegate>
+@interface ViewController ()
 
 @property (nonatomic, copy) NSString   *   mx_oriTextStr;
 
 @property (nonatomic, strong) NSMutableDictionary  *   mx_oriBlockRangDic; //块字符 rang arr
 @property (nonatomic, strong) NSMutableDictionary  *   mx_showBlockRangDic;//块字符 rang arr
 @property (nonatomic, strong) NSAttributedString   *   mx_attributeString;//要显示的文本样式
+
+@property (nonatomic, strong) FlyTextView   *   textView;
 
 @end
 
@@ -24,75 +27,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.mx_oriTextStr = @"怎么呢？#v[001]哈哈哈哈#v[003]你呢#v[004]#v[005]";
+    self.mx_oriTextStr = @"电费凉快围殴23哦IP单身快乐就烦死了快敬爱的分手快嘻嘻哈哈西欧局水电费凉快围殴23哦IP单身快乐就烦死了快敬爱的分手快乐的；安静了会计师的风口浪尖沙坡尾而POI";
     
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(40.f, 300, width - 80.f, 80.f)];
-    textView.delegate = self;
+    NSAttributedString * attri = [[NSAttributedString alloc] initWithString:self.mx_oriTextStr attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+    
+    FlyTextView * textView = [[FlyTextView alloc] initWithFrame:CGRectMake(40.f, 300, FLyScreenWidth - 80.f, 80.f) textContainer:[self textContainer]];
     [textView setBackgroundColor:[UIColor cyanColor]];
     textView.layer.cornerRadius = 8.f;
     [textView.layer setMasksToBounds:YES];
-    [textView setAttributedText:self.mx_attributeString];
+    textView.attributedText = attri;
     [self.view addSubview:textView];
+    _textView = textView;
+
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    self.mx_oriTextStr = [FlyTextManager stringWhenChangedWithOriText:self.mx_oriTextStr showText:[self.mx_attributeString string] oriRangeDic:self.mx_oriBlockRangDic showRangeDic:self.mx_showBlockRangDic replaceRange:range replaceText:text];
-    [textView setAttributedText:self.mx_attributeString];
-    return NO;
+    NSAttributedString * attri = [[NSAttributedString alloc] initWithString:self.mx_oriTextStr attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+    _textView.attributedText = attri;
 }
 
-
-static NSArray * MXCreateTextSymbolConfig(void) {
+- (NSTextContainer *)textContainer
+{
     
-    return @[@"#v[", @"]"];
-}
-
-static NSMutableDictionary * MXCreateTextAttributedConfig(void) {
+    NSTextStorage * textStorage = [[NSTextStorage alloc] init];
     
-    UIFont * normalFont   = [UIFont systemFontOfSize:14.f];
-    UIFont * numberFont   = [UIFont systemFontOfSize:12.f];
-    UIColor * normalColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-    UIColor * numberColor = [UIColor blueColor];
+    NSLayoutManager * layoutManager = [[NSLayoutManager alloc] init];
     
-    normalFont  = [UIFont systemFontOfSize:16.f];
-    numberFont  = [UIFont systemFontOfSize:16.f];
+    [textStorage addLayoutManager:layoutManager];
     
-    NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:4];
+    NSTextContainer * container = [[NSTextContainer alloc] initWithSize:CGSizeMake(0.f, 0.f)];
     
-    if (normalFont) {
-        [dict setObject:normalFont forKey:NSFontAttributeName];
-    }
-    if (normalColor) {
-        [dict setObject:normalColor forKey:NSForegroundColorAttributeName];
-    }
-    if (numberFont) {
-        [dict setObject:numberFont forKey:@"hightlight_font"];
-    }
-    if (numberColor) {
-        [dict setObject:numberColor forKey:@"hightlight_color"];
-    }
+//    layoutManager.textContainers = @[container];
+    [layoutManager addTextContainer:container];
     
-    return dict;
-}
-
-- (NSAttributedString *)mx_attributeString {
-    
-    if (!_mx_attributeString) {
-        NSDictionary * oriDic = nil;
-        NSDictionary * showDic = nil;
-        _mx_attributeString = [FlyTextManager attributedStringWtihOriStr:self.mx_oriTextStr symbolArr:MXCreateTextSymbolConfig() configDict:MXCreateTextAttributedConfig() oriBlockDict:&(oriDic) showBlockDict:&(showDic)];
-        self.mx_oriBlockRangDic  = [oriDic mutableCopy];
-        self.mx_showBlockRangDic = [showDic mutableCopy];
-    }
-    return _mx_attributeString;
-}
-
-- (void)setMx_oriTextStr:(NSString *)mx_oriTextStr {
-    
-    _mx_oriTextStr = mx_oriTextStr;
-    _mx_attributeString = nil;
+    return nil;
 }
 
 

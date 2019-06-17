@@ -7,35 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B20B623228BB5840012254A /* FlyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20B622228BB5840012254A /* FlyTextView.m */; };
-		7BFCD0E12272F4480018EC7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCD0E02272F4480018EC7E /* AppDelegate.m */; };
-		7BFCD0E42272F4480018EC7E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCD0E32272F4480018EC7E /* ViewController.m */; };
-		7BFCD0E72272F4480018EC7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFCD0E52272F4480018EC7E /* Main.storyboard */; };
-		7BFCD0E92272F44C0018EC7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BFCD0E82272F44C0018EC7E /* Assets.xcassets */; };
-		7BFCD0EC2272F44D0018EC7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFCD0EA2272F44D0018EC7E /* LaunchScreen.storyboard */; };
-		7BFCD0EF2272F44D0018EC7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCD0EE2272F44D0018EC7E /* main.m */; };
-		7BFCD0F72272F46E0018EC7E /* FlyTextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCD0F62272F46E0018EC7E /* FlyTextManager.m */; };
+		7BAA023E229BE34F003C0FA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA023D229BE34F003C0FA2 /* AppDelegate.m */; };
+		7BAA0241229BE34F003C0FA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA0240229BE34F003C0FA2 /* ViewController.m */; };
+		7BAA0244229BE34F003C0FA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAA0242229BE34F003C0FA2 /* Main.storyboard */; };
+		7BAA0246229BE356003C0FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BAA0245229BE356003C0FA2 /* Assets.xcassets */; };
+		7BAA0249229BE356003C0FA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAA0247229BE356003C0FA2 /* LaunchScreen.storyboard */; };
+		7BAA024C229BE356003C0FA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA024B229BE356003C0FA2 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7B20B621228BB5840012254A /* FlyTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTextView.h; sourceTree = "<group>"; };
-		7B20B622228BB5840012254A /* FlyTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTextView.m; sourceTree = "<group>"; };
-		7BFCD0DC2272F4480018EC7E /* UITextView+@符号.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITextView+@符号.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BFCD0DF2272F4480018EC7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7BFCD0E02272F4480018EC7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7BFCD0E22272F4480018EC7E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7BFCD0E32272F4480018EC7E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7BFCD0E62272F4480018EC7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7BFCD0E82272F44C0018EC7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7BFCD0EB2272F44D0018EC7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7BFCD0ED2272F44D0018EC7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7BFCD0EE2272F44D0018EC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7BFCD0F52272F46E0018EC7E /* FlyTextManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTextManager.h; sourceTree = "<group>"; };
-		7BFCD0F62272F46E0018EC7E /* FlyTextManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTextManager.m; sourceTree = "<group>"; };
+		7BAA0239229BE34F003C0FA2 /* 正则表达式.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "正则表达式.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BAA023C229BE34F003C0FA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7BAA023D229BE34F003C0FA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7BAA023F229BE34F003C0FA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7BAA0240229BE34F003C0FA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7BAA0243229BE34F003C0FA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7BAA0245229BE356003C0FA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BAA0248229BE356003C0FA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7BAA024A229BE356003C0FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BAA024B229BE356003C0FA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7BFCD0D92272F4480018EC7E /* Frameworks */ = {
+		7BAA0236229BE34F003C0FA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,77 +39,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7BFCD0D32272F4480018EC7E = {
+		7BAA0230229BE34F003C0FA2 = {
 			isa = PBXGroup;
 			children = (
-				7BFCD0DE2272F4480018EC7E /* UITextView+@符号 */,
-				7BFCD0DD2272F4480018EC7E /* Products */,
+				7BAA023B229BE34F003C0FA2 /* 正则表达式 */,
+				7BAA023A229BE34F003C0FA2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7BFCD0DD2272F4480018EC7E /* Products */ = {
+		7BAA023A229BE34F003C0FA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BFCD0DC2272F4480018EC7E /* UITextView+@符号.app */,
+				7BAA0239229BE34F003C0FA2 /* 正则表达式.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7BFCD0DE2272F4480018EC7E /* UITextView+@符号 */ = {
+		7BAA023B229BE34F003C0FA2 /* 正则表达式 */ = {
 			isa = PBXGroup;
 			children = (
-				7BFCD0DF2272F4480018EC7E /* AppDelegate.h */,
-				7BFCD0E02272F4480018EC7E /* AppDelegate.m */,
-				7BFCD0E22272F4480018EC7E /* ViewController.h */,
-				7BFCD0E32272F4480018EC7E /* ViewController.m */,
-				7BFCD0F52272F46E0018EC7E /* FlyTextManager.h */,
-				7BFCD0F62272F46E0018EC7E /* FlyTextManager.m */,
-				7B20B621228BB5840012254A /* FlyTextView.h */,
-				7B20B622228BB5840012254A /* FlyTextView.m */,
-				7BFCD0E52272F4480018EC7E /* Main.storyboard */,
-				7BFCD0E82272F44C0018EC7E /* Assets.xcassets */,
-				7BFCD0EA2272F44D0018EC7E /* LaunchScreen.storyboard */,
-				7BFCD0ED2272F44D0018EC7E /* Info.plist */,
-				7BFCD0EE2272F44D0018EC7E /* main.m */,
+				7BAA023C229BE34F003C0FA2 /* AppDelegate.h */,
+				7BAA023D229BE34F003C0FA2 /* AppDelegate.m */,
+				7BAA023F229BE34F003C0FA2 /* ViewController.h */,
+				7BAA0240229BE34F003C0FA2 /* ViewController.m */,
+				7BAA0242229BE34F003C0FA2 /* Main.storyboard */,
+				7BAA0245229BE356003C0FA2 /* Assets.xcassets */,
+				7BAA0247229BE356003C0FA2 /* LaunchScreen.storyboard */,
+				7BAA024A229BE356003C0FA2 /* Info.plist */,
+				7BAA024B229BE356003C0FA2 /* main.m */,
 			);
-			path = "UITextView+@符号";
+			path = "正则表达式";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7BFCD0DB2272F4480018EC7E /* UITextView+@符号 */ = {
+		7BAA0238229BE34F003C0FA2 /* 正则表达式 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BFCD0F22272F44D0018EC7E /* Build configuration list for PBXNativeTarget "UITextView+@符号" */;
+			buildConfigurationList = 7BAA024F229BE356003C0FA2 /* Build configuration list for PBXNativeTarget "正则表达式" */;
 			buildPhases = (
-				7BFCD0D82272F4480018EC7E /* Sources */,
-				7BFCD0D92272F4480018EC7E /* Frameworks */,
-				7BFCD0DA2272F4480018EC7E /* Resources */,
+				7BAA0235229BE34F003C0FA2 /* Sources */,
+				7BAA0236229BE34F003C0FA2 /* Frameworks */,
+				7BAA0237229BE34F003C0FA2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UITextView+@符号";
-			productName = "UITextView+@符号";
-			productReference = 7BFCD0DC2272F4480018EC7E /* UITextView+@符号.app */;
+			name = "正则表达式";
+			productName = "正则表达式";
+			productReference = 7BAA0239229BE34F003C0FA2 /* 正则表达式.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7BFCD0D42272F4480018EC7E /* Project object */ = {
+		7BAA0231229BE34F003C0FA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Fly;
 				TargetAttributes = {
-					7BFCD0DB2272F4480018EC7E = {
+					7BAA0238229BE34F003C0FA2 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 7BFCD0D72272F4480018EC7E /* Build configuration list for PBXProject "UITextView+@符号" */;
+			buildConfigurationList = 7BAA0234229BE34F003C0FA2 /* Build configuration list for PBXProject "正则表达式" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,57 +113,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 7BFCD0D32272F4480018EC7E;
-			productRefGroup = 7BFCD0DD2272F4480018EC7E /* Products */;
+			mainGroup = 7BAA0230229BE34F003C0FA2;
+			productRefGroup = 7BAA023A229BE34F003C0FA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BFCD0DB2272F4480018EC7E /* UITextView+@符号 */,
+				7BAA0238229BE34F003C0FA2 /* 正则表达式 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7BFCD0DA2272F4480018EC7E /* Resources */ = {
+		7BAA0237229BE34F003C0FA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BFCD0EC2272F44D0018EC7E /* LaunchScreen.storyboard in Resources */,
-				7BFCD0E92272F44C0018EC7E /* Assets.xcassets in Resources */,
-				7BFCD0E72272F4480018EC7E /* Main.storyboard in Resources */,
+				7BAA0249229BE356003C0FA2 /* LaunchScreen.storyboard in Resources */,
+				7BAA0246229BE356003C0FA2 /* Assets.xcassets in Resources */,
+				7BAA0244229BE34F003C0FA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7BFCD0D82272F4480018EC7E /* Sources */ = {
+		7BAA0235229BE34F003C0FA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BFCD0E42272F4480018EC7E /* ViewController.m in Sources */,
-				7BFCD0EF2272F44D0018EC7E /* main.m in Sources */,
-				7BFCD0F72272F46E0018EC7E /* FlyTextManager.m in Sources */,
-				7BFCD0E12272F4480018EC7E /* AppDelegate.m in Sources */,
-				7B20B623228BB5840012254A /* FlyTextView.m in Sources */,
+				7BAA0241229BE34F003C0FA2 /* ViewController.m in Sources */,
+				7BAA024C229BE356003C0FA2 /* main.m in Sources */,
+				7BAA023E229BE34F003C0FA2 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7BFCD0E52272F4480018EC7E /* Main.storyboard */ = {
+		7BAA0242229BE34F003C0FA2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7BFCD0E62272F4480018EC7E /* Base */,
+				7BAA0243229BE34F003C0FA2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7BFCD0EA2272F44D0018EC7E /* LaunchScreen.storyboard */ = {
+		7BAA0247229BE356003C0FA2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7BFCD0EB2272F44D0018EC7E /* Base */,
+				7BAA0248229BE356003C0FA2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -181,7 +169,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7BFCD0F02272F44D0018EC7E /* Debug */ = {
+		7BAA024D229BE356003C0FA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,7 +228,7 @@
 			};
 			name = Debug;
 		};
-		7BFCD0F12272F44D0018EC7E /* Release */ = {
+		7BAA024E229BE356003C0FA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -293,37 +281,33 @@
 			};
 			name = Release;
 		};
-		7BFCD0F32272F44D0018EC7E /* Debug */ = {
+		7BAA0250229BE356003C0FA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SSS4ABYHYB;
-				INFOPLIST_FILE = "UITextView+@符号/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = "正则表达式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.UITextView----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		7BFCD0F42272F44D0018EC7E /* Release */ = {
+		7BAA0251229BE356003C0FA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SSS4ABYHYB;
-				INFOPLIST_FILE = "UITextView+@符号/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = "正则表达式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.UITextView----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -332,25 +316,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7BFCD0D72272F4480018EC7E /* Build configuration list for PBXProject "UITextView+@符号" */ = {
+		7BAA0234229BE34F003C0FA2 /* Build configuration list for PBXProject "正则表达式" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7BFCD0F02272F44D0018EC7E /* Debug */,
-				7BFCD0F12272F44D0018EC7E /* Release */,
+				7BAA024D229BE356003C0FA2 /* Debug */,
+				7BAA024E229BE356003C0FA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BFCD0F22272F44D0018EC7E /* Build configuration list for PBXNativeTarget "UITextView+@符号" */ = {
+		7BAA024F229BE356003C0FA2 /* Build configuration list for PBXNativeTarget "正则表达式" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7BFCD0F32272F44D0018EC7E /* Debug */,
-				7BFCD0F42272F44D0018EC7E /* Release */,
+				7BAA0250229BE356003C0FA2 /* Debug */,
+				7BAA0251229BE356003C0FA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7BFCD0D42272F4480018EC7E /* Project object */;
+	rootObject = 7BAA0231229BE34F003C0FA2 /* Project object */;
 }
