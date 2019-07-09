@@ -23,8 +23,9 @@
     [super viewDidLoad];
     
     UITextField * field  = [[UITextField alloc] initWithFrame:CGRectMake(100, 270, 200, 40)];
-    [field setText:@"噟😀噟😀袭击发生刻录机😀"];
+//    [field setText:@"噟😀噟😀袭击发生刻录机😀"];
 //    [field setText:@"噟"];
+    [field setText:@"1嘻23【1h哈】嘻嘻"];
     field.layer.borderColor = [UIColor redColor].CGColor;
     field.layer.borderWidth = 1;
     [field.layer setMasksToBounds:YES];
@@ -64,8 +65,8 @@
 
 - (void)clickAction {
     
-//    [self isMatched:self.textField.text];
-    [self test];
+    [self isMatched:self.textField.text];
+//    [self test];
 }
 
 - (void)test {
@@ -121,17 +122,23 @@
     
     NSString * regStr = @"";
     
-    regStr = @"(.|\n)*[😀-🙏]+?(.|\n)*";
-    
-    regStr = @"(.|\n)*[\\u1F601-\\u1F64F]+?(.|\n)*";
-    
-    regStr = @"a";
+//    regStr = @"(.|\n)*[😀-🙏]+?(.|\n)*";
+//
+//    regStr = @"(.|\n)*[\\u1F601-\\u1F64F]+?(.|\n)*";
+//
+//    regStr = @"a";
+
+    regStr = @"[【]{1}(\\d|\\D)+[】]{1}";
+    regStr = @"[【]{1}(.|\\n|\\r)+[】]{1}";
+//    regStr = @"\\d";
     
     NSPredicate * regStrTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regStr];
-    
+//
     BOOL is = [regStrTest evaluateWithObject:text];
+//
+//    [self disable_emoji:text];
     
-    [self disable_emoji:text];
+    [self stringByMatchesWithRegularRule:regStr withStr:text];
     
     return is;
 }
@@ -150,6 +157,23 @@
                                                                  range:NSMakeRange(0, [text length])
                                                           withTemplate:@""];
     return modifiedString;
+}
+
+- (NSString *)stringByMatchesWithRegularRule:(NSString *)ruleStr withStr:(NSString *)text {
+    
+    NSError * error;
+    NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:ruleStr options:NSRegularExpressionAnchorsMatchLines error:&error];
+    
+    [regex enumerateMatchesInString:text options:kNilOptions range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        
+        NSLog(@"%@",result);
+    }];
+    
+   NSTextCheckingResult * result = [regex firstMatchInString:text options:NSMatchingReportProgress range:NSMakeRange(0, text.length)];
+    
+    NSArray * resultArr = [regex matchesInString:text options:NSMatchingReportCompletion range:NSMakeRange(0, text.length)];
+    
+    return @"";
 }
 
 @end
