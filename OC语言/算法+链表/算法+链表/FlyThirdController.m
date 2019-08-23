@@ -25,6 +25,7 @@
     [self insertSort:[@[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(2)] mutableCopy]];
 }
 
+///时间复杂度 O（n^2）
 - (void)insertSort:(NSMutableArray *)sortArray
 {
     
