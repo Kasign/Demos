@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		397E63B323140101005622DC /* FlyQuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 397E63B223140101005622DC /* FlyQuickSort.m */; };
 		7B1A3E33230658F00001B9D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E32230658F00001B9D7 /* AppDelegate.m */; };
 		7B1A3E36230658F00001B9D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E35230658F00001B9D7 /* ViewController.m */; };
 		7B1A3E3B230658F30001B9D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A3E3A230658F30001B9D7 /* Assets.xcassets */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		397E63B123140101005622DC /* FlyQuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyQuickSort.h; sourceTree = "<group>"; };
+		397E63B223140101005622DC /* FlyQuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyQuickSort.m; sourceTree = "<group>"; };
+		397E63B5231409E4005622DC /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7B1A3E2E230658F00001B9D7 /* 算法+链表.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "算法+链表.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1A3E31230658F00001B9D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B1A3E32230658F00001B9D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 		7B1A3E30230658F00001B9D7 /* 算法+链表 */ = {
 			isa = PBXGroup;
 			children = (
+				397E63B5231409E4005622DC /* PrefixHeader.pch */,
 				7B1A3E31230658F00001B9D7 /* AppDelegate.h */,
 				7B1A3E32230658F00001B9D7 /* AppDelegate.m */,
 				7B1A3E34230658F00001B9D7 /* ViewController.h */,
@@ -78,6 +83,8 @@
 				7B1A3E48230659510001B9D7 /* FlySecondController.m */,
 				7B1A3E5023065C350001B9D7 /* FlyThirdController.h */,
 				7B1A3E5123065C350001B9D7 /* FlyThirdController.m */,
+				397E63B123140101005622DC /* FlyQuickSort.h */,
+				397E63B223140101005622DC /* FlyQuickSort.m */,
 				7B1A3E4E23065BD00001B9D7 /* FlyNode.h */,
 				7B1A3E4D23065BD00001B9D7 /* FlyNode.m */,
 				7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */,
@@ -158,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B1A3E36230658F00001B9D7 /* ViewController.m in Sources */,
+				397E63B323140101005622DC /* FlyQuickSort.m in Sources */,
 				7B1A3E41230658F30001B9D7 /* main.m in Sources */,
 				7B1A3E33230658F00001B9D7 /* AppDelegate.m in Sources */,
 				7B1A3E49230659510001B9D7 /* FlySecondController.m in Sources */,
@@ -287,6 +295,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
 				INFOPLIST_FILE = "算法+链表/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,6 +313,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
 				INFOPLIST_FILE = "算法+链表/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

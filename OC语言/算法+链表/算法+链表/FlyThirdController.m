@@ -7,7 +7,7 @@
 //
 
 #import "FlyThirdController.h"
-#import <Math.h>
+#import "FlyQuickSort.h"
 
 @interface FlyThirdController ()
 
@@ -25,32 +25,21 @@
     
     NSArray * sortArr = @[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(13), @(48), @(19), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(80), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(53), @(21), @(54), @(10), @(8), @(12), @(30), @(13), @(65), @(44), @(11), @(28), @(12), @(30), @(13), @(61), @(44), @(11), @(8), @(52), @(32), @(13), @(61), @(44), @(2)];
     
-    FlyLog(@"待排序 %@", sortArr);
+    FlyLog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
     [self insertSortList:sortArr];
     [self stackSortList:sortArr];
     [self quickSortList:sortArr];
 }
 
-
 ///插入排序 时间复杂度 O（n^2）
 - (void)insertSortList:(NSArray *)sortArray {
     
-    NSMutableArray * array = [NSMutableArray arrayWithArray:sortArray];
-    NSInteger i,j;
-    NSInteger tmp;
-    for (i = 1; i < sortArray.count; i ++) {
-        tmp = [[array objectAtIndex:i] integerValue];
-        for (j = i; j > 0 && [array[j - 1] integerValue] > tmp; j --) {
-            array[j] = array[j - 1];
-        }
-        array[j] = @(tmp);
-    }
-    FlyLog(@"插入排序 %@", array);
+    sortArray = [FlyInsertSort fly_insertSortList:sortArray];
+    FlyLog(@"插入排序 %@", [sortArray componentsJoinedByString:@"-"]);
 }
 
 
 ///快速排序
-
 /**
  1、如果S中元素个数是0或者1，则返回
  2、取S中任一元素v，称之为枢纽元
@@ -58,21 +47,9 @@
  4、返回{quicksort(S1)后，继随 v,继而 quicksort(S2)}
  */
 - (void)quickSortList:(NSArray *)sortArray {
-
-    NSMutableArray * array = [NSMutableArray arrayWithArray:sortArray];
     
-    
-    FlyLog(@"快速排序 %@", array);
-}
-
-- (NSInteger)median3:(NSArray *)sortArr left:(NSInteger)left right:(NSInteger)right {
-    
-    NSInteger center = (left + right)/2;
-    if ([sortArr[left] integerValue] > [sortArr[center] integerValue]) {
-        
-    }
-    
-    return 0;
+    NSArray * arr = [FlyQuickSort fly_quickSortList:sortArray];
+    FlyLog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
 }
 
 ///堆排序
@@ -81,8 +58,7 @@
     NSMutableArray * array = [NSMutableArray arrayWithArray:sortArray];
     
     
-    FlyLog(@"堆排序 %@", array);
+    FlyLog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);
 }
-
 
 @end
