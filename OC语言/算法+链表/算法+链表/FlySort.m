@@ -1,28 +1,68 @@
 //
-//  FlyQuickSort.m
+//  FlySort.m
 //  算法+链表
 //
-//  Created by Walg on 2019/8/26.
+//  Created by mx-QS on 2019/8/27.
 //  Copyright © 2019 Fly. All rights reserved.
 //
 
-#import "FlyQuickSort.h"
-
+#import "FlySort.h"
 #define FlyTestLog(...)  FlyLog(...)
-
 #define CutOff (1)
 
-@implementation FlyQuickSort
+@implementation FlySort
 
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone
+//{
+//    static FlySort * sort = nil;
+//    @synchronized (self) {
+//        if (sort == nil) {
+//            sort = [super allocWithZone:zone];
+//        }
+//    }
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        if (sort == nil) {
+//            sort = [super allocWithZone:zone];
+//        }
+//    });
+//    return sort;
+//}
+
+- (void)setName:(NSString *)name {
+    
+    _name = name;
+}
+
+/**
+ 1、如果S中元素个数是0或者1，则返回
+ 2、取S中任一元素v，称之为枢纽元
+ 3、将S - {v}(s中其余元素)分成两个不相交的集合；S1 = {x∈S - {v} | x≤v}和S2 = {x∈S-{v} | x ≥ v}
+ 4、返回{quicksort(S1)后，继随 v,继而 quicksort(S2)}
+ */
 + (NSArray *)fly_quickSortList:(NSArray *)sortArray
 {
     NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
-//    FLYQuickSort1(arr, 0, arr.count - 1);
-    FLYQuickSort2(arr, 0, arr.count - 1);
+    //    FLYQuickSort1(arr, 0, arr.count - 1);
+    FLYQuickSort1(arr, 0, arr.count - 1);
     return arr.copy;
 }
 
-//方式二
++ (NSArray *)fly_insertSortList:(NSArray *)sortArray
+{
+    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
+    FLYInsertSort(arr);
+    return arr.copy;
+}
+
++ (NSArray *)fly_stackSortList:(NSArray *)sortArray {
+    
+    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
+    FLYStackSort(arr);
+    return arr.copy;
+}
+
+#pragma mark - 快速排序 方式二
 void FLYQuickSort2(NSMutableArray * sortArr, NSInteger left, NSInteger right)
 {
     NSInteger i,j;
@@ -41,7 +81,7 @@ void FLYQuickSort2(NSMutableArray * sortArr, NSInteger left, NSInteger right)
             while ([sortArr[--j] integerValue] > pivot) {
                 
             }
-
+            
             if (i < j) {
                 Swap(sortArr, i, j);
             } else {
@@ -74,7 +114,7 @@ NSInteger Median3(NSMutableArray * sortArr, NSInteger left, NSInteger right)
 }
 
 
-//方式一
+#pragma mark - 快速排序 方式一
 void FLYQuickSort1(NSMutableArray * arr, NSInteger left, NSInteger right)
 {
     if(left < right)
@@ -112,17 +152,7 @@ NSInteger Partition(NSMutableArray * arr, NSInteger left, NSInteger right)
     return left;
 }
 
-@end
-
-@implementation FlyInsertSort
-
-+ (NSArray *)fly_insertSortList:(NSArray *)sortArray
-{
-    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
-    FLYInsertSort(arr);
-    return arr.copy;
-}
-
+#pragma mark - 插入排序
 void FLYInsertSort(NSMutableArray * sortArr)
 {
     NSInteger i,j;
@@ -134,6 +164,12 @@ void FLYInsertSort(NSMutableArray * sortArr)
         }
         sortArr[j] = @(tmp);
     }
+}
+
+#pragma mark - 堆排序
+void FLYStackSort(NSMutableArray * sortArr)
+{
+    
 }
 
 @end
