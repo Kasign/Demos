@@ -16,6 +16,7 @@
 		7B1A3E5223065C350001B9D7 /* FlyThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5123065C350001B9D7 /* FlyThirdController.m */; };
 		7B1A3E5423065DDE0001B9D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */; };
 		7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5623065F7B0001B9D7 /* FlyBaseController.m */; };
+		7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3085A22320F10700EFB952 /* FlyForthController.m */; };
 		7B95DCD22314CB8800EDE0D9 /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95DCD12314CB8700EDE0D9 /* FlySort.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 		7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B1A3E5523065F7B0001B9D7 /* FlyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyBaseController.h; sourceTree = "<group>"; };
 		7B1A3E5623065F7B0001B9D7 /* FlyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyBaseController.m; sourceTree = "<group>"; };
+		7B3085A12320F10700EFB952 /* FlyForthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyForthController.h; sourceTree = "<group>"; };
+		7B3085A22320F10700EFB952 /* FlyForthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyForthController.m; sourceTree = "<group>"; };
 		7B95DCD02314CB8700EDE0D9 /* FlySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySort.h; sourceTree = "<group>"; };
 		7B95DCD12314CB8700EDE0D9 /* FlySort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +86,8 @@
 				7B1A3E48230659510001B9D7 /* FlySecondController.m */,
 				7B1A3E5023065C350001B9D7 /* FlyThirdController.h */,
 				7B1A3E5123065C350001B9D7 /* FlyThirdController.m */,
+				7B3085A12320F10700EFB952 /* FlyForthController.h */,
+				7B3085A22320F10700EFB952 /* FlyForthController.m */,
 				7B95DCD02314CB8700EDE0D9 /* FlySort.h */,
 				7B95DCD12314CB8700EDE0D9 /* FlySort.m */,
 				7B1A3E4E23065BD00001B9D7 /* FlyNode.h */,
@@ -169,6 +174,7 @@
 				7B1A3E41230658F30001B9D7 /* main.m in Sources */,
 				7B1A3E33230658F00001B9D7 /* AppDelegate.m in Sources */,
 				7B1A3E49230659510001B9D7 /* FlySecondController.m in Sources */,
+				7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */,
 				7B1A3E4F23065BD00001B9D7 /* FlyNode.m in Sources */,
 				7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */,
 				7B1A3E5223065C350001B9D7 /* FlyThirdController.m in Sources */,

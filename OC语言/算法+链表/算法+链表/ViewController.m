@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataArr = @[@"链表", @"排序算法", @"xxx"];
+    _dataArr = @[@"链表", @"排序算法", @"锁🔐", @"xxx"];
     [self.view addSubview:self.tableView];
 }
 
@@ -57,6 +57,8 @@
         vc = [[NSClassFromString(@"FlySecondController") alloc] init];;
     } else if (indexPath.row == 1) {
         vc = [[NSClassFromString(@"FlyThirdController") alloc] init];
+    } else if (indexPath.row == 2) {
+        vc = [[NSClassFromString(@"FlyForthController") alloc] init];
     }
     
     if (vc) {
