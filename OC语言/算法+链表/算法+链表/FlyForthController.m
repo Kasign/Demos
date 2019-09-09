@@ -73,7 +73,8 @@
 {
     FlyLog(@" ---->>>>> 当前锁类型：%@", _lockType);
     FlyLog(@"------------------------Start-----------------------");
-    [self lockTest];
+//    [self lockTest];
+    [self lockTest2];
     FlyLog(@"------------------------End-----------------------");
 }
 
@@ -156,25 +157,69 @@
 {
     FlyLog(@"*** 外部1 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FlyLog(@"=== 线程1 --");
-        [self lockAndlogStrings:@"线程1 执行"];
-        FlyLog(@"=== 线程1 ++");
+        FlyLog(@"=== 进入 线程1 --");
+        [self lockAndlogStrings:@"线程1 异步 执行"];
+        FlyLog(@"=== 离开 线程1 ++");
     });
     
     FlyLog(@"*** 外部2 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FlyLog(@"=== 线程2 --");
-        [self lockAndlogStrings:@"线程2 执行"];
-        FlyLog(@"=== 线程2 ++");
+        FlyLog(@"=== 进入 线程2 --");
+        [self lockAndlogStrings:@"线程2 异步 执行"];
+        FlyLog(@"=== 离开 线程2 ++");
     });
     
     FlyLog(@"*** 外部3 ***");
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FlyLog(@"=== 线程3 --");
-        [self lockAndlogStrings:@"线程3 执行"];
-        FlyLog(@"=== 线程3 ++");
+        FlyLog(@"=== 进入 线程3 --");
+        [self lockAndlogStrings:@"线程3 同步 执行"];
+        FlyLog(@"=== 离开 线程3 ++");
     });
     FlyLog(@"*** 外部4 ***");
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        FlyLog(@"=== 进入 线程4 --");
+        [self lockAndlogStrings:@"线程4 异步 执行"];
+        FlyLog(@"=== 离开 线程4 ++");
+    });
+    
+    FlyLog(@"*** 外部5 ***");
 }
+
+- (void)lockTest2
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    FlyLog(@"*** 外部1 ***");
+    dispatch_async(queue, ^{
+        FlyLog(@"=== 进入 线程1 --");
+        [self lockAndlogStrings:@"线程1 异步 执行"];
+        FlyLog(@"=== 离开 线程1 ++");
+    });
+    
+    FlyLog(@"*** 外部2 ***");
+    dispatch_async(queue, ^{
+        FlyLog(@"=== 进入 线程2 --");
+        [self lockAndlogStrings:@"线程2 异步 执行"];
+        FlyLog(@"=== 离开 线程2 ++");
+    });
+    
+    FlyLog(@"*** 外部3 ***");
+    dispatch_sync(queue, ^{
+        FlyLog(@"=== 进入 线程3 --");
+        [self lockAndlogStrings:@"线程3 同步 执行"];
+        FlyLog(@"=== 离开 线程3 ++");
+    });
+    FlyLog(@"*** 外部4 ***");
+    
+    dispatch_async(queue, ^{
+        FlyLog(@"=== 进入 线程4 --");
+        [self lockAndlogStrings:@"线程4 异步 执行"];
+        FlyLog(@"=== 离开 线程4 ++");
+    });
+    
+    FlyLog(@"*** 外部5 ***");
+}
+
+
 
 @end
