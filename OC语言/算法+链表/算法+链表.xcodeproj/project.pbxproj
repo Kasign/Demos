@@ -18,6 +18,9 @@
 		7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5623065F7B0001B9D7 /* FlyBaseController.m */; };
 		7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3085A22320F10700EFB952 /* FlyForthController.m */; };
 		7B95DCD22314CB8800EDE0D9 /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95DCD12314CB8700EDE0D9 /* FlySort.m */; };
+		7BE44F1323274C4500EBEAF4 /* FlyFifthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44F1223274C4500EBEAF4 /* FlyFifthController.m */; };
+		7BE44F1623274C6000EBEAF4 /* FlySixthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44F1523274C6000EBEAF4 /* FlySixthController.m */; };
+		7BE44F1A2327686C00EBEAF4 /* FlySeventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44F192327686C00EBEAF4 /* FlySeventhController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,12 @@
 		7B3085A22320F10700EFB952 /* FlyForthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyForthController.m; sourceTree = "<group>"; };
 		7B95DCD02314CB8700EDE0D9 /* FlySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySort.h; sourceTree = "<group>"; };
 		7B95DCD12314CB8700EDE0D9 /* FlySort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySort.m; sourceTree = "<group>"; };
+		7BE44F1123274C4500EBEAF4 /* FlyFifthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifthController.h; sourceTree = "<group>"; };
+		7BE44F1223274C4500EBEAF4 /* FlyFifthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifthController.m; sourceTree = "<group>"; };
+		7BE44F1423274C6000EBEAF4 /* FlySixthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySixthController.h; sourceTree = "<group>"; };
+		7BE44F1523274C6000EBEAF4 /* FlySixthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySixthController.m; sourceTree = "<group>"; };
+		7BE44F182327686C00EBEAF4 /* FlySeventhController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySeventhController.h; sourceTree = "<group>"; };
+		7BE44F192327686C00EBEAF4 /* FlySeventhController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySeventhController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +84,6 @@
 		7B1A3E30230658F00001B9D7 /* 算法+链表 */ = {
 			isa = PBXGroup;
 			children = (
-				397E63B5231409E4005622DC /* PrefixHeader.pch */,
 				7B1A3E31230658F00001B9D7 /* AppDelegate.h */,
 				7B1A3E32230658F00001B9D7 /* AppDelegate.m */,
 				7B1A3E34230658F00001B9D7 /* ViewController.h */,
@@ -88,10 +96,17 @@
 				7B1A3E5123065C350001B9D7 /* FlyThirdController.m */,
 				7B3085A12320F10700EFB952 /* FlyForthController.h */,
 				7B3085A22320F10700EFB952 /* FlyForthController.m */,
+				7BE44F1123274C4500EBEAF4 /* FlyFifthController.h */,
+				7BE44F1223274C4500EBEAF4 /* FlyFifthController.m */,
+				7BE44F1423274C6000EBEAF4 /* FlySixthController.h */,
+				7BE44F1523274C6000EBEAF4 /* FlySixthController.m */,
+				7BE44F182327686C00EBEAF4 /* FlySeventhController.h */,
+				7BE44F192327686C00EBEAF4 /* FlySeventhController.m */,
 				7B95DCD02314CB8700EDE0D9 /* FlySort.h */,
 				7B95DCD12314CB8700EDE0D9 /* FlySort.m */,
 				7B1A3E4E23065BD00001B9D7 /* FlyNode.h */,
 				7B1A3E4D23065BD00001B9D7 /* FlyNode.m */,
+				397E63B5231409E4005622DC /* PrefixHeader.pch */,
 				7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */,
 				7B1A3E3A230658F30001B9D7 /* Assets.xcassets */,
 				7B1A3E3F230658F30001B9D7 /* Info.plist */,
@@ -171,11 +186,14 @@
 			files = (
 				7B1A3E36230658F00001B9D7 /* ViewController.m in Sources */,
 				7B95DCD22314CB8800EDE0D9 /* FlySort.m in Sources */,
+				7BE44F1623274C6000EBEAF4 /* FlySixthController.m in Sources */,
 				7B1A3E41230658F30001B9D7 /* main.m in Sources */,
 				7B1A3E33230658F00001B9D7 /* AppDelegate.m in Sources */,
 				7B1A3E49230659510001B9D7 /* FlySecondController.m in Sources */,
 				7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */,
 				7B1A3E4F23065BD00001B9D7 /* FlyNode.m in Sources */,
+				7BE44F1323274C4500EBEAF4 /* FlyFifthController.m in Sources */,
+				7BE44F1A2327686C00EBEAF4 /* FlySeventhController.m in Sources */,
 				7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */,
 				7B1A3E5223065C350001B9D7 /* FlyThirdController.m in Sources */,
 			);
@@ -301,9 +319,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
 				INFOPLIST_FILE = "算法+链表/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,9 +340,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
 				INFOPLIST_FILE = "算法+链表/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

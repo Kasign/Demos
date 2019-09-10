@@ -41,20 +41,20 @@
 
 - (void)setFilled:(NSInteger)number{
     
-    NSLog(@"%ld",++num);
+    FLYLog(@"%ld",++num);
     
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
-    NSLog(@"%@", change);
+    FLYLog(@"%@", change);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
 //    NSArray * sortArr = @[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(13), @(48), @(19), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(80), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(53), @(21), @(54), @(10), @(8), @(12), @(30), @(13), @(65), @(44), @(11), @(28), @(12), @(30), @(13), @(61), @(44), @(11), @(8), @(52), @(32), @(13), @(61), @(44), @(2)];
 //
-//    FlyLog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
+//    FLYLog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
 //    [self insertSortList:sortArr];
 //    [self stackSortList:sortArr];
 //    [self quickSortList:sortArr];
@@ -66,7 +66,7 @@
 - (void)insertSortList:(NSArray *)sortArray {
     
     sortArray = [FlySort fly_insertSortList:sortArray];
-    FlyLog(@"插入排序 %@", [sortArray componentsJoinedByString:@"-"]);
+    FLYLog(@"插入排序 %@", [sortArray componentsJoinedByString:@"-"]);
 }
 
 
@@ -80,7 +80,7 @@
 - (void)quickSortList:(NSArray *)sortArray {
     
     NSArray * arr = [FlySort fly_quickSortList:sortArray];
-    FlyLog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
+    FLYLog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
 }
 
 ///堆排序
@@ -89,7 +89,7 @@
     NSMutableArray * array = [NSMutableArray arrayWithArray:sortArray];
     
     
-    FlyLog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);
+    FLYLog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);
 }
 
 @end

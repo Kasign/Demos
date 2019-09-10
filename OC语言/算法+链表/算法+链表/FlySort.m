@@ -7,7 +7,7 @@
 //
 
 #import "FlySort.h"
-#define FlyTestLog(...)  FlyLog(...)
+#define FlyTestLog(...)  FLYLog(...)
 #define CutOff (1)
 
 @implementation FlySort
@@ -93,7 +93,7 @@ void FLYQuickSort2(NSMutableArray * sortArr, NSInteger left, NSInteger right)
         FLYQuickSort2(sortArr, left, i - 1);
         FLYQuickSort2(sortArr, i + 1, right);
     } else {
-        FlyLog(@" 》i = %ld j= %ld《", i, j);
+//        FLYLog(@" 》i = %ld j= %ld《", (long)i, (long)j);
     }
 }
 
@@ -132,7 +132,7 @@ void Swap(NSMutableArray * arr, NSInteger index1, NSInteger index2)
         NSNumber * temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
-        FlyLog(@"%@    %ld - %ld", [arr componentsJoinedByString:@"-"], index1, index2);
+//        FLYLog(@"%@    %ld - %ld", [arr componentsJoinedByString:@"-"], index1, index2);
     }
 }
 

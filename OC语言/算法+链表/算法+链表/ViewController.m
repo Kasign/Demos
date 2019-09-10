@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataArr = @[@"链表", @"排序算法", @"锁🔐", @"xxx"];
+    _dataArr = @[@"链表", @"排序算法", @"锁+多线程", @"View控件", @"黑科技", @"通知", @"xxx"];
     [self.view addSubview:self.tableView];
 }
 
@@ -49,7 +49,6 @@
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController * vc = nil;
@@ -59,6 +58,16 @@
         vc = [[NSClassFromString(@"FlyThirdController") alloc] init];
     } else if (indexPath.row == 2) {
         vc = [[NSClassFromString(@"FlyForthController") alloc] init];
+    } else if (indexPath.row == 3) {
+        vc = [[NSClassFromString(@"FlyFifthController") alloc] init];
+    } else if (indexPath.row == 4) {
+        vc = [[NSClassFromString(@"FlySixthController") alloc] init];
+    } else if (indexPath.row == 5) {
+        vc = [[NSClassFromString(@"FlySeventhController") alloc] init];;
+    } else if (indexPath.row == 6) {
+        vc = [[NSClassFromString(@"FlyEighthController") alloc] init];
+    } else if (indexPath.row == 7) {
+        vc = [[NSClassFromString(@"FlyNinthController") alloc] init];
     }
     
     if (vc) {

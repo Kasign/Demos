@@ -29,12 +29,12 @@
         currentNode = node;
     }
     pointStr = [pointStr stringByAppendingFormat:@"%p", currentNode.next];
-    FlyLog(@"转换前：%@",pointStr);
+    FLYLog(@"转换前：%@",pointStr);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    FlyLog(@"-=-=-=-=-=-=-=-=-=-");
+    FLYLog(@"-=-=-=-=-=-=-=-=-=-");
     _headerNode = [self resverNode:_headerNode];
 }
 
@@ -54,7 +54,7 @@
     }
     currentNode.next = prevNode;
     pointStr = [pointStr stringByAppendingFormat:@"%p", currentNode];
-    FlyLog(@"转换后：%@", pointStr);
+    FLYLog(@"转换后：%@", pointStr);
     return currentNode;
 }
 
