@@ -84,7 +84,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"锁 + 多线程";
 
     _nslock = [NSLock new];
     pthread_mutex_init(&_pthread_mutex_t, NULL);

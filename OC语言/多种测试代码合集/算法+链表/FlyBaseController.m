@@ -30,4 +30,9 @@
 }
 */
 
+- (void)dealloc
+{
+    FLYLog(@"----* %@ dealloc *----", [self class]);
+}
+
 @end
