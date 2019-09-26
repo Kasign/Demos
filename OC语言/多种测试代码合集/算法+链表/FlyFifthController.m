@@ -11,40 +11,35 @@
 
 @interface FlyFifthController ()
 
+@property (nonatomic, strong) UIView   *   lineView;
+
 @end
 
 @implementation FlyFifthController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
     [self viewAndView];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    //    [self drawLine];
+    [self drawLine];
 }
-
 
 - (void)drawLine {
     
-    UIView * line = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 0, 1)];
-    [line setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:line];
+    [_lineView removeFromSuperview];
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake(100, 500, 0, 1)];
+    [_lineView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:_lineView];
     
-    //    [UIView beginAnimations:@"frame" context:nil];
-    //    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    //    [UIView setAnimationDuration:8];
-    //
-    //    [line setFrame:CGRectMake(100, 100, 100, 1)];
-    //
-    //    [UIView commitAnimations];
-    //
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:2 delay:0 usingSpringWithDamping:2 initialSpringVelocity:2 options:UIViewAnimationOptionLayoutSubviews animations:^{
-        [line setFrame:CGRectMake(100, 100, 100, 1)];
+        [weakSelf.lineView setFrame:CGRectMake(weakSelf.lineView.frame.origin.x, weakSelf.lineView.frame.origin.y, 100, weakSelf.lineView.frame.size.height)];
     } completion:^(BOOL finished) {
-        
+
     }];
 }
 

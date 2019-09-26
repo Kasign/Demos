@@ -97,7 +97,7 @@
         const char *protocolName =  protocol_getName(protocol);
         [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
     }
-    FLYLog(@"协议列表：%@",protocoArray);
+    FLYLog(@"协议列表：%@", protocoArray);
     FLYLog(@"-------------------------********-------------------------");
 }
 
