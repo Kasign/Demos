@@ -14,9 +14,12 @@
 
 - (void)fly_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
 {
+    if (![keyPath isKindOfClass:[NSString class]] || keyPath.length == 0) {
+        return;
+    }
     NSString * selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
-    selectorName = [@"set" stringByAppendingFormat:@"%@:",selectorName];
+    selectorName = [@"set" stringByAppendingFormat:@"%@:", selectorName];
     
     NSString * oldClassName = NSStringFromClass([self class]);
     NSString * newClassName = [@"FLYKVO_" stringByAppendingString:oldClassName];
@@ -24,7 +27,7 @@
     Class subClass = objc_allocateClassPair([self class], classChar, 0);
     
     Method method = class_getInstanceMethod([self class], NSSelectorFromString(selectorName));
-    const char *types = method_getTypeEncoding(method);
+    const char * types = method_getTypeEncoding(method);
     
     if (types) { //区分类型，数字 对象类型
         
