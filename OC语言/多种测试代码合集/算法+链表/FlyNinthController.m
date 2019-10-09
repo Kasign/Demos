@@ -8,6 +8,7 @@
 
 #import "FlyNinthController.h"
 #import "FlyRunloopTool.h"
+#import "FlyPerformanceMonitor.h"
 
 @interface FlyTableViewCell : UITableViewCell
 
@@ -89,7 +90,7 @@
     [super viewDidLoad];
     
     _loopTool = [[FlyRunloopTool alloc] init];
-    [_loopTool beginMonitor];
+    [FlyPerformanceMonitor beginMonitor];
     [self.view addSubview:self.tableView];
 }
 
@@ -172,14 +173,12 @@
     [cell.imageView3 setImage:image];
     FLYLog(@"加载第三张图片");
     sleep(1.2);
-    
-    FLYLog(@"\n\n-------->>>>>>%@ \n  ----->>>> %@\n\n", [NSThread callStackSymbols], GetCurrentStackInfo());
 }
 
 - (void)dealloc
 {
     [_loopTool stopTasks];
-    [_loopTool endMonitor];
+    [FlyPerformanceMonitor endMonitor];
 }
 
 @end
