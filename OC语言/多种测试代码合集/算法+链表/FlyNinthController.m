@@ -66,6 +66,13 @@
     return _imageView3;
 }
 
+- (void)releaseMemory
+{
+    self.imageView1.image = nil;
+    self.imageView2.image = nil;
+    self.imageView3.image = nil;
+}
+
 
 @end
 
@@ -82,6 +89,7 @@
     [super viewDidLoad];
     
     _loopTool = [[FlyRunloopTool alloc] init];
+    [_loopTool beginMonitor];
     [self.view addSubview:self.tableView];
 }
 
@@ -107,27 +115,7 @@
         cell = [[FlyTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     
-    [cell.imageView1 setImage:nil];
-    [cell.imageView2 setImage:nil];
-    [cell.imageView3 setImage:nil];
-    
-    __weak typeof(self) weakSelf = self;
-    [weakSelf.loopTool toolAddTask:^{
-        __strong typeof(weakSelf) self = weakSelf;
-        [self addImageForCell1:cell];
-    }];
-    [weakSelf.loopTool toolAddTask:^{
-        __strong typeof(weakSelf) self = weakSelf;
-        [self addImageForCell2:cell];
-    }];
-    [weakSelf.loopTool toolAddTask:^{
-        __strong typeof(weakSelf) self = weakSelf;
-        [self addImageForCell3:cell];
-    }];
-    
-//    [self addImageForCell1:cell];
-//    [self addImageForCell2:cell];
-//    [self addImageForCell3:cell];
+    [self addImagesForCell:cell];
 
     
     return cell;
@@ -136,6 +124,29 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 150;
+}
+
+- (void)addImagesForCell:(FlyTableViewCell *)cell
+{
+    
+    [cell releaseMemory];
+    //    __weak typeof(self) weakSelf = self;
+    //    [weakSelf.loopTool toolAddTask:^{
+    //        __strong typeof(weakSelf) self = weakSelf;
+    //        [self addImageForCell1:cell];
+    //    }];
+    //    [weakSelf.loopTool toolAddTask:^{
+    //        __strong typeof(weakSelf) self = weakSelf;
+    //        [self addImageForCell2:cell];
+    //    }];
+    //    [weakSelf.loopTool toolAddTask:^{
+    //        __strong typeof(weakSelf) self = weakSelf;
+    //        [self addImageForCell3:cell];
+    //    }];
+    
+    [self addImageForCell1:cell];
+    [self addImageForCell2:cell];
+    [self addImageForCell3:cell];
 }
 
 - (void)addImageForCell1:(FlyTableViewCell *)cell
@@ -160,12 +171,15 @@
     UIImage * image = [UIImage imageWithContentsOfFile:path];
     [cell.imageView3 setImage:image];
     FLYLog(@"加载第三张图片");
-//    sleep(0.2);
+    sleep(1.2);
+    
+    FLYLog(@"\n\n-------->>>>>>%@ \n  ----->>>> %@\n\n", [NSThread callStackSymbols], GetCurrentStackInfo());
 }
 
 - (void)dealloc
 {
-    [_loopTool stop];
+    [_loopTool stopTasks];
+    [_loopTool endMonitor];
 }
 
 @end
