@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataArr = @[@"链表", @"排序算法", @"锁+多线程", @"View控件", @"黑科技", @"通知", @"runtime", @"runloop", @"重写KVO", @"xxx"];
+    _dataArr = @[@"链表", @"排序算法", @"锁+多线程", @"View控件", @"黑科技", @"通知", @"runtime", @"runloop", @"重写KVO", @"沙盒深入理解", @"xxx"];
     [self.view addSubview:self.tableView];
 }
 
@@ -82,7 +82,7 @@
             vc = [[NSClassFromString(@"FlyTenthController") alloc] init];
             break;
         case 9:
-            
+            vc = [[NSClassFromString(@"FlyEleventhController") alloc] init];
             break;
         case 10:
             

@@ -16,7 +16,10 @@
 		7B1A3E5223065C350001B9D7 /* FlyThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5123065C350001B9D7 /* FlyThirdController.m */; };
 		7B1A3E5423065DDE0001B9D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */; };
 		7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E5623065F7B0001B9D7 /* FlyBaseController.m */; };
+		7B2E9A02233DBD9500AAC990 /* FlyPerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9A01233DBD9500AAC990 /* FlyPerformanceMonitor.m */; };
+		7B2E9A04233DBDFB00AAC990 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2E9A03233DBDFB00AAC990 /* CrashReporter.framework */; };
 		7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3085A22320F10700EFB952 /* FlyForthController.m */; };
+		7B451E73233C65D600CC6146 /* FlyEleventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B451E72233C65D600CC6146 /* FlyEleventhController.m */; };
 		7B7A32C5233B616D004D31F7 /* FlyRuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A32C4233B616D004D31F7 /* FlyRuntimeTool.m */; };
 		7B95DCD22314CB8800EDE0D9 /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95DCD12314CB8700EDE0D9 /* FlySort.m */; };
 		7BB15EB52339BDD000644F66 /* FlyEighthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB15EB42339BDD000644F66 /* FlyEighthController.m */; };
@@ -55,8 +58,13 @@
 		7B1A3E5323065DDE0001B9D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B1A3E5523065F7B0001B9D7 /* FlyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyBaseController.h; sourceTree = "<group>"; };
 		7B1A3E5623065F7B0001B9D7 /* FlyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyBaseController.m; sourceTree = "<group>"; };
+		7B2E9A00233DBD9500AAC990 /* FlyPerformanceMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyPerformanceMonitor.h; sourceTree = "<group>"; };
+		7B2E9A01233DBD9500AAC990 /* FlyPerformanceMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyPerformanceMonitor.m; sourceTree = "<group>"; };
+		7B2E9A03233DBDFB00AAC990 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		7B3085A12320F10700EFB952 /* FlyForthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyForthController.h; sourceTree = "<group>"; };
 		7B3085A22320F10700EFB952 /* FlyForthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyForthController.m; sourceTree = "<group>"; };
+		7B451E71233C65D600CC6146 /* FlyEleventhController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyEleventhController.h; sourceTree = "<group>"; };
+		7B451E72233C65D600CC6146 /* FlyEleventhController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyEleventhController.m; sourceTree = "<group>"; };
 		7B7A32C3233B616D004D31F7 /* FlyRuntimeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyRuntimeTool.h; sourceTree = "<group>"; };
 		7B7A32C4233B616D004D31F7 /* FlyRuntimeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyRuntimeTool.m; sourceTree = "<group>"; };
 		7B95DCD02314CB8700EDE0D9 /* FlySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySort.h; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2E9A04233DBDFB00AAC990 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +156,8 @@
 				7BB15EC12339C4DD00644F66 /* FlyNinthController.m */,
 				7BB15EE0233B368D00644F66 /* FlyTenthController.h */,
 				7BB15EE1233B368D00644F66 /* FlyTenthController.m */,
+				7B451E71233C65D600CC6146 /* FlyEleventhController.h */,
+				7B451E72233C65D600CC6146 /* FlyEleventhController.m */,
 				7B451E6D233B6FC200CC6146 /* KVO */,
 				7BB15EDC233A027A00644F66 /* NSObject+Extension.h */,
 				7BB15EDD233A027A00644F66 /* NSObject+Extension.m */,
@@ -192,8 +203,11 @@
 		7BB15EDF233B362E00644F66 /* Runloop */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E9A03233DBDFB00AAC990 /* CrashReporter.framework */,
 				7BB15EC32339E7C100644F66 /* FlyRunloopTool.h */,
 				7BB15EC42339E7C100644F66 /* FlyRunloopTool.m */,
+				7B2E9A00233DBD9500AAC990 /* FlyPerformanceMonitor.h */,
+				7B2E9A01233DBD9500AAC990 /* FlyPerformanceMonitor.m */,
 			);
 			path = Runloop;
 			sourceTree = "<group>";
@@ -291,8 +305,10 @@
 				7BB15EBC2339BF1000644F66 /* Dog.m in Sources */,
 				7B1A3E5723065F7B0001B9D7 /* FlyBaseController.m in Sources */,
 				7BB15EDE233A027A00644F66 /* NSObject+Extension.m in Sources */,
+				7B451E73233C65D600CC6146 /* FlyEleventhController.m in Sources */,
 				7BB15EE5233B4F8900644F66 /* NSObject+FlyKVO.m in Sources */,
 				7B1A3E5223065C350001B9D7 /* FlyThirdController.m in Sources */,
+				7B2E9A02233DBD9500AAC990 /* FlyPerformanceMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +434,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/算法+链表/Runloop",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
@@ -440,6 +460,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/算法+链表/Runloop",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/算法+链表/PrefixHeader.pch";
