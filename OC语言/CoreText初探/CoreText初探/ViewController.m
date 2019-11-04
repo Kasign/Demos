@@ -25,11 +25,13 @@
     [self.view.layer addSublayer:_fly_layer];
     
     CATextLayer * textLayer = [CATextLayer layer];
-    [textLayer setFrame:CGRectMake(20, 220, 200, 50)];
-    [textLayer setBackgroundColor:[UIColor whiteColor].CGColor];
-    [textLayer setString:@"你好么"];
+    [textLayer setContentsScale:[UIScreen mainScreen].scale];
+    [textLayer setFrame:CGRectMake(20, 220, 200, 150)];
+    [textLayer setBackgroundColor:[UIColor redColor].CGColor];
+    [textLayer setString:@"你好么你好么你好么你好么你好么你好么你好么你好么你好么你好么你好么你好么你好么你好么1123sdfa"];
     [textLayer setFontSize:12.f];
     [textLayer setForegroundColor:[UIColor blackColor].CGColor];
+    [textLayer setWrapped:YES];
     [self.view.layer addSublayer:textLayer];
     
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(20, 300, 200, 40)];

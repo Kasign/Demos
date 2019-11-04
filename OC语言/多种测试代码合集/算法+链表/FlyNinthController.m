@@ -82,6 +82,8 @@
 @property (nonatomic, strong) UITableView      *   tableView;
 @property (nonatomic, strong) FlyRunloopTool   *   loopTool;
 
+@property (nonatomic, strong) NSTimer   *   timer;
+
 @end
 
 @implementation FlyNinthController
@@ -90,8 +92,16 @@
     [super viewDidLoad];
     
     _loopTool = [[FlyRunloopTool alloc] init];
-    [FlyPerformanceMonitor beginMonitor];
+    [_loopTool startObserver];
+//    [FlyPerformanceMonitor beginMonitor];
     [self.view addSubview:self.tableView];
+    
+    _timer = [NSTimer timerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
+      
+        FLYLog(@"timer ++++");
+    }];
+//    [_timer fire];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
 }
 
 - (UITableView *)tableView {
@@ -127,6 +137,11 @@
     return 150;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    FLYLog(@"scrollViewDidScroll");
+}
+
 - (void)addImagesForCell:(FlyTableViewCell *)cell
 {
     
@@ -152,33 +167,39 @@
 
 - (void)addImageForCell1:(FlyTableViewCell *)cell
 {
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpg"];
-    UIImage * image = [UIImage imageWithContentsOfFile:path];
+    UIImage * image = [self loadImageWithName:@"1"];
     [cell.imageView1 setImage:image];
     FLYLog(@"加载第一张图片");
 }
 
 - (void)addImageForCell2:(FlyTableViewCell *)cell
 {
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"];
-    UIImage * image = [UIImage imageWithContentsOfFile:path];
+    UIImage * image = [self loadImageWithName:@"2"];
     [cell.imageView2 setImage:image];
     FLYLog(@"加载第二张图片");
 }
 
 - (void)addImageForCell3:(FlyTableViewCell *)cell
 {
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"jpg"];
-    UIImage * image = [UIImage imageWithContentsOfFile:path];
+    UIImage * image = [self loadImageWithName:@"3"];
     [cell.imageView3 setImage:image];
     FLYLog(@"加载第三张图片");
     sleep(1.2);
 }
 
+- (UIImage *)loadImageWithName:(NSString *)imageName {
+    
+//    NSString * path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
+//    UIImage * image = [UIImage imageWithContentsOfFile:path];
+    NSString * fullName = [imageName stringByAppendingString:@".jpg"];
+    UIImage * image = [UIImage imageNamed:fullName];
+    return image;
+}
+
 - (void)dealloc
 {
     [_loopTool stopTasks];
-    [FlyPerformanceMonitor endMonitor];
+//    [FlyPerformanceMonitor endMonitor];
 }
 
 @end

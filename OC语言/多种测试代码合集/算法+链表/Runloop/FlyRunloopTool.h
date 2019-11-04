@@ -20,6 +20,7 @@ typedef void(^FlyLoopTask)(void);
 
 @interface FlyRunloopTool : NSObject
 
+- (void)startObserver;
 - (void)toolAddTask:(FlyLoopTask)task;
 - (void)stopTasks;
 
