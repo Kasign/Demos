@@ -10,10 +10,10 @@
 #import <objc/runtime.h>
 @implementation Person (Custom)
 
-- (void)run {
-    
-    FLYLog(@"人在跑");
-}
+//- (void)run {
+//    
+//    FLYLog(@"人在跑");
+//}
 
 - (NSString *)nickname {
     
