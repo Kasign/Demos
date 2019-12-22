@@ -13,7 +13,7 @@
 - (void)drawInContext:(CGContextRef)ctx
 {
 //    [super drawInContext:ctx];
-    CGMutablePathRef path=CGPathCreateMutable();
+    CGMutablePathRef path = CGPathCreateMutable();
     //2.2把绘图信息添加到路径里
     CGPathMoveToPoint(path, NULL, 20, 20);
     CGPathAddLineToPoint(path, NULL, 200, 100);

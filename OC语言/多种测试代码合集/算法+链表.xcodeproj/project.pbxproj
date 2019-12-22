@@ -96,6 +96,7 @@
 		7BB15EE1233B368D00644F66 /* FlyTenthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTenthController.m; sourceTree = "<group>"; };
 		7BB15EE3233B4F8900644F66 /* NSObject+FlyKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVO.h"; sourceTree = "<group>"; };
 		7BB15EE4233B4F8900644F66 /* NSObject+FlyKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FlyKVO.m"; sourceTree = "<group>"; };
+		7BB2B4E823586D200096A7EE /* 算法+链表.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "算法+链表.entitlements"; sourceTree = "<group>"; };
 		7BE44F1123274C4500EBEAF4 /* FlyFifthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifthController.h; sourceTree = "<group>"; };
 		7BE44F1223274C4500EBEAF4 /* FlyFifthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifthController.m; sourceTree = "<group>"; };
 		7BE44F1423274C6000EBEAF4 /* FlySixthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySixthController.h; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		7B1A3E30230658F00001B9D7 /* 算法+链表 */ = {
 			isa = PBXGroup;
 			children = (
+				7BB2B4E823586D200096A7EE /* 算法+链表.entitlements */,
 				7BB15ED82339FD3F00644F66 /* 1.jpg */,
 				7BB15ED62339FD3900644F66 /* 3.jpg */,
 				7BB15EDA2339FD4D00644F66 /* 2.jpg */,
@@ -459,8 +461,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "算法+链表/算法+链表.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,8 +479,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fly1.www.-----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -485,8 +490,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "算法+链表/算法+链表.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -501,8 +508,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fly1.www.-----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
