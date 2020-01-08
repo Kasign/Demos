@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B23744323C5C094005197F6 /* th2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7B23744223C5C094005197F6 /* th2.jpeg */; };
+		7B23744723C5C8C2005197F6 /* th.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7B23744623C5C8C2005197F6 /* th.jpeg */; };
+		7B23744923C5E0C7005197F6 /* th3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B23744823C5E0C7005197F6 /* th3.png */; };
 		7B8DF51D22E592600076D9F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DF51C22E592600076D9F8 /* AppDelegate.m */; };
 		7B8DF52022E592600076D9F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DF51F22E592600076D9F8 /* ViewController.m */; };
 		7B8DF52322E592600076D9F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8DF52122E592600076D9F8 /* Main.storyboard */; };
@@ -17,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B23743D23C5AE2D005197F6 /* iOS绘制.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS绘制.entitlements"; sourceTree = "<group>"; };
+		7B23744223C5C094005197F6 /* th2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = th2.jpeg; sourceTree = "<group>"; };
+		7B23744623C5C8C2005197F6 /* th.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = th.jpeg; sourceTree = "<group>"; };
+		7B23744823C5E0C7005197F6 /* th3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = th3.png; sourceTree = "<group>"; };
 		7B8DF51822E592600076D9F8 /* iOS绘制.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS绘制.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8DF51B22E592600076D9F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B8DF51C22E592600076D9F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +68,10 @@
 		7B8DF51A22E592600076D9F8 /* iOS绘制 */ = {
 			isa = PBXGroup;
 			children = (
+				7B23743D23C5AE2D005197F6 /* iOS绘制.entitlements */,
+				7B23744223C5C094005197F6 /* th2.jpeg */,
+				7B23744623C5C8C2005197F6 /* th.jpeg */,
+				7B23744823C5E0C7005197F6 /* th3.png */,
 				7B8DF51B22E592600076D9F8 /* AppDelegate.h */,
 				7B8DF51C22E592600076D9F8 /* AppDelegate.m */,
 				7B8DF51E22E592600076D9F8 /* ViewController.h */,
@@ -134,7 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8DF52822E592630076D9F8 /* LaunchScreen.storyboard in Resources */,
+				7B23744923C5E0C7005197F6 /* th3.png in Resources */,
 				7B8DF52522E592630076D9F8 /* Assets.xcassets in Resources */,
+				7B23744723C5C8C2005197F6 /* th.jpeg in Resources */,
+				7B23744323C5C094005197F6 /* th2.jpeg in Resources */,
 				7B8DF52322E592600076D9F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +305,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS绘制/iOS绘制.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				INFOPLIST_FILE = "iOS绘制/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,6 +317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.iOS--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -307,7 +326,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS绘制/iOS绘制.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				INFOPLIST_FILE = "iOS绘制/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -315,6 +338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.iOS--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

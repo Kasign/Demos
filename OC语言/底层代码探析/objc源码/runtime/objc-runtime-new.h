@@ -1111,7 +1111,7 @@ public:
 struct objc_class : objc_object {
     // Class ISA; // 8
     Class superclass; // 8
-    cache_t cache;    // 16 不是8         // formerly cache pointer and vtable
+    cache_t cache;    // 16    // formerly cache pointer and vtable
     class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags
 
     class_rw_t *data() { 
