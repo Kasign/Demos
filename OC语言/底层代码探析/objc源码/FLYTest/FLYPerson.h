@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *nickName;
 
 - (void)sayHello;
+- (void)sayByeBye;
+- (void)sayGoGo;
 + (void)sayHappy;
 
 @end

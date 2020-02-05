@@ -9,11 +9,23 @@
 
 @implementation FLYPerson
 
-- (void)sayHello{
+- (void)sayHello {
+    
     NSLog(@"LGPerson say : Hello!!!");
 }
 
-+ (void)sayHappy{
+- (void)sayByeBye {
+    
+    NSLog(@"LGPerson say : ByeBye!!!");
+}
+
+- (void)sayGoGo {
+    
+    NSLog(@"LGPerson say : GoGo!!!");
+}
+
++ (void)sayHappy {
+    
     NSLog(@"LGPerson say : Happy!!!");
 }
 

@@ -40,6 +40,8 @@
 		7AF76774220C266D00D3CB66 /* isa.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF76773220C266D00D3CB66 /* isa.h */; };
 		7AF7677C220C299900D3CB66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7677B220C299900D3CB66 /* main.m */; };
 		7AF76780220C2A3A00D3CB66 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC0630554660B00DB518D /* libobjc.A.dylib */; };
+		7B3B2D7B23C06C1800D496CA /* FLYStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3B2D7A23C06C1800D496CA /* FLYStudent.m */; };
+		7B92213823B6FD3B00F3214B /* FLYTeacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B92213723B6FD3B00F3214B /* FLYTeacher.m */; };
 		830F2A740D737FB800392440 /* objc-msg-arm.s in Sources */ = {isa = PBXBuildFile; fileRef = 830F2A690D737FB800392440 /* objc-msg-arm.s */; };
 		830F2A750D737FB900392440 /* objc-msg-i386.s in Sources */ = {isa = PBXBuildFile; fileRef = 830F2A6A0D737FB800392440 /* objc-msg-i386.s */; };
 		830F2A7D0D737FBB00392440 /* objc-msg-x86_64.s in Sources */ = {isa = PBXBuildFile; fileRef = 830F2A720D737FB800392440 /* objc-msg-x86_64.s */; };
@@ -217,6 +219,10 @@
 		7AF76773220C266D00D3CB66 /* isa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isa.h; sourceTree = "<group>"; };
 		7AF76779220C299900D3CB66 /* LGTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LGTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF7677B220C299900D3CB66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B3B2D7923C06C1800D496CA /* FLYStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYStudent.h; sourceTree = "<group>"; };
+		7B3B2D7A23C06C1800D496CA /* FLYStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYStudent.m; sourceTree = "<group>"; };
+		7B92213623B6FD3B00F3214B /* FLYTeacher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYTeacher.h; sourceTree = "<group>"; };
+		7B92213723B6FD3B00F3214B /* FLYTeacher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYTeacher.m; sourceTree = "<group>"; };
 		8306440620D24A3E00E356D2 /* objc-block-trampolines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "objc-block-trampolines.h"; path = "runtime/objc-block-trampolines.h"; sourceTree = "<group>"; };
 		830F2A690D737FB800392440 /* objc-msg-arm.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "objc-msg-arm.s"; path = "runtime/Messengers.subproj/objc-msg-arm.s"; sourceTree = "<group>"; };
 		830F2A6A0D737FB800392440 /* objc-msg-i386.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "objc-msg-i386.s"; path = "runtime/Messengers.subproj/objc-msg-i386.s"; sourceTree = "<group>"; };
@@ -437,6 +443,10 @@
 				39C7769B23AFAD65003D6FC5 /* main.m */,
 				39C776A023AFAD93003D6FC5 /* FLYPerson.h */,
 				39C776A123AFAD93003D6FC5 /* FLYPerson.m */,
+				7B92213623B6FD3B00F3214B /* FLYTeacher.h */,
+				7B92213723B6FD3B00F3214B /* FLYTeacher.m */,
+				7B3B2D7923C06C1800D496CA /* FLYStudent.h */,
+				7B3B2D7A23C06C1800D496CA /* FLYStudent.m */,
 			);
 			path = FLYTest;
 			sourceTree = "<group>";
@@ -802,7 +812,7 @@
 				TargetAttributes = {
 					39C7769823AFAD65003D6FC5 = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = F5KZ9A44AR;
+						DevelopmentTeam = SSS4ABYHYB;
 						ProvisioningStyle = Automatic;
 					};
 					7A7CA0DC234CB4030099B205 = {
@@ -883,6 +893,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				39C776A223AFAD93003D6FC5 /* FLYPerson.m in Sources */,
+				7B3B2D7B23C06C1800D496CA /* FLYStudent.m in Sources */,
+				7B92213823B6FD3B00F3214B /* FLYTeacher.m in Sources */,
 				39C7769C23AFAD65003D6FC5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1257,10 +1269,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1274,7 +1286,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1313,10 +1325,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1325,7 +1337,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
