@@ -16,6 +16,8 @@ int main(int argc, const char * argv[]) {
         FLYPerson * person = [FLYPerson alloc];
         Class pClass       = object_getClass(person);
         NSLog(@"%@ - %p", person, pClass);
+        
+        [FLYPerson sayHaHa];
     }
     return 0;
 }
