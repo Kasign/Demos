@@ -659,9 +659,9 @@ static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst)
 **********************************************************************/
 void _class_resolveMethod(Class cls, SEL sel, id inst)
 {
+    printf("STS---->>>>>%s\n", sel);
     if (! cls->isMetaClass()) {
         // try [cls resolveInstanceMethod:sel]
-
         _class_resolveInstanceMethod(cls, sel, inst);
     } 
     else {
@@ -674,6 +674,7 @@ void _class_resolveMethod(Class cls, SEL sel, id inst)
             _class_resolveInstanceMethod(cls, sel, inst);
         }
     }
+    printf("END---->>>>>%s\n\n", sel);
 }
 
 

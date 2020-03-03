@@ -76,11 +76,10 @@ int main(int argc, const char * argv[]) {
         FLYStudent *person = [[FLYStudent alloc] init];
         // 对象方法测试
         // 对象的实力方法 - 自己没有 - 老爸没有 - 找老爸的老爸 -> NSObject 也没有 - 奔溃
-//        [person saySomething];
+        [person saySomething];
         
-        [FLYStudent sayLove];
-        
-        
+//        [FLYStudent sayLove];
+                
 //        instrumentObjcMessageSends(false);
 #pragma clang diagnostic pop
     }

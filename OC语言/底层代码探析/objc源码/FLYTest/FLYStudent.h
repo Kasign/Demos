@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)saySomething;
 + (void)sayLove;
++ (void)sayHH;
 
 @end
 

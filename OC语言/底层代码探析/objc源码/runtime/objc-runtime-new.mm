@@ -4963,7 +4963,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
         runtimeLock.unlock();
         _class_resolveMethod(cls, sel, inst);
         runtimeLock.lock();
-        // Don't cache the result; we don't hold the lock so it may have 
+        // Don't cache the result; we don't hold the lock so it may have
         // changed already. Re-do the search from scratch instead.
         triedResolver = YES;
         goto retry;
