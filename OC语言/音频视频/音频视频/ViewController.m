@@ -45,10 +45,9 @@
     
     NSLog(@"address：%@",document);
     
+    NSString *urlStr = @"https://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
     
-    NSString *urlStr = @"http://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
-    
-    NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
+    NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Downloads/001-test.ev4"];
     
     AVPlayerItem *songItem = [AVPlayerItem playerItemWithURL:songUrl];
     
@@ -62,7 +61,9 @@
     NSURL * url = [NSURL URLWithString:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     _audioPlayer.volume = 1.0;
-//    [_audioPlayer play];
+    [_audioPlayer play];
+    
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
