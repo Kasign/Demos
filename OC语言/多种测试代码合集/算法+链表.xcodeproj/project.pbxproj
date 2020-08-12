@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3934040D2415091300711BBE /* NSObject+FlyKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3934040C2415091300711BBE /* NSObject+FlyKVC.m */; };
 		39D5E57F23631F0A003BA68A /* FlyDrawManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E57E23631F0A003BA68A /* FlyDrawManager.m */; };
 		39D5E58323632072003BA68A /* FlyTwelfthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E58223632072003BA68A /* FlyTwelfthViewController.m */; };
 		7B1A3E33230658F00001B9D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A3E32230658F00001B9D7 /* AppDelegate.m */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3934040B2415091300711BBE /* NSObject+FlyKVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVC.h"; sourceTree = "<group>"; };
+		3934040C2415091300711BBE /* NSObject+FlyKVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FlyKVC.m"; sourceTree = "<group>"; };
 		397E63B5231409E4005622DC /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		39D5E57D23631F0A003BA68A /* FlyDrawManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyDrawManager.h; sourceTree = "<group>"; };
 		39D5E57E23631F0A003BA68A /* FlyDrawManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyDrawManager.m; sourceTree = "<group>"; };
@@ -117,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3934040F2415093E00711BBE /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				3934040B2415091300711BBE /* NSObject+FlyKVC.h */,
+				3934040C2415091300711BBE /* NSObject+FlyKVC.m */,
+			);
+			path = KVC;
+			sourceTree = "<group>";
+		};
 		39D5E58023631F18003BA68A /* Draw */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +203,7 @@
 				7B451E6D233B6FC200CC6146 /* KVO */,
 				7BB15EDC233A027A00644F66 /* NSObject+Extension.h */,
 				7BB15EDD233A027A00644F66 /* NSObject+Extension.m */,
+				3934040F2415093E00711BBE /* KVC */,
 				7BB15EDF233B362E00644F66 /* Runloop */,
 				7BB15EB62339BF1000644F66 /* runtime */,
 				39DD3C4B234B41B100D5DD4F /* 排序与链表 */,
@@ -329,6 +342,7 @@
 				7B3085A32320F10700EFB952 /* FlyForthController.m in Sources */,
 				7BB15EB52339BDD000644F66 /* FlyEighthController.m in Sources */,
 				7B1A3E4F23065BD00001B9D7 /* FlyNode.m in Sources */,
+				3934040D2415091300711BBE /* NSObject+FlyKVC.m in Sources */,
 				7BE44F1323274C4500EBEAF4 /* FlyFifthController.m in Sources */,
 				7BE44F1A2327686C00EBEAF4 /* FlySeventhController.m in Sources */,
 				7BB15EBC2339BF1000644F66 /* Dog.m in Sources */,
