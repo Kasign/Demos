@@ -30,14 +30,87 @@
 @implementation FlyForthController
 
 /**
- 互斥锁 1、@synchronized 2、NSLock 3、pthread_mutex
+ 互斥锁 1、@synchronized   2、NSLock   3、pthread_mutex
  自旋锁 1、OSSpinLock（已废弃） 2、os_unfair_lock:(互斥锁)
  读写锁 1、pthread_rwlock（）
- 递归锁 1、NSRecursiveLock 2、pthread_mutex(recursive) 需要设置一些信息
- 条件锁 1、NSCondition 2、NSConditionLock
+ 递归锁 1、NSRecursiveLock  2、pthread_mutex(recursive) 需要设置一些信息
+ 条件锁 1、NSCondition  2、NSConditionLock
  信号量 1、dispatch_semaphore
  
  简介：
+ 
+ ⾃旋锁：
+         线程反复检查锁变量是否可⽤。由于线程在这⼀过程中保持执⾏，
+         因此是⼀种忙等待。⼀旦获取了⾃旋锁，线程会⼀直保持该锁，直⾄显式释
+         放⾃旋锁。 ⾃旋锁避免了进程上下⽂的调度开销，因此对于线程只会阻塞很
+         短时间的场合是有效的。
+        • OSSpinLock（已废弃）
+        • os_unfair_lock:(互斥锁)
+ 互斥锁：
+         是⼀种⽤于多线程编程中，防⽌两条线程同时对同⼀公共资源（⽐
+         如全局变量）进⾏读写的机制。该⽬的通过将代码切⽚成⼀个⼀个的临界区
+         ⽽达成
+         这⾥属于互斥锁的有：
+         • NSLock
+         • pthread_mutex
+         • @synchronized
+ 条件锁：
+         就是条件变量，当进程的某些资源要求不满⾜时就进⼊休眠，也就
+         是锁住了。当资源被分配到了，条件锁打开，进程继续运⾏
+         • NSCondition
+         • NSConditionLock
+ 递归锁：
+         就是同⼀个线程可以加锁N次⽽不会引发死锁
+         • NSRecursiveLock
+         • pthread_mutex(recursive)
+ 信号量（semaphore）：
+         是⼀种更⾼级的同步机制，互斥锁可以说是
+         semaphore在仅取值0/1时的特例。信号量可以有更多的取值空间，⽤来实
+         现更加复杂的同步，⽽不单单是线程间互斥。
+         • dispatch_semaphore
+ 
+ 其实基本的锁就包括了三类 ⾃旋锁 互斥锁 读写锁，
+ 其他的⽐如条件锁，递归锁，信号量都是上层的封装和实现！
+ 
+ 读写锁：
+         读写锁实际是⼀种特殊的⾃旋锁，它把对共享资源的访问者划分成读者和写者，读者只对共享资源
+         进⾏读访问，写者则需要对共享资源进⾏写操作。这种锁相对于⾃旋锁⽽⾔，能提⾼并发性，因为
+         在多处理器系统中，它允许同时有多个读者来访问共享资源，最⼤可能的读者数为实际的逻辑CPU
+         数。写者是排他性的，⼀个读写锁同时只能有⼀个写者或多个读者（与CPU数相关），但不能同时
+         既有读者⼜有写者。在读写锁保持期间也是抢占失效的。
+         如果读写锁当前没有读者，也没有写者，那么写者可以⽴刻获得读写锁，否则它必须⾃旋在那⾥，
+         直到没有任何写者或读者。如果读写锁没有写者，那么读者可以⽴即获得该读写锁，否则读者必须
+         ⾃旋在那⾥，直到写者释放该读写锁。
+         ⼀次只有⼀个线程可以占有写模式的读写锁, 但是可以有多个线程同时占有读模式的读写锁. 正
+         是因为这个特性,
+         当读写锁是写加锁状态时, 在这个锁被解锁之前, 所有试图对这个锁加锁的线程都会被阻塞.
+         当读写锁在读加锁状态时, 所有试图以读模式对它进⾏加锁的线程都可以得到访问权, 但是如果
+         线程希望以写模式对此锁进⾏加锁, 它必须直到所有的线程释放锁.
+         通常, 当读写锁处于读模式锁住状态时, 如果有另外线程试图以写模式加锁, 读写锁通常会阻塞
+         随后的读模式锁请求, 这样可以避免读模式锁⻓期占⽤, ⽽等待的写模式锁请求⻓期阻塞.
+         读写锁适合于对数据结构的读次数⽐写次数多得多的情况. 因为, 读模式锁定时可以共享, 以写
+         模式锁住时意味着独占, 所以读写锁⼜叫共享-独占锁.
+         
+         读写锁适合于对数据结构的读次数⽐写次数多得多的情况. 因为, 读模式锁定时可以共享, 以写模式锁住时意味
+         着独占, 所以读写锁⼜叫共享-独占锁.
+         #include <pthread.h>
+         int pthread_rwlock_init(pthread_rwlock_t *restrict rwlock, const pthread_rwlockattr_t *restrict attr);
+         int pthread_rwlock_destroy(pthread_rwlock_t *rwlock)
+         成功则返回0, 出错则返回错误编号.
+         同互斥量以上, 在释放读写锁占⽤的内存之前, 需要先通过pthread_rwlock_destroy对读写锁进⾏清理⼯作, 释
+         放由init分配的资源.
+         #include <pthread.h>
+         int pthread_rwlock_rdlock(pthread_rwlock_t *rwlock);
+         int pthread_rwlock_wrlock(pthread_rwlock_t *rwlock);
+         int pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
+         成功则返回0, 出错则返回错误编号.
+         这3个函数分别实现获取读锁, 获取写锁和释放锁的操作. 获取锁的两个函数是阻塞操作, 同样, ⾮阻塞的函数为:
+         #include <pthread.h>
+         int pthread_rwlock_tryrdlock(pthread_rwlock_t *rwlock);
+         int pthread_rwlock_trywrlock(pthread_rwlock_t *rwlock);
+         成功则返回0, 出错则返回错误编号.
+         ⾮阻塞的获取锁操作, 如果可以获取则返回0, 否则返回错误的EBUSY.
+ 
  
  1->>
  读写锁 pthread_rwlock
