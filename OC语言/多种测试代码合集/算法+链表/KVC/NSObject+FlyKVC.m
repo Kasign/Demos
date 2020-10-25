@@ -7,10 +7,6 @@
 //
 
 #import "NSObject+FlyKVC.h"
-
-#import <AppKit/AppKit.h>
-
-
 @implementation NSObject (FlyKVC)
 
 - (void)fly_setValue:(id)value forKey:(id)key {

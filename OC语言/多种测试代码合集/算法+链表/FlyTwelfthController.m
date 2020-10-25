@@ -1,22 +1,23 @@
 //
-//  FlyTwelfthViewController.m
+//  FlyTwelfthController.m
 //  算法+链表
 //
 //  Created by Walg on 2019/10/25.
 //  Copyright © 2019 Fly. All rights reserved.
 //
+//  绘制
 
-#import "FlyTwelfthViewController.h"
+#import "FlyTwelfthController.h"
 #import "FlyDrawManager.h"
 
-@interface FlyTwelfthViewController ()
+@interface FlyTwelfthController ()
 
 @property (nonatomic, strong) UIImageView  * imageView1;
 @property (nonatomic, strong) UIImageView  * imageView2;
 
 @end
 
-@implementation FlyTwelfthViewController
+@implementation FlyTwelfthController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,9 +34,8 @@
     return _imageView1;
 }
 
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     [super touchesBegan:touches withEvent:event];
     
 }

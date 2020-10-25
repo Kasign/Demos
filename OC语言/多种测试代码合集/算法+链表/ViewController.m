@@ -19,12 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataArr = @[@"链表", @"排序算法", @"锁+多线程", @"View控件", @"黑科技", @"通知", @"runtime", @"runloop", @"重写KVO", @"沙盒深入理解", @"绘制", @"xxx"];
+    _dataArr = @[@"2.链表", @"3.排序算法", @"4.锁+多线程", @"5.View控件", @"6.黑科技", @"7.通知", @"8.runtime", @"9.runloop", @"10.重写KVO", @"11.沙盒深入理解", @"12.绘制", @"13.类簇", @"xxx"];
     [self.view addSubview:self.tableView];
 }
 
-- (UITableView *)tableView {
-    
+- (UITableView *)tableView
+{
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate   = self;
@@ -35,7 +35,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return _dataArr.count;
 }
 
@@ -51,50 +50,77 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController * vc = nil;
-    
+    NSString * vcNum = nil;
     switch (indexPath.row) {
         case 0:
-            vc = [[NSClassFromString(@"FlySecondController") alloc] init];
+            vcNum = @"Second";
             break;
         case 1:
-            vc = [[NSClassFromString(@"FlyThirdController") alloc] init];
+            vcNum = @"Third";
             break;
         case 2:
-            vc = [[NSClassFromString(@"FlyForthController") alloc] init];
+            vcNum = @"Forth";
             break;
         case 3:
-            vc = [[NSClassFromString(@"FlyFifthController") alloc] init];
+            vcNum = @"Fifth";
             break;
         case 4:
-            vc = [[NSClassFromString(@"FlySixthController") alloc] init];
+            vcNum = @"Sixth";
             break;
         case 5:
-            vc = [[NSClassFromString(@"FlySeventhController") alloc] init];
+            vcNum = @"Seventh";
             break;
         case 6:
-            vc = [[NSClassFromString(@"FlyEighthController") alloc] init];
+            vcNum = @"Eighth";
             break;
         case 7:
-            vc = [[NSClassFromString(@"FlyNinthController") alloc] init];
+            vcNum = @"Ninth";
             break;
         case 8:
-            vc = [[NSClassFromString(@"FlyTenthController") alloc] init];
+            vcNum = @"Tenth";
             break;
         case 9:
-            vc = [[NSClassFromString(@"FlyEleventhController") alloc] init];
+            vcNum = @"Eleventh";
             break;
         case 10:
-            vc = [[NSClassFromString(@"FlyTwelfthViewController") alloc] init];
+            vcNum = @"Twelfth";
             break;
+        case 11:
+            vcNum = @"Thirteen";
+            break;
+        case 12:
+            vcNum = @"Fourteen";
+            break;
+        case 13:
+            vcNum = @"Fifteen";
+            break;
+        case 14:
+            vcNum = @"Fifteen";
+            break;
+        case 15:
+            vcNum = @"Fifteen";
+            break;
+        case 16:
+            vcNum = @"Sixteen";
+            break;
+        case 17:
+            vcNum = @"Seventeen";
+            break;
+        case 18:
+            vcNum = @"Eighteen";
+            break;
+            
         default:
             break;
     }
-    
-    if (vc) {
-        NSString * name = [_dataArr objectAtIndex:indexPath.row];
-        [vc setTitle:[NSString stringWithFormat:@"%@+%@", NSStringFromClass([vc class]), name]];
-        [self.navigationController pushViewController:vc animated:YES];
+    if (vcNum) {
+        NSString * vcName = [NSString stringWithFormat:@"Fly%@Controller", vcNum];
+        UIViewController * vc = [[NSClassFromString(vcName) alloc] init];
+        if (vc) {
+            NSString * name = [_dataArr objectAtIndex:indexPath.row];
+            [vc setTitle:[NSString stringWithFormat:@"%@+%@", NSStringFromClass([vc class]), name]];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 
