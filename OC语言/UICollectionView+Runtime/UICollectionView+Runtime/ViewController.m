@@ -75,7 +75,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
     if (!_menuController) {
         _menuController = [FlyMenuController sharedMenuController];
         _repeatItem = [[FlyMenuItem alloc] initWithTitle:@"复制" fontSize:14.f];
-        _pasteItem = [[FlyMenuItem alloc] initWithTitle:@"粘贴" fontSize:14.f];
+        _pasteItem  = [[FlyMenuItem alloc] initWithTitle:@"粘贴" fontSize:14.f];
         _deleteItem = [[FlyMenuItem alloc] initWithTitle:@"删除" fontSize:14.f];
         [_menuController setMenuItems:@[_repeatItem,_deleteItem]];
         __weak typeof(self) weakSelf = self;
@@ -105,7 +105,7 @@ static NSString * kIdentifier_HEADER_A = @"header_identifier_a";
 {
     if (!_layout) {
         _layout = [[UICollectionViewFlowLayout alloc] init];
-//        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     return _layout;
 }

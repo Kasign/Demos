@@ -1,13 +1,29 @@
 //
 //  ViewController.m
-//  多线程NSOperation
+//  多线程+RunLoop---Demo
 //
-//  Created by walg on 2017/3/10.
-//  Copyright © 2017年 walg. All rights reserved.
+//  Created by Qiushan on 2020/9/8.
+//  Copyright © 2020 FLY. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "FlyImageData.h"
+
+#import "FLYOperation.h"
+#import "FLYThread.h"
+#import "FLYGCD.h"
+
+@interface ViewController ()
+
+@property (nonatomic, strong) FLYOperation  *  flyOperation;
+@property (nonatomic, strong) FLYThread     *  flyThread;
+@property (nonatomic, strong) FLYGCD        *  flyGCD;
+@property (nonatomic, strong) NSMutableArray  *  imageViews;
+@property (nonatomic, strong) NSMutableArray  *  threadArr;
+
+@end
+
+
 
 #define ROW_COUNT 7
 #define COLUMN_COUNT 3
@@ -15,21 +31,39 @@
 #define ROW_WIDTH 100
 #define CELL_SPACING 10
 
-@interface ViewController (){
-    NSMutableArray *_imageViews;
-    NSMutableArray *_threads;
-}
-
-@end
-
 static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599553213989&di=e87006b6f993d01aed9dd632bd41a126&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F05%2F00%2F01300000194285122188000535877.jpg";
 
 @implementation ViewController
 
+- (FLYOperation *)flyOperation {
+    
+    if (_flyOperation == nil) {
+        _flyOperation = [[FLYOperation alloc] init];
+    }
+    return _flyOperation;
+}
+
+- (FLYThread *)flyThread {
+    
+    if (_flyThread == nil) {
+        _flyThread = [[FLYThread alloc] init];
+    }
+    return _flyThread;
+}
+
+- (FLYGCD *)flyGCD {
+    
+    if (_flyGCD == nil) {
+        _flyGCD = [[FLYGCD alloc] init];
+    }
+    return _flyGCD;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _imageViews = [NSMutableArray array];
-    _threads = [NSMutableArray array];
+    _threadArr  = [NSMutableArray array];
     
     for (int i = 0; i< ROW_COUNT; i++) {
         for (int j =0; j< COLUMN_COUNT; j++) {
@@ -49,38 +83,14 @@ static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&si
 
 - (void)loadImageWithMulatiThread {
     
+    FLYBaseThread * thread = self.flyOperation;
     int count = ROW_COUNT * COLUMN_COUNT;
-    
-    NSOperationQueue * queue = [[NSOperationQueue alloc] init];
-    queue.maxConcurrentOperationCount = 5;//控制最大线程数
-    
     for (int i= 0; i < count; ++i) {
-        /*
-        // 方法一 ：用NSInvocationOperation
-         
-         NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(loadImage:) object:[NSNumber numberWithInteger:i]];
-        [queue addOperation:invocationOperation];
-         
-         */
         
-//         方法二 ：用NSBlockOperation
-        
-        NSBlockOperation * blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+        [thread addAction:^{
             [self loadImage:[NSNumber numberWithInteger:i]];
         }];
-        [queue addOperation:blockOperation];
     }
-    
-    /*
-    //线程依赖：A依赖B，只有等B执行完了才执行A。（避免循环依赖，否则不会执行）
-    NSBlockOperation *firstOperation = [NSBlockOperation blockOperationWithBlock:^{
-     
-    }];
-    NSBlockOperation *lastOperation = [NSBlockOperation blockOperationWithBlock:^{
-     
-    }];
-    [firstOperation addDependency:lastOperation];
-    */
 }
 
 - (void)loadImage:(NSNumber *)index {
@@ -95,7 +105,6 @@ static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&si
     NSLog(@"当前：%d\n%@", i, [NSThread currentThread]);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        
         [self updateImage:imageData];
     }];
 }
@@ -112,11 +121,6 @@ static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&si
     NSURL  * url  = [NSURL URLWithString:imageUrl];
     NSData * data = [NSData dataWithContentsOfURL:url];
     return data;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

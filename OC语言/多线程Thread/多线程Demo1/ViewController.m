@@ -17,13 +17,13 @@
 #define CELL_SPACING 10
 
 @interface ViewController (){
-    NSMutableArray *_imageViews;
-    NSMutableArray *_threads;
+    NSMutableArray * _imageViews;
+    NSMutableArray * _threads;
 }
 
 @end
 
-static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20150623203928_HzBWU.jpeg";
+static NSString *imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599553213989&di=e87006b6f993d01aed9dd632bd41a126&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F05%2F00%2F01300000194285122188000535877.jpg";
 
 @implementation ViewController
 
@@ -37,7 +37,7 @@ static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20
         for (int j =0; j<COLUMN_COUNT; j++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(j*ROW_WIDTH+(j*CELL_SPACING)+28, 80+i*ROW_HEIGHT+(i*CELL_SPACING), ROW_WIDTH, ROW_HEIGHT)];
             imageView.contentMode = UIViewContentModeScaleAspectFit;
-            imageView.backgroundColor= [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
+            imageView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
             [self.view addSubview:imageView];
             [_imageViews addObject:imageView];
         }
@@ -56,76 +56,74 @@ static NSString *imageUrl = @"http://img5q.duitang.com/uploads/item/201506/23/20
     [self.view addSubview:btn2];
 }
 
--(void)loadImageWithMulatiThread{
+- (void)loadImageWithMulatiThread {
     
     [_threads removeAllObjects];
     
-    int count =ROW_COUNT*COLUMN_COUNT;
+    int count = ROW_COUNT * COLUMN_COUNT;
     
     for (int i= 0; i < count; ++i) {
-        NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(loadImage:) object:[NSNumber numberWithInt:i]];
+        NSThread * thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadImage:) object:[NSNumber numberWithInt:i]];
         
-        thread.name = [NSString stringWithFormat:@"myThread%d",i];
+        thread.name = [NSString stringWithFormat:@"myThread%d", i];
         
-        if (i != (count-1)) {
-            thread.threadPriority = 1.0;//线程优先级，范围 0.0 ~ 1.0，1.0为最高
-        }else{
-            thread.threadPriority = 0.0;
-        }
+        thread.threadPriority = i * 1.0 / count;;//线程优先级，范围 0.0 ~ 1.0，1.0为最高
         
         [_threads addObject:thread];
     }
-    for (NSThread *thread in _threads) {
+    for (NSThread * thread in _threads) {
+        
         [thread start];//开始线程
     }
-    
-    
 }
 
--(void)loadImage:(NSNumber*)index{
+- (void)loadImage:(NSNumber *)index{
     
     int i = [index intValue];
     
-    NSData *data = [self requestData:i];
+    NSData * data = [self requestData:i];
     
-    NSThread *currentThread = [NSThread currentThread];
+    NSThread * currentThread = [NSThread currentThread];
     if (currentThread.isCancelled) {
         [NSThread exit];//退出当前线程
     }
     
-    NSLog(@"current thread: %@",[NSThread currentThread]);//打印
+    NSLog(@"current thread:%d \n %@", i, currentThread);//打印
     
     FlyImageData *imageData = [[FlyImageData alloc] init];
     imageData.data = data;
     imageData.index = i;
     [self performSelectorOnMainThread:@selector(updateImage:) withObject:imageData waitUntilDone:YES];//在主线程更新视图
+    
+    [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+    
+    //开启runloop
+    [[NSRunLoop currentRunLoop] run];
 }
 
--(void)updateImage:(FlyImageData*)imageData{
+- (void)updateImage:(FlyImageData*)imageData {
+    
     UIImage *image = [UIImage imageWithData:imageData.data];
     UIImageView *imageView = _imageViews[imageData.index];
     imageView.image = image;
 }
 
--(NSData*)requestData:(int)index{
+- (NSData *)requestData:(int)index {
     
-    if (index != ROW_COUNT*COLUMN_COUNT -1) {
-        [NSThread sleepForTimeInterval:3.0];//线程休眠3.0秒
-    }
-    
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
+    sleep(0.3);
+    NSURL * url   = [NSURL URLWithString:imageUrl];
+    NSData * data = [NSData dataWithContentsOfURL:url];
     return data;
 }
 
--(void)stopThread{
+- (void)stopThread {
+    
     for (NSThread *thread in _threads) {
         if (!thread.isFinished) {//如果线程没有完成
             [thread cancel];//取消线程
         }
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
