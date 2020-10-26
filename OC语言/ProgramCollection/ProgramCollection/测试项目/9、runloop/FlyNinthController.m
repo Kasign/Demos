@@ -196,6 +196,10 @@
 - (void)dealloc
 {
     [_loopTool stopTasks];
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 //    [FlyPerformanceMonitor endMonitor];
     if (_timer) {
         [_timer invalidate];

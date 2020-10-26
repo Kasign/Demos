@@ -59,20 +59,27 @@ extern void instrumentObjcMessageSends(BOOL flag);
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
+
+        // insert code here...
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
+        
+//        NSLog(@"Hello, World!");
+//        FLYPerson * person = [FLYPerson alloc];
+//        Class pClass       = object_getClass(person);
+//        NSLog(@"%@ - %p", person, pClass);
+//        
+//        [FLYPerson sayHaHa];
         
 //        instrumentObjcMessageSends(true);
         
         FLYStudent *person = [[FLYStudent alloc] init];
         // 对象方法测试
         // 对象的实力方法 - 自己没有 - 老爸没有 - 找老爸的老爸 -> NSObject 也没有 - 奔溃
-//        [person saySomething];
+        [person saySomething];
         
-        [FLYStudent sayLove];
-        
-        
+//        [FLYStudent sayLove];
+                
 //        instrumentObjcMessageSends(false);
 #pragma clang diagnostic pop
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390956A824069EC80023F844 /* FLYTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 390956A724069EC80023F844 /* FLYTimer.m */; };
 		395B12251E762B420047A4CC /* FlyImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 395B12241E762B420047A4CC /* FlyImageData.m */; };
 		396C30341E7296CF0098C8B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C30331E7296CF0098C8B3 /* main.m */; };
 		396C30371E7296CF0098C8B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C30361E7296CF0098C8B3 /* AppDelegate.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		390956A624069EC80023F844 /* FLYTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYTimer.h; sourceTree = "<group>"; };
+		390956A724069EC80023F844 /* FLYTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYTimer.m; sourceTree = "<group>"; };
 		395B12231E762B420047A4CC /* FlyImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyImageData.h; sourceTree = "<group>"; };
 		395B12241E762B420047A4CC /* FlyImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyImageData.m; sourceTree = "<group>"; };
 		396C302F1E7296CF0098C8B3 /* 多线程GCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "多线程GCD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,8 @@
 				396C30391E7296CF0098C8B3 /* ViewController.m */,
 				395B12231E762B420047A4CC /* FlyImageData.h */,
 				395B12241E762B420047A4CC /* FlyImageData.m */,
+				390956A624069EC80023F844 /* FLYTimer.h */,
+				390956A724069EC80023F844 /* FLYTimer.m */,
 				396C303B1E7296CF0098C8B3 /* Main.storyboard */,
 				396C303E1E7296CF0098C8B3 /* Assets.xcassets */,
 				396C30401E7296CF0098C8B3 /* LaunchScreen.storyboard */,
@@ -231,6 +236,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -279,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				396C303A1E7296CF0098C8B3 /* ViewController.m in Sources */,
+				390956A824069EC80023F844 /* FLYTimer.m in Sources */,
 				395B12251E762B420047A4CC /* FlyImageData.m in Sources */,
 				396C30371E7296CF0098C8B3 /* AppDelegate.m in Sources */,
 				396C30341E7296CF0098C8B3 /* main.m in Sources */,

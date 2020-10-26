@@ -33,7 +33,7 @@
         
     }
     
-    class_addMethod(subClass, NSSelectorFromString(selectorName), (IMP)flySetNumPorperty, types);
+    class_addMethod(subClass, NSSelectorFromString(selectorName), (IMP)flySetProperty, types);
     
     objc_registerClassPair(subClass);
     
@@ -44,7 +44,7 @@
 }
 
 
-void flySetNumPorperty(id instance, SEL selector, int value) {
+void flySetNumProperty(id instance, SEL selector, int value) {
     
     id observer = objc_getAssociatedObject(instance, "objc");
     NSString * keyPath = objc_getAssociatedObject(instance, "keyPath");
@@ -69,7 +69,7 @@ void flySetNumPorperty(id instance, SEL selector, int value) {
 }
 
 
-void flySetPorperty(id instance, SEL selector, id value) {
+void flySetProperty(id instance, SEL selector, id value) {
     
     id observer = objc_getAssociatedObject(instance, "objc");
     NSString * keyPath = objc_getAssociatedObject(instance, "keyPath");

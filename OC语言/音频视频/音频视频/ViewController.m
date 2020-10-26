@@ -45,25 +45,31 @@
     
     NSLog(@"address：%@",document);
     
-    NSString *urlStr = @"https://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
     
-    NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Downloads/001-test.ev4"];
+    NSString *urlStr = @"http://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
     
+    NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
+    songUrl = [NSURL URLWithString:@"https://video.huishenghuo888888.com/douyin/20200119/FnPiWnrz/index.m3u8"];
     AVPlayerItem *songItem = [AVPlayerItem playerItemWithURL:songUrl];
-    
+    [songItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     _avPlayer = [AVPlayer playerWithPlayerItem:songItem];
     _avPlayer.volume = 1;
     
-//    [_avPlayer play];
+    
+    [_avPlayer play];
+    
+    AVPlayerLayer *avLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
+    avLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    avLayer.frame = CGRectMake(10, 160, 300, 300);
+    [self.view.layer addSublayer:avLayer];
     
 //        [songItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     
     NSURL * url = [NSURL URLWithString:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
+    url = [NSURL URLWithString:@"https://video.huishenghuo888888.com/douyin/20200119/FnPiWnrz/index.m3u8"];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     _audioPlayer.volume = 1.0;
-    [_audioPlayer play];
-    
-    
+//    [_audioPlayer play];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
