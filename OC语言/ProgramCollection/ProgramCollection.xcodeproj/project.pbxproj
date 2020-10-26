@@ -35,7 +35,7 @@
 		7B0D9367250A33F600CD6D9D /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D932D250A33F600CD6D9D /* FlySort.m */; };
 		7B0D9368250A33F600CD6D9D /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9330250A33F600CD6D9D /* FlyBaseController.m */; };
 		7B0D9369250A33F600CD6D9D /* FlySecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9334250A33F600CD6D9D /* FlySecondController.m */; };
-		7B0D936A250A33F600CD6D9D /* FlyTwelfthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9336250A33F600CD6D9D /* FlyTwelfthViewController.m */; };
+		7B0D936A250A33F600CD6D9D /* FlyTwelfthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */; };
 		7B0D936B250A33F600CD6D9D /* FlyFirstController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D933A250A33F600CD6D9D /* FlyFirstController.m */; };
 		7B0D936C250A33F600CD6D9D /* FlySeventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D933D250A33F600CD6D9D /* FlySeventhController.m */; };
 		7B0D936D250A33F600CD6D9D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D933F250A33F600CD6D9D /* 2.jpg */; };
@@ -46,6 +46,8 @@
 		7B0D9372250A33F600CD6D9D /* FlyTenthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D934B250A33F600CD6D9D /* FlyTenthController.m */; };
 		7B0D9373250A33F600CD6D9D /* FlyDrawManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D934E250A33F600CD6D9D /* FlyDrawManager.m */; };
 		7B0D9374250A33F600CD6D9D /* FlyNinthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9352250A33F600CD6D9D /* FlyNinthController.m */; };
+		7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B702546ACF600A780D1 /* FlyThirteenController.m */; };
+		7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +103,8 @@
 		7B0D9331250A33F600CD6D9D /* FlyBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBaseController.h; sourceTree = "<group>"; };
 		7B0D9333250A33F600CD6D9D /* FlySecondController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySecondController.h; sourceTree = "<group>"; };
 		7B0D9334250A33F600CD6D9D /* FlySecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySecondController.m; sourceTree = "<group>"; };
-		7B0D9336250A33F600CD6D9D /* FlyTwelfthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTwelfthViewController.m; sourceTree = "<group>"; };
-		7B0D9337250A33F600CD6D9D /* FlyTwelfthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTwelfthViewController.h; sourceTree = "<group>"; };
+		7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTwelfthController.m; sourceTree = "<group>"; };
+		7B0D9337250A33F600CD6D9D /* FlyTwelfthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTwelfthController.h; sourceTree = "<group>"; };
 		7B0D9339250A33F600CD6D9D /* FlyFirstController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyFirstController.h; sourceTree = "<group>"; };
 		7B0D933A250A33F600CD6D9D /* FlyFirstController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyFirstController.m; sourceTree = "<group>"; };
 		7B0D933C250A33F600CD6D9D /* FlySeventhController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySeventhController.h; sourceTree = "<group>"; };
@@ -122,6 +124,10 @@
 		7B0D934F250A33F600CD6D9D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7B0D9351250A33F600CD6D9D /* FlyNinthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyNinthController.h; sourceTree = "<group>"; };
 		7B0D9352250A33F600CD6D9D /* FlyNinthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyNinthController.m; sourceTree = "<group>"; };
+		7B125B702546ACF600A780D1 /* FlyThirteenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThirteenController.m; sourceTree = "<group>"; };
+		7B125B712546ACF600A780D1 /* FlyThirteenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThirteenController.h; sourceTree = "<group>"; };
+		7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBaseView.m; sourceTree = "<group>"; };
+		7B125B7B2546ADBB00A780D1 /* FlyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBaseView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,7 @@
 				7B0D9349250A33F600CD6D9D /* 10、重写KVO */,
 				7B0D9345250A33F600CD6D9D /* 11、沙盒深入理解 */,
 				7B0D9335250A33F600CD6D9D /* 12、绘制 */,
+				7B125B772546AD9200A780D1 /* 13、类簇 */,
 				7B0D931D250A33F600CD6D9D /* 绘制Context */,
 				7B0D930C250A33F600CD6D9D /* 录屏 */,
 				7B0D932A250A33F600CD6D9D /* 排序与链表 */,
@@ -328,8 +335,8 @@
 		7B0D9335250A33F600CD6D9D /* 12、绘制 */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9336250A33F600CD6D9D /* FlyTwelfthViewController.m */,
-				7B0D9337250A33F600CD6D9D /* FlyTwelfthViewController.h */,
+				7B0D9337250A33F600CD6D9D /* FlyTwelfthController.h */,
+				7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */,
 			);
 			path = "12、绘制";
 			sourceTree = "<group>";
@@ -392,6 +399,8 @@
 		7B0D934C250A33F600CD6D9D /* Draw */ = {
 			isa = PBXGroup;
 			children = (
+				7B125B7B2546ADBB00A780D1 /* FlyBaseView.h */,
+				7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */,
 				7B0D934D250A33F600CD6D9D /* FlyDrawManager.h */,
 				7B0D934E250A33F600CD6D9D /* FlyDrawManager.m */,
 			);
@@ -405,6 +414,15 @@
 				7B0D9352250A33F600CD6D9D /* FlyNinthController.m */,
 			);
 			path = "9、runloop";
+			sourceTree = "<group>";
+		};
+		7B125B772546AD9200A780D1 /* 13、类簇 */ = {
+			isa = PBXGroup;
+			children = (
+				7B125B712546ACF600A780D1 /* FlyThirteenController.h */,
+				7B125B702546ACF600A780D1 /* FlyThirteenController.m */,
+			);
+			path = "13、类簇";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,9 +506,10 @@
 				7B0D9363250A33F600CD6D9D /* SalImageInfo.m in Sources */,
 				7B0D9374250A33F600CD6D9D /* FlyNinthController.m in Sources */,
 				7B0D9367250A33F600CD6D9D /* FlySort.m in Sources */,
-				7B0D936A250A33F600CD6D9D /* FlyTwelfthViewController.m in Sources */,
+				7B0D936A250A33F600CD6D9D /* FlyTwelfthController.m in Sources */,
 				7B0D92E8250A33D200CD6D9D /* SceneDelegate.m in Sources */,
 				7B0D936C250A33F600CD6D9D /* FlySeventhController.m in Sources */,
+				7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */,
 				7B0D9369250A33F600CD6D9D /* FlySecondController.m in Sources */,
 				7B0D936B250A33F600CD6D9D /* FlyFirstController.m in Sources */,
 				7B0D9368250A33F600CD6D9D /* FlyBaseController.m in Sources */,
@@ -501,6 +520,7 @@
 				7B0D9357250A33F600CD6D9D /* FlyRunloopTool.m in Sources */,
 				7B0D9365250A33F600CD6D9D /* FlyThirdController.m in Sources */,
 				7B0D9359250A33F600CD6D9D /* SalScreenShotTool.m in Sources */,
+				7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */,
 				7B0D935A250A33F600CD6D9D /* SalConverVideoTool.m in Sources */,
 				7B0D935D250A33F600CD6D9D /* Person.m in Sources */,
 				7B0D9370250A33F600CD6D9D /* FlyEighthController.m in Sources */,
