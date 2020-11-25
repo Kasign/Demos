@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */; };
 		7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E4250A33D200CD6D9D /* AppDelegate.m */; };
 		7B0D92E8250A33D200CD6D9D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E7250A33D200CD6D9D /* SceneDelegate.m */; };
 		7B0D92EE250A33D200CD6D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D92EC250A33D200CD6D9D /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39A2AB8E25694C9D0081CF79 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
+		39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
 		7B0D92E0250A33D200CD6D9D /* ProgramCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgramCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D92E3250A33D200CD6D9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B0D92E4250A33D200CD6D9D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -237,11 +240,11 @@
 		7B0D9306250A33F600CD6D9D /* Runloop */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9307250A33F600CD6D9D /* FlyRunloopTool.h */,
-				7B0D9308250A33F600CD6D9D /* FlyPerformanceMonitor.h */,
 				7B0D9309250A33F600CD6D9D /* CrashReporter.framework */,
-				7B0D930A250A33F600CD6D9D /* FlyRunloopTool.m */,
+				7B0D9308250A33F600CD6D9D /* FlyPerformanceMonitor.h */,
 				7B0D930B250A33F600CD6D9D /* FlyPerformanceMonitor.m */,
+				7B0D9307250A33F600CD6D9D /* FlyRunloopTool.h */,
+				7B0D930A250A33F600CD6D9D /* FlyRunloopTool.m */,
 			);
 			path = Runloop;
 			sourceTree = "<group>";
@@ -249,10 +252,10 @@
 		7B0D930C250A33F600CD6D9D /* 录屏 */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D930D250A33F600CD6D9D /* SalScreenShotTool.m */,
 				7B0D930E250A33F600CD6D9D /* SalConverVideoTool.h */,
-				7B0D930F250A33F600CD6D9D /* SalScreenShotTool.h */,
 				7B0D9310250A33F600CD6D9D /* SalConverVideoTool.m */,
+				7B0D930F250A33F600CD6D9D /* SalScreenShotTool.h */,
+				7B0D930D250A33F600CD6D9D /* SalScreenShotTool.m */,
 			);
 			path = "录屏";
 			sourceTree = "<group>";
@@ -260,8 +263,10 @@
 		7B0D9311250A33F600CD6D9D /* KVO */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9312250A33F600CD6D9D /* NSObject+FlyKVO.m */,
 				7B0D9313250A33F600CD6D9D /* NSObject+FlyKVO.h */,
+				7B0D9312250A33F600CD6D9D /* NSObject+FlyKVO.m */,
+				39A2AB8E25694C9D0081CF79 /* NSObject+LGKVO.h */,
+				39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */,
 			);
 			path = KVO;
 			sourceTree = "<group>";
@@ -269,14 +274,14 @@
 		7B0D9314250A33F600CD6D9D /* runtime */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9315250A33F600CD6D9D /* Person.h */,
-				7B0D9316250A33F600CD6D9D /* FlyRuntimeTool.h */,
-				7B0D9317250A33F600CD6D9D /* Person+Custom.m */,
 				7B0D9318250A33F600CD6D9D /* Dog.h */,
-				7B0D9319250A33F600CD6D9D /* Person.m */,
-				7B0D931A250A33F600CD6D9D /* FlyRuntimeTool.m */,
 				7B0D931B250A33F600CD6D9D /* Dog.m */,
+				7B0D9316250A33F600CD6D9D /* FlyRuntimeTool.h */,
+				7B0D931A250A33F600CD6D9D /* FlyRuntimeTool.m */,
+				7B0D9315250A33F600CD6D9D /* Person.h */,
+				7B0D9319250A33F600CD6D9D /* Person.m */,
 				7B0D931C250A33F600CD6D9D /* Person+Custom.h */,
+				7B0D9317250A33F600CD6D9D /* Person+Custom.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -306,10 +311,10 @@
 		7B0D932A250A33F600CD6D9D /* 排序与链表 */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D932B250A33F600CD6D9D /* FlySort.h */,
-				7B0D932C250A33F600CD6D9D /* FlyNode.m */,
-				7B0D932D250A33F600CD6D9D /* FlySort.m */,
 				7B0D932E250A33F600CD6D9D /* FlyNode.h */,
+				7B0D932C250A33F600CD6D9D /* FlyNode.m */,
+				7B0D932B250A33F600CD6D9D /* FlySort.h */,
+				7B0D932D250A33F600CD6D9D /* FlySort.m */,
 			);
 			path = "排序与链表";
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 			files = (
 				7B0D9371250A33F600CD6D9D /* FlyEleventhController.m in Sources */,
 				7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */,
+				39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */,
 				7B0D92F6250A33D200CD6D9D /* main.m in Sources */,
 				7B0D935E250A33F600CD6D9D /* FlyRuntimeTool.m in Sources */,
 				7B0D9362250A33F600CD6D9D /* SalDrawTool.m in Sources */,
