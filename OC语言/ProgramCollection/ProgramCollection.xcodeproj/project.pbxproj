@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */; };
+		7B0D0C2825765AB000862DE0 /* FlyFourteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */; };
 		7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E4250A33D200CD6D9D /* AppDelegate.m */; };
 		7B0D92E8250A33D200CD6D9D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E7250A33D200CD6D9D /* SceneDelegate.m */; };
 		7B0D92EE250A33D200CD6D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D92EC250A33D200CD6D9D /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 /* Begin PBXFileReference section */
 		39A2AB8E25694C9D0081CF79 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
 		39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
+		7B0D0C2625765AB000862DE0 /* FlyFourteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFourteenController.h; sourceTree = "<group>"; };
+		7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFourteenController.m; sourceTree = "<group>"; };
 		7B0D92E0250A33D200CD6D9D /* ProgramCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgramCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D92E3250A33D200CD6D9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B0D92E4250A33D200CD6D9D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -145,6 +148,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B0D0C2A25765AB600862DE0 /* 14、Block */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D0C2625765AB000862DE0 /* FlyFourteenController.h */,
+				7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */,
+			);
+			path = "14、Block";
+			sourceTree = "<group>";
+		};
 		7B0D92D7250A33D200CD6D9D = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 				7B0D9345250A33F600CD6D9D /* 11、沙盒深入理解 */,
 				7B0D9335250A33F600CD6D9D /* 12、绘制 */,
 				7B125B772546AD9200A780D1 /* 13、类簇 */,
+				7B0D0C2A25765AB600862DE0 /* 14、Block */,
 				7B0D931D250A33F600CD6D9D /* 绘制Context */,
 				7B0D930C250A33F600CD6D9D /* 录屏 */,
 				7B0D932A250A33F600CD6D9D /* 排序与链表 */,
@@ -528,6 +541,7 @@
 				7B0D9359250A33F600CD6D9D /* SalScreenShotTool.m in Sources */,
 				7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */,
 				7B0D935A250A33F600CD6D9D /* SalConverVideoTool.m in Sources */,
+				7B0D0C2825765AB000862DE0 /* FlyFourteenController.m in Sources */,
 				7B0D935D250A33F600CD6D9D /* Person.m in Sources */,
 				7B0D9370250A33F600CD6D9D /* FlyEighthController.m in Sources */,
 				7B0D9364250A33F600CD6D9D /* ViewController.m in Sources */,
@@ -678,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -702,6 +717,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SSS4ABYHYB;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
