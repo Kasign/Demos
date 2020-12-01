@@ -161,11 +161,19 @@
     });
     
     time += dis;
-    __weak typeof(self) weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         FLYClearLog(@"============>5<==========");
-        [weakSelf.displayLink setPaused:YES];
+        [view1 setFrame:CGRectMake(1, 1, 4, 4)];
+        [view1 setNeedsLayout];
         FLYClearLog(@"============>5<==========");
+    });
+    
+    time += dis;
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        FLYClearLog(@"============>Last<==========");
+        [weakSelf.displayLink setPaused:YES];
+        FLYClearLog(@"============>Last<==========");
     });
 }
 
