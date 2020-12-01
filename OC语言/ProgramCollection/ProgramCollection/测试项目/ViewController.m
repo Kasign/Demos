@@ -98,19 +98,19 @@
             vcNum = @"Fifteen";
             break;
         case 15:
-            vcNum = @"Fifteen";
-            break;
-        case 16:
-            vcNum = @"Fifteen";
-            break;
-        case 17:
             vcNum = @"Sixteen";
             break;
-        case 18:
+        case 16:
             vcNum = @"Seventeen";
             break;
-        case 19:
+        case 17:
             vcNum = @"Eighteen";
+            break;
+        case 18:
+            vcNum = @"Nineteen";
+            break;
+        case 19:
+            vcNum = @"Twenty";
             break;
             
         default:
