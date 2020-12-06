@@ -18,19 +18,22 @@
 
 @implementation FlyEighthController
 
+static id _Nullable (*fly_msgSendSuper)(id,SEL , ...) = (void *)objc_msgSendSuper;
+static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     //交换方法
     [self exchangeMethod];
     
-    id p = objc_msgSend(objc_getClass("Person"), sel_registerName("alloc"));
-    p = objc_msgSend(p, sel_registerName("init"));
+    id p = fly_msgSend(objc_getClass("Person"), sel_registerName("alloc"));
+    p = fly_msgSend(p, sel_registerName("init"));
     SEL run = sel_registerName("run");
-    objc_msgSend(p, run);
+    fly_msgSend(p, run);
     
     SEL sleep = sel_registerName("sleep");
-    objc_msgSend(p, sleep);
+    fly_msgSend(p, sleep);
     
     NSMutableArray * methodArray = [NSMutableArray array];
     unsigned int methodCount = 0;
@@ -61,8 +64,8 @@
     free(metaMethodList);
     
     
-    objc_msgSend([Person new], sel_registerName("walk"));
-    objc_msgSend([Person class], sel_registerName("dance"));
+    fly_msgSend([Person new], sel_registerName("walk"));
+    fly_msgSend([Person class], sel_registerName("dance"));
     
     
     Person *person = [Person new];
@@ -85,8 +88,8 @@
         }
     }
     if (lastImp) {
-        lastImp(p, lastSel);
-        objc_msgSend(p, lastSel);
+//        lastImp(p, lastSel);
+        fly_msgSend(p, lastSel);
     }
     free(methodlist);
     

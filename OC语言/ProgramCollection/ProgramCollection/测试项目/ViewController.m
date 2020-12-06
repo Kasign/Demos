@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"好的试验田";
+    self.title = @"试验田";
     _dataArr = @[@"1.😝", @"2.链表", @"3.排序算法", @"4.锁+多线程", @"5.View控件", @"6.黑科技", @"7.通知", @"8.runtime", @"9.runloop", @"10.重写KVO", @"11.沙盒深入理解", @"12.绘制", @"13.类簇", @"14.Block", @"xxx"];
     [self.view addSubview:self.tableView];
 }

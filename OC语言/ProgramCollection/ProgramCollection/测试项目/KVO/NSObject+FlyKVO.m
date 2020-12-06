@@ -12,6 +12,9 @@
 
 @implementation NSObject (FlyKVO)
 
+static id _Nullable (*fly_msgSendSuper)(id,SEL , ...) = (void *)objc_msgSendSuper;
+static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
+
 - (void)fly_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     
     if (![keyPath isKindOfClass:[NSString class]] || keyPath.length == 0) {
@@ -53,19 +56,19 @@ void flySetNumProperty(id instance, SEL selector, int value) {
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
     selectorName = [@"set" stringByAppendingFormat:@"%@:",selectorName];
     
-    id oldValue = objc_msgSend(instance, NSSelectorFromString(keyPath));
+    id oldValue = fly_msgSend(instance, NSSelectorFromString(keyPath));
     
     if (!oldValue) {
         oldValue = @0;
     }
     
     Class subClass = [instance class];
-    objc_msgSend(instance, @selector(willChangeValueForKey:), keyPath);
+    fly_msgSend(instance, @selector(willChangeValueForKey:), keyPath);
     object_setClass(instance, class_getSuperclass(subClass));
-    objc_msgSend(instance, NSSelectorFromString(selectorName), value);
+    fly_msgSend(instance, NSSelectorFromString(selectorName), value);
     object_setClass(instance, subClass);
-    objc_msgSend(observer, @selector(observeValueForKeyPath:ofObject:change:context:), keyPath, instance, @{@"old" : oldValue, @"new" : @(value)});
-    objc_msgSend(instance, @selector(didChangeValueForKey:), keyPath);
+    fly_msgSend(observer, @selector(observeValueForKeyPath:ofObject:change:context:), keyPath, instance, @{@"old" : oldValue, @"new" : @(value)});
+    fly_msgSend(instance, @selector(didChangeValueForKey:), keyPath);
 }
 
 
@@ -78,7 +81,7 @@ void flySetProperty(id instance, SEL selector, id value) {
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
     selectorName = [@"set" stringByAppendingFormat:@"%@:",selectorName];
     
-    id oldValue = objc_msgSend(instance, NSSelectorFromString(keyPath));
+    id oldValue = fly_msgSend(instance, NSSelectorFromString(keyPath));
     
     if (oldValue == nil) {
         oldValue = @"";
@@ -88,12 +91,12 @@ void flySetProperty(id instance, SEL selector, id value) {
     }
     
     Class subClass = [instance class];
-    objc_msgSend(instance, @selector(willChangeValueForKey:), keyPath);
+    fly_msgSend(instance, @selector(willChangeValueForKey:), keyPath);
     object_setClass(instance, class_getSuperclass(subClass));
-    objc_msgSend(instance, NSSelectorFromString(selectorName), value);
+    fly_msgSend(instance, NSSelectorFromString(selectorName), value);
     object_setClass(instance, subClass);
-    objc_msgSend(observer, @selector(observeValueForKeyPath:ofObject:change:context:), keyPath, instance, @{@"old" : oldValue, @"new" : value});
-    objc_msgSend(instance, @selector(didChangeValueForKey:), keyPath);
+    fly_msgSend(observer, @selector(observeValueForKeyPath:ofObject:change:context:), keyPath, instance, @{@"old" : oldValue, @"new" : value});
+    fly_msgSend(instance, @selector(didChangeValueForKey:), keyPath);
 }
 
 

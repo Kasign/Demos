@@ -142,14 +142,15 @@ static void lg_setter(id self,SEL _cmd,id newValue){
     NSString *keyPath = getterForSetter(NSStringFromSelector(_cmd));
     id oldValue       = [self valueForKey:keyPath];
     
-    void (*lg_msgSendSuper)(void *,SEL , id) = (void *)objc_msgSendSuper;
+    void (*lg_msgSendSuper)(void *, SEL, ...) = (void *)objc_msgSendSuper;
+    void (*lg_msgSend)(void *, SEL, ...) = (void *)objc_msgSend;
     // void /* struct objc_super *super, SEL op, ... */
     struct objc_super superStruct = {
         .receiver = self,
         .super_class = class_getSuperclass(object_getClass(self)),
     };
     //objc_msgSendSuper(&superStruct,_cmd,newValue)
-    lg_msgSendSuper(&superStruct,_cmd,newValue);
+    lg_msgSendSuper(&superStruct, _cmd, newValue);
     // 1: 拿到观察者
     NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey));
     
@@ -169,7 +170,7 @@ static void lg_setter(id self,SEL _cmd,id newValue){
                 }
                 // 2: 消息发送给观察者
                 SEL observerSEL = @selector(lg_observeValueForKeyPath:ofObject:change:context:);
-                objc_msgSend(info.observer,observerSEL,keyPath,self,change,NULL);
+                lg_msgSend((__bridge void *)(info.observer), observerSEL, keyPath, self, change, NULL);
             });
         }
     }

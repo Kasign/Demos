@@ -49,7 +49,9 @@
     NSString *urlStr = @"http://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
     
     NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
-    songUrl = [NSURL URLWithString:@"https://video.huishenghuo888888.com/douyin/20200119/FnPiWnrz/index.m3u8"];
+    songUrl = [NSURL URLWithString:@"https://video.huishenghuo888888.com/putong/20191224/kYDcU528/index.m3u8"];
+//https://video.huishenghuo888888.com/douyin/20191224/8lxbncRj/index.m3u8
+//https://video.huishenghuo888888.com/putong/20191224/kYDcU528/index.m3u8
     AVPlayerItem *songItem = [AVPlayerItem playerItemWithURL:songUrl];
     [songItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     _avPlayer = [AVPlayer playerWithPlayerItem:songItem];
@@ -66,7 +68,7 @@
 //        [songItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     
     NSURL * url = [NSURL URLWithString:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
-    url = [NSURL URLWithString:@"https://video.huishenghuo888888.com/douyin/20200119/FnPiWnrz/index.m3u8"];
+//    url = [NSURL URLWithString:@"https://video.huishenghuo888888.com/douyin/20200119/FnPiWnrz/index.m3u8"];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     _audioPlayer.volume = 1.0;
 //    [_audioPlayer play];
