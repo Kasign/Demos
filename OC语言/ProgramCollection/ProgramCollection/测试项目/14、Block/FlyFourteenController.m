@@ -11,6 +11,7 @@
 @interface FlyFourteenController ()
 
 @property (nonatomic, copy)   void (^kBlock)(int a);
+@property (nonatomic, copy)   void (^gBlock)(void);
 
 @end
 
@@ -19,17 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testBasicBlock];
+//    [self testBasicBlock];
+    [self testBlockCopy];
 }
 
 - (void)testBasicBlock {
     
-    // 3block
+    // 未持有外部变量
     // <__NSGlobalBlock__: 0x10cbfe088>
+    // 持有外部变量被copy之后
     // <__NSMallocBlock__: 0x600002cd8090>
-    // copy 之前
+    // 持有外部变量且被copy之前
     // <_NSStackBlock__: 0x7ffeeb763440>_
-    // 3 系统级别 - NSBlock
+    
+    
     
     int a = 10;
     //__NSGlobalBlock__
@@ -37,34 +41,61 @@
         NSLog(@"111");
     });
     
-    //__NSMallocBlock__
+    
+    
+    //__NSStackBlock__
     FLYClearLog(@"2 -> %@",^{
         NSLog(@"222 - %d", a);
     });
     
+    
+    
+    //__NSGlobalBlock__
     void (^block1)(void) = ^{
         FLYClearLog(@"333");
     };
-    
     block1();
-    //__NSGlobalBlock__
     FLYClearLog(@"3 -> %@", block1);
     
+    
+    
+    //__NSMallocBlock__
     void (^block2)(void) = ^{
         FLYClearLog(@"333 - %d", a);
     };
-    
     block2();
-    //__NSMallocBlock__
     FLYClearLog(@"4 -> %@", block2);
     
+    
+    
+    //__NSMallocBlock__
     void (^block3)(int) = ^(int b){
         NSLog(@"%d %d", b, a);
     };
-    FLYClearLog(@"5 -> %@", block3);
     self.kBlock = block3;
-    FLYClearLog(@"6 -> %@", block3);
-    FLYClearLog(@"7 -> %@", self.kBlock);
+    FLYClearLog(@"6 -> %@", self.kBlock);
+    
+    //__NSGlobalBlock__
+    void (^block4)(void) = ^{
+        NSLog(@"---");
+    };
+    self.gBlock = block4;
+    FLYClearLog(@"10 -> %@", self.gBlock);
+    
+    __weak __typeof(self) weakSelf = self;
+    void (^block5)(void) = ^{
+        NSLog(@"--- %@", weakSelf);
+    };
+    self.gBlock = block5;
+}
+
+- (void)testBlockCopy {
+    
+    __block int a = 20;
+    void (^block3)(int) = ^(int b){
+        NSLog(@"%d %d", b, a);
+    };
+    self.kBlock = block3;
 }
 
 @end
