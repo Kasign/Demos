@@ -10,6 +10,7 @@
 
 @interface FlyFourteenController ()
 
+@property (nonatomic, copy)   NSString  *  name;
 @property (nonatomic, copy)   void (^kBlock)(int a);
 @property (nonatomic, copy)   void (^gBlock)(void);
 
@@ -91,11 +92,18 @@
 
 - (void)testBlockCopy {
     
+    _name = @"abcd";
+    __block NSString * nameA = _name;
     __block int a = 20;
+    __weak __typeof(self) weakSelf = self;
     void (^block3)(int) = ^(int b){
-        NSLog(@"%d %d", b, a);
+        
+        NSLog(@"%d %d %@ %@", b, a, nameA, weakSelf.name);
+        nameA = @"bdcdd";
+        NSLog(@"%d %d %@", b, a, nameA);
     };
     self.kBlock = block3;
+    self.kBlock(2);
 }
 
 @end

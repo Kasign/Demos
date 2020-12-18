@@ -50,6 +50,7 @@
 		7B0D9374250A33F600CD6D9D /* FlyNinthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9352250A33F600CD6D9D /* FlyNinthController.m */; };
 		7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B702546ACF600A780D1 /* FlyThirteenController.m */; };
 		7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */; };
+		7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,9 @@
 		7B125B712546ACF600A780D1 /* FlyThirteenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThirteenController.h; sourceTree = "<group>"; };
 		7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBaseView.m; sourceTree = "<group>"; };
 		7B125B7B2546ADBB00A780D1 /* FlyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBaseView.h; sourceTree = "<group>"; };
+		7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifteenController.h; sourceTree = "<group>"; };
+		7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifteenController.m; sourceTree = "<group>"; };
+		7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProgramCollection.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 		7B0D92E2250A33D200CD6D9D /* ProgramCollection */ = {
 			isa = PBXGroup;
 			children = (
+				7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */,
 				7B0D92FC250A33F600CD6D9D /* 测试项目 */,
 				7B0D92E3250A33D200CD6D9D /* AppDelegate.h */,
 				7B0D92E4250A33D200CD6D9D /* AppDelegate.m */,
@@ -211,6 +216,7 @@
 				7B0D9335250A33F600CD6D9D /* 12、绘制 */,
 				7B125B772546AD9200A780D1 /* 13、类簇 */,
 				7B0D0C2A25765AB600862DE0 /* 14、Block */,
+				7BA37660258C82CC00F51EE8 /* 15、消息转发 */,
 				7B0D931D250A33F600CD6D9D /* 绘制Context */,
 				7B0D930C250A33F600CD6D9D /* 录屏 */,
 				7B0D932A250A33F600CD6D9D /* 排序与链表 */,
@@ -443,6 +449,15 @@
 			path = "13、类簇";
 			sourceTree = "<group>";
 		};
+		7BA37660258C82CC00F51EE8 /* 15、消息转发 */ = {
+			isa = PBXGroup;
+			children = (
+				7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */,
+				7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */,
+			);
+			path = "15、消息转发";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +534,7 @@
 				7B0D9371250A33F600CD6D9D /* FlyEleventhController.m in Sources */,
 				7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */,
 				39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */,
+				7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */,
 				7B0D92F6250A33D200CD6D9D /* main.m in Sources */,
 				7B0D935E250A33F600CD6D9D /* FlyRuntimeTool.m in Sources */,
 				7B0D9362250A33F600CD6D9D /* SalDrawTool.m in Sources */,
@@ -691,6 +707,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProgramCollection/ProgramCollection.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -708,6 +726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -716,6 +735,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProgramCollection/ProgramCollection.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -733,6 +754,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
