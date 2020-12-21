@@ -14,10 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - MJExtension (3.0.16)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
+  - MJExtension (3.2.2)
+  - SDWebImage (5.9.5):
+    - SDWebImage/Core (= 5.9.5)
+  - SDWebImage/Core (5.9.5)
   - YYAsyncLayer (1.0)
   - YYCache (1.0.4)
   - YYCategories (1.0.4):
@@ -65,8 +65,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  MJExtension: 54dbbf6ee728f1a88e9aad904353d007831c7847
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
+  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
@@ -79,4 +79,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aebd823fb4b9c52b19ce35b208f3b9f7a3b8b8fe
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.10.0

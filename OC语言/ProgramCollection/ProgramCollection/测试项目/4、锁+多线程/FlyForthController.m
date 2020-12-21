@@ -75,8 +75,7 @@
          • NSRecursiveLock
          • pthread_mutex(recursive)
  信号量（semaphore）：
-         是⼀种更⾼级的同步机制，互斥锁可以说是
-         semaphore在仅取值0/1时的特例。信号量可以有更多的取值空间，⽤来实
+         是⼀种更⾼级的同步机制，互斥锁可以说是semaphore在仅取值0/1时的特例。信号量可以有更多的取值空间，⽤来实
          现更加复杂的同步，⽽不单单是线程间互斥。
          • dispatch_semaphore
  
