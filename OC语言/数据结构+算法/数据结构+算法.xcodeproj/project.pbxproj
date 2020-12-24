@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3952DC4D243F4F900062AFEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3952DC4C243F4F900062AFEE /* main.m */; };
+		7B60604D259439AC00DA15F6 /* DictionOrderOutPut.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B60604C259439AC00DA15F6 /* DictionOrderOutPut.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		3952DC49243F4F900062AFEE /* 数据结构+算法 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "数据结构+算法"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3952DC4C243F4F900062AFEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B60604B259439AC00DA15F6 /* DictionOrderOutPut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionOrderOutPut.h; sourceTree = "<group>"; };
+		7B60604C259439AC00DA15F6 /* DictionOrderOutPut.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DictionOrderOutPut.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				3952DC4C243F4F900062AFEE /* main.m */,
+				7B60604B259439AC00DA15F6 /* DictionOrderOutPut.h */,
+				7B60604C259439AC00DA15F6 /* DictionOrderOutPut.c */,
 			);
 			path = "数据结构+算法";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B60604D259439AC00DA15F6 /* DictionOrderOutPut.c in Sources */,
 				3952DC4D243F4F900062AFEE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
