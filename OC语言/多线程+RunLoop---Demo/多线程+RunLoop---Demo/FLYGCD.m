@@ -127,8 +127,8 @@
 - (void)dealloc {
     
     if (_machPort) {
-        _machPort = nil;
         [self stopRunLoop];
+        _machPort = nil;
     }
 }
 
