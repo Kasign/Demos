@@ -88,27 +88,20 @@
 
 - (void)stopRunLoop {
     
-    NSLog(@"willStop - 0 %@", [NSThread currentThread]);
     if (_runLoop && _machPort) {
-        NSLog(@"willStop - 1 %@", [NSThread currentThread]);
         [_runLoop removePort:_machPort forMode:NSDefaultRunLoopMode];
 //        CFRunLoopStop(_runLoop.getCFRunLoop);//这里不能强制退出，可能还有任务未执行完
-        NSLog(@"willStop - 2 %@", [NSThread currentThread]);
     }
     _shouldKeepRunning = NO;
-    NSLog(@"willStop - 3 %@", [NSThread currentThread]);
     _thread  = nil;
     _runLoop = nil;
-    NSLog(@"willStop - 4 %@", [NSThread currentThread]);
 }
 
 - (void)asyncAddTask:(void(^)(void))task {
     
     if (_shouldKeepRunning) {
-        NSLog(@"asyncAddTask - 1");
         [_runLoop performBlock:task];
     } else {
-        NSLog(@"asyncAddTask - 2");
         dispatch_async(self.queue, task);
     }
 }
@@ -116,10 +109,8 @@
 - (void)syncAddTask:(void(^)(void))task {
     
     if (_shouldKeepRunning) {
-        NSLog(@"syncAddTask - 1");
         [_runLoop performBlock:task];
     } else {
-        NSLog(@"syncAddTask - 2");
         dispatch_sync(self.queue, task);
     }
 }

@@ -47,15 +47,13 @@
     
     
     NSString *urlStr = @"http://oss.newaircloud.com/xkycs/att/201708/10/6df537fb-3115-48ad-87db-bc28f8480bc6.mp3";
-    
-    NSURL * songUrl = [NSURL fileURLWithPath:@"/Users/qiushan/Desktop/+1408-996-1010_20190704103730.m4a"];
-    
+    urlStr = @"/Users/qiushan/Downloads/v.f30741 (1).ts";
+    NSURL * songUrl = [NSURL fileURLWithPath:urlStr];
+    songUrl = [NSURL URLWithString:@"https://1258712167.vod2.myqcloud.com/fb8e6c92vodtranscq1258712167/b7cdb1525285890797054472812/drm/v.f30741.ts?start=0&end=119897679&type=mpegts&t=600bd161&us=2446930785696721263&sign=911a62772ffaca75b9990ff7ebbde454"];
     AVPlayerItem *songItem = [AVPlayerItem playerItemWithURL:songUrl];
     [songItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     _avPlayer = [AVPlayer playerWithPlayerItem:songItem];
     _avPlayer.volume = 1;
-    
-    
     [_avPlayer play];
     
     AVPlayerLayer *avLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
@@ -100,8 +98,8 @@
 //    [_audioPlayer play];
 }
 
--(void)pauseSong
-{
+-(void)pauseSong {
+    
     [self putLog];
     [_avPlayer pause];
     [self putLog];

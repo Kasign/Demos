@@ -6,7 +6,7 @@
 //  Copyright © 2020 FLY. All rights reserved.
 //
 
-#import "FLYBaseThread.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, FLYThreadType) {
     FLYThreadType_CONCURRENT = 1,
 };
 
-@interface FLYGCD : FLYBaseThread
+@interface FLYGCD : NSObject
 
 @property (nonatomic, strong, readonly) dispatch_queue_t queue;
 @property (nonatomic, strong, readonly) NSRunLoop      * runLoop;

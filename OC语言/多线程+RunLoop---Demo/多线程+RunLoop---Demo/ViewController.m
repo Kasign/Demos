@@ -54,7 +54,7 @@ static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&si
 - (FLYGCD *)flyGCD {
     
     if (_flyGCD == nil) {
-        _flyGCD = [[FLYGCD alloc] init];
+        _flyGCD = [FLYGCD threadWithType:FLYThreadType_CONCURRENT];
     }
     return _flyGCD;
 }
@@ -83,14 +83,35 @@ static NSString * imageUrl = @"https://timgsa.baidu.com/timg?image&quality=80&si
 
 - (void)loadImageWithMulatiThread {
     
-    FLYBaseThread * thread = self.flyOperation;
+//    FLYBaseThread * thread = self.flyOperation;
+    
+    [self.flyGCD startRunLoop:@"com.fly.www"];
+    NSLog(@"---------------------\n%@\n%@", self.flyGCD.runLoop, self.flyGCD.thread);
+    
     int count = ROW_COUNT * COLUMN_COUNT;
-    for (int i= 0; i < count; ++i) {
+    int i = 0;
+    for (; i < 10; ++i) {
         
-        [thread addAction:^{
+//        [thread addAction:^{
+//            [self loadImage:[NSNumber numberWithInteger:i]];
+//        }];
+        
+        [self.flyGCD asyncAddTask:^{
             [self loadImage:[NSNumber numberWithInteger:i]];
         }];
     }
+    [self.flyGCD stopRunLoop];
+    for (; i < count; ++i) {
+        
+//        [thread addAction:^{
+//            [self loadImage:[NSNumber numberWithInteger:i]];
+//        }];
+        
+        [self.flyGCD syncAddTask:^{
+            [self loadImage:[NSNumber numberWithInteger:i]];
+        }];
+    }
+    NSLog(@"Finish");
 }
 
 - (void)loadImage:(NSNumber *)index {

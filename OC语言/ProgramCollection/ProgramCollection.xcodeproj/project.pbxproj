@@ -51,6 +51,7 @@
 		7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B702546ACF600A780D1 /* FlyThirteenController.m */; };
 		7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */; };
 		7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */; };
+		7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,8 @@
 		7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifteenController.h; sourceTree = "<group>"; };
 		7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifteenController.m; sourceTree = "<group>"; };
 		7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProgramCollection.entitlements; sourceTree = "<group>"; };
+		7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYGCD.m; sourceTree = "<group>"; };
+		7BCD2E6F25BFFFB600F3D4DB /* FLYGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYGCD.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,7 @@
 				7B0D9311250A33F600CD6D9D /* KVO */,
 				7B0D9306250A33F600CD6D9D /* Runloop */,
 				7B0D9314250A33F600CD6D9D /* runtime */,
+				7BCD2E7225BFFFBA00F3D4DB /* 多线程 */,
 			);
 			path = "测试项目";
 			sourceTree = "<group>";
@@ -458,6 +462,15 @@
 			path = "15、消息转发";
 			sourceTree = "<group>";
 		};
+		7BCD2E7225BFFFBA00F3D4DB /* 多线程 */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD2E6F25BFFFB600F3D4DB /* FLYGCD.h */,
+				7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */,
+			);
+			path = "多线程";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -563,6 +576,7 @@
 				7B0D9364250A33F600CD6D9D /* ViewController.m in Sources */,
 				7B0D9372250A33F600CD6D9D /* FlyTenthController.m in Sources */,
 				7B0D9355250A33F600CD6D9D /* FlyForthController.m in Sources */,
+				7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */,
 				7B0D935F250A33F600CD6D9D /* Dog.m in Sources */,
 				7B0D935B250A33F600CD6D9D /* NSObject+FlyKVO.m in Sources */,
 				7B0D9358250A33F600CD6D9D /* FlyPerformanceMonitor.m in Sources */,
@@ -726,7 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -754,7 +768,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.www.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
