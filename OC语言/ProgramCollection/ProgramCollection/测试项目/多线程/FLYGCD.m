@@ -7,13 +7,50 @@
 //
 
 #import "FLYGCD.h"
+
+@interface FLYMachPort : NSObject
+@property (nonatomic, strong) NSMachPort  * machPort;
+@end
+
+@interface FLYRunLoop : NSObject
+
+@property (nonatomic, strong) NSRunLoop * runLoop;
+@property (nonatomic, strong) NSThread  * thread;
+
+@end
+
+@implementation FLYRunLoop
+
+- (void)dealloc {
+    
+    NSLog(@"%s", __func__);
+}
+
+@end
+
+@implementation FLYMachPort
+
+- (NSMachPort *)machPort {
+    
+    if (_machPort == nil) {
+        _machPort = (NSMachPort *)[NSMachPort port];
+    }
+    return _machPort;
+}
+
+- (void)dealloc {
+    
+    NSLog(@"%s", __func__);
+}
+
+@end
+
 @interface FLYGCD ()
 
 @property (nonatomic, strong, readwrite) dispatch_queue_t queue;
-@property (nonatomic, strong, readwrite) NSRunLoop * runLoop;
-@property (nonatomic, strong, readwrite) NSThread  * thread;
-@property (nonatomic, strong) NSMachPort * machPort;
 
+@property (nonatomic, strong) FLYRunLoop  * runLoopObj;
+@property (nonatomic, strong) FLYMachPort * portObj;
 @property (nonatomic, assign) FLYThreadType type;
 @property (nonatomic, assign) BOOL          shouldKeepRunning;
 
@@ -47,33 +84,50 @@
     return _queue;
 }
 
-- (NSMachPort *)machPort {
+- (FLYMachPort *)portObj {
     
-    if (_machPort == nil) {
-        _machPort = [[NSMachPort alloc] init];
+    if (_portObj == nil) {
+        _portObj = [[FLYMachPort alloc] init];
     }
-    return _machPort;
+    return _portObj;
+}
+
+- (FLYRunLoop *)runLoopObj {
+    
+    if (_runLoopObj == nil) {
+        _runLoopObj = [[FLYRunLoop alloc] init];
+    }
+    return _runLoopObj;
+}
+
+- (NSRunLoop *)runLoop {
+    
+    return _runLoopObj.runLoop;
 }
 
 - (void)startRunLoopImmediatelyWithName:(NSString *)name {
     
-    if (self.queue && !_runLoop && !_thread) {
+    if (self.queue && !_runLoopObj) {
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         __weak __typeof(self) weakSelf = self;
         dispatch_async(_queue, ^{
             if (weakSelf.shouldKeepRunning) {
-                weakSelf.thread = [NSThread currentThread];
+                NSThread * thread = [NSThread currentThread];
                 if ([name isKindOfClass:[NSString class]]) {
-                    [weakSelf.thread setName:name];
+                    [thread setName:name];
                 } else {
-                    [weakSelf.thread setName:[NSString stringWithFormat:@"com.66rpg.www_%p", self]];
+                    [thread setName:[NSString stringWithFormat:@"com.66rpg.www_%p", self]];
                 }
-                weakSelf.runLoop = [NSRunLoop currentRunLoop];
-                [weakSelf.runLoop addPort:weakSelf.machPort forMode:NSDefaultRunLoopMode];
-                NSLog(@"已启动1： %@\n\n", weakSelf.thread);
+                weakSelf.runLoopObj.thread  = thread;
+                weakSelf.runLoopObj.runLoop = [NSRunLoop currentRunLoop];
+                [weakSelf.runLoopObj.runLoop addPort:weakSelf.portObj.machPort forMode:NSDefaultRunLoopMode];
                 dispatch_semaphore_signal(semaphore);
-                while (weakSelf.shouldKeepRunning && [weakSelf.runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
-                NSLog(@"已启动2： %@\n\n", weakSelf.thread);
+                while (weakSelf.shouldKeepRunning && [weakSelf.runLoopObj.runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+                if (weakSelf.runLoopObj.runLoop) {
+                    CFRunLoopStop(weakSelf.runLoopObj.runLoop.getCFRunLoop);
+                }
+                weakSelf.runLoopObj.runLoop = nil;
+                weakSelf.runLoopObj = nil;
             }
         });
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -88,19 +142,23 @@
 
 - (void)stopRunLoop {
     
-    if (_runLoop && _machPort) {
-        [_runLoop removePort:_machPort forMode:NSDefaultRunLoopMode];
-//        CFRunLoopStop(_runLoop.getCFRunLoop);//这里不能强制退出，可能还有任务未执行完
+    if (_runLoopObj.runLoop && _portObj) {
+        [_runLoopObj.runLoop removePort:_portObj.machPort forMode:NSDefaultRunLoopMode];
+        __weak __typeof(self) weakSelf = self;
+        [_runLoopObj.runLoop performBlock:^{
+            if (weakSelf.runLoopObj.runLoop) {
+                CFRunLoopStop(weakSelf.runLoopObj.runLoop.getCFRunLoop);
+            }
+        }];
     }
     _shouldKeepRunning = NO;
-    _thread  = nil;
-    _runLoop = nil;
+    _portObj = nil;
 }
 
 - (void)asyncAddTask:(void(^)(void))task {
     
     if (_shouldKeepRunning) {
-        [_runLoop performBlock:task];
+        [_runLoopObj.runLoop performBlock:task];
     } else {
         dispatch_async(self.queue, task);
     }
@@ -109,7 +167,7 @@
 - (void)syncAddTask:(void(^)(void))task {
     
     if (_shouldKeepRunning) {
-        [_runLoop performBlock:task];
+        [_runLoopObj.runLoop performBlock:task];
     } else {
         dispatch_sync(self.queue, task);
     }
@@ -117,10 +175,11 @@
 
 - (void)dealloc {
     
-    if (_machPort) {
+    if (_portObj) {
         [self stopRunLoop];
-        _machPort = nil;
+        _portObj = nil;
     }
+    NSLog(@"%s", __func__);
 }
 
 @end
