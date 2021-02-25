@@ -13,12 +13,19 @@
 
 + (void)load {
     
-    Method method = class_getInstanceMethod([Person class], @selector(drink));
-    IMP methodIMP = method_getImplementation(method);
-    const char *types = method_getTypeEncoding(method);
-    class_addMethod([Person class], sel_registerName("laught"), methodIMP, types);
+//    Method method = class_getInstanceMethod([Person class], @selector(drink));
+//    IMP methodIMP = method_getImplementation(method);
+//    const char *types = method_getTypeEncoding(method);
+//    class_addMethod([Person class], sel_registerName("laught"), methodIMP, types);
 //    class_replaceMethod(<#Class  _Nullable __unsafe_unretained cls#>, <#SEL  _Nonnull name#>, <#IMP  _Nonnull imp#>, <#const char * _Nullable types#>)
+    
+    NSLog(@"%s", __func__);
 }
+
+//+ (void)initialize {
+//
+//    NSLog(@"%s", __func__);
+//}
 
 - (void)eat {
     FLYLog(@"狗在吃");

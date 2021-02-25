@@ -24,31 +24,27 @@
     [super viewDidLoad];
     
     _p = [[Person alloc] init];
-    
-    
     _d = [[Dog alloc] init];
     
+    
 //    [_p addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
-    [_p fly_addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
-    
-    [FlyRuntimeTool loopInstanceSuperClass:_d];
-    
-    _p.name = @"nick";
+//    [_p fly_addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
+//
+//    [FlyRuntimeTool loopInstanceSuperClass:_d];
+//
+//    _p.name = @"nick";
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-    
     FLYLog(@" 来了 -->>%@ ---->>>>  %@", object, change);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    
-    _p.name = @"XIIXIXIXI";
-    _p.age  = _p.age ++;
+//    _p.name = @"XIIXIXIXI";
+//    _p.age  = _p.age ++;
 }
 
 @end

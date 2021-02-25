@@ -52,6 +52,7 @@
 		7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */; };
 		7B7C983B25E0AF5600FC8EC6 /* FlyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C983A25E0AF5600FC8EC6 /* FlyButton.m */; };
 		7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */; };
+		7BBB46DA25E76B340082F732 /* Dog+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB46D925E76B340082F732 /* Dog+Custom.m */; };
 		7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,8 @@
 		7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifteenController.h; sourceTree = "<group>"; };
 		7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifteenController.m; sourceTree = "<group>"; };
 		7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProgramCollection.entitlements; sourceTree = "<group>"; };
+		7BBB46D825E76B340082F732 /* Dog+Custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dog+Custom.h"; sourceTree = "<group>"; };
+		7BBB46D925E76B340082F732 /* Dog+Custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Dog+Custom.m"; sourceTree = "<group>"; };
 		7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYGCD.m; sourceTree = "<group>"; };
 		7BCD2E6F25BFFFB600F3D4DB /* FLYGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYGCD.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -309,6 +312,8 @@
 				7B0D9319250A33F600CD6D9D /* Person.m */,
 				7B0D931C250A33F600CD6D9D /* Person+Custom.h */,
 				7B0D9317250A33F600CD6D9D /* Person+Custom.m */,
+				7BBB46D825E76B340082F732 /* Dog+Custom.h */,
+				7BBB46D925E76B340082F732 /* Dog+Custom.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				7B0D935D250A33F600CD6D9D /* Person.m in Sources */,
 				7B0D9370250A33F600CD6D9D /* FlyEighthController.m in Sources */,
 				7B0D9364250A33F600CD6D9D /* ViewController.m in Sources */,
+				7BBB46DA25E76B340082F732 /* Dog+Custom.m in Sources */,
 				7B0D9372250A33F600CD6D9D /* FlyTenthController.m in Sources */,
 				7B0D9355250A33F600CD6D9D /* FlyForthController.m in Sources */,
 				7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */,

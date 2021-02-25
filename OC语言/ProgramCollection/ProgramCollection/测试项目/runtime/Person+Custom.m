@@ -10,6 +10,16 @@
 #import <objc/runtime.h>
 @implementation Person (Custom)
 
++ (void)load {
+    
+    NSLog(@"%s", __func__);
+}
+
+//+ (void)initialize {
+//
+//    NSLog(@"%s", __func__);
+//}
+
 //- (void)run {
 //    
 //    FLYLog(@"人在跑");
