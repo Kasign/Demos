@@ -180,8 +180,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    _lockType = @"@synchronized";
-    _lockType = @"dispatch_semaphore";
+    _lockType = @"@synchronized";
+//    _lockType = @"dispatch_semaphore";
 //    _lockType = @"nslock";
 //    _lockType = @"NSRecursiveLock";
 //    _lockType = @"pthread_mutex_t";
@@ -342,8 +342,8 @@
 {
     dispatch_queue_t queue = nil;
 //    queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    queue = dispatch_queue_create("abc", DISPATCH_QUEUE_CONCURRENT);
-//    queue = dispatch_queue_create("bcd", DISPATCH_QUEUE_SERIAL);
+//    queue = dispatch_queue_create("abc", DISPATCH_QUEUE_CONCURRENT);
+    queue = dispatch_queue_create("bcd", DISPATCH_QUEUE_SERIAL);
     
     FLYLog(@"*** 外部1 ***");
     dispatch_async(queue, ^{

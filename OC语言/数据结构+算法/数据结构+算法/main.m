@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
+#import "DictionOrderOutPut.h"
+
 typedef int Element;
 
 struct Node {
@@ -16,10 +18,11 @@ struct Node {
     struct Node * next;
 };
 
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        SKTexture * text = nil;
+        outPutNums(9, 2);
         NSLog(@"Hello, World!");
     }
     return 0;
