@@ -185,10 +185,107 @@
 //    _lockType = @"nslock";
 //    _lockType = @"NSRecursiveLock";
 //    _lockType = @"pthread_mutex_t";
-    [self startTest];
+//    [self startTestLock];
+    [self startTestThread];
 }
 
-- (void)startTest
+#pragma mark - Thread
+- (void)startTestThread
+{
+    FLYLog(@"------------------------Start-----------------------");
+    [self testThread];
+    FLYLog(@"------------------------End-----------------------");
+}
+
+
+- (void)testThread
+{
+    [self testDispatch];
+}
+
+
+/// dispatch_sync 任务立即执行，不会开启新线程，在当前线程执行
+/**
+ 线程 队列的关系
+ async + 主队列  延后到主线程执行任务
+ sync  + 主队列  如果当前是在主线程 -> 死锁，如果不在主线程 -> 切到主线程立即执行
+ 
+ async + 串行队列 开启一个新的子线程，按顺序执行任务
+ async + 并发队列 开启多个新的子线程，并发执行
+ sync  + 串行队列（非主） 如果处于非当前串行队列任务中，则在当前所处于的线程，立即执行任务，如果在当前串行队列任务中，则死锁
+ sync  + 并发队列 由于并发队列并不要求任务按顺序执行，所以不管是否在自己队列的任务内，都是在当前线程立即执行任务，并不会创建新线程。
+ 
+ 
+ 并发队列：任务不必按顺序执行
+ 串行队列：任务只能按顺序执行
+ 
+ 异步执行：添加到当前队列，开启新的子线程稍后执行
+ 同步执行：添加到当前队列，当前线程立即执行
+ 
+ */
+- (void)testDispatch
+{
+    
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(0, 0);
+    dispatch_queue_t serialQueue = dispatch_queue_create("bcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("abc", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_queue_t currentQ = concurrentQueue;
+    
+    dispatch_async(currentQ, ^{
+        
+        FLYLog(@"当前线程：%@", [NSThread currentThread]);
+        __block int a = 0;
+        __block NSRunLoop * runloop = nil;
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 1"];
+            runloop = [NSRunLoop currentRunLoop];
+            [runloop addPort:[NSMachPort port] forMode:NSRunLoopCommonModes];
+        });
+        [runloop run];
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 2"];
+        });
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 3"];
+        });
+        
+        while (a < 5) {
+            dispatch_sync(currentQ, ^{
+                a ++;
+                FLYLog(@"sync currentQ %@ - %d", [NSThread currentThread], a);
+            });
+        }
+        
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 4"];
+        });
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            FLYLog(@"sync main %@ - %d", [NSThread currentThread], a);
+        });
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            FLYLog(@"async main %@ - %d", [NSThread currentThread], a);
+        });
+        
+        dispatch_async(currentQ, ^{
+            FLYLog(@"最终结果 ***** %@ - %d", [NSThread currentThread], a);
+        });
+        
+        FLYLog(@" >>>> --- >>> %d", a);
+    });
+}
+
+- (void)logNum:(int)num
+{
+    FLYLog(@"start-->> %d %@", num, [NSThread currentThread]);
+    sleep(3);
+    FLYLog(@"  end-->> %d %@", num, [NSThread currentThread]);
+}
+
+#pragma mark - Thread & Lock
+- (void)startTestLock
 {
     FLYLog(@" ---->>>>> 当前锁类型：%@", _lockType);
     FLYLog(@"------------------------Start-----------------------");
@@ -200,27 +297,6 @@
         [self lockTest2];
     }
     FLYLog(@"------------------------End-----------------------");
-}
-
-- (void)testDispatch
-{
-    __block int a = 0;
-    while (a < 5) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            a ++;
-            FLYLog(@"%@ - %d", [NSThread currentThread], a);
-        });
-    }
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        FLYLog(@"最终结果 ***** %@ - %d", [NSThread currentThread], a);
-    });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        FLYLog(@"%d", a);
-    });
-    
-    FLYLog(@" >>>>--- >>> %d", a);
 }
 
 - (BOOL)fly_lock
