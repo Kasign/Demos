@@ -18,11 +18,23 @@
 
 @implementation FlyFourteenController
 
+/**
+ 这里总结block对外界变量的捕获
+ 局部变量：
+    block结构体直接持有
+ 静态变量：
+    block结构体持有指向该变量的指针(&)
+ 全局变量：
+    block结构体不持有该变量，在block内部imp内直接操作
+ __block 修饰的变量
+    block结构体持有指向该变量结构体的指针(&)，该结构体的forwarding指向堆copy的新结构体，改变值的时候，只改变堆内的新结构体的值
+ 
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self testBasicBlock];
-    [self testBlockCopy];
+    [self testBasicBlock];
+//    [self testBlockCopy];
 }
 
 - (void)testBasicBlock {
@@ -34,8 +46,6 @@
     // 持有外部变量且被copy之前
     // <_NSStackBlock__: 0x7ffeeb763440>_
     
-    
-    
     int a = 10;
     //__NSGlobalBlock__
     FLYClearLog(@"1 -> %@",^{
@@ -43,12 +53,10 @@
     });
     
     
-    
     //__NSStackBlock__
     FLYClearLog(@"2 -> %@",^{
         NSLog(@"222 - %d", a);
     });
-    
     
     
     //__NSGlobalBlock__
@@ -104,6 +112,16 @@
     };
     self.kBlock = block3;
     self.kBlock(2);
+}
+
+- (void)testBlockArr {
+    
+    NSMutableArray * arr = [NSMutableArray array];
+    void (^block)(void) = ^() {
+        [arr addObject:@"abcd_2"];
+    };
+    block();
+    NSLog(@"%@", arr);
 }
 
 @end
