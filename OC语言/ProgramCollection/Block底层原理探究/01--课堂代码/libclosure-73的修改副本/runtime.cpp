@@ -190,7 +190,7 @@ Internal Support routines for copying
 #endif
 
 // Copy, or bump refcount, of a block.  If really copying, call the copy helper if present.
-// 栈 -> 堆 研究拷贝
+#pragma mark 栈 -> 堆 研究拷贝
 void *_Block_copy(const void *arg) {
     struct Block_layout *aBlock;
 
@@ -238,6 +238,7 @@ void *_Block_copy(const void *arg) {
 
 /// 这里处理__block修饰变量形成的结构体的copy
 /// @param arg   __block修饰变量形成的结构体
+#pragma mark __block修饰变量形成的结构体
 static struct Block_byref *_Block_byref_copy(const void *arg) {
     struct Block_byref *src = (struct Block_byref *)arg;
 
@@ -453,6 +454,7 @@ So the __block copy/dispose helpers will generate flag values of 3 or 7 for obje
  
  */
 
+#pragma mark 二次copy
 void _Block_object_assign(void *destArg, const void *object, const int flags) {
     const void **dest = (const void **)destArg;
     switch (os_assumes(flags & BLOCK_ALL_COPY_DISPOSE_FLAGS)) {

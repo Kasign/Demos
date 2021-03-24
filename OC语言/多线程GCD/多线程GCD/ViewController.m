@@ -22,6 +22,7 @@
 }
 
 @property (nonatomic, strong) FLYTimer * timer;
+@property (nonatomic, strong) dispatch_queue_t  queue;
 
 @end
 
@@ -61,41 +62,141 @@ static NSString *imageUrl = @"https://img5q.duitang.com/uploads/item/201506/23/2
 //    [self.timer resume];
 }
 
-- (void)loadImageWithMulatiThread{
+- (void)loadImageWithMulatiThread {
+    
+//    [self testA];
+    [self testC];
+}
+
+- (void)safeWriteData:(void(^)(void))block {
+    
+//    NSLog(@"safe 1 -- 1");
+    dispatch_barrier_sync(_queue, ^{
+//        NSLog(@"safe 1 -- 2");
+        if (block) {
+            block();
+        }
+    });
+}
+
+- (void)safeReadData:(void(^)(void))block {
+    
+//    NSLog(@"safe 2 -- 1");
+    dispatch_sync(_queue, ^{
+//        NSLog(@"safe 2 -- 2");
+        if (block) {
+            block();
+        }
+    });
+}
+
+- (void)testC {
+    
+    _queue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+    
+    dispatch_queue_t serialQueue = dispatch_queue_create("aa", DISPATCH_QUEUE_SERIAL);//串行队列
+    dispatch_queue_t concurrentQueue1 = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+    dispatch_queue_t concurrentQueue  = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+
+    __block int j = 0;
+    int i = 0;
+    for (; i < 20; i ++) {
+        [self safeReadData:^{
+            NSLog(@"读取4 ： %d %d", i, j);
+        }];
+        dispatch_async(concurrentQueue1, ^{
+            [self safeReadData:^{
+                NSLog(@"读取6 ： %d %d", i, j);
+            }];
+        });
+        dispatch_async(concurrentQueue1, ^{
+            [self safeWriteData:^{
+                j ++;
+                NSLog(@"写入1 ： %d %d", i, j);
+            }];
+        });
+        dispatch_async(concurrentQueue1, ^{
+            [self safeWriteData:^{
+                j ++;
+                NSLog(@"写入2 ： %d %d", i, j);
+            }];
+        });
+        dispatch_async(concurrentQueue1, ^{
+            [self safeReadData:^{
+                NSLog(@"读取1 ： %d %d", i, j);
+            }];
+            [self safeReadData:^{
+                NSLog(@"读取2 ： %d %d", i, j);
+            }];
+        });
+        dispatch_async(concurrentQueue1, ^{
+            [self safeReadData:^{
+                NSLog(@"读取5 ： %d %d", i, j);
+            }];
+        });
+        [self safeReadData:^{
+            NSLog(@"读取3 ： %d %d", i, j);
+        }];
+    }
+}
+
+- (void)testA {
+    
+    dispatch_queue_t serialQueue = dispatch_queue_create("aa", DISPATCH_QUEUE_SERIAL);//串行队列
+    dispatch_queue_t concurrentQueue1 = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+    dispatch_queue_t concurrentQueue  = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
+
+    __block int j = 0;
+    int i = 0;
+    for (; i < 20; i ++) {
+        dispatch_async(concurrentQueue1, ^{
+            NSLog(@"1 0-->> %@ %d", [NSThread currentThread], i);
+            NSLog(@"1 1-->> %@ %d", [NSThread currentThread], i);
+            dispatch_barrier_sync(concurrentQueue, ^{
+                j ++;
+                NSLog(@"  2 ----->> %@ %d", [NSThread currentThread], j);
+            });
+            NSLog(@"1 2-->> %@ %d", [NSThread currentThread], i);
+            NSLog(@"1 3-->> %@ %d", [NSThread currentThread], i);
+        });
+    }
+}
+
+- (void)testB {
     
     dispatch_queue_t serialQueue = dispatch_queue_create("aa", DISPATCH_QUEUE_SERIAL);//串行队列
     dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
     //
     //
-        dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_SERIAL), ^{
-    
-//            dispatch_sync(serialQueue, ^{
-//                [self loadImage:@5];
+//        dispatch_async(dispatch_queue_create("abcd", DISPATCH_QUEUE_SERIAL), ^{
+//
+////            dispatch_sync(serialQueue, ^{
+////                [self loadImage:@5];
+////            });
+////            dispatch_sync(serialQueue, ^{
+////                [self loadImage:@6];
+////            });
+////            dispatch_sync(serialQueue, ^{
+////                [self loadImage:@7];
+////            });
+////            dispatch_sync(serialQueue, ^{
+////                [self loadImage:@8];
+////            });
+//            [self loadImage:@4];
+//            dispatch_async(serialQueue, ^{
+//                [self loadImage:@0];
 //            });
-//            dispatch_sync(serialQueue, ^{
-//                [self loadImage:@6];
+//            dispatch_async(serialQueue, ^{
+//                [self loadImage:@1];
 //            });
-//            dispatch_sync(serialQueue, ^{
-//                [self loadImage:@7];
+//            dispatch_async(serialQueue, ^{
+//                [self loadImage:@2];
 //            });
-//            dispatch_sync(serialQueue, ^{
-//                [self loadImage:@8];
+//            dispatch_async(serialQueue, ^{
+//                [self loadImage:@3];
 //            });
-            [self loadImage:@4];
-            dispatch_async(serialQueue, ^{
-                [self loadImage:@0];
-            });
-            dispatch_async(serialQueue, ^{
-                [self loadImage:@1];
-            });
-            dispatch_async(serialQueue, ^{
-                [self loadImage:@2];
-            });
-            dispatch_async(serialQueue, ^{
-                [self loadImage:@3];
-            });
-    
-        });
+//
+//        });
 
     
 //        dispatch_async(serialQueue, ^{
@@ -202,47 +303,54 @@ static NSString *imageUrl = @"https://img5q.duitang.com/uploads/item/201506/23/2
     
 //    
 //    dispatch_queue_t concurrentQueue = dispatch_queue_create("abcd", DISPATCH_QUEUE_CONCURRENT);//并行队列
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@0];
-//        //读取数据0
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@1];
-//        //读取数据1
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@2];
-//        //读取数据2
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@3];
-//        //读取数据3
-//    });
-////    dispatch_barrier_async(concurrentQueue, ^{
-////        [self loadImage:@4];
-////       //异步栅栏写入数据4
-////    });
-//    dispatch_barrier_sync(concurrentQueue, ^{
-//        [self loadImage:@4];
-//        //同步栅栏写入数据4
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@5];
-//        //读取数据5
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@6];
-//        //读取数据6
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@7];
-//        //读取数据7
-//    });
-//    dispatch_async(concurrentQueue, ^{
-//        [self loadImage:@8];
-//        //读取数据8
-//    });
-//    [self loadImage:@9];
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@0 message:nil];
+        //读取数据0
+    });
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@1 message:nil];
+        //读取数据1
+    });
+    
+    dispatch_sync(concurrentQueue, ^{
+        [self loadImageWithIndex:@3 message:@"同步任务"];
+        //读取数据3
+    });
+    
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@2 message:nil];
+        //读取数据2
+    });
+    __block NSInteger a = 2;
+    dispatch_barrier_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@4 message:@"异步栅栏"];
+       //异步栅栏写入数据4
+        a = 3;
+    });
+    NSLog(@"-->> %ld", (long)a);
+    dispatch_barrier_sync(concurrentQueue, ^{
+        [self loadImageWithIndex:@4 message:@"同步栅栏"];
+        //同步栅栏写入数据4
+        a = 4;
+    });
+    NSLog(@"-->> %ld", (long)a);
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@5 message:nil];
+        //读取数据5
+    });
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@6 message:nil];
+        //读取数据6
+    });
+    dispatch_sync(concurrentQueue, ^{
+        [self loadImageWithIndex:@7 message:@"同步任务"];
+        //读取数据7
+    });
+    dispatch_async(concurrentQueue, ^{
+        [self loadImageWithIndex:@8 message:nil];
+        //读取数据8
+    });
+    [self loadImage:@9];
     
 }
 
@@ -270,9 +378,9 @@ static NSString *imageUrl = @"https://img5q.duitang.com/uploads/item/201506/23/2
     NSLog(@"执行：%@ 线程信息：%@",index,[NSThread currentThread]);
     int i = [index intValue];
     sleep(0.5);//等待两秒
-    NSData *data = [self requestData:i];
+    
     FlyImageData *imageData = [[FlyImageData alloc] init];
-    imageData.data = data;
+    imageData.data = nil;
     imageData.index = i;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -281,19 +389,26 @@ static NSString *imageUrl = @"https://img5q.duitang.com/uploads/item/201506/23/2
     
 }
 
-- (void)updateImage:(FlyImageData*)imageData {
+- (void)loadImageWithIndex:(NSNumber *)index message:(NSString *)message {
     
-    UIImage *image = [UIImage imageWithData:imageData.data];
-    UIImageView *imageView = _imageViews[imageData.index];
-    imageView.image = image;
-    //    NSLog(@"%d",imageData.index);
+    NSLog(@"执行：%@ 线程信息：%@ %@", index, [NSThread currentThread], message);
+    int i = [index intValue];
+    sleep(0.5);//等待
+    FlyImageData *imageData = [[FlyImageData alloc] init];
+    imageData.data = nil;
+    imageData.index = i;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateImage:imageData];
+    });
 }
 
-- (NSData*)requestData:(int)index {
+- (void)updateImage:(FlyImageData*)imageData {
     
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    return data;
+//    UIImage * image = [UIImage imageWithData:imageData.data];
+//    UIImageView *imageView = _imageViews[imageData.index];
+//    imageView.image = image;
+    //    NSLog(@"%d",imageData.index);
 }
 
 
