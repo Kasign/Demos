@@ -51,7 +51,7 @@
 //        NSString * msg = [NSString stringWithFormat:@"%f", date];
 ////        [scene setDebugMessage:msg];
 //
-////        SALLog(@" ---->>>%f", date);
+////        NSLog(@" ---->>>%f", date);
 //
 //        NSString * audioFileName = [NSString stringWithFormat:@"audio_%d.aac", item];
 //

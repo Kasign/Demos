@@ -7,7 +7,7 @@
 //
 
 #import "FlyRunloopTool.h"
-#import <CrashReporter/CrashReporter.h>
+//#import <CrashReporter/CrashReporter.h>
 
 
 @interface FlyRunloopTool ()
@@ -103,14 +103,15 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
 
 - (NSString *)getCurrentTrack {
     
-    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
-    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
-    
-    NSData * data = [crashReporter generateLiveReport];
-    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
-    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter withTextFormat:PLCrashReportTextFormatiOS];
-    
-    return report;
+//    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
+//    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
+//    
+//    NSData * data = [crashReporter generateLiveReport];
+//    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
+//    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter withTextFormat:PLCrashReportTextFormatiOS];
+//    
+//    return report;
+    return nil;
 }
 
 - (NSTimeInterval)getCurrentTime {

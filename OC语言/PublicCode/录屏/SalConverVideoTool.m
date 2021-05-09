@@ -86,10 +86,10 @@
 //                        [self addAudioToVideoAudioPath:audioPath videoPath:videoPath completion:^(BOOL isSuccess) {
 //                            
 //                            if (isSuccess) {
-//                                SALLog(@"-------------音视频合成完成------------\n%@", videoPath);
+//                                NSLog(@"-------------音视频合成完成------------\n%@", videoPath);
 //                                
 //                            } else {
-//                                SALLog(@"-----音视频合成失败-----\n%@", videoPath);
+//                                NSLog(@"-----音视频合成失败-----\n%@", videoPath);
 //                            }
 //                            
 //                            if (block) {
@@ -99,7 +99,7 @@
 //                            }
 //                        }];
 //                    } else {
-//                        SALLog(@"-----视频合成失败-----\n%@", videoPath);
+//                        NSLog(@"-----视频合成失败-----\n%@", videoPath);
 //                        if (block) {
 //                            [self operationInMainQueue:^{
 //                                block(isSuccess);
@@ -126,7 +126,7 @@
 //    NSParameterAssert(videoWriter);
 //    
 //    if(error) {
-//        SALLog(@"error = %@", [error localizedDescription]);
+//        NSLog(@"error = %@", [error localizedDescription]);
 //        return nil;
 //    }
 //    
@@ -206,7 +206,7 @@
 //                    } else {
 //                        progress = [progress stringByAppendingString:@" - OK"];
 //                    }
-//                    SALLog(@"%@", progress);
+//                    NSLog(@"%@", progress);
 //                }
 //                
 //                if(++frame >= [imageArray count] * countPerFrame) {
@@ -420,7 +420,7 @@
 //        //导出
 //        [assetExport exportAsynchronouslyWithCompletionHandler:^{
 //            
-//            SALLog(@"*->>合成音视频进度:%.1f error:%@", weakAssetExport.progress, weakAssetExport.error);
+//            NSLog(@"*->>合成音视频进度:%.1f error:%@", weakAssetExport.progress, weakAssetExport.error);
 //            
 //            /*
 //             AVAssetExportSessionStatusUnknown = 0,
@@ -481,23 +481,23 @@
 //        [exportSession exportAsynchronouslyWithCompletionHandler:^(void){
 //            switch (exportSession.status) {
 //                case AVAssetExportSessionStatusUnknown: {
-//                    SALLog(@"AVAssetExportSessionStatusUnknown");
+//                    NSLog(@"AVAssetExportSessionStatusUnknown");
 //                    break;
 //                }
 //                case AVAssetExportSessionStatusWaiting: {
-//                    SALLog(@"AVAssetExportSessionStatusWaiting");
+//                    NSLog(@"AVAssetExportSessionStatusWaiting");
 //                    break;
 //                }
 //                case AVAssetExportSessionStatusExporting: {
-//                    SALLog(@"AVAssetExportSessionStatusExporting");
+//                    NSLog(@"AVAssetExportSessionStatusExporting");
 //                    break;
 //                }
 //                case AVAssetExportSessionStatusFailed: {
-//                    SALLog(@"AVAssetExportSessionStatusFailed error:%@", exportSession.error);
+//                    NSLog(@"AVAssetExportSessionStatusFailed error:%@", exportSession.error);
 //                    break;
 //                }
 //                case AVAssetExportSessionStatusCompleted: {
-//                    SALLog(@"AVAssetExportSessionStatusCompleted");
+//                    NSLog(@"AVAssetExportSessionStatusCompleted");
 //                    dispatch_async(dispatch_get_main_queue(),^{
 //                        if (completed) {
 //                            completed(YES);
@@ -506,7 +506,7 @@
 //                    break;
 //                }
 //                default: {
-//                    SALLog(@"AVAssetExportSessionStatusCancelled");
+//                    NSLog(@"AVAssetExportSessionStatusCancelled");
 //                    break;
 //                }
 //            }

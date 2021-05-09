@@ -7,7 +7,9 @@
 //
 
 #import "FlyPerformanceMonitor.h"
-#import <CrashReporter/CrashReporter.h>
+//#import <CrashReporter/CrashReporter.h>
+//#import "CrashReporter.h"
+#import <sys/sysctl.h>
 
 @interface FlyPerformanceMonitor ()
 
@@ -100,16 +102,16 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
                         continue;
                     }
                     
-                    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD
-                                                                                        symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
-                    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
-                    
-                    NSData * data = [crashReporter generateLiveReport];
-                    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
-                    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter
-                                                                               withTextFormat:PLCrashReportTextFormatiOS];
-                    
-                    FLYLog(@"卡顿了------------\n%@\n------------", report);
+//                    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD
+//                                                                                        symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
+//                    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
+//
+//                    NSData * data = [crashReporter generateLiveReport];
+//                    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
+//                    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter
+//                                                                               withTextFormat:PLCrashReportTextFormatiOS];
+//
+//                    FLYLog(@"卡顿了------------\n%@\n------------", report);
                 }
             }
             self.timeoutCount = 0;
@@ -119,32 +121,32 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 
 - (void)updateCPUInfo
 {
-    thread_act_array_t threads;
-    mach_msg_type_number_t threadCount = 0;
-    const task_t thisTask = mach_task_self();
-    kern_return_t kr = task_threads(thisTask, &threads, &threadCount);
-    if (kr != KERN_SUCCESS) {
-        return;
-    }
-    for (int i = 0; i < threadCount; i++) {
-        thread_info_data_t threadInfo;
-        thread_basic_info_t threadBaseInfo;
-        mach_msg_type_number_t threadInfoCount = THREAD_INFO_MAX;
-        if (thread_info((thread_act_t)threads[i], THREAD_BASIC_INFO, (thread_info_t)threadInfo, &threadInfoCount) == KERN_SUCCESS) {
-            threadBaseInfo = (thread_basic_info_t)threadInfo;
-            if (!(threadBaseInfo->flags & TH_FLAGS_IDLE)) {
-                integer_t cpuUsage = threadBaseInfo->cpu_usage / 10;
-                if (cpuUsage > 70) {
-                    //cup 消耗大于 70 时打印和记录堆栈
-                    //                        NSString *reStr = smStackOfThread(threads[i]);
-                    //记录数据库中
-                    //                    [[[SMLagDB shareInstance] increaseWithStackString:reStr] subscribeNext:^(id x) {}];
-                    //                        NSLog(@"CPU useage overload thread stack：\n%@",reStr);
-//                    FLYLog(@"CPU useage overload thread stack %@", GetCurrentStackInfo());
-                }
-            }
-        }
-    }
+//    thread_act_array_t threads;
+//    mach_msg_type_number_t threadCount = 0;
+//    const task_t thisTask = mach_task_self();
+//    kern_return_t kr = task_threads(thisTask, &threads, &threadCount);
+//    if (kr != KERN_SUCCESS) {
+//        return;
+//    }
+//    for (int i = 0; i < threadCount; i++) {
+//        thread_info_data_t threadInfo;
+//        thread_basic_info_t threadBaseInfo;
+//        mach_msg_type_number_t threadInfoCount = THREAD_INFO_MAX;
+//        if (thread_info((thread_act_t)threads[i], THREAD_BASIC_INFO, (thread_info_t)threadInfo, &threadInfoCount) == KERN_SUCCESS) {
+//            threadBaseInfo = (thread_basic_info_t)threadInfo;
+//            if (!(threadBaseInfo->flags & TH_FLAGS_IDLE)) {
+//                integer_t cpuUsage = threadBaseInfo->cpu_usage / 10;
+//                if (cpuUsage > 70) {
+//                    //cup 消耗大于 70 时打印和记录堆栈
+//                    //                        NSString *reStr = smStackOfThread(threads[i]);
+//                    //记录数据库中
+//                    //                    [[[SMLagDB shareInstance] increaseWithStackString:reStr] subscribeNext:^(id x) {}];
+//                    //                        NSLog(@"CPU useage overload thread stack：\n%@",reStr);
+////                    FLYLog(@"CPU useage overload thread stack %@", GetCurrentStackInfo());
+//                }
+//            }
+//        }
+//    }
 }
 
 + (void)beginMonitor

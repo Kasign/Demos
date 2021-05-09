@@ -54,7 +54,6 @@ extern void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetB
 /// visibleRect drawRect内的区域
 /// @param imageBuffer 当前buffer
 /// @param drawStruct image数据信息
-/// @param drawRect 绘制区域，与scale相乘之后的数据
 /// @param visibleRect 可见区域，与scale相乘之后的数据
 extern void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect);
 
@@ -64,9 +63,9 @@ extern void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageIn
 /// @param visibleArea （0 ~ 1.0）
 extern void SALImageBufferSetVisibleArea(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleArea);
 
-extern CGColorSpaceRef SALGetColorSpace();
+extern CGColorSpaceRef SALGetColorSpace(void);
 
-extern void SALFreeStack();
+extern void SALFreeStack(void);
 
 /// 对Rect进行等比运算
 /// @param rect 原始Rect

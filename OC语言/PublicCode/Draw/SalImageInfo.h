@@ -55,7 +55,7 @@ extern SALImageInfoStruct SALImageStructMake(CGSize showSize, size_t scale);
 extern SALImageInfoStruct StructInitWithImgRef(CGImageRef imgRef, size_t scale);
 extern UIImage * SALImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrientation orientation);
 const static CGBitmapInfo SALBitmapInfo = kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedLast;//CGImageGetBitmapInfo(oriImgRef)
-extern CGColorSpaceRef SALGetColorSpace();
+extern CGColorSpaceRef SALGetColorSpace(void);
 
 #pragma mark - SalImageInfo
 @interface SalImageInfo : NSObject <NSCopying, NSSecureCoding>

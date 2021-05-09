@@ -8,7 +8,6 @@
 //  绘制
 
 #import "FlyTwelfthController.h"
-#import "FlyDrawManager.h"
 
 @interface FlyTwelfthController ()
 

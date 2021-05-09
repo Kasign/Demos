@@ -7,7 +7,7 @@
 //
 
 #import "SalDrawTool.h"
-#import "SalRectManager.h"
+#import "SalCMethod.h"
 
 #pragma mark - ↓↓--C FUN--↓↓
 /*
@@ -472,7 +472,7 @@ void DrawPixBuffer(uint8_t * pixBufferD, uint8_t * pixBufferS, CGBlendMode mixMo
 CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL * needRelease) {
 
     //转换int消除精度问题
-    cropRect = [SalRectManager getDirctRect:cropRect];
+    cropRect = SalDirctRect(cropRect);
     
     CGImageRef imagePartRef = NULL;
     if (imageRef && CGRectContainsRect(CGRectMake(0, 0, oriSize.width, oriSize.height), cropRect) && !CGRectEqualToRect(CGRectMake(0, 0, oriSize.width, oriSize.height), cropRect)) {
@@ -496,7 +496,7 @@ CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect,
     return imagePartRef;
 }
 
-void SALFreeStack() {
+void SALFreeStack(void) {
     
     if (_rgbImageBuf != NULL) {
         free(_rgbImageBuf);
@@ -510,7 +510,7 @@ void SALFreeStack() {
 
 #pragma mark FINISH DRAW -
 
-CGColorSpaceRef SALGetColorSpace() {
+CGColorSpaceRef SALGetColorSpace(void) {
     
     if (_colorSpace == NULL) {
         _colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -535,7 +535,7 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
     CGRect currentRect = CGRectMake(0, 0, imageRefWidth, imageRefHeight);
     if (!CGRectEqualToRect(cropArea, CGRectMake(0, 0, 1, 1))) {
         currentRect = CGRectMake(cropArea.origin.x * imageRefWidth, cropArea.origin.y * imageRefHeight, cropArea.size.width * imageRefWidth, cropArea.size.height * imageRefHeight);
-        currentRect = [SalRectManager getDirctRect:currentRect];
+        currentRect = SalDirctRect(currentRect);
     }
     
     size_t currentWidth  = currentRect.size.width;
@@ -560,7 +560,7 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
     if (!CGRectEqualToRect(visibleArea, CGRectMake(0, 0, 1, 1))) {
         
         CGRect visibleRect = CGRectMake(visibleArea.origin.x * currentWidth, visibleArea.origin.y * currentHeight, visibleArea.size.width * currentWidth, visibleArea.size.height * currentHeight);
-        visibleRect = [SalRectManager getDirctRect:visibleRect];
+        visibleRect = SalDirctRect(visibleRect);
         
         if (!CGRectContainsPoint(visibleRect, CGPointMake(x, y))) {
             return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
@@ -617,7 +617,7 @@ void SALDrawChangeColorInRect(SALPixel_8888 * currentBuffer, SALImageInfoStruct 
     
     size_t pixelNum = drawStruct.pixelNum;
     
-    rect = [SalRectManager getDirctRect:rect];
+    rect = SalDirctRect(rect);
     
     size_t cropX = (int)rect.origin.x;
     size_t cropY = (int)rect.origin.y;
@@ -688,11 +688,11 @@ void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruc
                 if (y < visibleRect.origin.y) {//在可视区域上侧
                     w = CGRectGetMaxX(drawRect) - x;//到最右侧
                     h = visibleRect.origin.y - y;//可视区域上沿
-                    //                        SALLog(@"可视区域左上侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域左上侧 %f %f %f %f", x, y, w, h);
                 } else if (y >= CGRectGetMaxY(visibleRect)) {//在可视区域下侧
                     w = CGRectGetMaxX(drawRect) - x;
                     h = CGRectGetMaxY(drawRect) - y;
-                    //                        SALLog(@"可视区域左下侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域左下侧 %f %f %f %f", x, y, w, h);
                 } else {//同一行
                     if (x == visibleRect.origin.x) {//x 与可视区域相交
                         w = CGRectGetMaxX(visibleRect) - x;
@@ -700,18 +700,18 @@ void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruc
                         w = visibleRect.origin.x - x;
                     }
                     h = CGRectGetMaxY(visibleRect) - y;
-                    //                        SALLog(@"可视区域左同侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域左同侧 %f %f %f %f", x, y, w, h);
                 }
             } else if (x >= CGRectGetMaxX(visibleRect)) {//在可视区域右侧
                 
                 if (y < visibleRect.origin.y) {//在可视区域上侧
-                    //                        SALLog(@"可视区域右上侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域右上侧 %f %f %f %f", x, y, w, h);
                 } else if (y >= CGRectGetMaxY(visibleRect)) {//在可视区域下侧
-                    //                        SALLog(@"可视区域右下侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域右下侧 %f %f %f %f", x, y, w, h);
                 } else {//同一行
                     w = CGRectGetMaxX(drawRect) - x;
                     h = CGRectGetMaxY(visibleRect) - y;
-                    //                        SALLog(@"可视区域右同侧 %f %f %f %f", x, y, w, h);
+                    //                        NSLog(@"可视区域右同侧 %f %f %f %f", x, y, w, h);
                 }
             }
         }
@@ -794,7 +794,7 @@ void SALChangeBufferOpacity(SALPixel_8888 * imageBuffer, size_t pixelNum, float 
 
 #pragma mark 改变所有颜色值
 /// 改变所有颜色值
-/// @param imageBuffer 像素数据
+/// @param currentBuffer 像素数据
 /// @param pixelNum 总像素点
 /// @param color 目标颜色值
 void DrawChangeAllColor(SALPixel_8888 * currentBuffer, size_t pixelNum, UIColor * color) {
@@ -837,7 +837,7 @@ NSArray * SALDivideBufferWithInsets(SALPixel_8888 * currentBuffer, SALImageInfoS
         
         CGSize infoSize = CGSizeMake(w * currentStruct.imageRefWidth, h * currentStruct.imageRefHeight);
         
-        infoSize = [SalRectManager getDirctSize:infoSize];
+        infoSize = SalDirctSize(infoSize);
         
         SalImageInfo * imageInfo = [SalImageInfo instanceWithSize:infoSize scale:currentStruct.imageRefScale];
         
@@ -886,7 +886,7 @@ void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, 
         
         CGRect cropDrawRect = CGRectMake(cropRect.origin.x * currentStruct.imageRefWidth, cropRect.origin.y * currentStruct.imageRefHeight, cropRect.size.width * currentStruct.imageRefWidth, cropRect.size.height * currentStruct.imageRefHeight);
         
-        cropDrawRect = [SalRectManager getDirctRect:cropDrawRect];
+        cropDrawRect = SalDirctRect(cropDrawRect);
         
         if (CGRectGetMaxX(cropDrawRect) > currentStruct.imageRefWidth/currentStruct.imageRefScale || CGRectGetMaxY(cropDrawRect) > currentStruct.imageRefHeight/currentStruct.imageRefScale) {
             return;
@@ -1028,7 +1028,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 - (void)setCropRect:(CGRect)cropRect {
     
-    _cropRect = [SalRectManager getDirctRect:cropRect];
+    _cropRect = SalDirctRect(cropRect);
 }
 
 - (CGImageRef)drawImageRef {
@@ -1134,14 +1134,13 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 - (void)setDrawSize:(CGSize)drawSize {
     
-    drawSize     = [SalRectManager getDirctSize:drawSize];
-    _drawSize    = drawSize;
-    _visibleRect = CGRectMake(0, 0, drawSize.width, drawSize.height);
+    _drawSize    = SalDirctSize(drawSize);
+    _visibleRect = CGRectMake(0, 0, _drawSize.width, _drawSize.height);
 }
 
 - (void)setVisibleRect:(CGRect)visibleRect {
     
-    _visibleRect = [SalRectManager getDirctRect:visibleRect];
+    _visibleRect = SalDirctRect(visibleRect);
 }
 
 @end
