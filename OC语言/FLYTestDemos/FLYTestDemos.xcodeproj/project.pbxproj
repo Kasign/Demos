@@ -10,10 +10,13 @@
 		39A80F6D23632DB300009ED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A80F6C23632DB300009ED6 /* AppDelegate.m */; };
 		39A80F7023632DB300009ED6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A80F6F23632DB300009ED6 /* SceneDelegate.m */; };
 		39A80F7323632DB300009ED6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A80F7223632DB300009ED6 /* ViewController.m */; };
-		39A80F7623632DB300009ED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A80F7423632DB300009ED6 /* Main.storyboard */; };
 		39A80F7823632DBC00009ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A80F7723632DBC00009ED6 /* Assets.xcassets */; };
 		39A80F7B23632DBC00009ED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A80F7923632DBC00009ED6 /* LaunchScreen.storyboard */; };
 		39A80F7E23632DBC00009ED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A80F7D23632DBC00009ED6 /* main.m */; };
+		39D23A41268C7F4A00452403 /* FlySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D23A40268C7F4A00452403 /* FlySecondViewController.m */; };
+		39D23A44268C7F5400452403 /* JGTimeReportMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D23A42268C7F5300452403 /* JGTimeReportMananger.m */; };
+		39D23A47268C845A00452403 /* FlyThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D23A46268C845A00452403 /* FlyThirdViewController.m */; };
+		39D23A49268C888500452403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D23A48268C888500452403 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +27,18 @@
 		39A80F6F23632DB300009ED6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		39A80F7123632DB300009ED6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		39A80F7223632DB300009ED6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		39A80F7523632DB300009ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39A80F7723632DBC00009ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39A80F7A23632DBC00009ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A80F7C23632DBC00009ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A80F7D23632DBC00009ED6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39B94B922363352100AF3DA7 /* FLYTestDemos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FLYTestDemos.entitlements; sourceTree = "<group>"; };
+		39D23A3F268C7F4A00452403 /* FlySecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySecondViewController.h; sourceTree = "<group>"; };
+		39D23A40268C7F4A00452403 /* FlySecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySecondViewController.m; sourceTree = "<group>"; };
+		39D23A42268C7F5300452403 /* JGTimeReportMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGTimeReportMananger.m; sourceTree = "<group>"; };
+		39D23A43268C7F5400452403 /* JGTimeReportMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGTimeReportMananger.h; sourceTree = "<group>"; };
+		39D23A45268C845A00452403 /* FlyThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyThirdViewController.h; sourceTree = "<group>"; };
+		39D23A46268C845A00452403 /* FlyThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyThirdViewController.m; sourceTree = "<group>"; };
+		39D23A48268C888500452403 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +78,15 @@
 				39A80F6F23632DB300009ED6 /* SceneDelegate.m */,
 				39A80F7123632DB300009ED6 /* ViewController.h */,
 				39A80F7223632DB300009ED6 /* ViewController.m */,
-				39A80F7423632DB300009ED6 /* Main.storyboard */,
+				39D23A3F268C7F4A00452403 /* FlySecondViewController.h */,
+				39D23A40268C7F4A00452403 /* FlySecondViewController.m */,
+				39D23A45268C845A00452403 /* FlyThirdViewController.h */,
+				39D23A46268C845A00452403 /* FlyThirdViewController.m */,
+				39D23A43268C7F5400452403 /* JGTimeReportMananger.h */,
+				39D23A42268C7F5300452403 /* JGTimeReportMananger.m */,
 				39A80F7723632DBC00009ED6 /* Assets.xcassets */,
 				39A80F7923632DBC00009ED6 /* LaunchScreen.storyboard */,
+				39D23A48268C888500452403 /* Main.storyboard */,
 				39A80F7C23632DBC00009ED6 /* Info.plist */,
 				39A80F7D23632DBC00009ED6 /* main.m */,
 			);
@@ -135,9 +150,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D23A49268C888500452403 /* Main.storyboard in Resources */,
 				39A80F7B23632DBC00009ED6 /* LaunchScreen.storyboard in Resources */,
 				39A80F7823632DBC00009ED6 /* Assets.xcassets in Resources */,
-				39A80F7623632DB300009ED6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D23A41268C7F4A00452403 /* FlySecondViewController.m in Sources */,
 				39A80F7323632DB300009ED6 /* ViewController.m in Sources */,
+				39D23A44268C7F5400452403 /* JGTimeReportMananger.m in Sources */,
 				39A80F6D23632DB300009ED6 /* AppDelegate.m in Sources */,
 				39A80F7E23632DBC00009ED6 /* main.m in Sources */,
+				39D23A47268C845A00452403 /* FlyThirdViewController.m in Sources */,
 				39A80F7023632DB300009ED6 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,14 +176,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		39A80F7423632DB300009ED6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39A80F7523632DB300009ED6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		39A80F7923632DBC00009ED6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -227,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -279,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -293,7 +303,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FLYTestDemos/FLYTestDemos.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				INFOPLIST_FILE = FLYTestDemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,8 +311,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-fly.www-.FLYTestDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +322,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FLYTestDemos/FLYTestDemos.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				INFOPLIST_FILE = FLYTestDemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,8 +330,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-fly.www-.FLYTestDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

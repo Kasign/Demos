@@ -1,5 +1,12 @@
+//
+//  SceneDelegate.m
+//  TableView快速构造
+//
+//  Created by Walg on 2021/6/22.
+//
+
 #import "SceneDelegate.h"
-#import "ViewController.h"
+
 @interface SceneDelegate ()
 
 @end
@@ -11,14 +18,6 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-    if (_window == nil) {
-        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    }
-    [_window setBackgroundColor:[UIColor whiteColor]];
-    UINavigationController * navi = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
-    [navi.view setBackgroundColor:[UIColor whiteColor]];
-    [_window setRootViewController:navi];
-    [_window makeKeyAndVisible];
 }
 
 
@@ -26,7 +25,7 @@
     // Called as the scene is being released by the system.
     // This occurs shortly after the scene enters the background, or when its session is discarded.
     // Release any resources associated with this scene that can be re-created the next time the scene connects.
-    // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+    // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
 }
 
 

@@ -7,13 +7,14 @@
 //
 
 #import "ViewController.h"
-#import <OpenGLES/ES1/gl.h>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES3/gl.h>
-
-#import <OpenGLES/ES1/glext.h>
-#import <OpenGLES/ES2/glext.h>
-#import <OpenGLES/ES3/glext.h>
+//#import <OpenGLES/ES1/gl.h>
+//#import <OpenGLES/ES2/gl.h>
+//#import <OpenGLES/ES3/gl.h>
+//
+//#import <OpenGLES/ES1/glext.h>
+//#import <OpenGLES/ES2/glext.h>
+//#import <OpenGLES/ES3/glext.h>
+#import "FlySecondViewController.h"
 
 @interface ViewController ()
 
@@ -28,37 +29,42 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    int b = 10;
-    void (^block)(int a) = ^(int a) {
-        //        NSLog(@"%d", b);
-    };
-    
-    NSArray *arr = [[NSArray alloc] initWithObjects:^{NSLog(@"blk0:%d",b);},
-                    ^{NSLog(@"blk1:%d",b);},
-                    ^{NSLog(@"blk2:%d",b);},nil];
-    
-    id blocka = ^(int b) {
-        
-    };
-    
-    _blockProterty = ^() {
-        NSLog(@"%d", self.c);
-    };
-    
-    NSLog(@"%@", block);
-    NSLog(@"%@", _blockProterty);
-    NSLog(@"%@", blocka);
-    NSLog(@"%@", arr);
-    
-    void (^blockArr)(void) = arr[1];
-    blockArr();
-    NSLog(@"%@", blockArr);
+//    int b = 10;
+//    void (^block)(int a) = ^(int a) {
+//        //        NSLog(@"%d", b);
+//    };
+//
+//    NSArray *arr = [[NSArray alloc] initWithObjects:^{NSLog(@"blk0:%d",b);},
+//                    ^{NSLog(@"blk1:%d",b);},
+//                    ^{NSLog(@"blk2:%d",b);},nil];
+//
+//    id blocka = ^(int b) {
+//
+//    };
+//
+//    _blockProterty = ^() {
+//        NSLog(@"%d", self.c);
+//    };
+//
+//    NSLog(@"%@", block);
+//    NSLog(@"%@", _blockProterty);
+//    NSLog(@"%@", blocka);
+//    NSLog(@"%@", arr);
+//
+//    void (^blockArr)(void) = arr[1];
+//    blockArr();
+//    NSLog(@"%@", blockArr);
 
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     [super touchesBegan:touches withEvent:event];
+    
+    FlySecondViewController *vc = [[FlySecondViewController alloc] init];
+//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+//    [self presentViewController:navi animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //- (void)getCurrent {

@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		394F52AE2681B9B200DE4F06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52AD2681B9B200DE4F06 /* AppDelegate.m */; };
+		394F52B12681B9B200DE4F06 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52B02681B9B200DE4F06 /* SceneDelegate.m */; };
+		394F52B42681B9B200DE4F06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52B32681B9B200DE4F06 /* ViewController.m */; };
+		394F52B72681B9B200DE4F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F52B52681B9B200DE4F06 /* Main.storyboard */; };
+		394F52B92681B9B300DE4F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394F52B82681B9B300DE4F06 /* Assets.xcassets */; };
+		394F52BC2681B9B300DE4F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F52BA2681B9B300DE4F06 /* LaunchScreen.storyboard */; };
+		394F52BF2681B9B300DE4F06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52BE2681B9B300DE4F06 /* main.m */; };
+		394F52D72681B9C300DE4F06 /* FlyTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52C62681B9C300DE4F06 /* FlyTableViewModel.m */; };
+		394F52D82681B9C300DE4F06 /* FlyTableSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52C72681B9C300DE4F06 /* FlyTableSectionModel.m */; };
+		394F52D92681B9C300DE4F06 /* FlyTableViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52CA2681B9C300DE4F06 /* FlyTableViewConfig.m */; };
+		394F52DA2681B9C300DE4F06 /* FlyTableDelegateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52CB2681B9C300DE4F06 /* FlyTableDelegateModel.m */; };
+		394F52DB2681B9C300DE4F06 /* FlyCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52CD2681B9C300DE4F06 /* FlyCellConfig.m */; };
+		394F52DC2681B9C300DE4F06 /* FlySectionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52D02681B9C300DE4F06 /* FlySectionConfig.m */; };
+		394F52DD2681B9C300DE4F06 /* FlyTableCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52D22681B9C300DE4F06 /* FlyTableCellModel.m */; };
+		394F52DE2681B9C300DE4F06 /* FlyTableDataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52D52681B9C300DE4F06 /* FlyTableDataSourceModel.m */; };
+		394F52E22681BA4C00DE4F06 /* FlyResponderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52E12681BA4C00DE4F06 /* FlyResponderObject.m */; };
+		394F52E72681D10500DE4F06 /* FlyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52E62681D10500DE4F06 /* FlyTableViewCell.m */; };
+		394F52EA2682D98700DE4F06 /* FlyTableViewRowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 394F52E92682D98700DE4F06 /* FlyTableViewRowAction.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		394F52A92681B9B200DE4F06 /* TableView快速构造.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TableView快速构造.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		394F52AC2681B9B200DE4F06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		394F52AD2681B9B200DE4F06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		394F52AF2681B9B200DE4F06 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		394F52B02681B9B200DE4F06 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		394F52B22681B9B200DE4F06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		394F52B32681B9B200DE4F06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		394F52B62681B9B200DE4F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		394F52B82681B9B300DE4F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		394F52BB2681B9B300DE4F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		394F52BD2681B9B300DE4F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		394F52BE2681B9B300DE4F06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		394F52C62681B9C300DE4F06 /* FlyTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableViewModel.m; sourceTree = "<group>"; };
+		394F52C72681B9C300DE4F06 /* FlyTableSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableSectionModel.m; sourceTree = "<group>"; };
+		394F52C82681B9C300DE4F06 /* FlySectionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySectionConfig.h; sourceTree = "<group>"; };
+		394F52C92681B9C300DE4F06 /* FlyTableCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableCellModel.h; sourceTree = "<group>"; };
+		394F52CA2681B9C300DE4F06 /* FlyTableViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableViewConfig.m; sourceTree = "<group>"; };
+		394F52CB2681B9C300DE4F06 /* FlyTableDelegateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableDelegateModel.m; sourceTree = "<group>"; };
+		394F52CC2681B9C300DE4F06 /* FlyTableDataSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableDataSourceModel.h; sourceTree = "<group>"; };
+		394F52CD2681B9C300DE4F06 /* FlyCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyCellConfig.m; sourceTree = "<group>"; };
+		394F52CE2681B9C300DE4F06 /* FlyTableSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableSectionModel.h; sourceTree = "<group>"; };
+		394F52CF2681B9C300DE4F06 /* FlyTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableViewModel.h; sourceTree = "<group>"; };
+		394F52D02681B9C300DE4F06 /* FlySectionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySectionConfig.m; sourceTree = "<group>"; };
+		394F52D12681B9C300DE4F06 /* FlyTableViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableViewConfig.h; sourceTree = "<group>"; };
+		394F52D22681B9C300DE4F06 /* FlyTableCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableCellModel.m; sourceTree = "<group>"; };
+		394F52D32681B9C300DE4F06 /* FlyTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableViewHeader.h; sourceTree = "<group>"; };
+		394F52D42681B9C300DE4F06 /* FlyCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyCellConfig.h; sourceTree = "<group>"; };
+		394F52D52681B9C300DE4F06 /* FlyTableDataSourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTableDataSourceModel.m; sourceTree = "<group>"; };
+		394F52D62681B9C300DE4F06 /* FlyTableDelegateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTableDelegateModel.h; sourceTree = "<group>"; };
+		394F52E02681BA4C00DE4F06 /* FlyResponderObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyResponderObject.h; sourceTree = "<group>"; };
+		394F52E12681BA4C00DE4F06 /* FlyResponderObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyResponderObject.m; sourceTree = "<group>"; };
+		394F52E52681D10500DE4F06 /* FlyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTableViewCell.h; sourceTree = "<group>"; };
+		394F52E62681D10500DE4F06 /* FlyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTableViewCell.m; sourceTree = "<group>"; };
+		394F52E82682D98700DE4F06 /* FlyTableViewRowAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTableViewRowAction.h; sourceTree = "<group>"; };
+		394F52E92682D98700DE4F06 /* FlyTableViewRowAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTableViewRowAction.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		394F52A62681B9B200DE4F06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		394F52A02681B9B200DE4F06 = {
+			isa = PBXGroup;
+			children = (
+				394F52AB2681B9B200DE4F06 /* TableView快速构造 */,
+				394F52AA2681B9B200DE4F06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		394F52AA2681B9B200DE4F06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				394F52A92681B9B200DE4F06 /* TableView快速构造.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		394F52AB2681B9B200DE4F06 /* TableView快速构造 */ = {
+			isa = PBXGroup;
+			children = (
+				394F52AC2681B9B200DE4F06 /* AppDelegate.h */,
+				394F52AD2681B9B200DE4F06 /* AppDelegate.m */,
+				394F52AF2681B9B200DE4F06 /* SceneDelegate.h */,
+				394F52B02681B9B200DE4F06 /* SceneDelegate.m */,
+				394F52B22681B9B200DE4F06 /* ViewController.h */,
+				394F52B32681B9B200DE4F06 /* ViewController.m */,
+				394F52E52681D10500DE4F06 /* FlyTableViewCell.h */,
+				394F52E62681D10500DE4F06 /* FlyTableViewCell.m */,
+				394F52C52681B9C300DE4F06 /* Fly */,
+				394F52B52681B9B200DE4F06 /* Main.storyboard */,
+				394F52B82681B9B300DE4F06 /* Assets.xcassets */,
+				394F52BA2681B9B300DE4F06 /* LaunchScreen.storyboard */,
+				394F52BD2681B9B300DE4F06 /* Info.plist */,
+				394F52BE2681B9B300DE4F06 /* main.m */,
+			);
+			path = "TableView快速构造";
+			sourceTree = "<group>";
+		};
+		394F52C52681B9C300DE4F06 /* Fly */ = {
+			isa = PBXGroup;
+			children = (
+				394F52DF2681BA2600DE4F06 /* Base */,
+				394F52E42681BA9900DE4F06 /* ViewModel */,
+				394F52E32681BA8700DE4F06 /* Delegate */,
+				394F52D12681B9C300DE4F06 /* FlyTableViewConfig.h */,
+				394F52CA2681B9C300DE4F06 /* FlyTableViewConfig.m */,
+				394F52D32681B9C300DE4F06 /* FlyTableViewHeader.h */,
+				394F52CF2681B9C300DE4F06 /* FlyTableViewModel.h */,
+				394F52C62681B9C300DE4F06 /* FlyTableViewModel.m */,
+			);
+			path = Fly;
+			sourceTree = "<group>";
+		};
+		394F52DF2681BA2600DE4F06 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				394F52D42681B9C300DE4F06 /* FlyCellConfig.h */,
+				394F52CD2681B9C300DE4F06 /* FlyCellConfig.m */,
+				394F52C82681B9C300DE4F06 /* FlySectionConfig.h */,
+				394F52D02681B9C300DE4F06 /* FlySectionConfig.m */,
+				394F52E02681BA4C00DE4F06 /* FlyResponderObject.h */,
+				394F52E12681BA4C00DE4F06 /* FlyResponderObject.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		394F52E32681BA8700DE4F06 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				394F52CC2681B9C300DE4F06 /* FlyTableDataSourceModel.h */,
+				394F52D52681B9C300DE4F06 /* FlyTableDataSourceModel.m */,
+				394F52D62681B9C300DE4F06 /* FlyTableDelegateModel.h */,
+				394F52CB2681B9C300DE4F06 /* FlyTableDelegateModel.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		394F52E42681BA9900DE4F06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				394F52C92681B9C300DE4F06 /* FlyTableCellModel.h */,
+				394F52D22681B9C300DE4F06 /* FlyTableCellModel.m */,
+				394F52CE2681B9C300DE4F06 /* FlyTableSectionModel.h */,
+				394F52C72681B9C300DE4F06 /* FlyTableSectionModel.m */,
+				394F52E82682D98700DE4F06 /* FlyTableViewRowAction.h */,
+				394F52E92682D98700DE4F06 /* FlyTableViewRowAction.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		394F52A82681B9B200DE4F06 /* TableView快速构造 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 394F52C22681B9B300DE4F06 /* Build configuration list for PBXNativeTarget "TableView快速构造" */;
+			buildPhases = (
+				394F52A52681B9B200DE4F06 /* Sources */,
+				394F52A62681B9B200DE4F06 /* Frameworks */,
+				394F52A72681B9B200DE4F06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TableView快速构造";
+			productName = "TableView快速构造";
+			productReference = 394F52A92681B9B200DE4F06 /* TableView快速构造.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		394F52A12681B9B200DE4F06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					394F52A82681B9B200DE4F06 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 394F52A42681B9B200DE4F06 /* Build configuration list for PBXProject "TableView快速构造" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 394F52A02681B9B200DE4F06;
+			productRefGroup = 394F52AA2681B9B200DE4F06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				394F52A82681B9B200DE4F06 /* TableView快速构造 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		394F52A72681B9B200DE4F06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				394F52BC2681B9B300DE4F06 /* LaunchScreen.storyboard in Resources */,
+				394F52B92681B9B300DE4F06 /* Assets.xcassets in Resources */,
+				394F52B72681B9B200DE4F06 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		394F52A52681B9B200DE4F06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				394F52D92681B9C300DE4F06 /* FlyTableViewConfig.m in Sources */,
+				394F52DA2681B9C300DE4F06 /* FlyTableDelegateModel.m in Sources */,
+				394F52B42681B9B200DE4F06 /* ViewController.m in Sources */,
+				394F52DD2681B9C300DE4F06 /* FlyTableCellModel.m in Sources */,
+				394F52AE2681B9B200DE4F06 /* AppDelegate.m in Sources */,
+				394F52E72681D10500DE4F06 /* FlyTableViewCell.m in Sources */,
+				394F52DB2681B9C300DE4F06 /* FlyCellConfig.m in Sources */,
+				394F52DC2681B9C300DE4F06 /* FlySectionConfig.m in Sources */,
+				394F52DE2681B9C300DE4F06 /* FlyTableDataSourceModel.m in Sources */,
+				394F52D82681B9C300DE4F06 /* FlyTableSectionModel.m in Sources */,
+				394F52EA2682D98700DE4F06 /* FlyTableViewRowAction.m in Sources */,
+				394F52BF2681B9B300DE4F06 /* main.m in Sources */,
+				394F52B12681B9B200DE4F06 /* SceneDelegate.m in Sources */,
+				394F52D72681B9C300DE4F06 /* FlyTableViewModel.m in Sources */,
+				394F52E22681BA4C00DE4F06 /* FlyResponderObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		394F52B52681B9B200DE4F06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				394F52B62681B9B200DE4F06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		394F52BA2681B9B300DE4F06 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				394F52BB2681B9B300DE4F06 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		394F52C02681B9B300DE4F06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		394F52C12681B9B300DE4F06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		394F52C32681B9B300DE4F06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				INFOPLIST_FILE = "TableView快速构造/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.TableView----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		394F52C42681B9B300DE4F06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				INFOPLIST_FILE = "TableView快速构造/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fly.www.TableView----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		394F52A42681B9B200DE4F06 /* Build configuration list for PBXProject "TableView快速构造" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394F52C02681B9B300DE4F06 /* Debug */,
+				394F52C12681B9B300DE4F06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		394F52C22681B9B300DE4F06 /* Build configuration list for PBXNativeTarget "TableView快速构造" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394F52C32681B9B300DE4F06 /* Debug */,
+				394F52C42681B9B300DE4F06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 394F52A12681B9B200DE4F06 /* Project object */;
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39D23A3E268C7E9C00452403 /* JGTimeReportMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D23A3D268C7E9C00452403 /* JGTimeReportMananger.m */; };
 		7B01C0432089BCF8002E351D /* FlySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0422089BCF8002E351D /* FlySecondViewController.m */; };
 		7B01C0462089BD22002E351D /* FlyHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0452089BD22002E351D /* FlyHomeViewController.m */; };
 		7B01C0492089BE9D002E351D /* FlyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01C0482089BE9D002E351D /* FlyButton.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39D23A3C268C7E9C00452403 /* JGTimeReportMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGTimeReportMananger.h; sourceTree = "<group>"; };
+		39D23A3D268C7E9C00452403 /* JGTimeReportMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGTimeReportMananger.m; sourceTree = "<group>"; };
 		7B01C0412089BCF8002E351D /* FlySecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySecondViewController.h; sourceTree = "<group>"; };
 		7B01C0422089BCF8002E351D /* FlySecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySecondViewController.m; sourceTree = "<group>"; };
 		7B01C0442089BD22002E351D /* FlyHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyHomeViewController.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				7B01C0482089BE9D002E351D /* FlyButton.m */,
 				7B01C04D2089E3EE002E351D /* FlyNSObject.h */,
 				7B01C04E2089E3EE002E351D /* FlyNSObject.m */,
+				39D23A3C268C7E9C00452403 /* JGTimeReportMananger.h */,
+				39D23A3D268C7E9C00452403 /* JGTimeReportMananger.m */,
 				7BCDA9BF2085DF910069326C /* Main.storyboard */,
 				7BCDA9C22085DF930069326C /* Assets.xcassets */,
 				7BCDA9C42085DF930069326C /* LaunchScreen.storyboard */,
@@ -296,6 +301,7 @@
 				7BCDA9C92085DF930069326C /* main.m in Sources */,
 				7B01C04C2089C48C002E351D /* FlyThirdViewController.m in Sources */,
 				7BCDA9BB2085DF910069326C /* AppDelegate.m in Sources */,
+				39D23A3E268C7E9C00452403 /* JGTimeReportMananger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
