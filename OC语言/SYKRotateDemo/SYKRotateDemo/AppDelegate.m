@@ -1,11 +1,13 @@
 //
 //  AppDelegate.m
-//  TableView快速构造
+//  SYKRotateDemo
 //
-//  Created by Walg on 2021/6/22.
+//  Created by Walg on 2021/8/11.
 //
 
 #import "AppDelegate.h"
+
+#import "UIDevice+Rotate.h"
 
 @interface AppDelegate ()
 
@@ -36,5 +38,12 @@
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
+    
+    if ([UIDevice supportRotate]) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 @end

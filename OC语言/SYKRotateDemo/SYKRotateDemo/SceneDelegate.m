@@ -1,11 +1,13 @@
 //
 //  SceneDelegate.m
-//  TableView快速构造
+//  SYKRotateDemo
 //
-//  Created by Walg on 2021/6/22.
+//  Created by Walg on 2021/8/11.
 //
 
 #import "SceneDelegate.h"
+#import "SYKNavigationController.h"
+#import "ViewController.h"
 
 @interface SceneDelegate ()
 
@@ -18,6 +20,15 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    _window = [[UIWindow alloc] initWithWindowScene:scene];
+//    [_window setFrame:[UIScreen mainScreen].bounds];
+    [_window setBackgroundColor:[UIColor whiteColor]];
+    
+    ViewController *vc = [[ViewController alloc] init];
+    SYKNavigationController *navi = [[SYKNavigationController alloc] initWithRootViewController:vc];
+    _window.rootViewController = navi;
+    [_window makeKeyAndVisible];
 }
 
 
