@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					39908B3D1E6D37F600A5039D = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = F5KZ9A44AR;
 						ProvisioningStyle = Automatic;
 					};
 					39908B561E6D37F600A5039D = {
@@ -226,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -422,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				INFOPLIST_FILE = "逐帧动画/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walg.www.----";
@@ -433,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				INFOPLIST_FILE = "逐帧动画/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walg.www.----";
@@ -505,6 +509,7 @@
 				39908B6D1E6D37F600A5039D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39908B6E1E6D37F600A5039D /* Build configuration list for PBXNativeTarget "逐帧动画Tests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				39908B701E6D37F600A5039D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39908B711E6D37F600A5039D /* Build configuration list for PBXNativeTarget "逐帧动画UITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				39908B731E6D37F600A5039D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

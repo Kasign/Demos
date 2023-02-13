@@ -43,7 +43,7 @@
     [path addCurveToPoint:CGPointMake(255, 600) controlPoint1:CGPointMake(160, 280) controlPoint2:CGPointMake(-100, 400)];
     
 //    [path stroke];//无用
-    keyAnimation.path =[path CGPath];
+    keyAnimation.path = [path CGPath];
     
     [_layer addAnimation:keyAnimation forKey:@"KCKeyframeAnimation_Position"];
     

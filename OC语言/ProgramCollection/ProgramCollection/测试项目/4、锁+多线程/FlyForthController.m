@@ -186,7 +186,8 @@
 //    _lockType = @"NSRecursiveLock";
 //    _lockType = @"pthread_mutex_t";
 //    [self startTestLock];
-    [self startTestThread];
+//    [self startTestThread];
+    [self testBarrier];
 }
 
 #pragma mark - Thread
@@ -207,11 +208,13 @@
 /// dispatch_sync 任务立即执行，不会开启新线程，在当前线程执行
 /**
  线程 队列的关系
- async + 主队列  延后到主线程执行任务
+ 
+ async + 主队列  延后到主线程执行任务，按添加任务顺序执行
  sync  + 主队列  如果当前是在主线程 -> 死锁，如果不在主线程 -> 切到主线程立即执行
  
  async + 串行队列 开启一个新的子线程，按顺序执行任务
  async + 并发队列 开启多个新的子线程，并发执行
+ 
  sync  + 串行队列（非主） 如果处于非当前串行队列任务中，则在当前所处于的线程，立即执行任务，如果在当前串行队列任务中，则死锁
  sync  + 并发队列 由于并发队列并不要求任务按顺序执行，所以不管是否在自己队列的任务内，都是在当前线程立即执行任务，并不会创建新线程。
  
@@ -274,6 +277,60 @@
         });
         
         FLYLog(@" >>>> --- >>> %d", a);
+    });
+}
+
+/**
+ dispatch_barrier_async dispatch_barrier_sync
+ 共同点：
+     都会等队列内之前添加的任务完成后才会开始栅栏内的任务，栅栏任务完成后才执行后面添加的任务
+ 不同点：
+     dispatch_barrier_async：不会卡当前线程，会开启新线程，稍后执行，会copy当前的block，以及负责release
+     dispatch_barrier_sync：阻塞当前线程，直到任务执行结束才继续执行后续代码，不会开启新线程，不会copy当前的block，使用主队列时在主线程执行任务
+ 
+ */
+
+- (void)testBarrier {
+    
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("abc", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_queue_t currentQ = concurrentQueue;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        dispatch_sync(currentQ, ^{
+            [self logString:@"sync currentQ 0"];
+        });
+        
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 1"];
+        });
+        
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 2"];
+        });
+        
+        [self logString:@"out currentQ 3"];
+        dispatch_barrier_async(currentQ, ^{
+            [self logString:@"barrier currentQ 4"];
+        });
+        
+        [self logString:@"out currentQ 5"];
+        
+        dispatch_barrier_sync(currentQ, ^{
+            [self logString:@"barrier currentQ 6"];
+        });
+        
+        [self logString:@"out currentQ 7"];
+        
+        dispatch_sync(currentQ, ^{
+            [self logString:@"sync currentQ 8"];
+        });
+        
+        dispatch_async(currentQ, ^{
+            [self logString:@"async currentQ 9"];
+        });
+        [self logString:@"out currentQ 10"];
     });
 }
 
