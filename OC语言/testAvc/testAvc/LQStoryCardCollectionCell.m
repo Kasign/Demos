@@ -10,21 +10,21 @@
 
 @interface LQStoryCardCollectionCell ()
 
-@property (nonatomic, strong) UIVisualEffectView  *  allBlurView;
+@property (nonatomic, strong) UIVisualEffectView  *allBlurView;
 
-@property (nonatomic, strong) UIImageView * avatarView;
+@property (nonatomic, strong) UIImageView  *avatarView;
 
-@property (nonatomic, strong) UILabel     *  nameLabel;
+@property (nonatomic, strong) UILabel     *nameLabel;
 
-@property (nonatomic, strong) CALayer     *  leftLineLayer;
+@property (nonatomic, strong) CALayer     *leftLineLayer;
 
-@property (nonatomic, strong) CALayer     *  rightLineLayer;
+@property (nonatomic, strong) CALayer     *rightLineLayer;
 
-@property (nonatomic, strong) UILabel     *  titleLabel;
+@property (nonatomic, strong) UILabel     *titleLabel;
 
-@property (nonatomic, strong) UITextView  *  contentTV;
+@property (nonatomic, strong) UITextView  *contentTV;
 
-@property (nonatomic, strong) UIImageView *  leftImageView;
+@property (nonatomic, strong) UIImageView *leftImageView;
 
 @end
 
@@ -147,7 +147,7 @@
     NSString *contentText =@"政知见梳理发现，国家主席、国务院总理是每次必见。李显龙2004年8月就任新加坡政府总理，2006年、2011年连任总理。就任总理以来，他已先后于2005年、2008年以及2012年、2013年访华。2005年首次访华，李显龙在北京参加了一系列的领导人会晤，其中包括同时任国务院总理温家宝的会谈，还有与时任国家主席胡锦涛、时任全国人大常委会委员长吴邦国和时任全国政协主席贾庆林的会见。";
     
     
-    NSMutableAttributedString * attriAtr = [[NSMutableAttributedString alloc]initWithString:contentText];
+    NSMutableAttributedString  *attriAtr = [[NSMutableAttributedString alloc]initWithString:contentText];
     NSMutableParagraphStyle *paragraphStyle =[[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:6];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
@@ -155,12 +155,12 @@
     [self.contentTV setAttributedText:attriAtr];
 }
 
--(void)layoutSubviews{
+-(void)layoutSubviews {
     [super layoutSubviews];
     
     CGFloat centerX = self.bounds.size.width/2.0f;
     
-//    [self.avatarView setCenter:CGPointMake(centerX, 0)];
+    //    [self.avatarView setCenter:CGPointMake(centerX, 0)];
     
     [self.nameLabel sizeToFit];
     

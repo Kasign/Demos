@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39D1FA872A6F6E8300841CC4 /* FlySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D1FA862A6F6E8300841CC4 /* FlySecondViewController.m */; };
 		39DF84ED23CF5D67006BA145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DF84EC23CF5D67006BA145 /* AppDelegate.m */; };
 		39DF84F023CF5D67006BA145 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DF84EF23CF5D67006BA145 /* SceneDelegate.m */; };
 		39DF84F323CF5D67006BA145 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DF84F223CF5D67006BA145 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		39A402842590FD2600DCE0C9 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
+		39D1FA852A6F6E8300841CC4 /* FlySecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySecondViewController.h; sourceTree = "<group>"; };
+		39D1FA862A6F6E8300841CC4 /* FlySecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySecondViewController.m; sourceTree = "<group>"; };
 		39DF84E823CF5D66006BA145 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39DF84EB23CF5D67006BA145 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39DF84EC23CF5D67006BA145 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				39DF84EF23CF5D67006BA145 /* SceneDelegate.m */,
 				39DF84F123CF5D67006BA145 /* ViewController.h */,
 				39DF84F223CF5D67006BA145 /* ViewController.m */,
+				39D1FA852A6F6E8300841CC4 /* FlySecondViewController.h */,
+				39D1FA862A6F6E8300841CC4 /* FlySecondViewController.m */,
 				39DF850423CF5D8C006BA145 /* FLYPerson.h */,
 				39DF850523CF5D8C006BA145 /* FLYPerson.m */,
 				39DF84F423CF5D67006BA145 /* Main.storyboard */,
@@ -109,7 +114,8 @@
 		39DF84E023CF5D66006BA145 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = Fly;
 				TargetAttributes = {
 					39DF84E723CF5D66006BA145 = {
@@ -155,6 +161,7 @@
 			files = (
 				39DF84F323CF5D67006BA145 /* ViewController.m in Sources */,
 				39DF850623CF5D8C006BA145 /* FLYPerson.m in Sources */,
+				39D1FA872A6F6E8300841CC4 /* FlySecondViewController.m in Sources */,
 				39DF84ED23CF5D67006BA145 /* AppDelegate.m in Sources */,
 				39DF84FE23CF5D71006BA145 /* main.m in Sources */,
 				39DF84F023CF5D67006BA145 /* SceneDelegate.m in Sources */,
@@ -209,6 +216,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -267,6 +275,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -300,6 +309,7 @@
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -319,6 +329,7 @@
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

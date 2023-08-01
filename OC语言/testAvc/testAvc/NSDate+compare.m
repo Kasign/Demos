@@ -7,25 +7,12 @@
 
 #import "NSDate+compare.h"
 
-NSString * const kDateFormatterTypeFull   = @"yyyy-MM-dd HH:mm:ss";
-NSString * const kDateFormatterTypeLong   = @"yyyy-MM-dd HH:mm";
-NSString * const kDateFormatterTypeMore   = @"yyyy-MM-dd";
-NSString * const kDateFormatterTypeMiddle = @"MM-dd HH:mm";
-NSString * const kDateFormatterTypeShort  = @"MM-dd";
-NSString * const kDateFormatterTypeLess   = @"HH:mm";
-NSString * const kDateFormatterTypeYear   = @"yyyy";
-NSString * const kDateFormatterTypeMonth  = @"MM";
-NSString * const kDateFormatterTypeDay    = @"dd";
-NSString * const kDateFormatterTypeHour   = @"HH";
-NSString * const kDateFormatterTypeMinute = @"mm";
-NSString * const kDateFormatterTypeSecond = @"ss";
-
 @implementation NSDate (compare)
 
 #pragma mark - base
 + (NSDateFormatter *)dateFormatterWithType:(NSString*)type{
     
-    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     [formatter setDateFormat:type];
     return formatter;
@@ -44,22 +31,22 @@ NSString * const kDateFormatterTypeSecond = @"ss";
 
 + (NSInteger)compareWithDateStr:(NSString*)dateStr formatterType:(NSString*)type{
     
-    NSDateFormatter * fullFormatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
+    NSDateFormatter  *fullFormatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
     
-    NSDate * now = [NSDate date];
+    NSDate  *now = [NSDate date];
     
-    NSDateFormatter * formatter = [NSDate dateFormatterWithType:type];
+    NSDateFormatter  *formatter = [NSDate dateFormatterWithType:type];
     
-    NSDate * date = [fullFormatter dateFromString:dateStr];
+    NSDate  *date = [fullFormatter dateFromString:dateStr];
     
     return [now compareWithDate:date formatter:formatter];
 }
 
 + (NSInteger)compareWithDate:(NSDate*)date formatterType:(NSString*)type{
     
-    NSDateFormatter * formatter = [NSDate dateFormatterWithType:type];
+    NSDateFormatter  *formatter = [NSDate dateFormatterWithType:type];
     
-    NSDate * now = [NSDate date];
+    NSDate  *now = [NSDate date];
     
     return [now compareWithDate:date formatter:formatter];
 }
@@ -128,9 +115,9 @@ NSString * const kDateFormatterTypeSecond = @"ss";
 #pragma mark- string
 + (NSString*)useNowDateCompareWithDateStr:(NSString*)dateStr{
     
-    NSDateFormatter * formatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
+    NSDateFormatter  *formatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
     
-    NSDate * date = [formatter dateFromString:dateStr];
+    NSDate  *date = [formatter dateFromString:dateStr];
     
     return [NSDate useNowDateCompareWithDate:date];
     
@@ -164,18 +151,18 @@ NSString * const kDateFormatterTypeSecond = @"ss";
 
 + (NSString*)stringWithDate:(NSDate*)date formatterType:(NSString*)type{
     
-    NSDateFormatter * formatter = [NSDate dateFormatterWithType:type];
+    NSDateFormatter  *formatter = [NSDate dateFormatterWithType:type];
     
     return [formatter stringFromDate:date];
 }
 
 + (NSString*)stringWithDateString:(NSString*)dateStr formatterType:(NSString*)type{
     
-    NSDateFormatter * fullFormatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
+    NSDateFormatter  *fullFormatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
     
-    NSDate* targetDate = [fullFormatter dateFromString:dateStr];
+    NSDate *targetDate = [fullFormatter dateFromString:dateStr];
     
-    NSDateFormatter * formatter = [NSDate dateFormatterWithType:type];
+    NSDateFormatter  *formatter = [NSDate dateFormatterWithType:type];
     
     return [formatter stringFromDate:targetDate];
 }
@@ -184,7 +171,7 @@ NSString * const kDateFormatterTypeSecond = @"ss";
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
-    NSDate * startDate = [NSDate dateWithTimeIntervalSinceNow:8*60*60];
+    NSDate  *startDate = [NSDate dateWithTimeIntervalSinceNow:8*60*60];
     
     NSDateComponents *comps = [calendar components:NSCalendarUnitDay fromDate:startDate toDate:date options:0];
     
@@ -195,9 +182,9 @@ NSString * const kDateFormatterTypeSecond = @"ss";
 }
 + (NSInteger)getDaysFromDateStr:(NSString*)dateStr{
     
-    NSDateFormatter * formmatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
+    NSDateFormatter  *formmatter = [NSDate dateFormatterWithType:kDateFormatterTypeFull];
     
-    NSDate * endDate = [formmatter dateFromString:dateStr];
+    NSDate  *endDate = [formmatter dateFromString:dateStr];
     
     return [NSDate getDaysFromDate:endDate];
     

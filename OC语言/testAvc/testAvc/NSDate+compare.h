@@ -6,19 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeFull   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeLong   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeMore   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeMiddle ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeShort  ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeLess   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeYear   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeMonth  ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeDay    ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeHour   ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeMinute ;
-FOUNDATION_EXTERN NSString * const kDateFormatterTypeSecond ;
+#import "NSString+type.h"
 
 @interface NSDate (compare)
 

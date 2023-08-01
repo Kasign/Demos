@@ -10,7 +10,7 @@
 
 @interface LQStoryCardCollectionCell : UICollectionViewCell
 
-@property (nonatomic, copy) NSString  *  title;
+@property (nonatomic, copy) NSString  *title;
 
 @property (nonatomic, assign) CGFloat    blurRatio;
 

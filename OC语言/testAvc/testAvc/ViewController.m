@@ -14,9 +14,8 @@
 @property (nonatomic, strong) NSDictionary *dictionaryD;
 
 @property (nonatomic, strong) ManagerTool *manager;
-@property (nonatomic, strong) UILabel  *  showLabel;
-
-@property (nonatomic, copy) NSString  *  stringSS;
+@property (nonatomic, strong) UILabel  *showLabel;
+@property (nonatomic, copy) NSString  *stringSS;
 
 
 @end
@@ -28,7 +27,7 @@
     
     _manager = [[ManagerTool alloc] initWithDic:self.dictionaryD];
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 200, 60)];
+    UILabel  *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 200, 60)];
     _showLabel = label;
     
     [label setFont:[UIFont systemFontOfSize:16]];
@@ -55,7 +54,7 @@
 //
 //    a  = a + 0.10f;
 //
-//    float result = b * a;
+//    float result = b  *a;
 //
 //    NSLog(@"conver >>>>>>>>>>>>>>>%@",[self converFloat:result]);
 //
@@ -68,29 +67,29 @@
 //    [self.showLabel setText:[self calculateFloatA:a floatB:b]];
     
     
-//    SecondViewController * vc = [[SecondViewController alloc] init];
-//    [self presentViewController:vc animated:YES completion:nil];
+    SecondViewController  *vc = [[SecondViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
     
-    [self refreshLabel];
+//    [self refreshLabel];
     
 }
 
 -(void)refreshLabel{
     
-    NSString * remoteTime  =  @"2017-05-05 18:15:19";
+    NSString  *remoteTime  =  @"2017-05-05 18:15:19";
     
-    NSDate * now = [NSDate date];
+    NSDate  *now = [NSDate date];
     
-    NSString * nowTime ;
-    NSString * oldTime ;
+    NSString  *nowTime ;
+    NSString  *oldTime ;
     NSString *result;
     
-    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    NSDate * old = [formatter dateFromString:remoteTime];
+    NSDate  *old = [formatter dateFromString:remoteTime];
     
     [formatter setDateFormat:@"yyyy"];
     
@@ -101,12 +100,7 @@
     
     if (compareResult == NSOrderedDescending) {
         result = @"去年";
-    }else if(compareResult == NSOrderedSame){
-        
-        
-        
-        
-        
+    } else if(compareResult == NSOrderedSame) {
         
     }
     
@@ -115,7 +109,7 @@
 }
 
 
--(NSDictionary *)dictionaryD{
+-(NSDictionary *)dictionaryD {
     if (!_dictionaryD) {
         _dictionaryD =@{@"age":@"12",@"name":@"xiaohei",@"sex":@"man",@"height":@"16"};
     }
@@ -124,9 +118,9 @@
 
 -(NSString*)converFloat:(CGFloat)floatValue{
 
-    NSString * floatStr = [NSString stringWithFormat:@"%f",floatValue];
+    NSString  *floatStr = [NSString stringWithFormat:@"%f",floatValue];
     
-    const char * floatChars = [floatStr UTF8String];
+    const char  *floatChars = [floatStr UTF8String];
     
     int strLength = (int)floatStr.length;
     

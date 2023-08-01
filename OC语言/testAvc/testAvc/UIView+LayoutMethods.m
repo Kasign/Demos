@@ -258,28 +258,28 @@
 - (void)topRatio:(CGFloat)top FromView:(UIView *)view screenType:(UIScreenType)screenType
 {
     CGFloat topRatio = top / screenType;
-    CGFloat topValue = topRatio * self.superview.ct_width;
+    CGFloat topValue = topRatio  *self.superview.ct_width;
     [self top:topValue FromView:view];
 }
 
 - (void)bottomRatio:(CGFloat)bottom FromView:(UIView *)view screenType:(UIScreenType)screenType
 {
     CGFloat bottomRatio = bottom / screenType;
-    CGFloat bottomValue = bottomRatio * self.superview.ct_width;
+    CGFloat bottomValue = bottomRatio  *self.superview.ct_width;
     [self bottom:bottomValue FromView:view];
 }
 
 - (void)leftRatio:(CGFloat)left FromView:(UIView *)view screenType:(UIScreenType)screenType
 {
     CGFloat leftRatio = left / screenType;
-    CGFloat leftValue = leftRatio * self.superview.ct_width;
+    CGFloat leftValue = leftRatio  *self.superview.ct_width;
     [self left:leftValue FromView:view];
 }
 
 - (void)rightRatio:(CGFloat)right FromView:(UIView *)view screenType:(UIScreenType)screenType
 {
     CGFloat rightRatio = right / screenType;
-    CGFloat rightValue = rightRatio * self.superview.ct_width;
+    CGFloat rightValue = rightRatio  *self.superview.ct_width;
     [self right:rightValue FromView:view];
 }
 
@@ -320,28 +320,28 @@
 - (void)topRatioInContainer:(CGFloat)top shouldResize:(BOOL)shouldResize screenType:(UIScreenType)screenType
 {
     CGFloat topRatio = top / screenType;
-    CGFloat topValue = topRatio * self.superview.ct_width;
+    CGFloat topValue = topRatio  *self.superview.ct_width;
     [self topInContainer:topValue shouldResize:shouldResize];
 }
 
 - (void)bottomRatioInContainer:(CGFloat)bottom shouldResize:(BOOL)shouldResize screenType:(UIScreenType)screenType
 {
     CGFloat bottomRatio = bottom / screenType;
-    CGFloat bottomValue = bottomRatio * self.superview.ct_width;
+    CGFloat bottomValue = bottomRatio  *self.superview.ct_width;
     [self bottomInContainer:bottomValue shouldResize:shouldResize];
 }
 
 - (void)leftRatioInContainer:(CGFloat)left shouldResize:(BOOL)shouldResize screenType:(UIScreenType)screenType
 {
     CGFloat leftRatio = left / screenType;
-    CGFloat leftValue = leftRatio * self.superview.ct_width;
+    CGFloat leftValue = leftRatio  *self.superview.ct_width;
     [self leftInContainer:leftValue shouldResize:shouldResize];
 }
 
 - (void)rightRatioInContainer:(CGFloat)right shouldResize:(BOOL)shouldResize screenType:(UIScreenType)screenType
 {
     CGFloat rightRatio = right / screenType;
-    CGFloat rightValue = rightRatio * self.superview.ct_width;
+    CGFloat rightValue = rightRatio  *self.superview.ct_width;
     [self rightInContainer:rightValue shouldResize:shouldResize];
 }
 
@@ -390,7 +390,7 @@
 - (void)setSize:(CGSize)size screenType:(UIScreenType)screenType
 {
     CGFloat ratio = SCREEN_WIDTH / screenType;
-    self.frame = CGRectMake(self.ct_x, self.ct_y, size.width * ratio, size.height * ratio);
+    self.frame = CGRectMake(self.ct_x, self.ct_y, size.width  *ratio, size.height  *ratio);
 }
 
 - (void)sizeEqualToView:(UIView *)view

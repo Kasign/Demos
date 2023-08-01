@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FLYPerson.h"
+#import "FlySecondViewController.h"
 
 @interface ViewController ()
 
@@ -29,5 +30,9 @@
     NSLog(@"Hello word");
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    NSLog(@"---touchesBegan");
+}
 
 @end

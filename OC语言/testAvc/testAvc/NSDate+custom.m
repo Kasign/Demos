@@ -10,17 +10,18 @@
 
 @implementation NSDate (custom)
 
-+ (NSDate *)chinaDate
-{
++ (NSDate *)chinaDate {
+    
     NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
     return [[NSDate date] dateByAddingTimeInterval:-localTimeZone.secondsFromGMT+8*60*60];
 }
 
 + (NSDate*)dateWithString:(NSString*)dateString formatString:(NSString*)dateFormatterString {
+    
 	if(!dateString)
         return nil;
 	
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:dateFormatterString];
 	NSDate *theDate = [formatter dateFromString:dateString];
 	return theDate;
@@ -30,7 +31,7 @@
 	if(!dateFormatterString)
         return nil;
 	
-    NSDateFormatter* formatter =  [[NSDateFormatter alloc] init];
+    NSDateFormatter *formatter =  [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:dateFormatterString];
 	[formatter setAMSymbol:@"am"];
 	[formatter setPMSymbol:@"pm"];
@@ -39,7 +40,7 @@
 
 - (BOOL)isPastDate
 {
-	NSDate* now = [NSDate date];
+	NSDate *now = [NSDate date];
 	if([[now earlierDate:self] isEqualToDate:self]) {
 		return YES;
 	} else {
@@ -156,7 +157,7 @@
 {
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDate * startDate = [NSDate getCurrentDateYYYYMMDD];
+    NSDate  *startDate = [NSDate getCurrentDateYYYYMMDD];
     unsigned int unitFlags = NSDayCalendarUnit;
     NSDateComponents *comps = [gregorian components:unitFlags fromDate:startDate toDate:date options:0];
     NSInteger days = [comps day];
@@ -181,7 +182,7 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate * date = [dateFormatter dateFromString:dateString];
+    NSDate  *date = [dateFormatter dateFromString:dateString];
     return date;
 }
 
