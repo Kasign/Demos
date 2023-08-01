@@ -39,7 +39,7 @@
     
     _stringSS = @"其中包括同时任国务院总理温家宝的会谈，还有与时任国家主席胡锦涛、时任全国人大常委会委员长吴邦国和时任全国政协主席贾庆林的会见";
     
-    NSLog(@"%ld",_stringSS.length);
+    NSLog(@"%ld", _stringSS.length);
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

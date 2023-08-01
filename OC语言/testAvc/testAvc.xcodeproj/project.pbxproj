@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396A48012A78AF20007453EF /* FLYTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48002A78AF20007453EF /* FLYTestView.m */; };
+		396A48042A78B023007453EF /* FlyTestControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48032A78B023007453EF /* FlyTestControl.m */; };
+		396A48072A78B428007453EF /* FlyTestBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48062A78B428007453EF /* FlyTestBaseView.m */; };
 		7B273E561F5FFA6F00246501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E551F5FFA6F00246501 /* main.m */; };
 		7B273E591F5FFA6F00246501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E581F5FFA6F00246501 /* AppDelegate.m */; };
 		7B273E5C1F5FFA6F00246501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E5B1F5FFA6F00246501 /* ViewController.m */; };
@@ -24,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		396A47FF2A78AF20007453EF /* FLYTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYTestView.h; sourceTree = "<group>"; };
+		396A48002A78AF20007453EF /* FLYTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYTestView.m; sourceTree = "<group>"; };
+		396A48022A78B023007453EF /* FlyTestControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTestControl.h; sourceTree = "<group>"; };
+		396A48032A78B023007453EF /* FlyTestControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTestControl.m; sourceTree = "<group>"; };
+		396A48052A78B428007453EF /* FlyTestBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTestBaseView.h; sourceTree = "<group>"; };
+		396A48062A78B428007453EF /* FlyTestBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTestBaseView.m; sourceTree = "<group>"; };
 		7B273E511F5FFA6F00246501 /* testAvc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testAvc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B273E551F5FFA6F00246501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B273E571F5FFA6F00246501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +121,12 @@
 				7B273E5B1F5FFA6F00246501 /* ViewController.m */,
 				7B6B09781F94908D000531A8 /* SecondViewController.h */,
 				7B6B09791F94908D000531A8 /* SecondViewController.m */,
+				396A47FF2A78AF20007453EF /* FLYTestView.h */,
+				396A48002A78AF20007453EF /* FLYTestView.m */,
+				396A48022A78B023007453EF /* FlyTestControl.h */,
+				396A48032A78B023007453EF /* FlyTestControl.m */,
+				396A48052A78B428007453EF /* FlyTestBaseView.h */,
+				396A48062A78B428007453EF /* FlyTestBaseView.m */,
 				7B6B097B1F94917F000531A8 /* LQStoryCardCollectionCell.h */,
 				7B6B097C1F94917F000531A8 /* LQStoryCardCollectionCell.m */,
 				7BAD8D0E1FAC166D0008A5A2 /* NSDate+custom.h */,
@@ -218,7 +233,10 @@
 				7BAD8D0F1FAC166D0008A5A2 /* NSDate+custom.m in Sources */,
 				7B273E591F5FFA6F00246501 /* AppDelegate.m in Sources */,
 				7BF49D261F6140FD004149A3 /* UIView+HandyAutoLayout.m in Sources */,
+				396A48012A78AF20007453EF /* FLYTestView.m in Sources */,
 				7B273E561F5FFA6F00246501 /* main.m in Sources */,
+				396A48042A78B023007453EF /* FlyTestControl.m in Sources */,
+				396A48072A78B428007453EF /* FlyTestBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

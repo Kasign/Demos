@@ -8,6 +8,10 @@
 
 #import "SecondViewController.h"
 #import "LQStoryCardCollectionCell.h"
+#import "FLYTestView.h"
+#import "FlyTestControl.h"
+#import "UIView+LayoutMethods.h"
+#import "FlyTestBaseView.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -26,16 +30,14 @@ static NSString *cardFootIdentify = @"FootCardIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     _dataSourceCount = 100;
     
-    [self.view addSubview:self.storyCollectionView];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.storyCollectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
-    });
+//    [self.view addSubview:self.storyCollectionView];
+    [self setUpSubviews];
 }
 
--(UICollectionView *)storyCollectionView{
+- (UICollectionView *)storyCollectionView{
     if (!_storyCollectionView) {
         UICollectionViewFlowLayout  *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -74,7 +76,8 @@ static NSString *cardFootIdentify = @"FootCardIdentify";
     return cell;
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+#pragma mark - UICollectionViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
 //    for (int i =0; i<_dataSourceCount; i++) {
 //        NSIndexPath  *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
@@ -154,6 +157,59 @@ static NSString *cardFootIdentify = @"FootCardIdentify";
     if (![NSThread isMainThread]) {
         NSLog(@" 非主线程：--->>> %@\n%@", [NSThread currentThread], msg);
     }
+}
+
+- (void)setUpSubviews {
+    
+    CGRect frame2 = CGRectMake(0, 200, self.view.ct_width, 200);
+    CGRect frame4 = CGRectMake(self.view.ct_width - 250, 50, 200, 200);
+    
+    CGRect frame3 = CGRectMake(100, 100, self.view.ct_width - 200, 400);
+    CGRect frame5 = CGRectMake(-50, 50, 200, 200);
+    
+    FlyTestBaseView *view1 = [[FlyTestBaseView alloc] initWithFrame:self.view.bounds];
+    FLYTestView *view2 = [[FLYTestView alloc] initWithFrame:frame2];
+    FLYTestView *view3 = [[FLYTestView alloc] initWithFrame:frame3];
+    
+    FlyTestControl *view4 = [[FlyTestControl alloc] initWithFrame:frame4];
+    FlyTestControl *view5 = [[FlyTestControl alloc] initWithFrame:frame5];
+    
+    [view4 addTarget:self action:@selector(didClickControl:) forControlEvents:UIControlEventTouchUpInside];
+    [view5 addTarget:self action:@selector(didClickControl:) forControlEvents:UIControlEventTouchUpInside];
+    
+    view1.name = @"view1";
+    view2.name = @"view2";
+    view3.name = @"view3";
+    view4.name = @"view4";
+    view5.name = @"view5";
+    
+    [self.view addSubview:view1];
+    [view1 addSubview:view2];
+    [view1 addSubview:view3];
+    
+    [view2 addSubview:view4];
+    [view3 addSubview:view5];
+    
+    view1.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    
+    view2.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.2];
+    view4.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.2];
+    
+    view3.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.2];
+    view5.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.2];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+    [view3 addGestureRecognizer:tap];
+}
+
+- (void)didClickControl:(id)view {
+    
+    NSLog(@"-----Control响应了");
+}
+
+- (void)didTap:(id)view {
+    
+    NSLog(@"-----手势响应了");
 }
 
 - (void)didReceiveMemoryWarning {
