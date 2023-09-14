@@ -17,38 +17,18 @@
 @implementation FlyTestBaseView
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)logIfNeed:(NSString *)msg {
-    
-    NSLog(@"--->>> \n%@:%p\n%@\n%@\n-------------------------", [self class], self, self.name, msg);
-}
-
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     
     UIView *t = [super hitTest:point withEvent:event];
     if (t) {
-        NSLog(@"HIT:--->>>\n%@:%p", t.class, t);
+        NSLog(@"HIT:--->>>\n%@", [t description]);
     }
     return t;
+}
+
+- (NSString *)description {
+    
+    return [NSString stringWithFormat:@"<%@ %p %@>", self.class, self, self.name];
 }
 
 @end

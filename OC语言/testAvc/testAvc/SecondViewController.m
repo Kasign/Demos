@@ -12,6 +12,7 @@
 #import "FlyTestControl.h"
 #import "UIView+LayoutMethods.h"
 #import "FlyTestBaseView.h"
+#import "UIGestureRecognizer+FLYTouch.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -190,16 +191,21 @@ static NSString *cardFootIdentify = @"FootCardIdentify";
     [view2 addSubview:view4];
     [view3 addSubview:view5];
     
-    view1.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    view1.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
     
-    view2.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.2];
-    view4.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.2];
+    view2.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.4];
+    view4.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.4];
     
-    view3.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.2];
-    view5.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.2];
+    view3.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.4];
+    view5.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.4];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    [view3 addGestureRecognizer:tap];
+    
+//    tap.cancelsTouchesInView = false;
+//    tap.delaysTouchesBegan = false;
+//    tap.delaysTouchesEnded = false;
+    
+    [view1 addGestureRecognizer:tap];
 }
 
 - (void)didClickControl:(id)view {

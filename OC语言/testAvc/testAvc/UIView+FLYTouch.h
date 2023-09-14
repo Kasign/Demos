@@ -1,8 +1,8 @@
 //
-//  FlyTestBaseView.h
+//  UIView+FLYTouch.h
 //  testAvc
 //
-//  Created by Walg on 2023/8/1.
+//  Created by Walg on 2023/8/30.
 //  Copyright © 2023 FLY. All rights reserved.
 //
 
@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FlyTestBaseView : UIView
-@property (nonatomic, copy) NSString *name;
+@interface UIView (FLYTouch)
+
+- (void)logMsg:(NSString *)msg;
+
 @end
 
 NS_ASSUME_NONNULL_END

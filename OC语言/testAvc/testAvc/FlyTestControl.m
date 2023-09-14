@@ -7,6 +7,7 @@
 //
 
 #import "FlyTestControl.h"
+#import "UIView+FLYTouch.h"
 
 @interface FlyTestControl ()
 
@@ -33,45 +34,57 @@
 - (void)didMoveToSuperview {
     
     [super didMoveToSuperview];
-    [self.msgLabel setText:[NSString stringWithFormat:@"%p:%@:%p", self, self.name, self.superview]];
+    [self.msgLabel setText:[NSString stringWithFormat:@"Self:%@\nSuper:%@", [self description], self.superview.description]];
+    [self resetMsgLabel];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)resetMsgLabel {
     
-    [self logIfNeed:NSStringFromSelector(_cmd)];
+    [self.msgLabel sizeToFit];
+    self.msgLabel.frame = CGRectMake(0, self.bounds.size.height - self.msgLabel.bounds.size.height, self.bounds.size.width, self.msgLabel.bounds.size.height);
 }
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self logIfNeed:NSStringFromSelector(_cmd)];
-}
-
-- (void)logIfNeed:(NSString *)msg {
-    
-    NSLog(@"--->>> \n%@:%p\n%@\n%@\n-------------------------", [self class], self, self.name, msg);
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//
+//    [self logMsg:NSStringFromSelector(_cmd)];
+//    [super touchesBegan:touches withEvent:event];
+//}
+//
+//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//
+//    [self logMsg:NSStringFromSelector(_cmd)];
+//    [super touchesMoved:touches withEvent:event];
+//}
+//
+//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//
+//    [self logMsg:NSStringFromSelector(_cmd)];
+//    [super touchesEnded:touches withEvent:event];
+//}
+//
+//- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//
+//    [self logMsg:NSStringFromSelector(_cmd)];
+//    [super touchesCancelled:touches withEvent:event];
+//}
 
 - (UILabel *)msgLabel {
     
     if (!_msgLabel) {
-        _msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 40)];
+        _msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 100)];
         _msgLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _msgLabel.textAlignment = NSTextAlignmentLeft;
-        _msgLabel.numberOfLines = 1;
+        _msgLabel.numberOfLines = 0;
         _msgLabel.font = [UIFont systemFontOfSize:12];
         _msgLabel.textColor = [UIColor blackColor];
+        _msgLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     }
     return _msgLabel;
+}
+
+- (NSString *)description {
+    
+    return [NSString stringWithFormat:@"<%@ %p %@>", self.class, self, self.name];
 }
 
 @end

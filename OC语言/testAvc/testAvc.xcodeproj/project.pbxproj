@@ -10,6 +10,9 @@
 		396A48012A78AF20007453EF /* FLYTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48002A78AF20007453EF /* FLYTestView.m */; };
 		396A48042A78B023007453EF /* FlyTestControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48032A78B023007453EF /* FlyTestControl.m */; };
 		396A48072A78B428007453EF /* FlyTestBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396A48062A78B428007453EF /* FlyTestBaseView.m */; };
+		39CD58FE2A9F3661003E0035 /* UIView+FLYTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CD58FD2A9F3661003E0035 /* UIView+FLYTouch.m */; };
+		39CD59012A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CD59002A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.m */; };
+		39CD59042A9F480D003E0035 /* RSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CD59032A9F480D003E0035 /* RSSwizzle.m */; };
 		7B273E561F5FFA6F00246501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E551F5FFA6F00246501 /* main.m */; };
 		7B273E591F5FFA6F00246501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E581F5FFA6F00246501 /* AppDelegate.m */; };
 		7B273E5C1F5FFA6F00246501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B273E5B1F5FFA6F00246501 /* ViewController.m */; };
@@ -33,6 +36,12 @@
 		396A48032A78B023007453EF /* FlyTestControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTestControl.m; sourceTree = "<group>"; };
 		396A48052A78B428007453EF /* FlyTestBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyTestBaseView.h; sourceTree = "<group>"; };
 		396A48062A78B428007453EF /* FlyTestBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyTestBaseView.m; sourceTree = "<group>"; };
+		39CD58FC2A9F3661003E0035 /* UIView+FLYTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FLYTouch.h"; sourceTree = "<group>"; };
+		39CD58FD2A9F3661003E0035 /* UIView+FLYTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLYTouch.m"; sourceTree = "<group>"; };
+		39CD58FF2A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+FLYTouch.h"; sourceTree = "<group>"; };
+		39CD59002A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+FLYTouch.m"; sourceTree = "<group>"; };
+		39CD59022A9F480D003E0035 /* RSSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSwizzle.h; sourceTree = "<group>"; };
+		39CD59032A9F480D003E0035 /* RSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSwizzle.m; sourceTree = "<group>"; };
 		7B273E511F5FFA6F00246501 /* testAvc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testAvc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B273E551F5FFA6F00246501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B273E571F5FFA6F00246501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,6 +104,8 @@
 				7B273E581F5FFA6F00246501 /* AppDelegate.m */,
 				7BF49D291F61413A004149A3 /* ManagerTool.h */,
 				7BF49D2A1F61413A004149A3 /* ManagerTool.m */,
+				39CD59022A9F480D003E0035 /* RSSwizzle.h */,
+				39CD59032A9F480D003E0035 /* RSSwizzle.m */,
 				7BF49D281F61410F004149A3 /* Frame+autoLayout */,
 				7B273E6B1F5FFA7B00246501 /* New Group */,
 				7B273E5D1F5FFA6F00246501 /* Main.storyboard */,
@@ -127,6 +138,10 @@
 				396A48032A78B023007453EF /* FlyTestControl.m */,
 				396A48052A78B428007453EF /* FlyTestBaseView.h */,
 				396A48062A78B428007453EF /* FlyTestBaseView.m */,
+				39CD58FC2A9F3661003E0035 /* UIView+FLYTouch.h */,
+				39CD58FD2A9F3661003E0035 /* UIView+FLYTouch.m */,
+				39CD58FF2A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.h */,
+				39CD59002A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.m */,
 				7B6B097B1F94917F000531A8 /* LQStoryCardCollectionCell.h */,
 				7B6B097C1F94917F000531A8 /* LQStoryCardCollectionCell.m */,
 				7BAD8D0E1FAC166D0008A5A2 /* NSDate+custom.h */,
@@ -229,6 +244,9 @@
 				7BAD8D0C1FAC0CAD0008A5A2 /* NSString+type.m in Sources */,
 				7BF49D271F6140FD004149A3 /* UIView+LayoutMethods.m in Sources */,
 				7BAD8D091FAC0C8D0008A5A2 /* NSDate+compare.m in Sources */,
+				39CD58FE2A9F3661003E0035 /* UIView+FLYTouch.m in Sources */,
+				39CD59042A9F480D003E0035 /* RSSwizzle.m in Sources */,
+				39CD59012A9F4382003E0035 /* UIGestureRecognizer+FLYTouch.m in Sources */,
 				7B6B097A1F94908D000531A8 /* SecondViewController.m in Sources */,
 				7BAD8D0F1FAC166D0008A5A2 /* NSDate+custom.m in Sources */,
 				7B273E591F5FFA6F00246501 /* AppDelegate.m in Sources */,
