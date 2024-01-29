@@ -111,11 +111,11 @@
     
     static const LYVertex quadVertices[] =
     {  // 顶点坐标                          顶点颜色                    纹理坐标
-        {{-0.5f, 0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 1.0f},       {0.0f, 1.0f}},//左上
-        {{0.5f, 0.5f, 0.0f, 1.0f},       {1.0f, 0.0f, 0.0f},       {1.0f, 1.0f}},//右上
-        {{-0.5f, -0.5f, 0.0f, 1.0f},     {0.0f, 1.0f, 0.0f},       {0.0f, 0.0f}},//左下
-        {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.0f},       {1.0f, 0.0f}},//右下
-        {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点
+        {{-0.5f, 0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 1.0f},       {0.0f, 1.0f}},//左上 0
+        {{0.5f, 0.5f, 0.0f, 1.0f},       {1.0f, 0.0f, 0.0f},       {1.0f, 1.0f}},//右上 1
+        {{-0.5f, -0.5f, 0.0f, 1.0f},     {0.0f, 1.0f, 0.0f},       {0.0f, 0.0f}},//左下 2
+        {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.0f},       {1.0f, 0.0f}},//右下 3
+        {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点 4
     };
     self.vertices = [self.device newBufferWithBytes:quadVertices
                                              length:sizeof(quadVertices)
@@ -123,12 +123,12 @@
     
     static int indices[] =
     { // 索引
-        0, 3, 2,
-        0, 1, 3,
-        0, 2, 4,
-        0, 4, 1,
-        2, 3, 4,
-        1, 4, 3,
+        0, 3, 2, // 左下三角形
+        0, 1, 3, // 右上三角形
+        0, 2, 4, // 左顶三角形
+        0, 4, 1, // 上顶三角形
+        2, 3, 4, // 下顶三角形
+        1, 4, 3, // 右顶三角形
     };
     /**
      newBufferWithBytes:长度:选项:
@@ -247,6 +247,9 @@
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, x, 1, 0, 0);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, y, 0, 1, 0);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, z, 0, 0, 1);
+    
+//    modelViewMatrix = GLKMatrix4Identity;
+//    projectionMatrix = GLKMatrix4Identity;
     
     LYMatrix matrix = {[self getMetalMatrixFromGLKMatrix:projectionMatrix], [self getMetalMatrixFromGLKMatrix:modelViewMatrix]};
     

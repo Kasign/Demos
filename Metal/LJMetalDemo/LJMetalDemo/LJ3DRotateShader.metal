@@ -30,8 +30,8 @@ vertex RasterizerData vertex3DRotateShader(uint vertexID [[ vertex_id ]], consta
 // 片元着色器
 fragment float4 sampling3DRotateShader(RasterizerData input [[stage_in]], texture2d<half> textureColor [[ texture(LYFragmentInputIndexTexture) ]]) {
     
-//    constexpr sampler textureSampler (mag_filter::linear, min_filter::linear);
-//    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+    constexpr sampler textureSampler(mag_filter::linear, min_filter::linear);
+    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
     return float4(colorTex);
 }

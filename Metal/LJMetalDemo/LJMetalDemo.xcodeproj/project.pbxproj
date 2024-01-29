@@ -20,6 +20,7 @@
 		3990FF842B57D8CB00920FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3990FF832B57D8CB00920FEC /* Assets.xcassets */; };
 		3990FF872B57D8CB00920FEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3990FF852B57D8CB00920FEC /* LaunchScreen.storyboard */; };
 		3990FF8A2B57D8CB00920FEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990FF892B57D8CB00920FEC /* main.m */; };
+		39945F9E2B63ADB9001EAAC5 /* LJ3DCubeRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 39945F9D2B63ADB9001EAAC5 /* LJ3DCubeRender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		3990FF862B57D8CB00920FEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3990FF882B57D8CB00920FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3990FF892B57D8CB00920FEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39945F9C2B63ADB9001EAAC5 /* LJ3DCubeRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJ3DCubeRender.h; sourceTree = "<group>"; };
+		39945F9D2B63ADB9001EAAC5 /* LJ3DCubeRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJ3DCubeRender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +121,22 @@
 				39128FC22B57DBBC007A8901 /* Base */,
 				39128FC52B57DBBC007A8901 /* Texture */,
 				39128FCE2B57DC89007A8901 /* 3D */,
+				39945F9F2B63AE02001EAAC5 /* Cube */,
 				3990FF882B57D8CB00920FEC /* Info.plist */,
 				3990FF852B57D8CB00920FEC /* LaunchScreen.storyboard */,
 				3990FF892B57D8CB00920FEC /* main.m */,
 				3990FF802B57D8CA00920FEC /* Main.storyboard */,
 			);
 			path = LJMetalDemo;
+			sourceTree = "<group>";
+		};
+		39945F9F2B63AE02001EAAC5 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				39945F9C2B63ADB9001EAAC5 /* LJ3DCubeRender.h */,
+				39945F9D2B63ADB9001EAAC5 /* LJ3DCubeRender.m */,
+			);
+			path = Cube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +215,7 @@
 				3990FF792B57D8CA00920FEC /* AppDelegate.m in Sources */,
 				39128FCA2B57DBBC007A8901 /* LJTextureRender.m in Sources */,
 				3990FF8A2B57D8CB00920FEC /* main.m in Sources */,
+				39945F9E2B63ADB9001EAAC5 /* LJ3DCubeRender.m in Sources */,
 				39128FC12B57DBA7007A8901 /* LJ3DRotateRender.m in Sources */,
 				3990FF7C2B57D8CA00920FEC /* SceneDelegate.m in Sources */,
 				39128FBE2B57DB77007A8901 /* LJ3DRotateShader.metal in Sources */,

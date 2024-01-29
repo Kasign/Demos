@@ -68,7 +68,9 @@ typedef NS_ENUM(NSUInteger, LJRenderingResizingMode) {
     // 设置纹理数据
     [renderCommandEncoder setFragmentTexture:self.texture atIndex:0];
     // 开始绘制
-    [renderCommandEncoder drawPrimitives:MTLPrimitiveTypeTriangleStrip vertexStart:0 vertexCount:self.numVertices];
+    [renderCommandEncoder drawPrimitives:MTLPrimitiveTypeTriangleStrip 
+                             vertexStart:0
+                             vertexCount:self.numVertices];
 }
 
 - (void)setUpRenderPassDescriptor:(MTLRenderPassDescriptor *)renderPassDescriptor {
