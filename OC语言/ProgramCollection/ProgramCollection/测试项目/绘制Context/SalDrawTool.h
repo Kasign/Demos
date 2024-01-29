@@ -91,8 +91,8 @@ extern CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
 /// 要绘制的Image任务信息
 @interface SalImageTask : SalDetailDrawTask
 
-@property (nonatomic, strong) UIImage         *   drawImage;
-@property (nonatomic, strong) SalImageInfo    *   drawImageInfo;
+@property (nonatomic, strong) UIImage         *drawImage;
+@property (nonatomic, strong) SalImageInfo    *drawImageInfo;
 @property (nonatomic, assign) CGRect              cropRect;  //当前图片需要截取，改变图片大小,以ImageRefSize为基准
 @property (nonatomic, assign) BOOL                needCrop;
 @property (nonatomic) CGImageRef                  drawImageRef;
@@ -108,8 +108,8 @@ extern CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
 @interface SalPathTask : SalDetailDrawTask
 
 @property (nonatomic) CGPathRef                   pathRef;
-@property (nonatomic, strong) UIColor        *    fillColor;
-@property (nonatomic, strong) UIColor        *    strokColor;
+@property (nonatomic, strong) UIColor        * fillColor;
+@property (nonatomic, strong) UIColor        * strokColor;
 
 + (SalPathTask *)imageTaskWithPathRef:(CGPathRef)pathRef drawRect:(CGRect)drawRect;
 
@@ -118,7 +118,7 @@ extern CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
 /// 要绘制的Path任务信息
 @interface SalTextTask : SalDetailDrawTask
 
-@property (nonatomic, strong) NSAttributedString   *   attributedStr;
+@property (nonatomic, strong) NSAttributedString   *attributedStr;
 
 + (SalTextTask *)textTaskWithAttributedStr:(NSAttributedString *)attributedStr drawRect:(CGRect)drawRect;
 
@@ -127,8 +127,8 @@ extern CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
 @interface SalDrawTask : NSObject
 
 @property (nonatomic, assign) CGSize              drawSize;
-@property (nonatomic, strong) UIColor         *   backColor;
-@property (nonatomic, strong) UIColor         *   alphaColor;//改变透明区域颜色
+@property (nonatomic, strong) UIColor         *backColor;
+@property (nonatomic, strong) UIColor         *alphaColor;//改变透明区域颜色
 @property (nonatomic, strong) NSArray<SalDetailDrawTask *> * drawTaskList;
 @property (nonatomic, assign) CGBlendMode         blendMode;
 @property (nonatomic, assign) size_t              drawScale;

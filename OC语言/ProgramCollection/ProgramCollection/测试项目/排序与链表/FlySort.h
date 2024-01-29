@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FlySort : NSObject
 
-@property (nonatomic, copy) NSString   *   name;
+@property (nonatomic, copy) NSString   *name;
 
 /**
  1、如果S中元素个数是0或者1，则返回

@@ -12,14 +12,15 @@
 
 @interface FlyTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel       *   label;
-@property (nonatomic, strong) UIImageView   *   imageView1;
-@property (nonatomic, strong) UIImageView   *   imageView2;
-@property (nonatomic, strong) UIImageView   *   imageView3;
+@property (nonatomic, strong) UILabel       *label;
+@property (nonatomic, strong) UIImageView   *imageView1;
+@property (nonatomic, strong) UIImageView   *imageView2;
+@property (nonatomic, strong) UIImageView   *imageView3;
 
 @end
 
 @implementation FlyTableViewCell
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -79,14 +80,19 @@
 
 @interface FlyNinthController ()<UITableViewDelegate, UITableViewDataSource, NSPortDelegate>
 
-@property (nonatomic, strong) UITableView      *   tableView;
-@property (nonatomic, strong) FlyRunloopTool   *   loopTool;
+@property (nonatomic, strong) UITableView      *tableView;
+@property (nonatomic, strong) FlyRunloopTool   *loopTool;
 
-@property (nonatomic, strong) NSTimer   *   timer;
+@property (nonatomic, strong) NSTimer   *timer;
 
 @end
 
 @implementation FlyNinthController
+
++ (NSString *)functionName {
+    
+    return @"runloop";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -61,7 +61,7 @@ extern CGColorSpaceRef SALGetColorSpace(void);
 @interface SalImageInfo : NSObject <NSCopying, NSCoding>
 
 @property (nonatomic) SALImageInfoStruct           imageStruct;
-@property (nonatomic) SALPixel_8888            *   imageBuffer;
+@property (nonatomic) SALPixel_8888            *imageBuffer;
 @property (nonatomic) CGContextRef                 contextRef;
 @property (nonatomic) SALDrawContentType           drawType;
 

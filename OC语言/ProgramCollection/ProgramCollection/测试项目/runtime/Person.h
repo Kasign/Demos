@@ -11,8 +11,8 @@
     int hight;
 }
 @property (nonatomic, assign) int            age;
-@property (nonatomic, strong) NSString   *   name;
-@property (nonatomic, copy)   NSString   *   NICK;
+@property (nonatomic, strong) NSString   *name;
+@property (nonatomic, copy)   NSString   *NICK;
 
 -(void)eat;
 -(void)run;

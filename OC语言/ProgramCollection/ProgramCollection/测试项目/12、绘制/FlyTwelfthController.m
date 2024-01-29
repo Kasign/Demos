@@ -19,6 +19,11 @@
 
 @implementation FlyTwelfthController
 
++ (NSString *)functionName {
+    
+    return @"绘制";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

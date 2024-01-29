@@ -10,12 +10,17 @@
 
 @interface FlyFifthController ()
 
-@property (nonatomic, strong) FlyBaseView   *   lineView;
-@property (nonatomic, strong) CADisplayLink *   displayLink;
+@property (nonatomic, strong) FlyBaseView   *lineView;
+@property (nonatomic, strong) CADisplayLink *displayLink;
 
 @end
 
 @implementation FlyFifthController
+
++ (NSString *)functionName {
+    
+    return @"view控件";
+}
 
 - (void)viewDidLoad
 {

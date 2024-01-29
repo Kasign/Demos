@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FlyNode : NSObject
 
-@property (nonatomic, strong) FlyNode   *   next;
+@property (nonatomic, strong) FlyNode   *next;
 
 @end
 

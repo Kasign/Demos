@@ -13,12 +13,17 @@
 
 @interface FlyTenthController ()
 
-@property (nonatomic, strong) Person   *   p;
-@property (nonatomic, strong) Dog      *   d;
+@property (nonatomic, strong) Person   *p;
+@property (nonatomic, strong) Dog      *d;
 
 @end
 
 @implementation FlyTenthController
+
++ (NSString *)functionName {
+    
+    return @"KVO";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

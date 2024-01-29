@@ -18,7 +18,7 @@ extern CGRect  GetDirctRect(CGRect rect);
 
 @interface SALSteam : NSObject
 
-@property (nonatomic, strong) SalImageInfo   *   imageInfo;
+@property (nonatomic, strong) SalImageInfo   *imageInfo;
 @property (nonatomic, assign) CGRect             cropArea;    // 0 ~ 1
 @property (nonatomic, assign) CGRect             visibleArea; // 0 ~ 1
 @property (nonatomic, assign) BOOL               isSteam;     //是否有效

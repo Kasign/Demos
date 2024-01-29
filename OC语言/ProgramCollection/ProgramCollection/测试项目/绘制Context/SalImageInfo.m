@@ -144,10 +144,10 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
 @property (nonatomic, assign) BOOL       needClearContextRef;
 @property (nonatomic, assign) BOOL       needFreeContextRef;
 
-@property (nonatomic, readwrite) UIImage     *   image;
+@property (nonatomic, readwrite) UIImage     *image;
 @property (nonatomic, readwrite) CGImageRef      imageRef;
 
-@property (nonatomic, readwrite) UIImage     *   bufferImage;
+@property (nonatomic, readwrite) UIImage     *bufferImage;
 @property (nonatomic, readwrite) CGImageRef      bufferImageRef;
 
 @end

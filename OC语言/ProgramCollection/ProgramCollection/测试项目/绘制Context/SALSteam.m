@@ -11,7 +11,7 @@
 
 @property (nonatomic) CGImageRef                    imageRef;
 @property (nonatomic) CGDataProviderRef             providerRef;
-@property (nonatomic, strong) UIImage           *   image;
+@property (nonatomic, strong) UIImage           *image;
 
 @property (nonatomic, assign) NSUInteger            positionMax;   //这里是像素点最大的位置，基于原始的rect
 @property (nonatomic, assign) NSUInteger            position;      //这里是像素点的位置，基于原始的rect

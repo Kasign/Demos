@@ -10,13 +10,18 @@
 
 @interface FlyFourteenController ()
 
-@property (nonatomic, copy)   NSString  *  name;
+@property (nonatomic, copy)   NSString *name;
 @property (nonatomic, copy)   void (^kBlock)(int a);
 @property (nonatomic, copy)   void (^gBlock)(void);
 
 @end
 
 @implementation FlyFourteenController
+
++ (NSString *)functionName {
+    
+    return @"Block";
+}
 
 /**
  这里总结block对外界变量的捕获

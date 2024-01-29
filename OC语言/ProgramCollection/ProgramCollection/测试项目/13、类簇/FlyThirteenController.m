@@ -14,6 +14,11 @@
 
 @implementation FlyThirteenController
 
++ (NSString *)functionName {
+    
+    return @"类簇";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self testNumberClassName];

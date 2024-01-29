@@ -15,6 +15,11 @@
 
 @implementation FlySixthController
 
++ (NSString *)functionName {
+    
+    return @"黑科技";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

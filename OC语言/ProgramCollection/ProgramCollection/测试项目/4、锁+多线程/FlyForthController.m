@@ -13,21 +13,26 @@
 @interface FlyForthController ()
 
 @property (nonatomic, assign) NSInteger             ticketCount;
-@property (nonatomic, copy)   NSString          *   lockType;
+@property (nonatomic, copy)   NSString          *lockType;
 
-@property (nonatomic, strong) NSLock            *   nslock;
+@property (nonatomic, strong) NSLock            *nslock;
 @property (nonatomic, assign) pthread_mutex_t       pthread_mutex_t;
 //@property (nonatomic, assign) OSSpinLock        osspinLock;
 //@property (nonatomic, assign) os_unfair_lock_t  oc_unfair_lock;
 @property (nonatomic, assign) pthread_rwlock_t      pthread_rwlock_t;
-@property (nonatomic, strong) NSRecursiveLock   *   recursiveLock;
-@property (nonatomic, strong) NSCondition       *   condition;
-@property (nonatomic, strong) NSConditionLock   *   conditionLock;
+@property (nonatomic, strong) NSRecursiveLock   *recursiveLock;
+@property (nonatomic, strong) NSCondition       *condition;
+@property (nonatomic, strong) NSConditionLock   *conditionLock;
 @property (nonatomic, strong) dispatch_semaphore_t   semaphore;
 
 @end
 
 @implementation FlyForthController
+
++ (NSString *)functionName {
+    
+    return @"锁+多线程";
+}
 
 /**
  互斥锁 1、@synchronized   2、NSLock   3、pthread_mutex

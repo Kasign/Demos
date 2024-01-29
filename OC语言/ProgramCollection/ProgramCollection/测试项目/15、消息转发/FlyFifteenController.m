@@ -41,6 +41,11 @@ extern void instrumentObjcMessageSends(BOOL flag);
 
 @implementation FlyFifteenController
 
++ (NSString *)functionName {
+    
+    return @"消息转发";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self testMethod];

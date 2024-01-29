@@ -17,6 +17,11 @@
 
 @implementation FlySixteenController
 
++ (NSString *)functionName {
+    
+    return @"计时器";
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];

@@ -12,11 +12,16 @@
 @interface FlyThirdController ()
 
 @property (nonatomic, assign) NSInteger     num;
-@property (nonatomic, strong) FlySort   *   sort1;
+@property (nonatomic, strong) FlySort   *sort1;
 
 @end
 
 @implementation FlyThirdController
+
++ (NSString *)functionName {
+    
+    return @"排序算法";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

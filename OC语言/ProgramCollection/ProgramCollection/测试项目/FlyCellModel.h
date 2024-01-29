@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FlyCellModel : NSObject
 
+@property (nonatomic, copy) NSString *vcTitle;
+@property (nonatomic, copy) NSString *cellTitle;
+@property (nonatomic, strong) Class vcClass;
+
++ (instancetype)instanceWithIndex:(NSInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

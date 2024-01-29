@@ -14,6 +14,11 @@
 
 @implementation FlySeventeenController
 
++ (NSString *)functionName {
+    
+    return @"布局";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

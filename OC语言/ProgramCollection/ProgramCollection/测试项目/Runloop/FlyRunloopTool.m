@@ -13,7 +13,7 @@
 @interface FlyRunloopTool ()
 
 @property (nonatomic, assign) NSInteger                 maxTaskCount;
-@property (nonatomic, strong) NSMutableDictionary   *   taskDic;
+@property (nonatomic, strong) NSMutableDictionary   *taskDic;
 @property (nonatomic, assign) CFRunLoopObserverRef      defaultModeObserver;
 @property (nonatomic, assign) NSTimeInterval            currentTime;
 

@@ -21,6 +21,11 @@
 static id _Nullable (*fly_msgSendSuper)(id,SEL , ...) = (void *)objc_msgSendSuper;
 static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
 
++ (NSString *)functionName {
+    
+    return @"runtime";
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];

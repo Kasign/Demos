@@ -10,10 +10,15 @@
 #import "FlyNode.h"
 
 @interface FlySecondController ()
-@property (nonatomic, strong) FlyNode   *   headerNode;
+@property (nonatomic, strong) FlyNode   *headerNode;
 @end
 
 @implementation FlySecondController
+
++ (NSString *)functionName {
+    
+    return @"链表";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -30,11 +30,16 @@
  */
 @interface FlySeventhController ()
 
-@property (nonatomic, strong) NSMutableArray   *   objectArray;
+@property (nonatomic, strong) NSMutableArray   *objectArray;
 
 @end
 
 @implementation FlySeventhController
+
++ (NSString *)functionName {
+    
+    return @"通知";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

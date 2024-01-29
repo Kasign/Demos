@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@interface SalScreenShotModel : NSObject
 //
 //@property (nonatomic, assign) CGFloat       time;
-//@property (nonatomic, strong) UIImage   *   image;
+//@property (nonatomic, strong) UIImage   *image;
 //
 //+ (instancetype)instanceWithImage:(UIImage *)image time:(CGFloat)time;
 //

@@ -14,6 +14,11 @@
 
 @implementation FlyEleventhController
 
++ (NSString *)functionName {
+    
+    return @"沙盒";
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];

@@ -10,7 +10,7 @@
 
 //@interface SalScreenShotTool ()
 //
-//@property (nonatomic, strong) NSMutableArray   *   imageModelArr;
+//@property (nonatomic, strong) NSMutableArray   *imageModelArr;
 //@property (nonatomic, assign) CGFloat              startTime;
 //
 //@end
