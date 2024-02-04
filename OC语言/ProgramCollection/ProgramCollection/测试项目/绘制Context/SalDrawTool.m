@@ -406,7 +406,7 @@ CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect,
     return imagePartRef;
 }
 
-void SALFreeStack() {
+void SALFreeStack(void) {
     
     if (rgbImageBuf != NULL) {
         free(rgbImageBuf);
@@ -420,7 +420,7 @@ void SALFreeStack() {
 
 #pragma mark FINISH DRAW -
 
-CGColorSpaceRef SALGetColorSpace() {
+CGColorSpaceRef SALGetColorSpace(void) {
     
     if (colorSpace == NULL) {
         colorSpace = CGColorSpaceCreateDeviceRGB();

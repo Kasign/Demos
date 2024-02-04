@@ -9,21 +9,21 @@
 
 @interface SALSteam ()
 
-@property (nonatomic) CGImageRef                    imageRef;
-@property (nonatomic) CGDataProviderRef             providerRef;
+@property (nonatomic) CGImageRef                 imageRef;
+@property (nonatomic) CGDataProviderRef          providerRef;
 @property (nonatomic, strong) UIImage           *image;
 
-@property (nonatomic, assign) NSUInteger            positionMax;   //这里是像素点最大的位置，基于原始的rect
-@property (nonatomic, assign) NSUInteger            position;      //这里是像素点的位置，基于原始的rect
-@property (nonatomic, assign) NSUInteger            bytesPerPixel; //这里是像素点的位置，基于原始的rect
+@property (nonatomic, assign) NSUInteger         positionMax;   //这里是像素点最大的位置，基于原始的rect
+@property (nonatomic, assign) NSUInteger         position;      //这里是像素点的位置，基于原始的rect
+@property (nonatomic, assign) NSUInteger         bytesPerPixel; //这里是像素点的位置，基于原始的rect
 
-@property (nonatomic, assign) BOOL                  needCrop;
-@property (nonatomic, assign) BOOL                  needVisible;
-@property (nonatomic, assign) BOOL                  needFree;
-@property (nonatomic, assign) BOOL                  needResetVisibleRect;
-@property (nonatomic, assign) CGRect                cropRect;
-@property (nonatomic, assign) CGRect                visibleRect;
-@property (nonatomic, assign) SALImageInfoStruct    currentInfoStruct;
+@property (nonatomic, assign) BOOL               needCrop;
+@property (nonatomic, assign) BOOL               needVisible;
+@property (nonatomic, assign) BOOL               needFree;
+@property (nonatomic, assign) BOOL               needResetVisibleRect;
+@property (nonatomic, assign) CGRect             cropRect;
+@property (nonatomic, assign) CGRect             visibleRect;
+@property (nonatomic, assign) SALImageInfoStruct currentInfoStruct;
 
 - (size_t)getBytes:(void *)buffer bytes:(size_t)bytes;
 - (off_t)skipForwardBytes:(off_t)count;
