@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git' #公有仓库地址
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git' #镜像
 
 platform :ios, '10.0'
 inhibit_all_warnings!
@@ -8,6 +9,8 @@ target 'ProgramCollection' do
   # Comment the next line if you don't want to use dynamic frameworks
 #  use_frameworks!
   
+  pod 'RSSwizzle', '0.1.0'
+  pod 'AFNetworking', '4.0.1'
   pod 'FlyTestCollection', :path => '../FlyTestCollection'
   pod 'FlyBaseTool', :path => '../FlyBaseTool'
 
@@ -17,4 +20,50 @@ end
 
 #pre_install do |installer|
 #  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+#end
+
+#post_install do |installer|
+##    copy_pods_resources_path = "Pods/Target Support Files/Pods-LJShell/Pods-LJShell-resources.sh"
+##    string_to_replace = '--compile "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"'
+##    assets_compile_with_app_icon_arguments = '--compile "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}" --app-icon "${ASSETCATALOG_COMPILER_APPICON_NAME}" --output-partial-info-plist "${BUILD_DIR}/assetcatalog_generated_info.plist"'
+##    false_ignore_assets_in_pods_dir = 'if [[ $line != "${PODS_ROOT}*" ]]; then'
+##    ignore_assets_in_pods_dir = 'if [[ $line != ${PODS_ROOT}* ]]; then'
+##    text = File.read(copy_pods_resources_path)
+##    new_contents = text.gsub(string_to_replace, assets_compile_with_app_icon_arguments).gsub(false_ignore_assets_in_pods_dir, ignore_assets_in_pods_dir)
+##    File.open(copy_pods_resources_path, "w") {|file| file.puts new_contents }
+#
+#    installer.pods_project.build_configurations.each do |config|
+#        if config.name.include?"Debug" then
+#            dubug = "POD_CONFIGURATION_" + config.name + "=1"
+#            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = ['DEBUG=1',dubug.upcase,'$(inherited)']
+#        end
+#        config.build_settings['CODE_SIGN_IDENTITY'] = ''
+#        config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+#        config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+#    end
+#    
+#    installer.pods_project.targets.each do |target|
+#        if target.name == "Masonry" then
+#            target.build_configurations.each do |config|
+#                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+#            end
+#        end
+#    end
+#    
+#    installer.pods_project.targets.each do |target|
+#        if target.name.start_with?("LJCrash") then
+#            puts target.name + " not use cc"
+#        else
+#            target.build_configurations.each do |config|
+#                #关闭 Enable Modules
+#                config.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
+#                # 在生成的 Pods 项目文件中加入 CC 参数，路径的值根据你自己的项目来修改
+#                config.build_settings['CC'] = '$(PODS_ROOT)/../ccache-clang'
+#            end
+#        end
+#    end
+#    
+#    installer.pods_project.build_configurations.each do |config|
+#        config.build_settings['PROVISIONING_PROFILE_SPECIFIER'] = ''
+#    end
 #end

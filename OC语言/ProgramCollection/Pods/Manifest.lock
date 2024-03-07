@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - FlyBaseTool (0.1.0):
     - FlyBaseTool/All (= 0.1.0)
   - FlyBaseTool/All (0.1.0):
@@ -6,10 +21,18 @@ PODS:
   - FlyBaseTool/Base (0.1.0)
   - FlyTestCollection (0.1.0):
     - FlyBaseTool
+  - RSSwizzle (0.1.0)
 
 DEPENDENCIES:
+  - AFNetworking (= 4.0.1)
   - FlyBaseTool (from `../FlyBaseTool`)
   - FlyTestCollection (from `../FlyTestCollection`)
+  - RSSwizzle (= 0.1.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - RSSwizzle
 
 EXTERNAL SOURCES:
   FlyBaseTool:
@@ -18,9 +41,11 @@ EXTERNAL SOURCES:
     :path: "../FlyTestCollection"
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   FlyBaseTool: 60caa1ff89b8c63b2c76371d1892b6a0e58127b3
   FlyTestCollection: 97a78a12b843f57e395fb21dfaf37afa1f01711f
+  RSSwizzle: d561958f595028bfcef98c7d55c318b3878a61c6
 
-PODFILE CHECKSUM: 28702116a8127417f2f029a7017f9256e43f43e4
+PODFILE CHECKSUM: 22b9988bee1933a628b51ae6a725450380d94311
 
 COCOAPODS: 1.15.2

@@ -7,7 +7,7 @@
 //
 
 #import "UIGestureRecognizer+FLYTouch.h"
-#import "RSSwizzle.h"
+#import <RSSwizzle/RSSwizzle.h>
 
 @implementation UITapGestureRecognizer (FLYTouch)
 

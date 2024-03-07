@@ -1,9 +1,9 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FlyBaseTool" "${PODS_ROOT}/Headers/Public/FlyTestCollection"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlyBaseTool" "${PODS_CONFIGURATION_BUILD_DIR}/FlyTestCollection"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FlyBaseTool" -isystem "${PODS_ROOT}/Headers/Public/FlyTestCollection"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"FlyBaseTool" -l"FlyTestCollection" -framework "Foundation" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/FlyBaseTool" "${PODS_ROOT}/Headers/Public/FlyTestCollection" "${PODS_ROOT}/Headers/Public/RSSwizzle"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/FlyBaseTool" "${PODS_CONFIGURATION_BUILD_DIR}/FlyTestCollection" "${PODS_CONFIGURATION_BUILD_DIR}/RSSwizzle"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/FlyBaseTool" -isystem "${PODS_ROOT}/Headers/Public/FlyTestCollection" -isystem "${PODS_ROOT}/Headers/Public/RSSwizzle"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"FlyBaseTool" -l"FlyTestCollection" -l"RSSwizzle" -framework "Foundation" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

@@ -85,9 +85,9 @@
             break;
     }
     if (!vcNum) {
-        return FlyStringFormat(@"Fly%ldController",(long)(index + 1));
+        return [NSString stringWithFormat:@"Fly%ldController",(long)(index + 1)];
     }
-    return [NSString stringWithFormat:@"Fly%@Controller", vcNum];;
+    return [NSString stringWithFormat:@"Fly%@Controller", vcNum];
 }
 
 @end

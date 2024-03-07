@@ -7,7 +7,7 @@
 //
 
 #import "UIView+FLYTouch.h"
-#import "RSSwizzle.h"
+#import <RSSwizzle/RSSwizzle.h>
 
 @implementation UIView (FLYTouch)
 

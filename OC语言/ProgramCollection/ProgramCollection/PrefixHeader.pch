@@ -9,6 +9,4 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import <FlyBaseTool/FlyBaseDefine.h>
-
 #endif /* PrefixHeader_pch */

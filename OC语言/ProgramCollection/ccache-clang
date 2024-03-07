@@ -1,0 +1,14 @@
+#!/bin/sh
+if type -p /usr/local/bin/ccache >/dev/null 2>&1; then
+export CCACHE_DIR=$HOME/.ccache_p/lianjia_ios_platc
+export CCACHE_CPP2=true
+export CCACHE_HARDLINK=true
+export CCACHE_NLEVELS=8
+export CCACHE_COMPILERCHECK=content
+export CCACHE_NOHASHDIR=true
+export CCACHE_BASEDIR=/Users
+export CCACHE_SLOPPINESS=file_macro,time_macros,include_file_mtime,include_file_ctime,file_stat_matches
+exec /usr/local/bin/ccache /usr/bin/clang "$@"
+else
+exec clang "$@"
+fi

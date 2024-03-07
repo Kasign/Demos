@@ -6,7 +6,7 @@
 //
 
 #import "FlyContext.h"
-typedef uint8_t    SALPixel_8888[4];
+typedef uint8_t    SAL_Pixel_8888[4];
 
 typedef struct {
     
@@ -20,7 +20,7 @@ typedef struct {
     size_t bytesPerPixel;        ///bitsPerPixel/8  每个像素点占用字节数，一般为4 (bitsPerComponent = 8的情况下)
     size_t pixelPerRow;          ///每行总像素点 (准确算法：8 * bytesPerRow / bitsPerPixel 如果 bitsPerComponent = 8，可转换为bytesPerRow / componentsPerPixel)
     size_t pixelNum;             ///总像素点，每个像素点占位数bitsPerPixel，一般为32位
-} SALImageInfoStruct;
+} SAL_ImageInfoStruct;
 
 @implementation FlyContext
 
@@ -72,7 +72,7 @@ typedef struct {
 }
 
 #pragma mark 由imageRef转变成Image
-UIImage * SALImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrientation orientation) {
+UIImage * SAL_ImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrientation orientation) {
     
     UIImage * targetImage = nil;
     if (imageRef != NULL) {
@@ -82,23 +82,23 @@ UIImage * SALImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrient
 }
 
 #pragma mark 生成ImageRef 方式一 CGBitmapContextCreateImage
-CGImageRef SALImageRefWithContext(CGContextRef context) {
+CGImageRef SAL_ImageRefWithContext(CGContextRef context) {
     
     CGImageRef targetRef = CGBitmapContextCreateImage(context);
     return targetRef;
 }
 
 #pragma mark 生成ImageRef 方式二 CGDataProviderCreateWithData
-CGImageRef SALImageRefWithBufferData(SALPixel_8888 * currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
+CGImageRef SAL_ImageRefWithBufferData(SAL_Pixel_8888 * currentBuffer, SAL_ImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
     
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, currentBuffer, drawStruct.bytesPerPixel * drawStruct.pixelNum, SALProviderReleaseData);
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, currentBuffer, drawStruct.bytesPerPixel * drawStruct.pixelNum, SAL_ProviderReleaseData);
     
     CGImageRef imageRef = CGImageCreate(drawStruct.imageRefWidth, drawStruct.imageRefHeight, drawStruct.bitsPerComponent, drawStruct.bitsPerPixel, drawStruct.bytesPerRow, colorSpace, bitmapInfo, dataProvider, NULL, NO, kCGRenderingIntentDefault);//kCGRenderingIntentDefault
     
     return imageRef;
 }
 
-void SALProviderReleaseData(void * info, const void * data, size_t size) {
+void SAL_ProviderReleaseData(void * info, const void * data, size_t size) {
     
     if (data != NULL) {
         free((void*)data);
@@ -109,9 +109,9 @@ void SALProviderReleaseData(void * info, const void * data, size_t size) {
 }
 
 #pragma mark 生成ImageRef 方式三 CGDataProviderCreateDirect
-CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
+CGImageRef SAL_ImageRefWithBufferDirect(SAL_Pixel_8888 * currentBuffer, SAL_ImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
     
-    CGDataProviderDirectCallbacks providerCallbacks = {0, SALGetBytePointer, SALReleaseBytePointer, SALGetBytesAtPosition, SALProviderReleaseInfoCallback};
+    CGDataProviderDirectCallbacks providerCallbacks = {0, SAL_GetBytePointer, SAL_ReleaseBytePointer, SAL_GetBytesAtPosition, SAL_ProviderReleaseInfoCallback};
     
     CGDataProviderRef dataProvider = CGDataProviderCreateDirect(currentBuffer, drawStruct.bytesPerPixel * drawStruct.pixelNum, &providerCallbacks);
     
@@ -122,53 +122,53 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
     return imageRef;
 }
 
-const void * SALGetBytePointer(void * info) {
+const void * SAL_GetBytePointer(void * info) {
     
-    NSLog(@"SALGetBytePointer %p", info);
+    NSLog(@"SAL_GetBytePointer %p", info);
     // this is currently only called once
     return info; // info is a pointer to the buffer
 }
 
-void SALReleaseBytePointer(void * info, const void * pointer) {
+void SAL_ReleaseBytePointer(void * info, const void * pointer) {
     // don't care, just using the one static buffer at the moment
-    NSLog(@"SALReleaseBytePointer %p %p", info, pointer);
+    NSLog(@"SAL_ReleaseBytePointer %p %p", info, pointer);
 }
 
-size_t SALGetBytesAtPosition(void * info, void * buffer, off_t position, size_t count) {
+size_t SAL_GetBytesAtPosition(void * info, void * buffer, off_t position, size_t count) {
     
-    NSLog(@"SALGetBytesAtPosition %p %lld %zu", info, position, count);
+    NSLog(@"SAL_GetBytesAtPosition %p %lld %zu", info, position, count);
     // I don't think this ever gets called
 //    memcpy(buffer, ((char*)info) + position, count);
     return count;
 }
 
-void SALProviderReleaseInfoCallback(void * __nullable info) {
+void SAL_ProviderReleaseInfoCallback(void * __nullable info) {
     
-    NSLog(@"SALProviderReleaseInfoCallback %p", info);
+    NSLog(@"SAL_ProviderReleaseInfoCallback %p", info);
 }
 
 #pragma mark 生成ImageRef 方式四 CGDataProviderCreateSequential
-//size_t SALProviderGetBytesCallback(void * __nullable info, void * buffer, size_t count) {
+//size_t SAL_ProviderGetBytesCallback(void * __nullable info, void * buffer, size_t count) {
 //
-//    return [(__bridge SALSteam *)info getBytes:buffer bytes:count];
+//    return [(__bridge SAL_Steam *)info getBytes:buffer bytes:count];
 //}
 //
-//off_t SALProviderSkipForwardCallback(void * __nullable info, off_t count) {
+//off_t SAL_ProviderSkipForwardCallback(void * __nullable info, off_t count) {
 //
-//    return [(__bridge SALSteam *)info skipForwardBytes:count];
+//    return [(__bridge SAL_Steam *)info skipForwardBytes:count];
 //}
 //
-//void SALProviderRewindCallback(void * __nullable info) {
+//void SAL_ProviderRewindCallback(void * __nullable info) {
 //
-//    return [(__bridge SALSteam *)info rewind];
+//    return [(__bridge SAL_Steam *)info rewind];
 //}
 //
-//CGImageRef SALProviderRefWithBufferSequential(SALSteam * stream, SALImageInfoStruct drawStruct) {
+//CGImageRef SAL_ProviderRefWithBufferSequential(SAL_Steam * stream, SAL_ImageInfoStruct drawStruct) {
 //
-//    CGDataProviderSequentialCallbacks providerCallbacks = {0, SALProviderGetBytesCallback, SALProviderSkipForwardCallback, SALProviderRewindCallback, NULL};
+//    CGDataProviderSequentialCallbacks providerCallbacks = {0, SAL_ProviderGetBytesCallback, SAL_ProviderSkipForwardCallback, SAL_ProviderRewindCallback, NULL};
 //
 //    CGDataProviderRef providerRef = CGDataProviderCreateSequential((__bridge void * _Nullable)(stream), &providerCallbacks);
-//    return CGImageCreate(drawStruct.imageRefWidth, drawStruct.imageRefHeight, drawStruct.bitsPerComponent, drawStruct.bitsPerPixel, drawStruct.bytesPerRow, SALGetColorSpace(), SALBitmapInfo, providerRef, NULL, NO, kCGRenderingIntentDefault);
+//    return CGImageCreate(drawStruct.imageRefWidth, drawStruct.imageRefHeight, drawStruct.bitsPerComponent, drawStruct.bitsPerPixel, drawStruct.bytesPerRow, SAL_GetColorSpace(), SAL_BitmapInfo, providerRef, NULL, NO, kCGRenderingIntentDefault);
 //}
 
 @end
