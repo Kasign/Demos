@@ -88,7 +88,7 @@
 
 - (void)logMsg:(NSString *)msg {
     
-    NSLog(@"\n------------------------->>> \n%@\n\n%@\n<<<------------------------", [self description], msg);
+    FLYLog(@"\n------------------------->>> \n%@\n\n%@\n<<<------------------------", [self description], msg);
 }
 
 @end

@@ -48,6 +48,8 @@
 		35038EA75CFD3A71929F34F058C1116D /* 2.jpg in Sources */ = {isa = PBXBuildFile; fileRef = 8B50404CF066B5DF3B19D1359CEE4BB6 /* 2.jpg */; };
 		37E1F38AAA85C88E43BD06A5421F96DE /* PLCrashReportStackFrameInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D9DF907AD69CFCD6318B82ADAE84E5EC /* PLCrashReportStackFrameInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3855727346AD72263918E2681C1F5B81 /* FlyNinthController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F6B1BDC5217FD3095B08417F54E87 /* FlyNinthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		39A28E772B99D05A007EC15D /* FlyDictionaryOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = 39A28E752B99D05A007EC15D /* FlyDictionaryOrder.h */; };
+		39A28E782B99D05A007EC15D /* FlyDictionaryOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A28E762B99D05A007EC15D /* FlyDictionaryOrder.m */; };
 		3DE06BF1C38BD44A1B77004173D9C8F4 /* FlyFourteenController.h in Headers */ = {isa = PBXBuildFile; fileRef = D922017BF29ED8A1B6AEAE65688D06D2 /* FlyFourteenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3DFBD47258F4A2B30960E87AB2873213 /* ye.png in Sources */ = {isa = PBXBuildFile; fileRef = 0C8FE3933016CE472EB40CA7A9F0207F /* ye.png */; };
 		3EAADAB8848DC2CBBC87C370C1DD88CF /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E06CAA954F60AA0336902BF297F173A0 /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -277,6 +279,8 @@
 		377568DD5715A77976C457E850CBDEA7 /* UIGestureRecognizer+FLYTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+FLYTouch.h"; sourceTree = "<group>"; };
 		38FD7BA1C8FBD9BCB74994459F88B8F6 /* Dog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 		3924ECAC3FFEBD37F8C8A47E820488D1 /* NSObject+FlyKVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVC.h"; sourceTree = "<group>"; };
+		39A28E752B99D05A007EC15D /* FlyDictionaryOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyDictionaryOrder.h; sourceTree = "<group>"; };
+		39A28E762B99D05A007EC15D /* FlyDictionaryOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyDictionaryOrder.m; sourceTree = "<group>"; };
 		3EB6DCEF23F42851638E87E3A7318401 /* FlyDrawManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyDrawManager.m; sourceTree = "<group>"; };
 		3FD942D2964DAE34B4822B45587D78A6 /* PLCrashAsyncSignalInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashAsyncSignalInfo.h; sourceTree = "<group>"; };
 		4012BE8646A51AA21CB2B3B615D106FD /* SalImageInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SalImageInfo.h; sourceTree = "<group>"; };
@@ -1105,6 +1109,8 @@
 			children = (
 				E00A491B29D93822F402E34A89F33205 /* FlySort.h */,
 				BFF75E34D094331532FE838D3373230D /* FlySort.m */,
+				39A28E752B99D05A007EC15D /* FlyDictionaryOrder.h */,
+				39A28E762B99D05A007EC15D /* FlyDictionaryOrder.m */,
 				474BB3B1A3CC221B38C46033F897970A /* FlyThirdController.h */,
 				66F7530C49AF1FA3ECF86B3E8ADA7525 /* FlyThirdController.m */,
 			);
@@ -1218,6 +1224,7 @@
 				2D2DDA5B6511148B42ED13F6C4F8891B /* FlySeventhController.h in Headers */,
 				68D87CA60C74C401E27F9A69CF07374E /* FlySixteenController.h in Headers */,
 				CEB0966DE1B95E4FFF7B31A7C90FB859 /* FlySixthController.h in Headers */,
+				39A28E772B99D05A007EC15D /* FlyDictionaryOrder.h in Headers */,
 				4E503BF4837ADBD67DBBA01F20FBD6DE /* FlySort.h in Headers */,
 				85581888932895FF79FF3D4E1051190A /* FlyTenthController.h in Headers */,
 				CF22CEF86FE01739BBF286FA433B91F6 /* FlyThirdController.h in Headers */,
@@ -1558,6 +1565,7 @@
 				4ED29BCF8B3C9BA4F919E2B8D8BD148B /* 3.jpg in Sources */,
 				ABB673C39D8DED69BC2836E31568E516 /* 4.jpg in Sources */,
 				8E77CA1EBB741CA563AA8295F655D395 /* 5.png in Sources */,
+				39A28E782B99D05A007EC15D /* FlyDictionaryOrder.m in Sources */,
 				E179CAED40B79262C2433290DD1BE199 /* a.jpg in Sources */,
 				8B3E96E161A85A01591AA8E52F190850 /* b.jpg in Sources */,
 				4EEB63748BE32A91FDE2AE6A0EA458E6 /* Fly18Controller.m in Sources */,
