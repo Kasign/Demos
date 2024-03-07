@@ -11,9 +11,9 @@
 
 @interface FLYImageChangeManager ()
 
-@property (nonatomic, strong, readwrite) UIColor       *   currentColor;
-@property (nonatomic, strong, readwrite) UIImage       *   currentImage;
-@property (nonatomic, strong) FLYImageChangeInstance   *   changInstance;
+@property (nonatomic, strong) UIColor *currentColor;
+@property (nonatomic, strong) UIImage *currentImage;
+@property (nonatomic, strong) FLYImageChangeInstance *changInstance;
 
 @end
 

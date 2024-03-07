@@ -22,9 +22,9 @@ typedef NS_ENUM(NSUInteger, FLYImageChangeType) {
 
 @interface FLYImageChangeManager : NSObject
 
-@property (nonatomic, strong, readonly) UIImage * currentImage;
-@property (nonatomic, strong, readonly) UIColor * currentColor;
-@property (nonatomic, strong) UIImage           * oriImage;
+@property (nonatomic, strong, readonly) UIImage *currentImage;
+@property (nonatomic, strong, readonly) UIColor *currentColor;
+@property (nonatomic, strong) UIImage           *oriImage;
 @property (nonatomic, assign) FLYImageChangeType  changType;
 @property (nonatomic, assign) CGFloat             currentAlpha;
 @property (nonatomic, assign) NSInteger           radius; //半径

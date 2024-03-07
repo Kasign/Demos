@@ -80,17 +80,12 @@
         case 16:
             vcNum = @"Seventeen";
             break;
-        case 17:
-            vcNum = @"Eighteen";
-            break;
-        case 18:
-            vcNum = @"Nineteen";
-            break;
-        case 19:
-            vcNum = @"Twenty";
             break;
         default:
             break;
+    }
+    if (!vcNum) {
+        return FlyStringFormat(@"Fly%ldController",(long)(index + 1));
     }
     return [NSString stringWithFormat:@"Fly%@Controller", vcNum];;
 }

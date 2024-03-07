@@ -1,3 +1,0 @@
-target "NetWorking" do
-pod 'AFNetworking'
-end

@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSRecursiveLock   *recursiveLock;
 @property (nonatomic, strong) NSCondition       *condition;
 @property (nonatomic, strong) NSConditionLock   *conditionLock;
-@property (nonatomic, strong) dispatch_semaphore_t   semaphore;
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) FLYImageChangeView   *   imageChangeView;
+@property (nonatomic, strong) FLYImageChangeView *imageChangeView;
 @end
 
 @implementation ViewController

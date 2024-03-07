@@ -11,7 +11,7 @@
 @interface FLYImageChangeInstance ()
 
 @property (nonatomic) CGContextRef  context;
-@property (nonatomic) uint32_t * rgbImageBuf;
+@property (nonatomic) uint32_t *rgbImageBuf;
 @property (nonatomic) CGColorSpaceRef colorSpace;
 @property (nonatomic) size_t pixelPerRow;
 @property (nonatomic) size_t bitsPerComponent;
@@ -20,11 +20,11 @@
 @property (nonatomic) size_t componentsPerPixel;
 @property (nonatomic) size_t pixelTotalNum;//总像素点
 
-@property (nonatomic) CGFloat    imageScale;
-@property (nonatomic) CGSize     imageSize;
-@property (nonatomic) CGSize     imageRealSize;
+@property (nonatomic) CGFloat imageScale;
+@property (nonatomic) CGSize  imageSize;
+@property (nonatomic) CGSize  imageRealSize;
 
-@property (nonatomic, assign) BOOL      isEffictive;
+@property (nonatomic, assign) BOOL isEffictive;
 
 @end
 
@@ -56,11 +56,11 @@
     _bytesPerRow  = CGImageGetBytesPerRow(oriImgRef);
     _componentsPerPixel = _bitsPerPixel/_bitsPerComponent;
     _pixelPerRow   = _bytesPerRow/_componentsPerPixel;
-    _pixelTotalNum = _pixelPerRow * imageHeight;
+    _pixelTotalNum = _pixelPerRow *imageHeight;
     
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast;
     
-    _rgbImageBuf = (uint32_t *)malloc(_bytesPerRow * imageHeight);
+    _rgbImageBuf = (uint32_t *)malloc(_bytesPerRow *imageHeight);
     
     _context = CGBitmapContextCreate(_rgbImageBuf, imageWidth, imageHeight, _bitsPerComponent, _bytesPerRow, _colorSpace, bitmapInfo);
     
@@ -80,18 +80,18 @@
     if (_isEffictive && [color isKindOfClass:[UIColor class]] && currentSize.width >= position.x && position.x >= 0 && currentSize.height >= position.y && position.y >= 0 && _radius >= 0) {
         
         size_t pixelPerRow = _pixelPerRow;
-        uint32_t * pCurPtr = _rgbImageBuf;
+        uint32_t *pCurPtr = _rgbImageBuf;
         
-        const CGFloat * colorComponents = CGColorGetComponents(color.CGColor);
+        const CGFloat *colorComponents = CGColorGetComponents(color.CGColor);
         size_t offset = [self offsetWithPoint:position currentSize:currentSize];
         
         int offsetX = -_radius;
         int offsetY = -_radius;
         
-        uint8_t * ptr = 0;
+        uint8_t *ptr = 0;
         while (offsetX >= -_radius && offsetX <= _radius && offsetY >= -_radius && offsetY <= _radius) {
             
-            ptr = (uint8_t *)(pCurPtr + offset + offsetX + offsetY * pixelPerRow);
+            ptr = (uint8_t *)(pCurPtr + offset + offsetX + offsetY *pixelPerRow);
             [self changeColorValueWithPointer:ptr colorPointer:colorComponents];
             offsetX ++;
             if (offsetX > _radius) {
@@ -112,11 +112,11 @@
         int offsetX = -_radius;
         int offsetY = -_radius;
         
-        uint32_t * pCurPtr = _rgbImageBuf;
-        uint8_t * ptr = 0;
+        uint32_t *pCurPtr = _rgbImageBuf;
+        uint8_t *ptr = 0;
         while (offsetX >= -_radius && offsetX <= _radius && offsetY >= -_radius && offsetY <= _radius) {
             
-            ptr = (uint8_t *)(pCurPtr + offset + offsetX + offsetY * pixelPerRow);
+            ptr = (uint8_t *)(pCurPtr + offset + offsetX + offsetY *pixelPerRow);
             [self changeAlphaValueWithPointer:ptr alphaValue:alpha];
             offsetX ++;
             if (offsetX > _radius) {
@@ -132,7 +132,7 @@
     
     if (_isEffictive) {
         
-        uint32_t * pCurPtr = _rgbImageBuf;
+        uint32_t *pCurPtr = _rgbImageBuf;
         size_t pixelPerRow = _pixelPerRow;
         size_t imageHeight = _imageRealSize.height;
         for (int i = 0; i < _pixelTotalNum; i ++) {
@@ -141,14 +141,14 @@
             int lineNum = i % pixelPerRow;
             
             if (direction == 1) {//横向
-                if (lineNum > pixelPerRow * 0.5) {
+                if (lineNum > pixelPerRow *0.5) {
                     [self exchangeValuesWitnPointer:pCurPtr + i exchangePointer:pCurPtr + i - lineNum + pixelPerRow - lineNum];
                 } else {
                     continue;
                 }
             } else if (direction == 2) {//纵向
-                if (rowNum < imageHeight * 0.5) {
-                    [self exchangeValuesWitnPointer:pCurPtr + i exchangePointer:(pCurPtr + i + pixelPerRow * (imageHeight - 2 * rowNum))];
+                if (rowNum < imageHeight *0.5) {
+                    [self exchangeValuesWitnPointer:pCurPtr + i exchangePointer:(pCurPtr + i + pixelPerRow *(imageHeight - 2 *rowNum))];
                 } else {
                     break;
                 }
@@ -164,9 +164,9 @@
         return nil;
     }
     
-    uint32_t * pCurPtr = _rgbImageBuf;
+    uint32_t *pCurPtr = _rgbImageBuf;
     size_t offset = [self offsetWithPoint:position currentSize:currentSize];
-    uint8_t * ptr = (uint8_t *)(pCurPtr + offset);
+    uint8_t *ptr = (uint8_t *)(pCurPtr + offset);
     
     CGFloat r = ptr[0] / 255.f;
     CGFloat g = ptr[1] / 255.f;
@@ -181,16 +181,16 @@
 - (size_t)offsetWithPoint:(CGPoint)position currentSize:(CGSize)currentSize {
     
     if (!CGSizeEqualToSize(_imageSize, currentSize)) {
-        position.x = position.x * _imageSize.width / currentSize.width;
-        position.y = position.y * _imageSize.height / currentSize.height;
+        position.x = position.x *_imageSize.width / currentSize.width;
+        position.y = position.y *_imageSize.height / currentSize.height;
     }
-    size_t offset = position.x + (int)position.y * _pixelPerRow;
+    size_t offset = position.x + (int)position.y *_pixelPerRow;
     return offset;
 }
 
 - (UIImage *)getCurrentImage {
     
-    UIImage * targetImage = nil;
+    UIImage *targetImage = nil;
     if (_context) {
         CGImageRef imageRef = CGBitmapContextCreateImage(_context);
         if (imageRef != NULL) {
@@ -203,16 +203,16 @@
 
 - (void)changeColorValueWithPointer:(uint8_t *)oriPointer colorPointer:(const CGFloat *)colorComponents {
     
-    float alpha   = colorComponents[3] * 255.f;
-    oriPointer[0] = colorComponents[0] * alpha; //red   0~255
-    oriPointer[1] = colorComponents[1] * alpha; //green 0~255
-    oriPointer[2] = colorComponents[2] * alpha; //blue  0~255
+    float alpha   = colorComponents[3] *255.f;
+    oriPointer[0] = colorComponents[0] *alpha; //red   0~255
+    oriPointer[1] = colorComponents[1] *alpha; //green 0~255
+    oriPointer[2] = colorComponents[2] *alpha; //blue  0~255
     oriPointer[3] = alpha;
 }
 
 - (void)changeAlphaValueWithPointer:(uint8_t *)oriPointer alphaValue:(CGFloat)colorAlpha {
     
-    oriPointer[3] = colorAlpha * 255.f;
+    oriPointer[3] = colorAlpha *255.f;
 }
 
 - (void)exchangeValuesWitnPointer:(uint32_t *)pointer exchangePointer:(uint32_t *)exchangePointer {
