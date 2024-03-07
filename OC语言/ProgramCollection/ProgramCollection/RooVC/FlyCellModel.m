@@ -12,7 +12,7 @@
 
 + (instancetype)instanceWithIndex:(NSInteger)index {
     
-    NSString * vcName = [self nameForIndex:index];
+    NSString *vcName = [self nameForIndex:index];
     Class vcClass = NSClassFromString(vcName);
     if (vcClass) {
         NSString *title = [vcClass performSelector:@selector(functionName)];
@@ -27,7 +27,7 @@
 
 + (NSString *)nameForIndex:(NSInteger)index {
     
-    NSString * vcNum = nil;
+    NSString *vcNum = nil;
     switch (index) {
         case 0:
             vcNum = @"First";

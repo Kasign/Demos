@@ -12,8 +12,8 @@
 
 @interface FlyTwelfthController ()
 
-@property (nonatomic, strong) UIImageView  * imageView1;
-@property (nonatomic, strong) UIImageView  * imageView2;
+@property (nonatomic, strong) UIImageView  *imageView1;
+@property (nonatomic, strong) UIImageView  *imageView2;
 
 @end
 

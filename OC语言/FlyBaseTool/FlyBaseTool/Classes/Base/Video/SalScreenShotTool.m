@@ -19,7 +19,7 @@
 //
 //+ (instancetype)instanceWithImage:(UIImage *)image time:(CGFloat)time {
 //
-//    SalScreenShotModel * model = [SalScreenShotModel new];
+//    SalScreenShotModel *model = [SalScreenShotModel new];
 //    model.image = image;
 //    model.time  = time;
 //    return model;
@@ -48,12 +48,12 @@
 //            _imageModelArr = [NSMutableArray array];
 //        }
 //
-//        NSString * msg = [NSString stringWithFormat:@"%f", date];
+//        NSString *msg = [NSString stringWithFormat:@"%f", date];
 ////        [scene setDebugMessage:msg];
 //
 ////        SALLog(@" ---->>>%f", date);
 //
-//        NSString * audioFileName = [NSString stringWithFormat:@"audio_%d.aac", item];
+//        NSString *audioFileName = [NSString stringWithFormat:@"audio_%d.aac", item];
 //
 //        if (_imageModelArr.count < framesTotal) {
 //            if (![SalConverVideoTool isStartRecode]) {
@@ -62,11 +62,11 @@
 //                }];
 //            }
 //
-//            UIImage * image = nil;
+//            UIImage *image = nil;
 //#if TARGET_OS_IPHONE
 ////            image = [UIImageDataCenter cache_getImageWithView:skView];
 //#else
-//            SKTexture * texture = [skView textureFromNode:scene];
+//            SKTexture *texture = [skView textureFromNode:scene];
 //            CGImageRef cgImage = texture.CGImage;
 //            image = [[UIImage alloc] initWithCGImage:cgImage size:texture.size];
 //            if (imageRef) {
@@ -75,7 +75,7 @@
 //#endif
 //            if ([image isKindOfClass:[UIImage class]]) {
 //
-//                SalScreenShotModel * model = [SalScreenShotModel instanceWithImage:image time:date];
+//                SalScreenShotModel *model = [SalScreenShotModel instanceWithImage:image time:date];
 //                [_imageModelArr addObject:model];
 //            }
 //        }
@@ -87,7 +87,7 @@
 //            [SalConverVideoTool pauseRecode];
 //            [self.delegate pauseScene];
 //
-//            NSString * videoFileName = [NSString stringWithFormat:@"movie_%d.mov", item];
+//            NSString *videoFileName = [NSString stringWithFormat:@"movie_%d.mov", item];
 //
 //            [SalConverVideoTool startConverImageWithArray:[_imageModelArr copy] videoSize:skView.bounds.size videoName:videoFileName audioName:audioFileName resultBlock:^(BOOL isSuccess) {
 //                 __strong __typeof(weakSelf) strongSelf = weakSelf;

@@ -11,8 +11,8 @@
 
 @interface FlyFirstController ()
 
-@property (nonatomic, strong) NSTimer * timer;
-@property (nonatomic, strong) FlyButton * button;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) FlyButton *button;
 
 @end
 

@@ -65,8 +65,8 @@
     //    CGFloat width  = 100;
     //    CGFloat height = 100;
     
-    UIView * aView = [[UIView alloc] init];
-    UIView * bView = [[UIView alloc] init];
+    UIView *aView = [[UIView alloc] init];
+    UIView *bView = [[UIView alloc] init];
     
     //    aView.frame = CGRectMake(100, 100, 100, 100);
     //    aView.transform = CGAffineTransformMakeScale(2, 2);
@@ -88,8 +88,8 @@
     
     FLYLog(@"\naFrame-> %@\naBound-> %@\naCenter-> %@\n\nbFrame-> %@\nbBound-> %@\nbCenter-> %@", NSStringFromCGRect(aView.frame), NSStringFromCGRect(aView.bounds), NSStringFromCGPoint(aView.center), NSStringFromCGRect(bView.frame), NSStringFromCGRect(bView.bounds), NSStringFromCGPoint(bView.center));
     
-    UIView * cView = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 95)];
-    UIView * dView = [[UIView alloc] initWithFrame:CGRectMake(200, 0, 1, 100)];
+    UIView *cView = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 95)];
+    UIView *dView = [[UIView alloc] initWithFrame:CGRectMake(200, 0, 1, 100)];
     [cView setBackgroundColor:[UIColor blackColor]];
     [dView setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:cView];
@@ -115,11 +115,11 @@
 {
     FLYClearLog(@"============TEST==========");
 
-    FlyBaseView * view1 = [[FlyBaseView alloc] init];
+    FlyBaseView *view1 = [[FlyBaseView alloc] init];
 //    [view1 setFrame:CGRectMake(1, 1, 1, 1)];
 //    [self.view addSubview:view1];
 //
-    FlyBaseView * view2 = [[FlyBaseView alloc] init];
+    FlyBaseView *view2 = [[FlyBaseView alloc] init];
     [view2 setFrame:CGRectMake(1, 1, 1, 1)];
     [view1 addSubview:view2];
     

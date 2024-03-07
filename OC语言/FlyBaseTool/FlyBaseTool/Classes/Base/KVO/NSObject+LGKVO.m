@@ -57,12 +57,12 @@ static NSString *const kLGKVOAssiociateKey = @"kLGKVO_AssiociateKey";
     object_setClass(self, newClass);
     // 4: 保存观察者信息
     LGKVOInfo *info = [[LGKVOInfo alloc] initWitObserver:observer forKeyPath:keyPath options:options];
-    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey));
+    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void *_Nonnull)(kLGKVOAssiociateKey));
     
     if (!observerArr) {
         observerArr = [NSMutableArray arrayWithCapacity:1];
         [observerArr addObject:info];
-        objc_setAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey), observerArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(kLGKVOAssiociateKey), observerArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
 }
@@ -74,7 +74,7 @@ static NSString *const kLGKVOAssiociateKey = @"kLGKVO_AssiociateKey";
 
 - (void)lg_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath{
     
-    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey));
+    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void *_Nonnull)(kLGKVOAssiociateKey));
     if (observerArr.count<=0) {
         return;
     }
@@ -82,7 +82,7 @@ static NSString *const kLGKVOAssiociateKey = @"kLGKVO_AssiociateKey";
     for (LGKVOInfo *info in observerArr) {
         if ([info.keyPath isEqualToString:keyPath]) {
             [observerArr removeObject:info];
-            objc_setAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey), observerArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(kLGKVOAssiociateKey), observerArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             break;
         }
     }
@@ -113,10 +113,10 @@ static NSString *const kLGKVOAssiociateKey = @"kLGKVO_AssiociateKey";
     // 防止重复创建生成新类
     if (newClass) return newClass;
     /**
-     * 如果内存不存在,创建生成
-     * 参数一: 父类
-     * 参数二: 新类的名字
-     * 参数三: 新类的开辟的额外空间
+     *如果内存不存在,创建生成
+     *参数一: 父类
+     *参数二: 新类的名字
+     *参数三: 新类的开辟的额外空间
      */
     // 2.1 : 申请类
     newClass = objc_allocateClassPair([self class], newClassName.UTF8String, 0);
@@ -152,7 +152,7 @@ static void lg_setter(id self,SEL _cmd,id newValue){
     //objc_msgSendSuper(&superStruct,_cmd,newValue)
     lg_msgSendSuper(&superStruct, _cmd, newValue);
     // 1: 拿到观察者
-    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(kLGKVOAssiociateKey));
+    NSMutableArray *observerArr = objc_getAssociatedObject(self, (__bridge const void *_Nonnull)(kLGKVOAssiociateKey));
     
     for (LGKVOInfo *info in observerArr) {
         if ([info.keyPath isEqualToString:keyPath]) {

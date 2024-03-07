@@ -53,7 +53,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-//    NSArray * sortArr = @[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(13), @(48), @(19), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(80), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(53), @(21), @(54), @(10), @(8), @(12), @(30), @(13), @(65), @(44), @(11), @(28), @(12), @(30), @(13), @(61), @(44), @(11), @(8), @(52), @(32), @(13), @(61), @(44), @(2)];
+//    NSArray *sortArr = @[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(13), @(48), @(19), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(80), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(53), @(21), @(54), @(10), @(8), @(12), @(30), @(13), @(65), @(44), @(11), @(28), @(12), @(30), @(13), @(61), @(44), @(11), @(8), @(52), @(32), @(13), @(61), @(44), @(2)];
 //
 //    FLYLog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
 //    [self insertSortList:sortArr];
@@ -80,14 +80,14 @@
  */
 - (void)quickSortList:(NSArray *)sortArray {
     
-    NSArray * arr = [FlySort fly_quickSortList:sortArray];
+    NSArray *arr = [FlySort fly_quickSortList:sortArray];
     FLYLog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
 }
 
 ///堆排序
 - (void)stackSortList:(NSArray *)sortArray {
     
-    NSMutableArray * array = [NSMutableArray arrayWithArray:sortArray];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:sortArray];
     
     
     FLYLog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);

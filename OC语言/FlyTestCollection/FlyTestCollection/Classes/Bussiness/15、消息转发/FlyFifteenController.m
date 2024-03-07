@@ -118,7 +118,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
 
 @interface FlyFifteenController ()
 
-@property (nonatomic, strong) Flyteacher  *  teacher;
+@property (nonatomic, strong) Flyteacher  *teacher;
 
 @end
 

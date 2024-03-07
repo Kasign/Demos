@@ -9,13 +9,13 @@
 #import "FLYGCD.h"
 
 @interface FLYMachPort : NSObject
-@property (nonatomic, strong) NSMachPort  * machPort;
+@property (nonatomic, strong) NSMachPort  *machPort;
 @end
 
 @interface FLYRunLoop : NSObject
 
-@property (nonatomic, strong) NSRunLoop * runLoop;
-@property (nonatomic, strong) NSThread  * thread;
+@property (nonatomic, strong) NSRunLoop *runLoop;
+@property (nonatomic, strong) NSThread  *thread;
 
 @end
 
@@ -49,8 +49,8 @@
 
 @property (nonatomic, strong, readwrite) dispatch_queue_t queue;
 
-@property (nonatomic, strong) FLYRunLoop  * runLoopObj;
-@property (nonatomic, strong) FLYMachPort * portObj;
+@property (nonatomic, strong) FLYRunLoop  *runLoopObj;
+@property (nonatomic, strong) FLYMachPort *portObj;
 @property (nonatomic, assign) FLYThreadType type;
 @property (nonatomic, assign) BOOL          shouldKeepRunning;
 
@@ -112,7 +112,7 @@
         __weak __typeof(self) weakSelf = self;
         dispatch_async(_queue, ^{
             if (weakSelf.shouldKeepRunning) {
-                NSThread * thread = [NSThread currentThread];
+                NSThread *thread = [NSThread currentThread];
                 if ([name isKindOfClass:[NSString class]]) {
                     [thread setName:name];
                 } else {

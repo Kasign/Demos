@@ -15,8 +15,8 @@
 //
 //+ (NSString *)pathWithFileName:(NSString *)fileName {
 //    
-//    NSString * rootPath  = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-//    NSString * moviePath = [rootPath stringByAppendingPathComponent:fileName];
+//    NSString *rootPath  = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    NSString *moviePath = [rootPath stringByAppendingPathComponent:fileName];
 //    return moviePath;
 //}
 //
@@ -37,7 +37,7 @@
 //
 //+ (NSArray *)resetImagesWithArr:(NSArray *)imageArr imageSize:(CGSize)videoSize {
 //    
-////    NSMutableArray * imageArray = [NSMutableArray arrayWithCapacity:imageArr.count];
+////    NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:imageArr.count];
 //    
 //    int width  = videoSize.width;
 //    int height = videoSize.height;
@@ -46,10 +46,10 @@
 //    if (width%perCount != 0) {
 //        width = width - width%perCount;
 //    }
-//    height = (int)(height * width / videoSize.width);
+//    height = (int)(height *width / videoSize.width);
 //    CGSize trueVideoSize = CGSizeMake(width, height);
 //    for (int i = 0; i < imageArr.count; i++) {
-//        SalScreenShotModel * imageModel = imageArr[i];
+//        SalScreenShotModel *imageModel = imageArr[i];
 //        if (!CGSizeEqualToSize(imageModel.image.size, trueVideoSize)) {
 //            imageModel.image = [self imageWithImage:imageModel.image scaledToSize:trueVideoSize];
 //        }
@@ -62,7 +62,7 @@
 //#pragma mark - 转换开始
 //+ (void)startConverImageWithArray:(NSArray *)imageArr videoSize:(CGSize)videoSize videoName:(NSString *)videoName audioName:(NSString *)audioName resultBlock:(ConverBlock)block {
 //    
-//    static NSOperationQueue * operationQueue = nil;
+//    static NSOperationQueue *operationQueue = nil;
 //    if (operationQueue == nil) {
 //        operationQueue = [[NSOperationQueue alloc] init];
 //        [operationQueue setMaxConcurrentOperationCount:2];
@@ -74,10 +74,10 @@
 //            
 //            if ([imageArr isKindOfClass:[NSArray class]] && imageArr.count > 0 && [videoName isKindOfClass:[NSString class]] && videoName.length > 0 && [audioName isKindOfClass:[NSString class]] && audioName.length > 0) {
 //                
-//                NSString * videoPath = [self pathWithFileName:videoName];
-//                NSString * audioPath = [self pathWithFileName:audioName];
+//                NSString *videoPath = [self pathWithFileName:videoName];
+//                NSString *audioPath = [self pathWithFileName:audioName];
 //                
-//               __block NSArray * targetArr = [self resetImagesWithArr:imageArr imageSize:videoSize];
+//               __block NSArray *targetArr = [self resetImagesWithArr:imageArr imageSize:videoSize];
 //           
 //                [self startConverWithArray:targetArr videoSize:videoSize moviePath:videoPath resultBlock:^(BOOL isSuccess) {
 //                    
@@ -115,13 +115,13 @@
 //#pragma mark - 开始合成视频
 //+ (NSString *)startConverWithArray:(NSArray *)imageArray videoSize:(CGSize)videoSize moviePath:(NSString *)moviePath resultBlock:(ConverBlock)block {
 //    
-//    NSError * error = nil;
+//    NSError *error = nil;
 //    //    转成UTF-8编码
 //    unlink([moviePath UTF8String]);
 //    
 //    //     iphone提供了AVFoundation库来方便的操作多媒体设备，AVAssetWriter这个类可以方便的将图像和音频写成一个完整的视频文件
 //    
-//    AVAssetWriter * videoWriter = [[AVAssetWriter alloc] initWithURL:[NSURL fileURLWithPath:moviePath] fileType:AVFileTypeQuickTimeMovie error:&error];
+//    AVAssetWriter *videoWriter = [[AVAssetWriter alloc] initWithURL:[NSURL fileURLWithPath:moviePath] fileType:AVFileTypeQuickTimeMovie error:&error];
 //    
 //    NSParameterAssert(videoWriter);
 //    
@@ -131,18 +131,18 @@
 //    }
 //    
 //    //mov的格式设置 编码格式 宽度 高度
-//    NSDictionary * videoSettingsDic = @{AVVideoCodecKey : AVVideoCodecTypeH264,
+//    NSDictionary *videoSettingsDic = @{AVVideoCodecKey : AVVideoCodecTypeH264,
 //                                        AVVideoWidthKey : [NSNumber numberWithInt:videoSize.width],
 //                                        AVVideoHeightKey : [NSNumber numberWithInt:videoSize.height]};
 //    
-//    AVAssetWriterInput * writerInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoSettingsDic];
+//    AVAssetWriterInput *writerInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoSettingsDic];
 //    
-//    NSDictionary * sourcePixelBufferAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32ARGB], kCVPixelBufferPixelFormatTypeKey,nil];
+//    NSDictionary *sourcePixelBufferAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32ARGB], kCVPixelBufferPixelFormatTypeKey,nil];
 //    
 //    //    AVAssetWriterInputPixelBufferAdaptor提供CVPixelBufferPool实例,
 //    //    可以使用分配像素缓冲区写入输出文件。使用提供的像素为缓冲池分配通常
 //    //    是更有效的比添加像素缓冲区分配使用一个单独的池
-//    AVAssetWriterInputPixelBufferAdaptor * adaptor = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:writerInput sourcePixelBufferAttributes:sourcePixelBufferAttributesDictionary];
+//    AVAssetWriterInputPixelBufferAdaptor *adaptor = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:writerInput sourcePixelBufferAttributes:sourcePixelBufferAttributesDictionary];
 //    
 //    NSParameterAssert(writerInput);
 //    
@@ -180,7 +180,7 @@
 //                
 //                int idx = frame / countPerFrame;
 //                
-//                SalScreenShotModel * model = [imageArray objectAtIndex:idx];
+//                SalScreenShotModel *model = [imageArray objectAtIndex:idx];
 //                
 //                CVPixelBufferRef buffer = [self pixelBufferFromCGImage:model.image];
 //                
@@ -199,7 +199,7 @@
 //                    //设置每秒钟播放图片的个数
 //                    BOOL result = [adaptor appendPixelBuffer:buffer withPresentationTime:time];
 //                    CFRelease(buffer);
-//                    NSString * progress = [NSString stringWithFormat:@"合成进度:%0.2f - %d - %f", idx * 1.0 / [imageArray count], idx, CMTimeGetSeconds(time)];
+//                    NSString *progress = [NSString stringWithFormat:@"合成进度:%0.2f - %d - %f", idx *1.0 / [imageArray count], idx, CMTimeGetSeconds(time)];
 //                    if(!result) {
 //                        progress = [progress stringByAppendingString:@" - FAIL"];
 //                        frame--;
@@ -209,7 +209,7 @@
 //                    SALLog(@"%@", progress);
 //                }
 //                
-//                if(++frame >= [imageArray count] * countPerFrame) {
+//                if(++frame >= [imageArray count] *countPerFrame) {
 //                    
 //                    [writerInput markAsFinished];
 //                    
@@ -259,7 +259,7 @@
 //    
 //    CVPixelBufferLockBaseAddress(pxbuffer, 0);
 //    
-//    void * pxdata = CVPixelBufferGetBaseAddress(pxbuffer);
+//    void *pxdata = CVPixelBufferGetBaseAddress(pxbuffer);
 //    
 //    NSParameterAssert(pxdata != NULL);
 //    
@@ -269,7 +269,7 @@
 //     当你调用这个函数的时候，Quartz创建一个位图绘制环境，也就是位图上下文。当你向上下文中绘制信息时，
 //     Quartz把你要绘制的信息作为位图数据绘制到指定的内存块。一个新的位图上下文的像素格式由三个参数决定：每个组件的位数，颜色空间，alpha选项
 //     
-//     8, 4 * imageSize.width
+//     8, 4 *imageSize.width
 //     */
 //    
 //    size_t bitsPerComponent = CGImageGetBitsPerComponent(imageRef);
@@ -304,7 +304,7 @@
 //}
 //
 //#pragma mark - 录音
-//static AVAudioRecorder * audioRecorder = nil;
+//static AVAudioRecorder *audioRecorder = nil;
 //+ (void)recodeAudioWithName:(NSString *)audioName resultBlock:(ConverBlock)block {
 //    
 //#if TARGET_OS_IPHONE
@@ -338,13 +338,13 @@
 //    
 //    if (audioRecorder == nil) {
 //        //保存路径
-//        NSString * audioPath = [self pathWithFileName:audioName];
+//        NSString *audioPath = [self pathWithFileName:audioName];
 //        
 //        if (![[NSFileManager defaultManager] fileExistsAtPath:audioPath]) {
 //            [[NSFileManager defaultManager] createFileAtPath:audioPath contents:[NSData data] attributes:nil];
 //        }
 //        
-//        NSError * error = nil;
+//        NSError *error = nil;
 //        audioRecorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:audioPath] settings:setting error:&error];
 //        
 //        //    audioRecorder.delegate = self;
@@ -380,32 +380,32 @@
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
 //        
 //        //初始化audioAsset
-//        AVURLAsset * audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:audioPath] options:nil];
+//        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:audioPath] options:nil];
 //        //初始化videoAsset
-//        AVURLAsset * videoAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:videoPath] options:nil];
+//        AVURLAsset *videoAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:videoPath] options:nil];
 //        
 //        
 //        //初始化合成类
-//        AVMutableComposition * mixComposition = [AVMutableComposition composition];
+//        AVMutableComposition *mixComposition = [AVMutableComposition composition];
 //        
 //        //初始化设置轨道type为AVMediaTypeAudio
-//        NSError * audioTrackError = nil;
-//        AVMutableCompositionTrack * compositionCommentaryTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+//        NSError *audioTrackError = nil;
+//        AVMutableCompositionTrack *compositionCommentaryTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
 //        //根据音频时常添加到设置里面
 //        [compositionCommentaryTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:&audioTrackError];
 //        
 //        
 //        //初始化设置轨道type为VideoTrack
-//        NSError * videoTrackError = nil;
-//        AVMutableCompositionTrack * compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+//        NSError *videoTrackError = nil;
+//        AVMutableCompositionTrack *compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
 //        //设置视频时长等
 //        [compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:[[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] atTime:kCMTimeZero error:&videoTrackError];
 //        
 //        
 //        //初始化导出类 AVAssetExportPresetMediumQuality AVAssetExportPresetPassthrough
-//        AVAssetExportSession * assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
+//        AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
 //        //导出路径
-//        NSString * exportPath = videoPath;
+//        NSString *exportPath = videoPath;
 //        NSURL *exportUrl = [NSURL fileURLWithPath:exportPath];
 //        
 //        if ([[NSFileManager defaultManager] fileExistsAtPath:exportPath]) {
@@ -459,17 +459,17 @@
 ////转换成mp4格式
 //+ (void)convertToMP4VideoPath:(NSString *)videoPath completed:(ConverBlock)completed {
 //    
-//    NSString * filePath = videoPath;
+//    NSString *filePath = videoPath;
 //    
-//    NSString * mp4FilePath = [filePath stringByReplacingOccurrencesOfString:@"mov" withString:@"mp4"];
+//    NSString *mp4FilePath = [filePath stringByReplacingOccurrencesOfString:@"mov" withString:@"mp4"];
 //    
-//    AVURLAsset * avAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:filePath] options:nil];
+//    AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:filePath] options:nil];
 //    
-//    NSArray * compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
+//    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
 //    
 //    if ([compatiblePresets containsObject:AVAssetExportPresetHighestQuality]) {
 //        
-//        AVAssetExportSession * exportSession = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:AVAssetExportPresetHighestQuality];
+//        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:AVAssetExportPresetHighestQuality];
 //        exportSession.outputURL = [NSURL fileURLWithPath:mp4FilePath];
 //        exportSession.outputFileType = AVFileTypeMPEG4;
 //        
@@ -523,7 +523,7 @@
 //        image = [SalConverVideoTool imageWithImage:image scaledToSize:size];
 //    }
 //    CVPixelBufferRef buffer = [self pixelBufferFromCGImage:image];
-//    SALImage * targetImage = [self trasformToImageFromCVPixelBufferRef:buffer];
+//    SALImage *targetImage = [self trasformToImageFromCVPixelBufferRef:buffer];
 //    CFRelease(buffer);
 //    return targetImage;
 //}
@@ -538,7 +538,7 @@
 //                             fromRect:CGRectMake(0, 0,
 //                                                 CVPixelBufferGetWidth(imageBuffer),
 //                                                 CVPixelBufferGetHeight(imageBuffer))];
-//    SALImage * image = [SalDataTool imageWithImageRef:videoImage];
+//    SALImage *image = [SalDataTool imageWithImageRef:videoImage];
 //    CGImageRelease(videoImage);
 //    return image;
 //}
@@ -558,18 +558,18 @@
 //    
 //    CGContextRelease(context);
 //    CGColorSpaceRelease(colorSpace);
-//    SALImage * image = [SalDataTool imageWithImageRef:videoImage];
+//    SALImage *image = [SalDataTool imageWithImageRef:videoImage];
 //    CGImageRelease(videoImage);
 //    return (image);
 //}
 //
 //+ (SALImage*)trasformToImageFromCVPixelBufferRef:(CVPixelBufferRef)bufferRef {
 //    
-//    CIImage * ciImage = [CIImage imageWithCVPixelBuffer:bufferRef];
-//    CIContext * context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer : @(YES)}];
+//    CIImage *ciImage = [CIImage imageWithCVPixelBuffer:bufferRef];
+//    CIContext *context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer : @(YES)}];
 //    CGRect rect = CGRectMake(0, 0, CVPixelBufferGetWidth(bufferRef), CVPixelBufferGetHeight(bufferRef));
 //    CGImageRef videoImage = [context createCGImage:ciImage fromRect:rect];
-//    SALImage * image = [SalDataTool imageWithImageRef:videoImage];
+//    SALImage *image = [SalDataTool imageWithImageRef:videoImage];
 //    CGImageRelease(videoImage);
 //    
 //    return image;

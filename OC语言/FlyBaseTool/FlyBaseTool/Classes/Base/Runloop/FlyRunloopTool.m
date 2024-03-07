@@ -60,7 +60,7 @@
 static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
     
     CFRunLoopMode currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent());
-    FlyRunloopTool * tool = (__bridge FlyRunloopTool *)info;
+    FlyRunloopTool *tool = (__bridge FlyRunloopTool *)info;
     NSTimeInterval currentTime = [tool getCurrentTime];
     
     FLYLog(@"\nTime : %f \nMode:%@", currentTime, currentMode);
@@ -103,12 +103,12 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
 
 //- (NSString *)getCurrentTrack {
 //    
-//    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
-//    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
+//    PLCrashReporterConfig *config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
+//    PLCrashReporter *crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
 //    
-//    NSData * data = [crashReporter generateLiveReport];
-//    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
-//    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter withTextFormat:PLCrashReportTextFormatiOS];
+//    NSData *data = [crashReporter generateLiveReport];
+//    PLCrashReport *reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
+//    NSString *report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter withTextFormat:PLCrashReportTextFormatiOS];
 //    
 //    return report;
 //}
@@ -123,8 +123,8 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
     
     if (self.taskDic.count > 0) {
         CFRunLoopRef runloop  = CFRunLoopGetCurrent();
-        NSString * key = [self keyForLoop:runloop];
-        NSMutableArray * array = [self.taskDic objectForKey:key];
+        NSString *key = [self keyForLoop:runloop];
+        NSMutableArray *array = [self.taskDic objectForKey:key];
         if ([array isKindOfClass:[NSMutableArray class]] && array.count > 0) {
             FlyLoopTask task = array.firstObject;
             if (task) {
@@ -140,8 +140,8 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
     
     if (task) {
         CFRunLoopRef runloop = CFRunLoopGetCurrent();
-        NSString * key = [self keyForLoop:runloop];
-        NSMutableArray * array = [self.taskDic objectForKey:key];
+        NSString *key = [self keyForLoop:runloop];
+        NSMutableArray *array = [self.taskDic objectForKey:key];
         if (![array isKindOfClass:[NSMutableArray class]]) {
             if ([array isKindOfClass:[NSArray class]]) {
                 array = [array mutableCopy];
@@ -157,9 +157,9 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
     }
 }
 
-- (NSString * )keyForLoop:(CFRunLoopRef)loopRef {
+- (NSString *)keyForLoop:(CFRunLoopRef)loopRef {
     
-    //    NSThread * td = [NSThread currentThread];
+    //    NSThread *td = [NSThread currentThread];
     //    pthread_t t = nil;
     //    pthreadPointer(t);
     return @"key";

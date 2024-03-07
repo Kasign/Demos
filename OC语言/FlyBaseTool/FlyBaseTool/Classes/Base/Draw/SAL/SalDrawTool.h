@@ -26,9 +26,9 @@ extern CGSize  GetDirctSize(CGSize size);
 extern CGPoint GetDirctPoint(CGPoint point);
 extern CGRect  GetDirctRect(CGRect rect);
 
-extern CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL * needRelease);
+extern CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL *needRelease);
 
-extern UIColor * SALGetColor(SALPixel_8888 * imageBuffer, SALImageInfoStruct imageStruct, CGPoint point, CGSize currentSize);
+extern UIColor *SALGetColor(SALPixel_8888 *imageBuffer, SALImageInfoStruct imageStruct, CGPoint point, CGSize currentSize);
 
 /// 获取带有偏移量的像素点色值信息
 /// @param imageBuffer 像素点buffer
@@ -37,37 +37,37 @@ extern UIColor * SALGetColor(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
 /// @param visibleArea 可见区域 （0~1）
 /// @param point 点击的点
 /// @param currentSize 点击的点对应的size
-extern UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct imageStruct, CGRect cropArea, CGRect visibleArea, CGPoint point, CGSize currentSize);
+extern UIColor *SALGetColorWithOff(SALPixel_8888 *imageBuffer, SALImageInfoStruct imageStruct, CGRect cropArea, CGRect visibleArea, CGPoint point, CGSize currentSize);
 
 ///更改图片的颜色，alpha > 0 的像素
-extern void SALChangeBufferAlphaColor(SALPixel_8888 * imageBuffer, size_t pixelNum, UIColor * color);
+extern void SALChangeBufferAlphaColor(SALPixel_8888 *imageBuffer, size_t pixelNum, UIColor *color);
 
-extern void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 * imageBuffer, size_t pixelNum, const CGFloat * colorComponents);
+extern void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 *imageBuffer, size_t pixelNum, const CGFloat *colorComponents);
 
 /// 九宫格拆分
 /// @param currentBuffer 当前的buffer
 /// @param currentStruct 当前的image信息
 /// @param insets {top, left,  bottom, right}  (0 ~ 1.0)
-extern NSArray * SALDivideBufferWithInsets(SALPixel_8888 * currentBuffer, SALImageInfoStruct currentStruct, SALEdgeInsets insets);
+extern NSArray *SALDivideBufferWithInsets(SALPixel_8888 *currentBuffer, SALImageInfoStruct currentStruct, SALEdgeInsets insets);
 
 /// 裁剪buffer
 /// @param currentBuffer 当前的buffer
 /// @param targetBuffer 目标buffer，为空值
 /// @param currentStruct 当前buffer对应的结构信息
 /// @param cropRect 裁剪的rect，值的范围（0 ~ 1.0）
-extern void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect);
+extern void SALCropBuffer(SALPixel_8888 *currentBuffer, SALPixel_8888 *targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect);
 
 /// visibleRect drawRect内的区域
 /// @param imageBuffer 当前buffer
 /// @param drawStruct image数据信息
 /// @param visibleRect 可见区域，与scale相乘之后的数据
-extern void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect);
+extern void SALImageBufferSetVisibleRect(SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect);
 
 /// 改变visibleArea内的区域为透明
 /// @param imageBuffer buffer
 /// @param drawStruct buffer对应的结构体数据
 /// @param visibleArea （0 ~ 1.0）
-extern void SALImageBufferSetVisibleArea(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleArea);
+extern void SALImageBufferSetVisibleArea(SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleArea);
 
 extern CGColorSpaceRef SALGetColorSpace(void);
 
@@ -129,14 +129,14 @@ extern CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
 @property (nonatomic, assign) CGSize              drawSize;
 @property (nonatomic, strong) UIColor         *backColor;
 @property (nonatomic, strong) UIColor         *alphaColor;//改变透明区域颜色
-@property (nonatomic, strong) NSArray<SalDetailDrawTask *> * drawTaskList;
+@property (nonatomic, strong) NSArray<SalDetailDrawTask *> *drawTaskList;
 @property (nonatomic, assign) CGBlendMode         blendMode;
 @property (nonatomic, assign) size_t              drawScale;
 @property (nonatomic, assign) CGRect              visibleRect;//可见区域，其他区域变透明，不改变图片大小
 @property (nonatomic, assign) BOOL                usePublicHeap;//是否用公共堆内存
 @property (nonatomic, assign) SALDrawContentType  drawType;
 
-+ (SalDrawTask *)drawTaskWithSize:(CGSize)drawSize backColor:(UIColor * __nullable)backColor alphaColor:(UIColor * __nullable)alphaColor drawTaskList:(NSArray *)iamgeTasks;
++ (SalDrawTask *)drawTaskWithSize:(CGSize)drawSize backColor:(UIColor *__nullable)backColor alphaColor:(UIColor *__nullable)alphaColor drawTaskList:(NSArray *)iamgeTasks;
 
 @end
 

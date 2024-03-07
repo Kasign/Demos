@@ -10,7 +10,7 @@
 
 @interface FlySixteenController ()
 
-@property (nonatomic, strong) CADisplayLink  *  displayLink;
+@property (nonatomic, strong) CADisplayLink  *displayLink;
 
 @end
 

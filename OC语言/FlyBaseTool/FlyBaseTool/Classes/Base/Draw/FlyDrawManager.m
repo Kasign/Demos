@@ -16,7 +16,7 @@
     int imageWidth = image.size.width;
     int imageHeight = image.size.height;
     size_t     bytesPerRow = imageWidth * 4;
-    uint32_t * rgbImageBuf = (uint32_t*)malloc(bytesPerRow * imageHeight);
+    uint32_t *rgbImageBuf = (uint32_t*)malloc(bytesPerRow *imageHeight);
     
     // 创建context
     
@@ -29,9 +29,9 @@
     CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight), image.CGImage);
     // 遍历像素
     int pixelNum = imageWidth * imageHeight;
-    uint32_t * pCurPtr = rgbImageBuf;
+    uint32_t *pCurPtr = rgbImageBuf;
     
-    const CGFloat * colorComponents = nil;
+    const CGFloat *colorComponents = nil;
     if ([color isKindOfClass:[UIColor class]]) {
         colorComponents = CGColorGetComponents(color.CGColor);
     }
@@ -40,13 +40,13 @@
         
         if (transparent) {
             if ((*pCurPtr & 0xFFFFFF00) == 0xffffff00) {// 将白色变成透明
-                uint8_t * ptr = (uint8_t*)pCurPtr;
+                uint8_t *ptr = (uint8_t*)pCurPtr;
                 ptr[0] = 0;
             }
         }
         if (color) {
             // 改成下面的代码，会将图片转成想要的颜色
-            uint8_t * ptr = (uint8_t *)pCurPtr;
+            uint8_t *ptr = (uint8_t *)pCurPtr;
             ptr[3] = colorComponents[0] * 255.f; //0~255
             ptr[2] = colorComponents[1] * 255.f;
             ptr[1] = colorComponents[2] * 255.f;
@@ -60,7 +60,7 @@
                                         kCGImageAlphaLast | kCGBitmapByteOrder32Little, dataProvider,
                                         NULL, true, kCGRenderingIntentDefault);
     CGDataProviderRelease(dataProvider);
-    UIImage * resultUIImage = [UIImage imageWithCGImage:imageRef];
+    UIImage *resultUIImage = [UIImage imageWithCGImage:imageRef];
     // 释放
     CGImageRelease(imageRef);
     CGContextRelease(context);

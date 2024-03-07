@@ -39,7 +39,7 @@ void outPutNums(int n, int m) {
                 printf ("%d\n", i);
             }
         } else {
-            int * arr = malloc(m * sizeof(int));
+            int *arr = malloc(m * sizeof(int));
             for (int j = 0; j < m; j ++) {
                 arr[j] = j + 1;
             }

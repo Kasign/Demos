@@ -14,7 +14,7 @@
 
 //+ (instancetype)allocWithZone:(struct _NSZone *)zone
 //{
-//    static FlySort * sort = nil;
+//    static FlySort *sort = nil;
 //    @synchronized (self) {
 //        if (sort == nil) {
 //            sort = [super allocWithZone:zone];
@@ -42,7 +42,7 @@
  */
 + (NSArray *)fly_quickSortList:(NSArray *)sortArray
 {
-    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:sortArray];
     //    FLYQuickSort1(arr, 0, arr.count - 1);
     FLYQuickSort1(arr, 0, arr.count - 1);
     return arr.copy;
@@ -50,20 +50,20 @@
 
 + (NSArray *)fly_insertSortList:(NSArray *)sortArray
 {
-    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:sortArray];
     FLYInsertSort(arr);
     return arr.copy;
 }
 
 + (NSArray *)fly_stackSortList:(NSArray *)sortArray {
     
-    NSMutableArray * arr = [NSMutableArray arrayWithArray:sortArray];
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:sortArray];
     FLYStackSort(arr);
     return arr.copy;
 }
 
 #pragma mark - 快速排序 方式二
-void FLYQuickSort2(NSMutableArray * sortArr, NSInteger left, NSInteger right)
+void FLYQuickSort2(NSMutableArray *sortArr, NSInteger left, NSInteger right)
 {
     NSInteger i,j;
     NSInteger pivot;
@@ -97,7 +97,7 @@ void FLYQuickSort2(NSMutableArray * sortArr, NSInteger left, NSInteger right)
     }
 }
 
-NSInteger Median3(NSMutableArray * sortArr, NSInteger left, NSInteger right)
+NSInteger Median3(NSMutableArray *sortArr, NSInteger left, NSInteger right)
 {
     NSInteger center = (left + right)/2;
     if ([sortArr[left] integerValue] > [sortArr[center] integerValue]) {
@@ -115,7 +115,7 @@ NSInteger Median3(NSMutableArray * sortArr, NSInteger left, NSInteger right)
 
 
 #pragma mark - 快速排序 方式一
-void FLYQuickSort1(NSMutableArray * arr, NSInteger left, NSInteger right)
+void FLYQuickSort1(NSMutableArray *arr, NSInteger left, NSInteger right)
 {
     if(left < right)
     {
@@ -125,18 +125,18 @@ void FLYQuickSort1(NSMutableArray * arr, NSInteger left, NSInteger right)
     }
 }
 
-void Swap(NSMutableArray * arr, NSInteger index1, NSInteger index2)
+void Swap(NSMutableArray *arr, NSInteger index1, NSInteger index2)
 {
     if (index1 != index2)
     {
-        NSNumber * temp = arr[index1];
+        NSNumber *temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
 //        FLYLog(@"%@    %ld - %ld", [arr componentsJoinedByString:@"-"], index1, index2);
     }
 }
 
-NSInteger Partition(NSMutableArray * arr, NSInteger left, NSInteger right)
+NSInteger Partition(NSMutableArray *arr, NSInteger left, NSInteger right)
 {
     NSInteger base = [arr[left] integerValue];
     while (left < right) {
@@ -153,7 +153,7 @@ NSInteger Partition(NSMutableArray * arr, NSInteger left, NSInteger right)
 }
 
 #pragma mark - 插入排序
-void FLYInsertSort(NSMutableArray * sortArr)
+void FLYInsertSort(NSMutableArray *sortArr)
 {
     NSInteger i,j;
     NSInteger tmp;
@@ -167,7 +167,7 @@ void FLYInsertSort(NSMutableArray * sortArr)
 }
 
 #pragma mark - 堆排序
-void FLYStackSort(NSMutableArray * sortArr)
+void FLYStackSort(NSMutableArray *sortArr)
 {
     
 }

@@ -11,7 +11,7 @@
 
 @interface Dog : Person
 @property (nonatomic, assign) int  age_d;
-@property (nonatomic, strong) NSString * name_d;
--(void)eat;
--(void)run;
+@property (nonatomic, strong) NSString *name_d;
+- (void)eat;
+- (void)run;
 @end

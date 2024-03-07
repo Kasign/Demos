@@ -18,8 +18,8 @@ typedef NS_ENUM(NSUInteger, FLYThreadType) {
 @interface FLYGCD : NSObject
 
 @property (nonatomic, strong, readonly) dispatch_queue_t queue;
-@property (nonatomic, strong, readonly) NSRunLoop      * runLoop;
-@property (nonatomic, strong, readonly) NSThread       * thread;
+@property (nonatomic, strong, readonly) NSRunLoop      *runLoop;
+@property (nonatomic, strong, readonly) NSThread       *thread;
 
 + (instancetype)threadWithType:(FLYThreadType)threadType;
 

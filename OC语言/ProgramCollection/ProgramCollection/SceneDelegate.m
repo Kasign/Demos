@@ -25,7 +25,7 @@
         _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     [_window setBackgroundColor:[UIColor whiteColor]];
-    UINavigationController * navi = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [navi.view setBackgroundColor:[UIColor whiteColor]];
     [_window setRootViewController:navi];
     [_window makeKeyAndVisible];

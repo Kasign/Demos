@@ -117,7 +117,7 @@
 - (void)testBlockCopy {
     
     _name = @"abcd";
-    __block NSString * nameA = _name;
+    __block NSString *nameA = _name;
     __block CGFloat a = 20;
     __weak __typeof(self) weakSelf = self;
     void (^block3)(CGFloat) = ^(CGFloat b){
@@ -131,7 +131,7 @@
 
 - (void)testBlockArr {
     
-    NSMutableArray * arr = [NSMutableArray array];
+    NSMutableArray *arr = [NSMutableArray array];
     void (^block)(void) = ^() {
         [arr addObject:@"abcd_2"];
     };

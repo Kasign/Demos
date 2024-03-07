@@ -102,7 +102,7 @@
 //    [FlyPerformanceMonitor beginMonitor];
     [self.view addSubview:self.tableView];
     
-    _timer = [NSTimer timerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
+    _timer = [NSTimer timerWithTimeInterval:3 repeats:YES block:^(NSTimer *_Nonnull timer) {
 
         FLYLog(@"timer ++++");
     }];
@@ -127,7 +127,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlyTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    FlyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
         cell = [[FlyTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
@@ -171,31 +171,31 @@
 
 - (void)addImageForCell1:(FlyTableViewCell *)cell
 {
-    UIImage * image = [self loadImageWithName:@"1"];
+    UIImage *image = [self loadImageWithName:@"1"];
     [cell.imageView1 setImage:image];
     FLYLog(@"加载第一张图片");
 }
 
 - (void)addImageForCell2:(FlyTableViewCell *)cell
 {
-    UIImage * image = [self loadImageWithName:@"2"];
+    UIImage *image = [self loadImageWithName:@"2"];
     [cell.imageView2 setImage:image];
     FLYLog(@"加载第二张图片");
 }
 
 - (void)addImageForCell3:(FlyTableViewCell *)cell
 {
-    UIImage * image = [self loadImageWithName:@"3"];
+    UIImage *image = [self loadImageWithName:@"3"];
     [cell.imageView3 setImage:image];
     FLYLog(@"加载第三张图片");
 }
 
 - (UIImage *)loadImageWithName:(NSString *)imageName {
     
-//    NSString * path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
-//    UIImage * image = [UIImage imageWithContentsOfFile:path];
-    NSString * fullName = [imageName stringByAppendingString:@".jpg"];
-    UIImage  * image    = [UIImage imageNamed:fullName];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
+//    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    NSString *fullName = [imageName stringByAppendingString:@".jpg"];
+    UIImage  *image    = [UIImage imageNamed:fullName];
     return image;
 }
 

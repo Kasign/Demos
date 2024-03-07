@@ -20,17 +20,17 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
     if (![keyPath isKindOfClass:[NSString class]] || keyPath.length == 0) {
         return;
     }
-    NSString * selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
+    NSString *selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
     selectorName = [@"set" stringByAppendingFormat:@"%@:", selectorName];
     
-    NSString * oldClassName = NSStringFromClass([self class]);
-    NSString * newClassName = [@"FLYKVO_" stringByAppendingString:oldClassName];
-    const char * classChar = [newClassName UTF8String];
+    NSString *oldClassName = NSStringFromClass([self class]);
+    NSString *newClassName = [@"FLYKVO_" stringByAppendingString:oldClassName];
+    const char *classChar = [newClassName UTF8String];
     Class subClass = objc_allocateClassPair([self class], classChar, 0);
     
     Method method = class_getInstanceMethod([self class], NSSelectorFromString(selectorName));
-    const char * types = method_getTypeEncoding(method);
+    const char *types = method_getTypeEncoding(method);
     
     if (types) { //区分类型，数字 对象类型
         
@@ -50,9 +50,9 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
 void flySetNumProperty(id instance, SEL selector, int value) {
     
     id observer = objc_getAssociatedObject(instance, "objc");
-    NSString * keyPath = objc_getAssociatedObject(instance, "keyPath");
+    NSString *keyPath = objc_getAssociatedObject(instance, "keyPath");
     
-    NSString * selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
+    NSString *selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
     selectorName = [@"set" stringByAppendingFormat:@"%@:",selectorName];
     
@@ -75,9 +75,9 @@ void flySetNumProperty(id instance, SEL selector, int value) {
 void flySetProperty(id instance, SEL selector, id value) {
     
     id observer = objc_getAssociatedObject(instance, "objc");
-    NSString * keyPath = objc_getAssociatedObject(instance, "keyPath");
+    NSString *keyPath = objc_getAssociatedObject(instance, "keyPath");
     
-    NSString * selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
+    NSString *selectorName = [keyPath substringWithRange:NSMakeRange(0, 1)].uppercaseString;
     selectorName = [keyPath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:selectorName];
     selectorName = [@"set" stringByAppendingFormat:@"%@:",selectorName];
     

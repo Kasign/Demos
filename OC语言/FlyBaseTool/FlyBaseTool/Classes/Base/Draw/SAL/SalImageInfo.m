@@ -20,7 +20,7 @@ SALImageInfoStruct StructInitWithImgRef(CGImageRef imgRef, size_t scale) {
     drawStruct.bytesPerPixel       = drawStruct.bitsPerPixel/8;
     drawStruct.componentsPerPixel  = drawStruct.bitsPerPixel/drawStruct.bitsPerComponent;
     drawStruct.pixelPerRow         = drawStruct.bytesPerRow/drawStruct.bytesPerPixel;
-    drawStruct.pixelNum            = drawStruct.pixelPerRow * drawStruct.imageRefHeight;
+    drawStruct.pixelNum            = drawStruct.pixelPerRow *drawStruct.imageRefHeight;
     
     return drawStruct;
 }
@@ -29,23 +29,23 @@ SALImageInfoStruct SALImageStructMake(CGSize showSize, size_t scale) {
     
     SALImageInfoStruct drawStruct;
     drawStruct.imageRefScale       = scale;
-    drawStruct.imageRefWidth       = (size_t)(showSize.width  * scale);
-    drawStruct.imageRefHeight      = (size_t)(showSize.height * scale);
+    drawStruct.imageRefWidth       = (size_t)(showSize.width  *scale);
+    drawStruct.imageRefHeight      = (size_t)(showSize.height *scale);
     drawStruct.bitsPerComponent    = 8;
     drawStruct.bitsPerPixel        = 32;
-    drawStruct.bytesPerRow         = drawStruct.imageRefWidth * drawStruct.bitsPerPixel/drawStruct.bitsPerComponent;
+    drawStruct.bytesPerRow         = drawStruct.imageRefWidth *drawStruct.bitsPerPixel/drawStruct.bitsPerComponent;
     drawStruct.bytesPerPixel       = drawStruct.bitsPerPixel/8;
     drawStruct.componentsPerPixel  = drawStruct.bitsPerPixel/drawStruct.bitsPerComponent;
     drawStruct.pixelPerRow         = drawStruct.bytesPerRow/drawStruct.bytesPerPixel;
-    drawStruct.pixelNum            = drawStruct.pixelPerRow * drawStruct.imageRefHeight;
+    drawStruct.pixelNum            = drawStruct.pixelPerRow *drawStruct.imageRefHeight;
     return drawStruct;
 }
 #pragma mark SALImageInfoStruct -
 
 #pragma mark 由imageRef转变成Image
-UIImage * SALImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrientation orientation) {
+UIImage *SALImageWithImageRef(CGImageRef imageRef, CGFloat scale, UIImageOrientation orientation) {
     
-    UIImage * targetImage = nil;
+    UIImage *targetImage = nil;
     if (imageRef != NULL) {
         targetImage = [UIImage imageWithCGImage:imageRef scale:scale orientation:orientation];
     }
@@ -60,7 +60,7 @@ CGImageRef SALImageRefWithContext(CGContextRef context) {
 }
 
 #pragma mark SALProviderReleaseData
-void SALProviderReleaseData(void * info, const void * data, size_t size) {
+void SALProviderReleaseData(void *info, const void *data, size_t size) {
     
     if (data != NULL) {
         free((void*)data);
@@ -70,10 +70,10 @@ void SALProviderReleaseData(void * info, const void * data, size_t size) {
     }
 }
 
-CGImageRef SALImageRefWithBufferData(SALPixel_8888 * currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
+CGImageRef SALImageRefWithBufferData(SALPixel_8888 *currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
     
     //生成的imageRef 与buffer绑定，free时导致imageRef崩溃
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, currentBuffer, drawStruct.bytesPerPixel * drawStruct.pixelNum, SALProviderReleaseData);
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, currentBuffer, drawStruct.bytesPerPixel *drawStruct.pixelNum, SALProviderReleaseData);
     
     CGImageRef imageRef = CGImageCreate(drawStruct.imageRefWidth, drawStruct.imageRefHeight, drawStruct.bitsPerComponent, drawStruct.bitsPerPixel, drawStruct.bytesPerRow, colorSpace, bitmapInfo, dataProvider, NULL, NO, kCGRenderingIntentDefault);//kCGRenderingIntentDefault
     
@@ -81,19 +81,19 @@ CGImageRef SALImageRefWithBufferData(SALPixel_8888 * currentBuffer, SALImageInfo
 }
 
 #pragma mark - ImageRefWithBufferDirect
-const void * SALGetBytePointer(void * info) {
+const void *SALGetBytePointer(void *info) {
     
     NSLog(@"SALGetBytePointer %p", info);
     // this is currently only called once
     return info; // info is a pointer to the buffer
 }
 
-void SALReleaseBytePointer(void * info, const void * pointer) {
+void SALReleaseBytePointer(void *info, const void *pointer) {
     // don't care, just using the one static buffer at the moment
     NSLog(@"SALReleaseBytePointer %p %p", info, pointer);
 }
 
-size_t SALGetBytesAtPosition(void * info, void * buffer, off_t position, size_t count) {
+size_t SALGetBytesAtPosition(void *info, void *buffer, off_t position, size_t count) {
     
     NSLog(@"SALGetBytesAtPosition %p %lld %zu", info, position, count);
     // I don't think this ever gets called
@@ -101,17 +101,17 @@ size_t SALGetBytesAtPosition(void * info, void * buffer, off_t position, size_t 
     return count;
 }
 
-void SALProviderReleaseInfoCallback(void * __nullable info) {
+void SALProviderReleaseInfoCallback(void *__nullable info) {
     
     NSLog(@"SALProviderReleaseInfoCallback %p", info);
 }
 
-CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
+CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 *currentBuffer, SALImageInfoStruct drawStruct, CGBitmapInfo bitmapInfo, CGColorSpaceRef colorSpace) {
     
     //生成的imageRef 与buffer绑定，free时导致imageRef崩溃
     CGDataProviderDirectCallbacks providerCallbacks = {0, SALGetBytePointer, SALReleaseBytePointer, SALGetBytesAtPosition, SALProviderReleaseInfoCallback};
     
-    CGDataProviderRef dataProvider = CGDataProviderCreateDirect(currentBuffer, drawStruct.bytesPerPixel * drawStruct.pixelNum, &providerCallbacks);
+    CGDataProviderRef dataProvider = CGDataProviderCreateDirect(currentBuffer, drawStruct.bytesPerPixel *drawStruct.pixelNum, &providerCallbacks);
     
     CGImageRef imageRef = CGImageCreate(drawStruct.imageRefWidth, drawStruct.imageRefHeight, drawStruct.bitsPerComponent, drawStruct.bitsPerPixel, drawStruct.bytesPerRow, colorSpace, bitmapInfo, dataProvider, NULL, NO, kCGRenderingIntentDefault);//kCGRenderingIntentDefault
     
@@ -156,9 +156,9 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     
-    NSUInteger length = _imageStruct.pixelNum * _imageStruct.bytesPerPixel;
-    NSData * bufferData = [NSData dataWithBytes:_imageBuffer length:length];
-    NSData * structData = [NSData dataWithBytes:&_imageStruct length:sizeof(SALImageInfoStruct)];
+    NSUInteger length = _imageStruct.pixelNum *_imageStruct.bytesPerPixel;
+    NSData *bufferData = [NSData dataWithBytes:_imageBuffer length:length];
+    NSData *structData = [NSData dataWithBytes:&_imageStruct length:sizeof(SALImageInfoStruct)];
     
     [coder encodeObject:bufferData forKey:@"imageBuffer"];
     [coder encodeObject:structData forKey:@"imageStruct"];
@@ -166,16 +166,16 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     
-    NSData * bufferData = [coder decodeObjectOfClass:[NSData class] forKey:@"imageBuffer"];
-    NSData * structData = [coder decodeObjectOfClass:[NSData class] forKey:@"imageStruct"];
+    NSData *bufferData = [coder decodeObjectOfClass:[NSData class] forKey:@"imageBuffer"];
+    NSData *structData = [coder decodeObjectOfClass:[NSData class] forKey:@"imageStruct"];
     SALImageInfoStruct imageInfoStruct = {0};
-    SALPixel_8888 * buffer = NULL;
+    SALPixel_8888 *buffer = NULL;
     
     if (structData) {
         [structData getBytes:&imageInfoStruct length:sizeof(SALImageInfoStruct)];
     }
     if (bufferData && imageInfoStruct.imageRefScale > 0 && imageInfoStruct.imageRefScale < 15) {
-        NSUInteger length = imageInfoStruct.pixelNum * imageInfoStruct.bytesPerPixel;
+        NSUInteger length = imageInfoStruct.pixelNum *imageInfoStruct.bytesPerPixel;
         buffer = calloc(imageInfoStruct.bytesPerPixel, imageInfoStruct.pixelNum);
         [bufferData getBytes:buffer length:length];
     } else {
@@ -191,10 +191,10 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
 
 - (id)copyWithZone:(NSZone *)zone {
     
-    SalImageInfo * imageInfo = [SalImageInfo new];
+    SalImageInfo *imageInfo = [SalImageInfo new];
     imageInfo.imageStruct    = self.imageStruct;
     imageInfo.imageBuffer    = calloc(imageInfo.imageStruct.bytesPerPixel, imageInfo.imageStruct.pixelNum);
-    memcpy(imageInfo.imageBuffer, self.imageBuffer, imageInfo.imageStruct.pixelNum * imageInfo.imageStruct.bytesPerPixel);
+    memcpy(imageInfo.imageBuffer, self.imageBuffer, imageInfo.imageStruct.pixelNum *imageInfo.imageStruct.bytesPerPixel);
     
     return imageInfo;
 }
@@ -204,9 +204,9 @@ CGImageRef SALImageRefWithBufferDirect(SALPixel_8888 * currentBuffer, SALImageIn
     if (size.width > 0 && size.height > 0 && scale > 0) {
         SALImageInfoStruct imageStruct = SALImageStructMake(size, scale);
         if (imageStruct.pixelNum > 0) {
-            SalImageInfo * imageInfo = [SalImageInfo new];
-            imageInfo.imageStruct    = imageStruct;
-            imageInfo.imageBuffer    = calloc(imageInfo.imageStruct.bytesPerPixel, imageInfo.imageStruct.pixelNum);
+            SalImageInfo *imageInfo = [SalImageInfo new];
+            imageInfo.imageStruct   = imageStruct;
+            imageInfo.imageBuffer   = calloc(imageInfo.imageStruct.bytesPerPixel, imageInfo.imageStruct.pixelNum);
             return imageInfo;
         }
     }

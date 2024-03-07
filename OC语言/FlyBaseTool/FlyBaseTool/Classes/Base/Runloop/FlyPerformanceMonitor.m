@@ -34,7 +34,7 @@
 
 static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)
 {
-    FlyPerformanceMonitor * moniotr = (__bridge FlyPerformanceMonitor*)info;
+    FlyPerformanceMonitor *moniotr = (__bridge FlyPerformanceMonitor*)info;
     moniotr.activity = activity;
     dispatch_semaphore_signal(moniotr.semaphore);
 }
@@ -83,7 +83,7 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
         __strong typeof(weakSelf) self = weakSelf;
         while (YES)
         {
-            long st = dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 50 * NSEC_PER_MSEC));
+            long st = dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 50 *NSEC_PER_MSEC));
             if (st != 0)
             {
                 if (!self.observer)
@@ -101,13 +101,13 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
                         continue;
                     }
                     
-//                    PLCrashReporterConfig * config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD
+//                    PLCrashReporterConfig *config  = [[PLCrashReporterConfig alloc] initWithSignalHandlerType:PLCrashReporterSignalHandlerTypeBSD
 //                                                                                        symbolicationStrategy:PLCrashReporterSymbolicationStrategyAll];
-//                    PLCrashReporter * crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
+//                    PLCrashReporter *crashReporter = [[PLCrashReporter alloc] initWithConfiguration:config];
 //                    
-//                    NSData * data = [crashReporter generateLiveReport];
-//                    PLCrashReport * reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
-//                    NSString * report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter
+//                    NSData *data = [crashReporter generateLiveReport];
+//                    PLCrashReport *reporter = [[PLCrashReport alloc] initWithData:data error:NULL];
+//                    NSString *report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter
 //                                                                               withTextFormat:PLCrashReportTextFormatiOS];
                     
 //                    FLYLog(@"卡顿了------------\n%@\n------------", report);

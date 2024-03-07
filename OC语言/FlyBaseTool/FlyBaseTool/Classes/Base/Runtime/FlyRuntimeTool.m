@@ -22,30 +22,30 @@
 {
     FLYLog(@"-------------------------********-------------------------");
     FLYLog(@"当前类名：%@", [instance class]);
-    NSMutableArray * methodArray = [NSMutableArray array];
+    NSMutableArray *methodArray = [NSMutableArray array];
     unsigned int methodCount = 0;
-    Method * methodList = class_copyMethodList([instance class], &methodCount);
+    Method *methodList = class_copyMethodList([instance class], &methodCount);
     for (int i= 0; i<methodCount; i++) {
         Method method  = methodList[i];
         SEL  methodSEL = method_getName(method);
-        const char * types = method_getTypeEncoding(method);
-        NSString * type = [NSString stringWithUTF8String:types];
+        const char *types = method_getTypeEncoding(method);
+        NSString *type = [NSString stringWithUTF8String:types];
         [methodArray addObject:[NSString stringWithFormat:@"%@ - %@", NSStringFromSelector(methodSEL), type]];
     }
     free(methodList);
     FLYLog(@"实例方法：%@", methodArray);
     
     //类方法都是在元类方法列表里
-    methodCount = 0;
-    const char * clsName = class_getName([instance class]);
-    Class metaClass = objc_getMetaClass(clsName);
-    Method * metaMethodList = class_copyMethodList(metaClass, &methodCount);
     [methodArray removeAllObjects];
+    methodCount = 0;
+    const char *clsName = class_getName([instance class]);
+    Class metaClass = objc_getMetaClass(clsName);
+    Method *metaMethodList = class_copyMethodList(metaClass, &methodCount);
     for (int i = 0; i < methodCount ; i ++) {
         Method method = metaMethodList[i];
         SEL selector = method_getName(method);
-        const char * types = method_getTypeEncoding(method);
-        NSString * type = [NSString stringWithUTF8String:types];
+        const char *types = method_getTypeEncoding(method);
+        NSString *type = [NSString stringWithUTF8String:types];
         [methodArray addObject:[NSString stringWithFormat:@"%@ - %@", NSStringFromSelector(selector), type]];
     }
     free(metaMethodList);
@@ -53,15 +53,15 @@
     
     
     //获取成员变量和属性
-    NSMutableDictionary * nameTypeDict = [NSMutableDictionary dictionary];
+    NSMutableDictionary *nameTypeDict = [NSMutableDictionary dictionary];
     unsigned int ivarCount;
-    Ivar * ivars = class_copyIvarList([instance class], &ivarCount);
+    Ivar *ivars = class_copyIvarList([instance class], &ivarCount);
     for (int i = 0; i<ivarCount; i++) {
         Ivar ivar = ivars[i];
-        const char * ivarCharName = ivar_getName(ivar);
-        const char * ivarCharType = ivar_getTypeEncoding(ivar);
-        NSString * ivarName = [NSString stringWithCString:ivarCharName encoding:NSUTF8StringEncoding];
-        NSString * ivarType = [NSString stringWithCString:ivarCharType encoding:NSUTF8StringEncoding];
+        const char *ivarCharName = ivar_getName(ivar);
+        const char *ivarCharType = ivar_getTypeEncoding(ivar);
+        NSString *ivarName = [NSString stringWithCString:ivarCharName encoding:NSUTF8StringEncoding];
+        NSString *ivarType = [NSString stringWithCString:ivarCharType encoding:NSUTF8StringEncoding];
         [nameTypeDict setObject:ivarType forKey:ivarName];
     }
     free(ivars);
@@ -70,14 +70,14 @@
     //获取属性
     [nameTypeDict removeAllObjects];
     unsigned int outCount;
-    objc_property_t * propertyList = class_copyPropertyList([instance class], &outCount);
+    objc_property_t *propertyList = class_copyPropertyList([instance class], &outCount);
     for (int i = 0; i<outCount; i++) {
         objc_property_t property = propertyList[i];
-        const char * propertyChar = property_getName(property);
-        const char * attributesChar = property_getAttributes(property);
-        NSString * propertyName = [NSString stringWithCString:propertyChar encoding:NSUTF8StringEncoding];
-        char * attributeValue = property_copyAttributeValue(property, attributesChar);
-        NSString * attributesStr = @"";
+        const char *propertyChar = property_getName(property);
+        const char *attributesChar = property_getAttributes(property);
+        NSString *propertyName = [NSString stringWithCString:propertyChar encoding:NSUTF8StringEncoding];
+        char *attributeValue = property_copyAttributeValue(property, attributesChar);
+        NSString *attributesStr = @"";
         if (!attributesChar) {
             attributesStr = @"NULL";
         } else {
@@ -93,7 +93,7 @@
     unsigned int protocoCount = 0;
     __unsafe_unretained Protocol ** protocolList =  class_copyProtocolList([instance class], &protocoCount);
     for (int i = 0; i<protocoCount; i++) {
-        Protocol * protocol = protocolList[i];
+        Protocol *protocol = protocolList[i];
         const char *protocolName =  protocol_getName(protocol);
         [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
     }

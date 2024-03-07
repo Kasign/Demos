@@ -244,7 +244,7 @@
         
         FLYLog(@"当前线程：%@", [NSThread currentThread]);
         __block int a = 0;
-        __block NSRunLoop * runloop = nil;
+        __block NSRunLoop *runloop = nil;
         dispatch_async(currentQ, ^{
             [self logString:@"async currentQ 1"];
             runloop = [NSRunLoop currentRunLoop];
@@ -364,7 +364,7 @@
 - (BOOL)fly_lock
 {
     BOOL result = YES;
-    NSString * typeString = _lockType.lowercaseString;
+    NSString *typeString = _lockType.lowercaseString;
     if ([typeString isEqualToString:@"nslock"]) {
         [_nslock lock];
     } else if ([typeString isEqualToString:@"pthread_mutex_t"]) {
@@ -396,7 +396,7 @@
 
 - (void)fly_unlock
 {
-    NSString * typeString = _lockType.lowercaseString;
+    NSString *typeString = _lockType.lowercaseString;
     if ([typeString isEqualToString:@"nslock"]) {
         [_nslock unlock];
     } else if ([typeString isEqualToString:@"pthread_mutex_t"]) {

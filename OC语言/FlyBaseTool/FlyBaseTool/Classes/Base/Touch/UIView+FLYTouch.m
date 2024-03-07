@@ -19,7 +19,7 @@
         RSSwizzleInstanceMethod(self,
                                 @selector(touchesBegan:withEvent:),
                                 RSSWReturnType(void),
-                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
                                 RSSWReplacement(
         {
             [self logMsg:NSStringFromSelector(selector_)];
@@ -30,7 +30,7 @@
         RSSwizzleInstanceMethod(self,
                                 @selector(touchesMoved:withEvent:),
                                 RSSWReturnType(void),
-                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
                                 RSSWReplacement(
         {
             [self logMsg:NSStringFromSelector(selector_)];
@@ -41,7 +41,7 @@
         RSSwizzleInstanceMethod(self,
                                 @selector(touchesEnded:withEvent:),
                                 RSSWReturnType(void),
-                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
                                 RSSWReplacement(
         {
             [self logMsg:NSStringFromSelector(selector_)];
@@ -52,7 +52,7 @@
         RSSwizzleInstanceMethod(self,
                                 @selector(touchesCancelled:withEvent:),
                                 RSSWReturnType(void),
-                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
                                 RSSWReplacement(
         {
             [self logMsg:NSStringFromSelector(selector_)];
@@ -84,7 +84,7 @@
 //        RSSwizzleInstanceMethod(self,
 //                                @selector(touchesBegan:withEvent:),
 //                                RSSWReturnType(void),
-//                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+//                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
 //                                RSSWReplacement(
 //        {
 //            [self logMsg:NSStringFromSelector(selector_)];
@@ -95,7 +95,7 @@
 //        RSSwizzleInstanceMethod(self,
 //                                @selector(touchesMoved:withEvent:),
 //                                RSSWReturnType(void),
-//                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+//                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
 //                                RSSWReplacement(
 //        {
 //            [self logMsg:NSStringFromSelector(selector_)];
@@ -106,7 +106,7 @@
 //        RSSwizzleInstanceMethod(self,
 //                                @selector(touchesEnded:withEvent:),
 //                                RSSWReturnType(void),
-//                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+//                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
 //                                RSSWReplacement(
 //        {
 //            [self logMsg:NSStringFromSelector(selector_)];
@@ -117,7 +117,7 @@
 //        RSSwizzleInstanceMethod(self,
 //                                @selector(touchesCancelled:withEvent:),
 //                                RSSWReturnType(void),
-//                                RSSWArguments(NSSet<UITouch *> * touches, UIEvent *event),
+//                                RSSWArguments(NSSet<UITouch *> *touches, UIEvent *event),
 //                                RSSWReplacement(
 //        {
 //            [self logMsg:NSStringFromSelector(selector_)];

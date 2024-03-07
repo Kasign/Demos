@@ -62,28 +62,28 @@ CGPoint GetDirctPoint(CGPoint point);
 CGRect  GetDirctRect(CGRect rect);
 
 CGRect SALRectWithSacle(CGRect rect, CGFloat scale);
-void SALChangeBufferColor(uint8_t * pixBuffer, const CGFloat * colorComponents, BOOL needSmooth);
+void SALChangeBufferColor(uint8_t *pixBuffer, const CGFloat *colorComponents, BOOL needSmooth);
 ///visibleRect drawRect内的区域
-void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect);
+void SALImageBufferSetVisibleRect(SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect);
 SALImageInfoStruct StructInitWithImgRef(CGImageRef imgRef, size_t scale);
-CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL * needRelease);
+CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL *needRelease);
 ///更改图片的颜色，alpha > 0 的像素
-void SALChangeBufferAlphaColor(SALPixel_8888 * imageBuffer, size_t pixelNum, UIColor * color);
-void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 * imageBuffer, size_t pixelNum, const CGFloat * colorComponents);
-void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect);
+void SALChangeBufferAlphaColor(SALPixel_8888 *imageBuffer, size_t pixelNum, UIColor *color);
+void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 *imageBuffer, size_t pixelNum, const CGFloat *colorComponents);
+void SALCropBuffer(SALPixel_8888 *currentBuffer, SALPixel_8888 *targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect);
 void DrawImageWithScaleCTM(CGContextRef context, SALDrawOrientation orientation, void(^callback)(void));
-SalImageInfo * SALGetImageInfoWithTask(SalDrawTask * drawTask);
-void DrawPathWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalPathTask * pathTask, size_t drawScale);
-void DrawWithDrawTask(CGContextRef context, SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask * drawTask);
-void DrawCalculateAndCrop(CGContextRef context, SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask * drawTask);
-void DrawImageWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalImageTask * imageTask, size_t drawScale);
-void SALDrawChangeAllColor(SALPixel_8888 * currentBuffer, size_t pixelNum, UIColor * color);
-void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTextTask * textTask, size_t drawScale);
-void DrawDetailTask(CGContextRef context, SALImageInfoStruct drawStruct, SalDetailDrawTask * detailTask, size_t drawScale);
+SalImageInfo *SALGetImageInfoWithTask(SalDrawTask *drawTask);
+void DrawPathWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalPathTask *pathTask, size_t drawScale);
+void DrawWithDrawTask(CGContextRef context, SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask *drawTask);
+void DrawCalculateAndCrop(CGContextRef context, SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask *drawTask);
+void DrawImageWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalImageTask *imageTask, size_t drawScale);
+void SALDrawChangeAllColor(SALPixel_8888 *currentBuffer, size_t pixelNum, UIColor *color);
+void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTextTask *textTask, size_t drawScale);
+void DrawDetailTask(CGContextRef context, SALImageInfoStruct drawStruct, SalDetailDrawTask *detailTask, size_t drawScale);
 #pragma mark 函数声明 -
 #pragma mark - BEGIN DRAW
 static CGColorSpaceRef colorSpace  = NULL;
-static SALPixel_8888 * rgbImageBuf = NULL;
+static SALPixel_8888 *rgbImageBuf = NULL;
 static size_t size = 0;
 
 CGFloat ConverNum(CGFloat num) {
@@ -114,17 +114,17 @@ CGRect GetDirctRect(CGRect rect) {
 }
 
 #pragma mark 由DrawTask绘制成SalImageInfo
-SalImageInfo * SALGetImageInfoWithTask(SalDrawTask * drawTask) {
+SalImageInfo *SALGetImageInfoWithTask(SalDrawTask *drawTask) {
     
-    SalImageInfo * imageObject = nil;
+    SalImageInfo *imageObject = nil;
     if ([drawTask isKindOfClass:[SalDrawTask class]] && !CGSizeEqualToSize(drawTask.drawSize, CGSizeZero)) {
         
         SALImageInfoStruct drawStruct = SALImageStructMake(drawTask.drawSize, drawTask.drawScale);
         
-        SALPixel_8888 * imageBuffer = NULL;
+        SALPixel_8888 *imageBuffer = NULL;
         if (drawTask.usePublicHeap) {
             if (rgbImageBuf == NULL) {
-                size = MAX(drawStruct.pixelNum, 4 * 1000 * 1000);
+                size = MAX(drawStruct.pixelNum, 4 *1000 *1000);
                 rgbImageBuf = (SALPixel_8888 *)calloc(drawStruct.bytesPerPixel, size);
             }
             if (drawStruct.pixelNum > size) {
@@ -154,7 +154,7 @@ SalImageInfo * SALGetImageInfoWithTask(SalDrawTask * drawTask) {
 }
 
 #pragma mark 开始绘制当前DrawTask
-void DrawWithDrawTask(CGContextRef context, SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask * drawTask) {
+void DrawWithDrawTask(CGContextRef context, SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask *drawTask) {
     
     if ([drawTask isKindOfClass:[SalDrawTask class]]) {
         
@@ -170,7 +170,7 @@ void DrawWithDrawTask(CGContextRef context, SALPixel_8888 * imageBuffer, SALImag
             CGContextSetBlendMode(context, drawTask.blendMode);
             if (drawTask.visibleRect.size.width > 0 && drawTask.visibleRect.size.height > 0) {
                 
-                for (SalDetailDrawTask * detailTask in drawTask.drawTaskList) {
+                for (SalDetailDrawTask *detailTask in drawTask.drawTaskList) {
                     if ([detailTask isEffective]) {
                         DrawDetailTask(context, drawStruct, detailTask, drawTask.drawScale);
                     }
@@ -191,7 +191,7 @@ void DrawWithDrawTask(CGContextRef context, SALPixel_8888 * imageBuffer, SALImag
 /// @param context 当前上下文
 /// @param detailTask 不同类型的子任务
 /// @param drawScale 缩放比
-void DrawDetailTask(CGContextRef context, SALImageInfoStruct drawStruct, SalDetailDrawTask * detailTask, size_t drawScale) {
+void DrawDetailTask(CGContextRef context, SALImageInfoStruct drawStruct, SalDetailDrawTask *detailTask, size_t drawScale) {
     
     if ([detailTask isKindOfClass:[SalImageTask class]]) {
         DrawImageWithTask(context, drawStruct, (SalImageTask *)detailTask, drawScale);
@@ -206,7 +206,7 @@ void DrawDetailTask(CGContextRef context, SALImageInfoStruct drawStruct, SalDeta
 /// 绘制image到当前上下文
 /// @param context 上下文
 /// @param imageTask 绘制任务
-void DrawImageWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalImageTask * imageTask, size_t drawScale) {
+void DrawImageWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalImageTask *imageTask, size_t drawScale) {
     
     if (imageTask) {
         CGImageRef sourceImageRef = imageTask.drawImageRef;
@@ -245,7 +245,7 @@ void DrawImageWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalI
 
 #pragma mark 绘制当前TextTask
 //CoreText 绘制文字
-void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTextTask * textTask, size_t drawScale) {
+void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTextTask *textTask, size_t drawScale) {
     
     /*
      CGContextSetCharacterSpacing(context, 30);// 间距
@@ -279,7 +279,7 @@ void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTe
      CGContextSetAllowsAntialiasing(context, YES);
      */
  
-    NSAttributedString * attributedStr = textTask.attributedStr;
+    NSAttributedString *attributedStr = textTask.attributedStr;
     
     // 创建绘制区域
     CGMutablePathRef path = CGPathCreateMutable();
@@ -322,7 +322,7 @@ void DrawTextWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalTe
 }
 
 #pragma mark 绘制当前PathTask
-void DrawPathWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalPathTask * pathTask, size_t drawScale) {
+void DrawPathWithTask(CGContextRef context, SALImageInfoStruct drawStruct, SalPathTask *pathTask, size_t drawScale) {
     
     CGContextAddPath(context, pathTask.pathRef);
     if (pathTask.fillColor) {
@@ -366,7 +366,7 @@ void DrawImageWithScaleCTM(CGContextRef context, SALDrawOrientation orientation,
 }
 
 #pragma mark 保留原大小，把不显示的区域透明化
-void DrawCalculateAndCrop(CGContextRef context, SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask * drawTask) {
+void DrawCalculateAndCrop(CGContextRef context, SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, SalDrawTask *drawTask) {
     
     if (!CGRectEqualToRect(drawTask.visibleRect, CGRectMake(0, 0, drawTask.drawSize.width, drawTask.drawSize.height)) && drawTask.visibleRect.size.width > 0 && drawTask.visibleRect.size.height > 0) {
         
@@ -379,7 +379,7 @@ void DrawCalculateAndCrop(CGContextRef context, SALPixel_8888 * imageBuffer, SAL
 }
 
 #pragma mark 裁剪CGImageRef ，使用后需要释放
-CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL * needRelease) {
+CGImageRef SALCropImageRef(CGImageRef imageRef, CGSize oriSize, CGRect cropRect, BOOL *needRelease) {
 
     //转换int消除精度问题
     cropRect = GetDirctRect(cropRect);
@@ -428,12 +428,12 @@ CGColorSpaceRef SALGetColorSpace(void) {
     return colorSpace;
 }
 
-UIColor * SALGetColor(SALPixel_8888 * imageBuffer, SALImageInfoStruct imageStruct, CGPoint point, CGSize currentSize) {
+UIColor *SALGetColor(SALPixel_8888 *imageBuffer, SALImageInfoStruct imageStruct, CGPoint point, CGSize currentSize) {
     
     return SALGetColorWithOff(imageBuffer, imageStruct, CGRectMake(0, 0, 1, 1), CGRectMake(0, 0, 1, 1), point, currentSize);
 }
 
-UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct imageStruct, CGRect cropArea, CGRect visibleArea, CGPoint point, CGSize currentSize) {
+UIColor *SALGetColorWithOff(SALPixel_8888 *imageBuffer, SALImageInfoStruct imageStruct, CGRect cropArea, CGRect visibleArea, CGPoint point, CGSize currentSize) {
     
     if (point.x > currentSize.width || point.y > currentSize.height || imageBuffer == NULL) {
         return nil;
@@ -444,7 +444,7 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
     
     CGRect currentRect = CGRectMake(0, 0, imageRefWidth, imageRefHeight);
     if (!CGRectEqualToRect(cropArea, CGRectMake(0, 0, 1, 1))) {
-        currentRect = CGRectMake(cropArea.origin.x * imageRefWidth, cropArea.origin.y * imageRefHeight, cropArea.size.width * imageRefWidth, cropArea.size.height * imageRefHeight);
+        currentRect = CGRectMake(cropArea.origin.x *imageRefWidth, cropArea.origin.y *imageRefHeight, cropArea.size.width *imageRefWidth, cropArea.size.height *imageRefHeight);
         currentRect = GetDirctRect(currentRect);
     }
     
@@ -455,8 +455,8 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
     size_t y = point.y;
     
     if (!CGSizeEqualToSize(CGSizeMake(currentWidth, currentHeight), currentSize)) {
-        x = point.x * currentWidth / currentSize.width;
-        y = point.y * currentHeight / currentSize.height;
+        x = point.x *currentWidth / currentSize.width;
+        y = point.y *currentHeight / currentSize.height;
     }
     
     x = x + currentRect.origin.x;
@@ -469,7 +469,7 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
     
     if (!CGRectEqualToRect(visibleArea, CGRectMake(0, 0, 1, 1))) {
         
-        CGRect visibleRect = CGRectMake(visibleArea.origin.x * currentWidth, visibleArea.origin.y * currentHeight, visibleArea.size.width * currentWidth, visibleArea.size.height * currentHeight);
+        CGRect visibleRect = CGRectMake(visibleArea.origin.x *currentWidth, visibleArea.origin.y *currentHeight, visibleArea.size.width *currentWidth, visibleArea.size.height *currentHeight);
         visibleRect = GetDirctRect(visibleRect);
         
         if (!CGRectContainsPoint(visibleRect, CGPointMake(x, y))) {
@@ -477,10 +477,10 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
         }
     }
     
-    //这里的imageBuffer存的是数组，每个数组占4个字节，所以这里位移应该是 x + y * 单行字节数/4
-    SALPixel_8888 * currentPtr = imageBuffer + x + y * imageRefWidth;
+    //这里的imageBuffer存的是数组，每个数组占4个字节，所以这里位移应该是 x + y *单行字节数/4
+    SALPixel_8888 *currentPtr = imageBuffer + x + y *imageRefWidth;
     
-    uint8_t * uint8Ptr = (uint8_t *)currentPtr;
+    uint8_t *uint8Ptr = (uint8_t *)currentPtr;
     alpha = (float)uint8Ptr[0]/255.f;
     red   = (float)uint8Ptr[1]/255.f;
     green = (float)uint8Ptr[2]/255.f;
@@ -496,23 +496,23 @@ UIColor * SALGetColorWithOff(SALPixel_8888 * imageBuffer, SALImageInfoStruct ima
 /// @param pixBuffer 像素点信息{ alpha, blue, green, red }
 /// @param colorComponents 颜色分量值{ red, green, blue, alpha }
 /// @param needSmooth 是否需要光滑，抗锯齿
-void SALChangeBufferColor(uint8_t * pixBuffer, const CGFloat * colorComponents, BOOL needSmooth) {
+void SALChangeBufferColor(uint8_t *pixBuffer, const CGFloat *colorComponents, BOOL needSmooth) {
     
     float oriA  = pixBuffer[0];
     float alpha = colorComponents[3];
     if (needSmooth) {
-        alpha = alpha * oriA/255.f;
+        alpha = alpha *oriA/255.f;
     }
-    pixBuffer[3] = colorComponents[0] * 255.f * alpha; //red   0~255
-    pixBuffer[2] = colorComponents[1] * 255.f * alpha; //green 0~255
-    pixBuffer[1] = colorComponents[2] * 255.f * alpha; //blue  0~255
+    pixBuffer[3] = colorComponents[0] *255.f *alpha; //red   0~255
+    pixBuffer[2] = colorComponents[1] *255.f *alpha; //green 0~255
+    pixBuffer[1] = colorComponents[2] *255.f *alpha; //blue  0~255
     if (!needSmooth) {
-        pixBuffer[0] = alpha * 255.f; //alpha  0~255
+        pixBuffer[0] = alpha *255.f; //alpha  0~255
     }
 }
 
 //改变矩形内的颜色，未改变image的size，如果要改变size，还要拼接数据
-void SALDrawChangeColorInRect(SALPixel_8888 * currentBuffer, SALImageInfoStruct drawStruct, CGRect rect, UIColor * color) {
+void SALDrawChangeColorInRect(SALPixel_8888 *currentBuffer, SALImageInfoStruct drawStruct, CGRect rect, UIColor *color) {
     
     size_t pixelNum = drawStruct.pixelNum;
     
@@ -523,20 +523,20 @@ void SALDrawChangeColorInRect(SALPixel_8888 * currentBuffer, SALImageInfoStruct 
     size_t cropW = (int)rect.size.width;
     size_t cropH = (int)rect.size.height;
     
-    if (currentBuffer && pixelNum > 0 && color && cropX >= 0 && cropY >= 0 && cropW > 0 && cropH > 0 && (cropX + cropW) * (cropY + cropH) <= pixelNum) {
+    if (currentBuffer && pixelNum > 0 && color && cropX >= 0 && cropY >= 0 && cropW > 0 && cropH > 0 && (cropX + cropW) *(cropY + cropH) <= pixelNum) {
         
-        SALPixel_8888 * pCurPtr = currentBuffer;
-        const CGFloat * colorComponents = nil;
+        SALPixel_8888 *pCurPtr = currentBuffer;
+        const CGFloat *colorComponents = nil;
         if ([color isKindOfClass:[UIColor class]]) {
             colorComponents = CGColorGetComponents(color.CGColor);
             
             size_t x = 0, y = 0;
-            pCurPtr  = pCurPtr + cropY * drawStruct.imageRefWidth + cropX;
+            pCurPtr  = pCurPtr + cropY *drawStruct.imageRefWidth + cropX;
             for (; y < cropH; y++) {//行数
                 
                 for (x = 0; x < cropW; x++, pCurPtr++) {
                     @autoreleasepool {
-                        uint8_t * ptr = (uint8_t *)pCurPtr;
+                        uint8_t *ptr = (uint8_t *)pCurPtr;
                         SALChangeBufferColor(ptr, colorComponents, NO);
                     }
                 }
@@ -547,7 +547,7 @@ void SALDrawChangeColorInRect(SALPixel_8888 * currentBuffer, SALImageInfoStruct 
     }
 }
 
-void SALImageBufferSetVisibleArea(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleArea) {
+void SALImageBufferSetVisibleArea(SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleArea) {
     
     if (CGRectGetMaxX(visibleArea) > 1 || CGRectGetMaxY(visibleArea) > 1 || imageBuffer == NULL) {
         return;
@@ -556,13 +556,13 @@ void SALImageBufferSetVisibleArea(SALPixel_8888 * imageBuffer, SALImageInfoStruc
     size_t width  = drawStruct.imageRefWidth;
     size_t height = drawStruct.imageRefHeight;
     
-    CGRect visibleRect = CGRectMake(visibleArea.origin.x * width, visibleArea.origin.y * height, visibleArea.size.width * width, visibleArea.size.height * height);
+    CGRect visibleRect = CGRectMake(visibleArea.origin.x *width, visibleArea.origin.y *height, visibleArea.size.width *width, visibleArea.size.height *height);
     
     SALImageBufferSetVisibleRect(imageBuffer, drawStruct, visibleRect);
 }
 
 ///visibleRect drawRect内的区域
-void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect) {
+void SALImageBufferSetVisibleRect(SALPixel_8888 *imageBuffer, SALImageInfoStruct drawStruct, CGRect visibleRect) {
     
     CGRect drawRect = CGRectMake(0, 0, drawStruct.imageRefWidth, drawStruct.imageRefHeight);
     CGFloat maxY = CGRectGetMaxY(drawRect);
@@ -648,21 +648,21 @@ void SALImageBufferSetVisibleRect(SALPixel_8888 * imageBuffer, SALImageInfoStruc
 /// @param imageBuffer 像素数据
 /// @param pixelNum 总像素点
 /// @param color 目标颜色值
-void SALChangeBufferAlphaColor(SALPixel_8888 * imageBuffer, size_t pixelNum, UIColor * color) {
+void SALChangeBufferAlphaColor(SALPixel_8888 *imageBuffer, size_t pixelNum, UIColor *color) {
     
     if (imageBuffer != NULL && pixelNum > 0 && [color isKindOfClass:[UIColor class]]) {
-        const CGFloat * colorComponents = CGColorGetComponents(color.CGColor);
+        const CGFloat *colorComponents = CGColorGetComponents(color.CGColor);
         SALChangeBufferAlphaColorWithComponents(imageBuffer, pixelNum, colorComponents);
     }
 }
 
-void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 * imageBuffer, size_t pixelNum, const CGFloat * colorComponents) {
+void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 *imageBuffer, size_t pixelNum, const CGFloat *colorComponents) {
     
     if (imageBuffer && pixelNum > 0 && colorComponents != NULL) {
-        SALPixel_8888 * pCurPtr = imageBuffer;
+        SALPixel_8888 *pCurPtr = imageBuffer;
         for (size_t i = 0; i < pixelNum; i++, pCurPtr++) {
             @autoreleasepool {
-                uint8_t * ptr = (uint8_t *)pCurPtr;
+                uint8_t *ptr = (uint8_t *)pCurPtr;
                 if (ptr[0] > 0) {
                     SALChangeBufferColor(ptr, colorComponents, YES);
                 }
@@ -677,16 +677,16 @@ void SALChangeBufferAlphaColorWithComponents(SALPixel_8888 * imageBuffer, size_t
 /// @param currentBuffer 像素数据
 /// @param pixelNum 总像素点
 /// @param color 目标颜色值
-void SALDrawChangeAllColor(SALPixel_8888 * currentBuffer, size_t pixelNum, UIColor * color) {
+void SALDrawChangeAllColor(SALPixel_8888 *currentBuffer, size_t pixelNum, UIColor *color) {
     
     if (currentBuffer && pixelNum > 0 && color) {
-        SALPixel_8888 * pCurPtr = currentBuffer;
-        const CGFloat * colorComponents = nil;
+        SALPixel_8888 *pCurPtr = currentBuffer;
+        const CGFloat *colorComponents = nil;
         if ([color isKindOfClass:[UIColor class]]) {
             colorComponents = CGColorGetComponents(color.CGColor);
             for (size_t i = 0; i < pixelNum; i++, pCurPtr++) {
                 @autoreleasepool {
-                    uint8_t * ptr = (uint8_t *)pCurPtr;
+                    uint8_t *ptr = (uint8_t *)pCurPtr;
                     SALChangeBufferColor(ptr, colorComponents, NO);
                 }
             }
@@ -695,19 +695,19 @@ void SALDrawChangeAllColor(SALPixel_8888 * currentBuffer, size_t pixelNum, UICol
     }
 }
 
-NSArray * SALDivideBufferWithInsets(SALPixel_8888 * currentBuffer, SALImageInfoStruct currentStruct, SALEdgeInsets insets) {
+NSArray *SALDivideBufferWithInsets(SALPixel_8888 *currentBuffer, SALImageInfoStruct currentStruct, SALEdgeInsets insets) {
     
     if (currentBuffer == NULL || SALEdgeInsetsEqualToEdgeInsets(insets, SALEdgeInsetsMake(0, 0, 0, 0))) {
         return nil;
     }
     
-    NSMutableArray * divideArray = [NSMutableArray arrayWithCapacity:9];
+    NSMutableArray *divideArray = [NSMutableArray arrayWithCapacity:9];
     float width  = 1;
     float height = 1;
-    float left   = insets.left   * width;
-    float right  = insets.right  * width;
-    float top    = insets.top    * height;
-    float bottom = insets.bottom * height;
+    float left   = insets.left   *width;
+    float right  = insets.right  *width;
+    float top    = insets.top    *height;
+    float bottom = insets.bottom *height;
     
     float x = 0, y = 0, w = left, h = top;
     
@@ -715,11 +715,11 @@ NSArray * SALDivideBufferWithInsets(SALPixel_8888 * currentBuffer, SALImageInfoS
         
         CGRect cropRect = CGRectMake(x, y, w, h);
         
-        CGSize infoSize = CGSizeMake(w * currentStruct.imageRefWidth, h * currentStruct.imageRefHeight);
+        CGSize infoSize = CGSizeMake(w *currentStruct.imageRefWidth, h *currentStruct.imageRefHeight);
         
         infoSize = GetDirctSize(infoSize);
         
-        SalImageInfo * imageInfo = [SalImageInfo instanceWithSize:infoSize scale:currentStruct.imageRefScale];
+        SalImageInfo *imageInfo = [SalImageInfo instanceWithSize:infoSize scale:currentStruct.imageRefScale];
         
         if (imageInfo) {
             SALCropBuffer(currentBuffer, imageInfo.imageBuffer, currentStruct, cropRect);
@@ -760,11 +760,11 @@ NSArray * SALDivideBufferWithInsets(SALPixel_8888 * currentBuffer, SALImageInfoS
 /// @param targetBuffer 目标buffer
 /// @param currentStruct 被裁减buffer信息
 /// @param cropRect 裁剪范围（0 ~ 1）
-void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect) {
+void SALCropBuffer(SALPixel_8888 *currentBuffer, SALPixel_8888 *targetBuffer, SALImageInfoStruct currentStruct, CGRect cropRect) {
     
     if (targetBuffer != NULL && currentBuffer != NULL && cropRect.size.height > 0 && cropRect.size.width > 0 && cropRect.size.width <= 1 && cropRect.size.height <= 1) {
         
-        CGRect cropDrawRect = CGRectMake(cropRect.origin.x * currentStruct.imageRefWidth, cropRect.origin.y * currentStruct.imageRefHeight, cropRect.size.width * currentStruct.imageRefWidth, cropRect.size.height * currentStruct.imageRefHeight);
+        CGRect cropDrawRect = CGRectMake(cropRect.origin.x *currentStruct.imageRefWidth, cropRect.origin.y *currentStruct.imageRefHeight, cropRect.size.width *currentStruct.imageRefWidth, cropRect.size.height *currentStruct.imageRefHeight);
         
         cropDrawRect = GetDirctRect(cropDrawRect);
         
@@ -777,14 +777,14 @@ void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, 
             
             @autoreleasepool {
                 
-                size_t targetOff  = x + y * cropDrawRect.size.width;
-                size_t currentOff = cropDrawRect.origin.x + x + (y + cropDrawRect.origin.y) * currentStruct.imageRefWidth;
+                size_t targetOff  = x + y *cropDrawRect.size.width;
+                size_t currentOff = cropDrawRect.origin.x + x + (y + cropDrawRect.origin.y) *currentStruct.imageRefWidth;
                 
-                SALPixel_8888 * currentPix = currentBuffer + currentOff;
-                SALPixel_8888 * targetPix  = targetBuffer  + targetOff;
+                SALPixel_8888 *currentPix = currentBuffer + currentOff;
+                SALPixel_8888 *targetPix  = targetBuffer  + targetOff;
                 
-                uint8_t * targetPixArr  = (uint8_t *)targetPix;
-                uint8_t * currentPixArr = (uint8_t *)currentPix;
+                uint8_t *targetPixArr  = (uint8_t *)targetPix;
+                uint8_t *currentPixArr = (uint8_t *)currentPix;
                 
                 targetPixArr[0] = currentPixArr[0];
                 targetPixArr[1] = currentPixArr[1];
@@ -804,10 +804,10 @@ void SALCropBuffer(SALPixel_8888 * currentBuffer, SALPixel_8888 * targetBuffer, 
 CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
     
     if (scale != 1) {
-        rect.origin.x    = rect.origin.x * scale;
-        rect.origin.y    = rect.origin.y * scale;
-        rect.size.width  = rect.size.width  * scale;
-        rect.size.height = rect.size.height * scale;
+        rect.origin.x    = rect.origin.x *scale;
+        rect.origin.y    = rect.origin.y *scale;
+        rect.size.width  = rect.size.width  *scale;
+        rect.size.height = rect.size.height *scale;
     }
     return rect;
 }
@@ -845,7 +845,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageTask *)imageTaskWithImage:(UIImage *)image drawRect:(CGRect)drawRect {
     
-    SalImageTask * imageTask = [SalImageTask new];
+    SalImageTask *imageTask = [SalImageTask new];
     imageTask.needCrop       = NO;
     imageTask.drawImage      = image;
     imageTask.drawRect       = drawRect;
@@ -854,7 +854,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageTask *)imageTaskWithImageRef:(CGImageRef)imageRef drawRect:(CGRect)drawRect {
     
-    SalImageTask * imageTask = [SalImageTask new];
+    SalImageTask *imageTask = [SalImageTask new];
     imageTask.needCrop       = NO;
     imageTask.drawImageRef   = imageRef;
     imageTask.drawRect       = drawRect;
@@ -863,7 +863,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageTask *)imageTaskWithImageInfo:(SalImageInfo *)imageInfo drawRect:(CGRect)drawRect {
     
-    SalImageTask * imageTask = [SalImageTask new];
+    SalImageTask *imageTask = [SalImageTask new];
     imageTask.needCrop       = NO;
     imageTask.drawImageInfo  = imageInfo;
     imageTask.drawRect       = drawRect;
@@ -897,7 +897,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalTextTask *)textTaskWithAttributedStr:(NSAttributedString *)attributedStr drawRect:(CGRect)drawRect {
     
-    SalTextTask * task = [[SalTextTask alloc] init];
+    SalTextTask *task = [[SalTextTask alloc] init];
     task.drawRect      = drawRect;
     task.attributedStr = attributedStr;
     return task;
@@ -910,7 +910,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalPathTask *)imageTaskWithPathRef:(CGPathRef)pathRef drawRect:(CGRect)drawRect {
     
-    SalPathTask * pathTask = [[SalPathTask alloc] init];
+    SalPathTask *pathTask = [[SalPathTask alloc] init];
     pathTask.drawRect = drawRect;
     pathTask.pathRef  = pathRef;
     return pathTask;
@@ -923,7 +923,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalDrawTask *)drawTaskWithSize:(CGSize)drawSize backColor:(UIColor *)backColor alphaColor:(UIColor *)alphaColor drawTaskList:(NSArray *)drawTaskList {
     
-    SalDrawTask * drawTask = [SalDrawTask new];
+    SalDrawTask *drawTask = [SalDrawTask new];
     drawTask.usePublicHeap = NO;
     drawTask.drawScale     = [UIScreen mainScreen].scale;
     drawTask.drawSize      = drawSize;
@@ -966,7 +966,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageInfo *)decodeWithPathRef:(CGPathRef)pathRef {
     
-    SalImageInfo * imageInfo = nil;
+    SalImageInfo *imageInfo = nil;
     if (pathRef != NULL) {
         
     }
@@ -975,11 +975,11 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageInfo *)decodeWithImage:(UIImage *)image {
     
-    SalImageInfo * imageInfo = nil;
+    SalImageInfo *imageInfo = nil;
     if ([image isKindOfClass:[UIImage class]]) {
         CGRect drawRect = CGRectMake(0, 0, image.size.width, image.size.height);
-        SalImageTask * imageTask = [SalImageTask imageTaskWithImage:image drawRect:drawRect];
-        SalDrawTask  * drawTask  = [SalDrawTask drawTaskWithSize:drawRect.size backColor:nil alphaColor:nil drawTaskList:@[imageTask]];
+        SalImageTask *imageTask = [SalImageTask imageTaskWithImage:image drawRect:drawRect];
+        SalDrawTask  *drawTask  = [SalDrawTask drawTaskWithSize:drawRect.size backColor:nil alphaColor:nil drawTaskList:@[imageTask]];
         drawTask.drawScale = image.scale;
         drawTask.drawType  = SALDrawContentType_IMAGE;
         imageInfo = SALGetImageInfoWithTask(drawTask);
@@ -989,7 +989,7 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
 
 + (SalImageInfo *)decodeWithImageRef:(CGImageRef)imageRef scale:(CGFloat)scale {
     
-    SalImageInfo * imageInfo = nil;
+    SalImageInfo *imageInfo = nil;
        if (imageRef != NULL && scale > 0) {
            size_t width  = CGImageGetWidth(imageRef);
            size_t height = CGImageGetHeight(imageRef);
@@ -998,9 +998,9 @@ CGRect SALRectWithSacle(CGRect rect, CGFloat scale) {
            height = height/scale;
            
            CGRect drawRect = CGRectMake(0, 0, width, height);
-           SalImageTask * imageTask = [SalImageTask imageTaskWithImageRef:imageRef drawRect:drawRect];
+           SalImageTask *imageTask = [SalImageTask imageTaskWithImageRef:imageRef drawRect:drawRect];
            
-           SalDrawTask  * drawTask  = [SalDrawTask drawTaskWithSize:drawRect.size backColor:nil alphaColor:nil drawTaskList:@[imageTask]];
+           SalDrawTask  *drawTask  = [SalDrawTask drawTaskWithSize:drawRect.size backColor:nil alphaColor:nil drawTaskList:@[imageTask]];
            drawTask.drawScale = scale;
            drawTask.drawType  = SALDrawContentType_IMAGE;
            imageInfo = SALGetImageInfoWithTask(drawTask);

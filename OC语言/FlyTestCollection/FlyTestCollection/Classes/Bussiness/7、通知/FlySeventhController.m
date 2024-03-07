@@ -46,7 +46,7 @@
     _objectArray = [NSMutableArray array];
     
     for (NSInteger i = 0; i < 5; i++) {
-        FlyNotiObject * object = [[FlyNotiObject alloc] init];
+        FlyNotiObject *object = [[FlyNotiObject alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:object selector:@selector(didReceivedNoti:) name:@"FlyNotificationName" object:nil];
         [_objectArray addObject:object];
     }

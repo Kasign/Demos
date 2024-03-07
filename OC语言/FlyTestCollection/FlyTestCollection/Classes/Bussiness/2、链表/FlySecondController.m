@@ -23,12 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString * pointStr = @"";
+    NSString *pointStr = @"";
     _headerNode  = [[FlyNode alloc] init];
-    FlyNode * currentNode = _headerNode;
+    FlyNode *currentNode = _headerNode;
     pointStr = [pointStr stringByAppendingFormat:@"%p->", currentNode];
     for (NSInteger i = 0; i < 5; i ++) {
-        FlyNode * node = [[FlyNode alloc] init];
+        FlyNode *node = [[FlyNode alloc] init];
         currentNode.next = node;
         pointStr = [pointStr stringByAppendingFormat:@"%p->", currentNode.next];
         currentNode = node;
@@ -45,14 +45,14 @@
 
 - (FlyNode *)resverNode:(FlyNode *)headerNode {
     
-    FlyNode * currentNode = headerNode;
-    FlyNode * prevNode    = nil;
-    NSString * pointStr   = @"";
+    FlyNode *currentNode = headerNode;
+    FlyNode *prevNode    = nil;
+    NSString *pointStr   = @"";
     pointStr = [pointStr stringByAppendingFormat:@"%p<-", prevNode];
     while(currentNode.next != nil)
     {
-        FlyNode * nextNode = currentNode.next;
-        currentNode.next   = prevNode;
+        FlyNode *nextNode = currentNode.next;
+        currentNode.next  = prevNode;
         prevNode    = currentNode;
         currentNode = nextNode;
         pointStr = [pointStr stringByAppendingFormat:@"%p<-", prevNode];
