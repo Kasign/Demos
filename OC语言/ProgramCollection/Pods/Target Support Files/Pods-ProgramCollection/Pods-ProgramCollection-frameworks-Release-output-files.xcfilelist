@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlyBaseTool.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlyTestCollection.framework

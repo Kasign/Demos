@@ -3,73 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		393BB7DE25D630180032E89E /* FlySixteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393BB7DD25D630180032E89E /* FlySixteenController.m */; };
-		39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */; };
-		39C5EAC725D65AF6002D53A5 /* FlySeventeenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C5EAC625D65AF6002D53A5 /* FlySeventeenController.m */; };
 		39D683402B6784B4003898A1 /* FlyCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D6833F2B6784B4003898A1 /* FlyCellModel.m */; };
-		7B0D0C2825765AB000862DE0 /* FlyFourteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */; };
 		7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E4250A33D200CD6D9D /* AppDelegate.m */; };
 		7B0D92E8250A33D200CD6D9D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92E7250A33D200CD6D9D /* SceneDelegate.m */; };
 		7B0D92EE250A33D200CD6D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D92EC250A33D200CD6D9D /* Main.storyboard */; };
 		7B0D92F0250A33D200CD6D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D92EF250A33D200CD6D9D /* Assets.xcassets */; };
 		7B0D92F3250A33D200CD6D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D92F1250A33D200CD6D9D /* LaunchScreen.storyboard */; };
 		7B0D92F6250A33D200CD6D9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92F5250A33D200CD6D9D /* main.m */; };
-		7B0D9353250A33F600CD6D9D /* FlyFifthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D92FE250A33F600CD6D9D /* FlyFifthController.m */; };
-		7B0D9354250A33F600CD6D9D /* FlySixthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9302250A33F600CD6D9D /* FlySixthController.m */; };
-		7B0D9355250A33F600CD6D9D /* FlyForthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9305250A33F600CD6D9D /* FlyForthController.m */; };
-		7B0D9356250A33F600CD6D9D /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D9309250A33F600CD6D9D /* CrashReporter.framework */; };
-		7B0D9357250A33F600CD6D9D /* FlyRunloopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D930A250A33F600CD6D9D /* FlyRunloopTool.m */; };
-		7B0D9358250A33F600CD6D9D /* FlyPerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D930B250A33F600CD6D9D /* FlyPerformanceMonitor.m */; };
-		7B0D9359250A33F600CD6D9D /* SalScreenShotTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D930D250A33F600CD6D9D /* SalScreenShotTool.m */; };
-		7B0D935A250A33F600CD6D9D /* SalConverVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9310250A33F600CD6D9D /* SalConverVideoTool.m */; };
-		7B0D935B250A33F600CD6D9D /* NSObject+FlyKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9312250A33F600CD6D9D /* NSObject+FlyKVO.m */; };
-		7B0D935C250A33F600CD6D9D /* Person+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9317250A33F600CD6D9D /* Person+Custom.m */; };
-		7B0D935D250A33F600CD6D9D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9319250A33F600CD6D9D /* Person.m */; };
-		7B0D935E250A33F600CD6D9D /* FlyRuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D931A250A33F600CD6D9D /* FlyRuntimeTool.m */; };
-		7B0D935F250A33F600CD6D9D /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D931B250A33F600CD6D9D /* Dog.m */; };
-		7B0D9360250A33F600CD6D9D /* SALSteam.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9320250A33F600CD6D9D /* SALSteam.m */; };
-		7B0D9362250A33F600CD6D9D /* SalDrawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9324250A33F600CD6D9D /* SalDrawTool.m */; };
-		7B0D9363250A33F600CD6D9D /* SalImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9325250A33F600CD6D9D /* SalImageInfo.m */; };
 		7B0D9364250A33F600CD6D9D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9326250A33F600CD6D9D /* ViewController.m */; };
-		7B0D9365250A33F600CD6D9D /* FlyThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9329250A33F600CD6D9D /* FlyThirdController.m */; };
-		7B0D9366250A33F600CD6D9D /* FlyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D932C250A33F600CD6D9D /* FlyNode.m */; };
-		7B0D9367250A33F600CD6D9D /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D932D250A33F600CD6D9D /* FlySort.m */; };
-		7B0D9368250A33F600CD6D9D /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9330250A33F600CD6D9D /* FlyBaseController.m */; };
-		7B0D9369250A33F600CD6D9D /* FlySecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9334250A33F600CD6D9D /* FlySecondController.m */; };
-		7B0D936A250A33F600CD6D9D /* FlyTwelfthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */; };
-		7B0D936B250A33F600CD6D9D /* FlyFirstController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D933A250A33F600CD6D9D /* FlyFirstController.m */; };
-		7B0D936C250A33F600CD6D9D /* FlySeventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D933D250A33F600CD6D9D /* FlySeventhController.m */; };
-		7B0D936D250A33F600CD6D9D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D933F250A33F600CD6D9D /* 2.jpg */; };
-		7B0D936E250A33F600CD6D9D /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D9340250A33F600CD6D9D /* 3.jpg */; };
-		7B0D936F250A33F600CD6D9D /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D9341250A33F600CD6D9D /* 1.jpg */; };
-		7B0D9370250A33F600CD6D9D /* FlyEighthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9343250A33F600CD6D9D /* FlyEighthController.m */; };
-		7B0D9371250A33F600CD6D9D /* FlyEleventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9347250A33F600CD6D9D /* FlyEleventhController.m */; };
-		7B0D9372250A33F600CD6D9D /* FlyTenthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D934B250A33F600CD6D9D /* FlyTenthController.m */; };
-		7B0D9373250A33F600CD6D9D /* FlyDrawManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D934E250A33F600CD6D9D /* FlyDrawManager.m */; };
-		7B0D9374250A33F600CD6D9D /* FlyNinthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D9352250A33F600CD6D9D /* FlyNinthController.m */; };
-		7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B702546ACF600A780D1 /* FlyThirteenController.m */; };
-		7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */; };
-		7B7C983B25E0AF5600FC8EC6 /* FlyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C983A25E0AF5600FC8EC6 /* FlyButton.m */; };
-		7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */; };
-		7BBB46DA25E76B340082F732 /* Dog+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB46D925E76B340082F732 /* Dog+Custom.m */; };
-		7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */; };
+		D88835732185C436F17703DE /* libPods-ProgramCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3609B12A176ACC82F5F3688 /* libPods-ProgramCollection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		393BB7DC25D630180032E89E /* FlySixteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySixteenController.h; sourceTree = "<group>"; };
-		393BB7DD25D630180032E89E /* FlySixteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySixteenController.m; sourceTree = "<group>"; };
-		39A2AB8E25694C9D0081CF79 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
-		39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
-		39C5EAC525D65AF6002D53A5 /* FlySeventeenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlySeventeenController.h; sourceTree = "<group>"; };
-		39C5EAC625D65AF6002D53A5 /* FlySeventeenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlySeventeenController.m; sourceTree = "<group>"; };
 		39D6833E2B6784B4003898A1 /* FlyCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyCellModel.h; sourceTree = "<group>"; };
 		39D6833F2B6784B4003898A1 /* FlyCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyCellModel.m; sourceTree = "<group>"; };
-		7B0D0C2625765AB000862DE0 /* FlyFourteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFourteenController.h; sourceTree = "<group>"; };
-		7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFourteenController.m; sourceTree = "<group>"; };
+		435251C26AFFA7ADFC33B037 /* Pods-ProgramCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramCollection.release.xcconfig"; path = "Target Support Files/Pods-ProgramCollection/Pods-ProgramCollection.release.xcconfig"; sourceTree = "<group>"; };
 		7B0D92E0250A33D200CD6D9D /* ProgramCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgramCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D92E3250A33D200CD6D9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B0D92E4250A33D200CD6D9D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,82 +32,12 @@
 		7B0D92F2250A33D200CD6D9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B0D92F4250A33D200CD6D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B0D92F5250A33D200CD6D9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7B0D92FE250A33F600CD6D9D /* FlyFifthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyFifthController.m; sourceTree = "<group>"; };
-		7B0D92FF250A33F600CD6D9D /* FlyFifthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyFifthController.h; sourceTree = "<group>"; };
-		7B0D9301250A33F600CD6D9D /* FlySixthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySixthController.h; sourceTree = "<group>"; };
-		7B0D9302250A33F600CD6D9D /* FlySixthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySixthController.m; sourceTree = "<group>"; };
-		7B0D9304250A33F600CD6D9D /* FlyForthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyForthController.h; sourceTree = "<group>"; };
-		7B0D9305250A33F600CD6D9D /* FlyForthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyForthController.m; sourceTree = "<group>"; };
-		7B0D9307250A33F600CD6D9D /* FlyRunloopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyRunloopTool.h; sourceTree = "<group>"; };
-		7B0D9308250A33F600CD6D9D /* FlyPerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyPerformanceMonitor.h; sourceTree = "<group>"; };
-		7B0D9309250A33F600CD6D9D /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
-		7B0D930A250A33F600CD6D9D /* FlyRunloopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyRunloopTool.m; sourceTree = "<group>"; };
-		7B0D930B250A33F600CD6D9D /* FlyPerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyPerformanceMonitor.m; sourceTree = "<group>"; };
-		7B0D930D250A33F600CD6D9D /* SalScreenShotTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalScreenShotTool.m; sourceTree = "<group>"; };
-		7B0D930E250A33F600CD6D9D /* SalConverVideoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalConverVideoTool.h; sourceTree = "<group>"; };
-		7B0D930F250A33F600CD6D9D /* SalScreenShotTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalScreenShotTool.h; sourceTree = "<group>"; };
-		7B0D9310250A33F600CD6D9D /* SalConverVideoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalConverVideoTool.m; sourceTree = "<group>"; };
-		7B0D9312250A33F600CD6D9D /* NSObject+FlyKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FlyKVO.m"; sourceTree = "<group>"; };
-		7B0D9313250A33F600CD6D9D /* NSObject+FlyKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVO.h"; sourceTree = "<group>"; };
-		7B0D9315250A33F600CD6D9D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		7B0D9316250A33F600CD6D9D /* FlyRuntimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyRuntimeTool.h; sourceTree = "<group>"; };
-		7B0D9317250A33F600CD6D9D /* Person+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Person+Custom.m"; sourceTree = "<group>"; };
-		7B0D9318250A33F600CD6D9D /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
-		7B0D9319250A33F600CD6D9D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		7B0D931A250A33F600CD6D9D /* FlyRuntimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyRuntimeTool.m; sourceTree = "<group>"; };
-		7B0D931B250A33F600CD6D9D /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
-		7B0D931C250A33F600CD6D9D /* Person+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Person+Custom.h"; sourceTree = "<group>"; };
-		7B0D931F250A33F600CD6D9D /* SalDrawTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalDrawTool.h; sourceTree = "<group>"; };
-		7B0D9320250A33F600CD6D9D /* SALSteam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SALSteam.m; sourceTree = "<group>"; };
-		7B0D9321250A33F600CD6D9D /* SalImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalImageInfo.h; sourceTree = "<group>"; };
-		7B0D9323250A33F600CD6D9D /* SALSteam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SALSteam.h; sourceTree = "<group>"; };
-		7B0D9324250A33F600CD6D9D /* SalDrawTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalDrawTool.m; sourceTree = "<group>"; };
-		7B0D9325250A33F600CD6D9D /* SalImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalImageInfo.m; sourceTree = "<group>"; };
 		7B0D9326250A33F600CD6D9D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7B0D9328250A33F600CD6D9D /* FlyThirdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThirdController.h; sourceTree = "<group>"; };
-		7B0D9329250A33F600CD6D9D /* FlyThirdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThirdController.m; sourceTree = "<group>"; };
-		7B0D932B250A33F600CD6D9D /* FlySort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySort.h; sourceTree = "<group>"; };
-		7B0D932C250A33F600CD6D9D /* FlyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyNode.m; sourceTree = "<group>"; };
-		7B0D932D250A33F600CD6D9D /* FlySort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySort.m; sourceTree = "<group>"; };
-		7B0D932E250A33F600CD6D9D /* FlyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyNode.h; sourceTree = "<group>"; };
-		7B0D9330250A33F600CD6D9D /* FlyBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBaseController.m; sourceTree = "<group>"; };
-		7B0D9331250A33F600CD6D9D /* FlyBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBaseController.h; sourceTree = "<group>"; };
-		7B0D9333250A33F600CD6D9D /* FlySecondController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySecondController.h; sourceTree = "<group>"; };
-		7B0D9334250A33F600CD6D9D /* FlySecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySecondController.m; sourceTree = "<group>"; };
-		7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTwelfthController.m; sourceTree = "<group>"; };
-		7B0D9337250A33F600CD6D9D /* FlyTwelfthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTwelfthController.h; sourceTree = "<group>"; };
-		7B0D9339250A33F600CD6D9D /* FlyFirstController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyFirstController.h; sourceTree = "<group>"; };
-		7B0D933A250A33F600CD6D9D /* FlyFirstController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyFirstController.m; sourceTree = "<group>"; };
-		7B0D933C250A33F600CD6D9D /* FlySeventhController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlySeventhController.h; sourceTree = "<group>"; };
-		7B0D933D250A33F600CD6D9D /* FlySeventhController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlySeventhController.m; sourceTree = "<group>"; };
-		7B0D933F250A33F600CD6D9D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		7B0D9340250A33F600CD6D9D /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		7B0D9341250A33F600CD6D9D /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		7B0D9343250A33F600CD6D9D /* FlyEighthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyEighthController.m; sourceTree = "<group>"; };
-		7B0D9344250A33F600CD6D9D /* FlyEighthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyEighthController.h; sourceTree = "<group>"; };
-		7B0D9346250A33F600CD6D9D /* FlyEleventhController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyEleventhController.h; sourceTree = "<group>"; };
-		7B0D9347250A33F600CD6D9D /* FlyEleventhController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyEleventhController.m; sourceTree = "<group>"; };
 		7B0D9348250A33F600CD6D9D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		7B0D934A250A33F600CD6D9D /* FlyTenthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyTenthController.h; sourceTree = "<group>"; };
-		7B0D934B250A33F600CD6D9D /* FlyTenthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyTenthController.m; sourceTree = "<group>"; };
-		7B0D934D250A33F600CD6D9D /* FlyDrawManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyDrawManager.h; sourceTree = "<group>"; };
-		7B0D934E250A33F600CD6D9D /* FlyDrawManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyDrawManager.m; sourceTree = "<group>"; };
 		7B0D934F250A33F600CD6D9D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7B0D9351250A33F600CD6D9D /* FlyNinthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyNinthController.h; sourceTree = "<group>"; };
-		7B0D9352250A33F600CD6D9D /* FlyNinthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyNinthController.m; sourceTree = "<group>"; };
-		7B125B702546ACF600A780D1 /* FlyThirteenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThirteenController.m; sourceTree = "<group>"; };
-		7B125B712546ACF600A780D1 /* FlyThirteenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThirteenController.h; sourceTree = "<group>"; };
-		7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyBaseView.m; sourceTree = "<group>"; };
-		7B125B7B2546ADBB00A780D1 /* FlyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyBaseView.h; sourceTree = "<group>"; };
-		7B7C983925E0AF5600FC8EC6 /* FlyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyButton.h; sourceTree = "<group>"; };
-		7B7C983A25E0AF5600FC8EC6 /* FlyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyButton.m; sourceTree = "<group>"; };
-		7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyFifteenController.h; sourceTree = "<group>"; };
-		7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyFifteenController.m; sourceTree = "<group>"; };
 		7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProgramCollection.entitlements; sourceTree = "<group>"; };
-		7BBB46D825E76B340082F732 /* Dog+Custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dog+Custom.h"; sourceTree = "<group>"; };
-		7BBB46D925E76B340082F732 /* Dog+Custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Dog+Custom.m"; sourceTree = "<group>"; };
-		7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLYGCD.m; sourceTree = "<group>"; };
-		7BCD2E6F25BFFFB600F3D4DB /* FLYGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLYGCD.h; sourceTree = "<group>"; };
+		9A6A4F121E895D1421ED7F23 /* Pods-ProgramCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgramCollection.debug.xcconfig"; path = "Target Support Files/Pods-ProgramCollection/Pods-ProgramCollection.debug.xcconfig"; sourceTree = "<group>"; };
+		D3609B12A176ACC82F5F3688 /* libPods-ProgramCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgramCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,45 +45,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0D9356250A33F600CD6D9D /* CrashReporter.framework in Frameworks */,
+				D88835732185C436F17703DE /* libPods-ProgramCollection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		393BB7E025D6301F0032E89E /* 16、计时器 */ = {
-			isa = PBXGroup;
-			children = (
-				393BB7DC25D630180032E89E /* FlySixteenController.h */,
-				393BB7DD25D630180032E89E /* FlySixteenController.m */,
-			);
-			path = "16、计时器";
-			sourceTree = "<group>";
-		};
-		39C5EAC925D65AFA002D53A5 /* 17、布局 */ = {
-			isa = PBXGroup;
-			children = (
-				39C5EAC525D65AF6002D53A5 /* FlySeventeenController.h */,
-				39C5EAC625D65AF6002D53A5 /* FlySeventeenController.m */,
-			);
-			path = "17、布局";
-			sourceTree = "<group>";
-		};
-		7B0D0C2A25765AB600862DE0 /* 14、Block */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D0C2625765AB000862DE0 /* FlyFourteenController.h */,
-				7B0D0C2725765AB000862DE0 /* FlyFourteenController.m */,
-			);
-			path = "14、Block";
-			sourceTree = "<group>";
-		};
 		7B0D92D7250A33D200CD6D9D = {
 			isa = PBXGroup;
 			children = (
 				7B0D92E2250A33D200CD6D9D /* ProgramCollection */,
 				7B0D92E1250A33D200CD6D9D /* Products */,
+				A13C6C0098A5B19B57A7AC55 /* Pods */,
+				E5553B6753E8F385EDB40BD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,7 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				7BA37662258C835000F51EE8 /* ProgramCollection.entitlements */,
-				7B0D92FC250A33F600CD6D9D /* 测试项目 */,
+				7B0D9348250A33F600CD6D9D /* PrefixHeader.pch */,
+				7B0D92FC250A33F600CD6D9D /* RooVC */,
 				7B0D92E3250A33D200CD6D9D /* AppDelegate.h */,
 				7B0D92E4250A33D200CD6D9D /* AppDelegate.m */,
 				7B0D92E6250A33D200CD6D9D /* SceneDelegate.h */,
@@ -231,293 +89,32 @@
 			path = ProgramCollection;
 			sourceTree = "<group>";
 		};
-		7B0D92FC250A33F600CD6D9D /* 测试项目 */ = {
+		7B0D92FC250A33F600CD6D9D /* RooVC */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9348250A33F600CD6D9D /* PrefixHeader.pch */,
 				7B0D934F250A33F600CD6D9D /* ViewController.h */,
 				7B0D9326250A33F600CD6D9D /* ViewController.m */,
 				39D6833E2B6784B4003898A1 /* FlyCellModel.h */,
 				39D6833F2B6784B4003898A1 /* FlyCellModel.m */,
-				7B0D932F250A33F600CD6D9D /* 0、BaseVC */,
-				7B0D9338250A33F600CD6D9D /* 1、没想好 */,
-				7B0D9332250A33F600CD6D9D /* 2、链表 */,
-				7B0D9327250A33F600CD6D9D /* 3、排序算法 */,
-				7B0D9303250A33F600CD6D9D /* 4、锁+多线程 */,
-				7B0D92FD250A33F600CD6D9D /* 5、View控件 */,
-				7B0D9300250A33F600CD6D9D /* 6、黑科技 */,
-				7B0D933B250A33F600CD6D9D /* 7、通知 */,
-				7B0D9342250A33F600CD6D9D /* 8、runtime */,
-				7B0D9350250A33F600CD6D9D /* 9、runloop */,
-				7B0D9349250A33F600CD6D9D /* 10、重写KVO */,
-				7B0D9345250A33F600CD6D9D /* 11、沙盒深入理解 */,
-				7B0D9335250A33F600CD6D9D /* 12、绘制 */,
-				7B125B772546AD9200A780D1 /* 13、类簇 */,
-				7B0D0C2A25765AB600862DE0 /* 14、Block */,
-				7BA37660258C82CC00F51EE8 /* 15、消息转发 */,
-				393BB7E025D6301F0032E89E /* 16、计时器 */,
-				39C5EAC925D65AFA002D53A5 /* 17、布局 */,
-				7B0D931D250A33F600CD6D9D /* 绘制Context */,
-				7B0D930C250A33F600CD6D9D /* 录屏 */,
-				7B0D932A250A33F600CD6D9D /* 排序与链表 */,
-				7B0D933E250A33F600CD6D9D /* 资源 */,
-				7B0D934C250A33F600CD6D9D /* Draw */,
-				7B0D9311250A33F600CD6D9D /* KVO */,
-				7B0D9306250A33F600CD6D9D /* Runloop */,
-				7B0D9314250A33F600CD6D9D /* runtime */,
-				7BCD2E7225BFFFBA00F3D4DB /* 多线程 */,
-				7B7C983D25E0AF5E00FC8EC6 /* Views */,
 			);
-			path = "测试项目";
+			path = RooVC;
 			sourceTree = "<group>";
 		};
-		7B0D92FD250A33F600CD6D9D /* 5、View控件 */ = {
+		A13C6C0098A5B19B57A7AC55 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D92FF250A33F600CD6D9D /* FlyFifthController.h */,
-				7B0D92FE250A33F600CD6D9D /* FlyFifthController.m */,
+				9A6A4F121E895D1421ED7F23 /* Pods-ProgramCollection.debug.xcconfig */,
+				435251C26AFFA7ADFC33B037 /* Pods-ProgramCollection.release.xcconfig */,
 			);
-			path = "5、View控件";
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		7B0D9300250A33F600CD6D9D /* 6、黑科技 */ = {
+		E5553B6753E8F385EDB40BD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D9301250A33F600CD6D9D /* FlySixthController.h */,
-				7B0D9302250A33F600CD6D9D /* FlySixthController.m */,
+				D3609B12A176ACC82F5F3688 /* libPods-ProgramCollection.a */,
 			);
-			path = "6、黑科技";
-			sourceTree = "<group>";
-		};
-		7B0D9303250A33F600CD6D9D /* 4、锁+多线程 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9304250A33F600CD6D9D /* FlyForthController.h */,
-				7B0D9305250A33F600CD6D9D /* FlyForthController.m */,
-			);
-			path = "4、锁+多线程";
-			sourceTree = "<group>";
-		};
-		7B0D9306250A33F600CD6D9D /* Runloop */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9309250A33F600CD6D9D /* CrashReporter.framework */,
-				7B0D9308250A33F600CD6D9D /* FlyPerformanceMonitor.h */,
-				7B0D930B250A33F600CD6D9D /* FlyPerformanceMonitor.m */,
-				7B0D9307250A33F600CD6D9D /* FlyRunloopTool.h */,
-				7B0D930A250A33F600CD6D9D /* FlyRunloopTool.m */,
-			);
-			path = Runloop;
-			sourceTree = "<group>";
-		};
-		7B0D930C250A33F600CD6D9D /* 录屏 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D930E250A33F600CD6D9D /* SalConverVideoTool.h */,
-				7B0D9310250A33F600CD6D9D /* SalConverVideoTool.m */,
-				7B0D930F250A33F600CD6D9D /* SalScreenShotTool.h */,
-				7B0D930D250A33F600CD6D9D /* SalScreenShotTool.m */,
-			);
-			path = "录屏";
-			sourceTree = "<group>";
-		};
-		7B0D9311250A33F600CD6D9D /* KVO */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9313250A33F600CD6D9D /* NSObject+FlyKVO.h */,
-				7B0D9312250A33F600CD6D9D /* NSObject+FlyKVO.m */,
-				39A2AB8E25694C9D0081CF79 /* NSObject+LGKVO.h */,
-				39A2AB8F25694C9E0081CF79 /* NSObject+LGKVO.m */,
-			);
-			path = KVO;
-			sourceTree = "<group>";
-		};
-		7B0D9314250A33F600CD6D9D /* runtime */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9318250A33F600CD6D9D /* Dog.h */,
-				7B0D931B250A33F600CD6D9D /* Dog.m */,
-				7B0D9316250A33F600CD6D9D /* FlyRuntimeTool.h */,
-				7B0D931A250A33F600CD6D9D /* FlyRuntimeTool.m */,
-				7B0D9315250A33F600CD6D9D /* Person.h */,
-				7B0D9319250A33F600CD6D9D /* Person.m */,
-				7B0D931C250A33F600CD6D9D /* Person+Custom.h */,
-				7B0D9317250A33F600CD6D9D /* Person+Custom.m */,
-				7BBB46D825E76B340082F732 /* Dog+Custom.h */,
-				7BBB46D925E76B340082F732 /* Dog+Custom.m */,
-			);
-			path = runtime;
-			sourceTree = "<group>";
-		};
-		7B0D931D250A33F600CD6D9D /* 绘制Context */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D931F250A33F600CD6D9D /* SalDrawTool.h */,
-				7B0D9324250A33F600CD6D9D /* SalDrawTool.m */,
-				7B0D9321250A33F600CD6D9D /* SalImageInfo.h */,
-				7B0D9325250A33F600CD6D9D /* SalImageInfo.m */,
-				7B0D9323250A33F600CD6D9D /* SALSteam.h */,
-				7B0D9320250A33F600CD6D9D /* SALSteam.m */,
-			);
-			path = "绘制Context";
-			sourceTree = "<group>";
-		};
-		7B0D9327250A33F600CD6D9D /* 3、排序算法 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9328250A33F600CD6D9D /* FlyThirdController.h */,
-				7B0D9329250A33F600CD6D9D /* FlyThirdController.m */,
-			);
-			path = "3、排序算法";
-			sourceTree = "<group>";
-		};
-		7B0D932A250A33F600CD6D9D /* 排序与链表 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D932E250A33F600CD6D9D /* FlyNode.h */,
-				7B0D932C250A33F600CD6D9D /* FlyNode.m */,
-				7B0D932B250A33F600CD6D9D /* FlySort.h */,
-				7B0D932D250A33F600CD6D9D /* FlySort.m */,
-			);
-			path = "排序与链表";
-			sourceTree = "<group>";
-		};
-		7B0D932F250A33F600CD6D9D /* 0、BaseVC */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9331250A33F600CD6D9D /* FlyBaseController.h */,
-				7B0D9330250A33F600CD6D9D /* FlyBaseController.m */,
-			);
-			path = "0、BaseVC";
-			sourceTree = "<group>";
-		};
-		7B0D9332250A33F600CD6D9D /* 2、链表 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9333250A33F600CD6D9D /* FlySecondController.h */,
-				7B0D9334250A33F600CD6D9D /* FlySecondController.m */,
-			);
-			path = "2、链表";
-			sourceTree = "<group>";
-		};
-		7B0D9335250A33F600CD6D9D /* 12、绘制 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9337250A33F600CD6D9D /* FlyTwelfthController.h */,
-				7B0D9336250A33F600CD6D9D /* FlyTwelfthController.m */,
-			);
-			path = "12、绘制";
-			sourceTree = "<group>";
-		};
-		7B0D9338250A33F600CD6D9D /* 1、没想好 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9339250A33F600CD6D9D /* FlyFirstController.h */,
-				7B0D933A250A33F600CD6D9D /* FlyFirstController.m */,
-			);
-			path = "1、没想好";
-			sourceTree = "<group>";
-		};
-		7B0D933B250A33F600CD6D9D /* 7、通知 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D933C250A33F600CD6D9D /* FlySeventhController.h */,
-				7B0D933D250A33F600CD6D9D /* FlySeventhController.m */,
-			);
-			path = "7、通知";
-			sourceTree = "<group>";
-		};
-		7B0D933E250A33F600CD6D9D /* 资源 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D933F250A33F600CD6D9D /* 2.jpg */,
-				7B0D9340250A33F600CD6D9D /* 3.jpg */,
-				7B0D9341250A33F600CD6D9D /* 1.jpg */,
-			);
-			path = "资源";
-			sourceTree = "<group>";
-		};
-		7B0D9342250A33F600CD6D9D /* 8、runtime */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9344250A33F600CD6D9D /* FlyEighthController.h */,
-				7B0D9343250A33F600CD6D9D /* FlyEighthController.m */,
-			);
-			path = "8、runtime";
-			sourceTree = "<group>";
-		};
-		7B0D9345250A33F600CD6D9D /* 11、沙盒深入理解 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9346250A33F600CD6D9D /* FlyEleventhController.h */,
-				7B0D9347250A33F600CD6D9D /* FlyEleventhController.m */,
-			);
-			path = "11、沙盒深入理解";
-			sourceTree = "<group>";
-		};
-		7B0D9349250A33F600CD6D9D /* 10、重写KVO */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D934A250A33F600CD6D9D /* FlyTenthController.h */,
-				7B0D934B250A33F600CD6D9D /* FlyTenthController.m */,
-			);
-			path = "10、重写KVO";
-			sourceTree = "<group>";
-		};
-		7B0D934C250A33F600CD6D9D /* Draw */ = {
-			isa = PBXGroup;
-			children = (
-				7B125B7B2546ADBB00A780D1 /* FlyBaseView.h */,
-				7B125B7A2546ADBB00A780D1 /* FlyBaseView.m */,
-				7B0D934D250A33F600CD6D9D /* FlyDrawManager.h */,
-				7B0D934E250A33F600CD6D9D /* FlyDrawManager.m */,
-			);
-			path = Draw;
-			sourceTree = "<group>";
-		};
-		7B0D9350250A33F600CD6D9D /* 9、runloop */ = {
-			isa = PBXGroup;
-			children = (
-				7B0D9351250A33F600CD6D9D /* FlyNinthController.h */,
-				7B0D9352250A33F600CD6D9D /* FlyNinthController.m */,
-			);
-			path = "9、runloop";
-			sourceTree = "<group>";
-		};
-		7B125B772546AD9200A780D1 /* 13、类簇 */ = {
-			isa = PBXGroup;
-			children = (
-				7B125B712546ACF600A780D1 /* FlyThirteenController.h */,
-				7B125B702546ACF600A780D1 /* FlyThirteenController.m */,
-			);
-			path = "13、类簇";
-			sourceTree = "<group>";
-		};
-		7B7C983D25E0AF5E00FC8EC6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7B7C983925E0AF5600FC8EC6 /* FlyButton.h */,
-				7B7C983A25E0AF5600FC8EC6 /* FlyButton.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		7BA37660258C82CC00F51EE8 /* 15、消息转发 */ = {
-			isa = PBXGroup;
-			children = (
-				7BA3765C258C82C500F51EE8 /* FlyFifteenController.h */,
-				7BA3765D258C82C500F51EE8 /* FlyFifteenController.m */,
-			);
-			path = "15、消息转发";
-			sourceTree = "<group>";
-		};
-		7BCD2E7225BFFFBA00F3D4DB /* 多线程 */ = {
-			isa = PBXGroup;
-			children = (
-				7BCD2E6F25BFFFB600F3D4DB /* FLYGCD.h */,
-				7BCD2E6E25BFFFB600F3D4DB /* FLYGCD.m */,
-			);
-			path = "多线程";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B0D92F9250A33D200CD6D9D /* Build configuration list for PBXNativeTarget "ProgramCollection" */;
 			buildPhases = (
+				2082B92944EBF215F34BA1C9 /* [CP] Check Pods Manifest.lock */,
 				7B0D92DC250A33D200CD6D9D /* Sources */,
 				7B0D92DD250A33D200CD6D9D /* Frameworks */,
 				7B0D92DE250A33D200CD6D9D /* Resources */,
+				9518F2070C77C8D3FBE62224 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -577,64 +176,65 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0D936E250A33F600CD6D9D /* 3.jpg in Resources */,
 				7B0D92F3250A33D200CD6D9D /* LaunchScreen.storyboard in Resources */,
 				7B0D92F0250A33D200CD6D9D /* Assets.xcassets in Resources */,
-				7B0D936F250A33F600CD6D9D /* 1.jpg in Resources */,
-				7B0D936D250A33F600CD6D9D /* 2.jpg in Resources */,
 				7B0D92EE250A33D200CD6D9D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2082B92944EBF215F34BA1C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProgramCollection-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9518F2070C77C8D3FBE62224 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProgramCollection/Pods-ProgramCollection-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProgramCollection/Pods-ProgramCollection-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProgramCollection/Pods-ProgramCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B0D92DC250A33D200CD6D9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0D9371250A33F600CD6D9D /* FlyEleventhController.m in Sources */,
 				7B0D92E5250A33D200CD6D9D /* AppDelegate.m in Sources */,
-				39A2AB9025694C9E0081CF79 /* NSObject+LGKVO.m in Sources */,
-				7BA3765E258C82C500F51EE8 /* FlyFifteenController.m in Sources */,
 				7B0D92F6250A33D200CD6D9D /* main.m in Sources */,
-				393BB7DE25D630180032E89E /* FlySixteenController.m in Sources */,
-				7B0D935E250A33F600CD6D9D /* FlyRuntimeTool.m in Sources */,
-				7B0D9362250A33F600CD6D9D /* SalDrawTool.m in Sources */,
-				7B0D9363250A33F600CD6D9D /* SalImageInfo.m in Sources */,
-				7B0D9374250A33F600CD6D9D /* FlyNinthController.m in Sources */,
-				7B0D9367250A33F600CD6D9D /* FlySort.m in Sources */,
-				7B0D936A250A33F600CD6D9D /* FlyTwelfthController.m in Sources */,
 				7B0D92E8250A33D200CD6D9D /* SceneDelegate.m in Sources */,
-				7B0D936C250A33F600CD6D9D /* FlySeventhController.m in Sources */,
-				7B125B7C2546ADBB00A780D1 /* FlyBaseView.m in Sources */,
-				7B0D9369250A33F600CD6D9D /* FlySecondController.m in Sources */,
-				39C5EAC725D65AF6002D53A5 /* FlySeventeenController.m in Sources */,
-				7B0D936B250A33F600CD6D9D /* FlyFirstController.m in Sources */,
-				7B0D9368250A33F600CD6D9D /* FlyBaseController.m in Sources */,
-				7B0D9366250A33F600CD6D9D /* FlyNode.m in Sources */,
-				7B7C983B25E0AF5600FC8EC6 /* FlyButton.m in Sources */,
-				7B0D935C250A33F600CD6D9D /* Person+Custom.m in Sources */,
-				7B0D9353250A33F600CD6D9D /* FlyFifthController.m in Sources */,
-				7B0D9354250A33F600CD6D9D /* FlySixthController.m in Sources */,
-				7B0D9357250A33F600CD6D9D /* FlyRunloopTool.m in Sources */,
-				7B0D9365250A33F600CD6D9D /* FlyThirdController.m in Sources */,
-				7B0D9359250A33F600CD6D9D /* SalScreenShotTool.m in Sources */,
-				7B125B742546ACF600A780D1 /* FlyThirteenController.m in Sources */,
-				7B0D935A250A33F600CD6D9D /* SalConverVideoTool.m in Sources */,
-				7B0D0C2825765AB000862DE0 /* FlyFourteenController.m in Sources */,
-				7B0D935D250A33F600CD6D9D /* Person.m in Sources */,
-				7B0D9370250A33F600CD6D9D /* FlyEighthController.m in Sources */,
 				7B0D9364250A33F600CD6D9D /* ViewController.m in Sources */,
-				7BBB46DA25E76B340082F732 /* Dog+Custom.m in Sources */,
-				7B0D9372250A33F600CD6D9D /* FlyTenthController.m in Sources */,
-				7B0D9355250A33F600CD6D9D /* FlyForthController.m in Sources */,
-				7BCD2E7025BFFFB600F3D4DB /* FLYGCD.m in Sources */,
-				7B0D935F250A33F600CD6D9D /* Dog.m in Sources */,
-				7B0D935B250A33F600CD6D9D /* NSObject+FlyKVO.m in Sources */,
-				7B0D9358250A33F600CD6D9D /* FlyPerformanceMonitor.m in Sources */,
-				7B0D9360250A33F600CD6D9D /* SALSteam.m in Sources */,
-				7B0D9373250A33F600CD6D9D /* FlyDrawManager.m in Sources */,
 				39D683402B6784B4003898A1 /* FlyCellModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,6 +373,7 @@
 		};
 		7B0D92FA250A33D200CD6D9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A6A4F121E895D1421ED7F23 /* Pods-ProgramCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -782,12 +383,9 @@
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ProgramCollection/测试项目/Runloop",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/ProgramCollection/测试项目/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ProgramCollection/PrefixHeader.pch";
 				INFOPLIST_FILE = ProgramCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -802,6 +400,7 @@
 		};
 		7B0D92FB250A33D200CD6D9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435251C26AFFA7ADFC33B037 /* Pods-ProgramCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -811,12 +410,9 @@
 				DEVELOPMENT_TEAM = F5KZ9A44AR;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ProgramCollection/测试项目/Runloop",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/ProgramCollection/测试项目/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ProgramCollection/PrefixHeader.pch";
 				INFOPLIST_FILE = ProgramCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

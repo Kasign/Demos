@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git' #公有仓库地址
+
+platform :ios, '10.0'
+inhibit_all_warnings!
+
+target 'ProgramCollection' do
+  # Comment the next line if you don't want to use dynamic frameworks
+#  use_frameworks!
+  
+  pod 'FlyTestCollection', :path => '../FlyTestCollection'
+  pod 'FlyBaseTool', :path => '../FlyBaseTool'
+
+  # Pods for ProgramCollection
+
+end
+
+#pre_install do |installer|
+#  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+#end

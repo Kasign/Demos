@@ -1,0 +1,26 @@
+PODS:
+  - FlyBaseTool (0.1.0):
+    - FlyBaseTool/All (= 0.1.0)
+  - FlyBaseTool/All (0.1.0):
+    - FlyBaseTool/Base
+  - FlyBaseTool/Base (0.1.0)
+  - FlyTestCollection (0.1.0):
+    - FlyBaseTool
+
+DEPENDENCIES:
+  - FlyBaseTool (from `../FlyBaseTool`)
+  - FlyTestCollection (from `../FlyTestCollection`)
+
+EXTERNAL SOURCES:
+  FlyBaseTool:
+    :path: "../FlyBaseTool"
+  FlyTestCollection:
+    :path: "../FlyTestCollection"
+
+SPEC CHECKSUMS:
+  FlyBaseTool: 60caa1ff89b8c63b2c76371d1892b6a0e58127b3
+  FlyTestCollection: 97a78a12b843f57e395fb21dfaf37afa1f01711f
+
+PODFILE CHECKSUM: 28702116a8127417f2f029a7017f9256e43f43e4
+
+COCOAPODS: 1.15.2

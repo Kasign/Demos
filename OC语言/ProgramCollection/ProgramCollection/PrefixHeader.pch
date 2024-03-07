@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  算法+链表
+//
+//  Created by Fly on 2019/9/10.
+//  Copyright © 2019 Fly. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <FlyBaseTool/FlyBaseDefine.h>
+
+#endif /* PrefixHeader_pch */

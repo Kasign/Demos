@@ -1,0 +1,27 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+//
+//  FlyBaseToolPrefix.pch
+//  ProgramCollection
+//
+//  Created by Walg on 2024/3/6.
+//  Copyright © 2024 FLY. All rights reserved.
+//
+
+#ifndef FlyBaseToolPrefix_pch
+#define FlyBaseToolPrefix_pch
+
+#import <objc/message.h>
+#import "FlyBaseDefine.h"
+
+#endif /* FlyBaseToolPrefix_pch */

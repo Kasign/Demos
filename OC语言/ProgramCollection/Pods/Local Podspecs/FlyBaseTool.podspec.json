@@ -1,0 +1,60 @@
+{
+  "name": "FlyBaseTool",
+  "version": "0.1.0",
+  "summary": "A short description of FlyBaseTool.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Kasign/FlyBaseTool",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kasign": "393890129@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Kasign/FlyBaseTool.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "prefix_header_file": "FlyBaseTool/Classes/FlyBaseToolPrefix.pch",
+  "source_files": "FlyBaseTool/Classes/**/*",
+  "vendored_frameworks": "#{s.name}/Classes/Framework/*.framework",
+  "vendored_libraries": "#{s.name}/Classes/Framework/*.a",
+  "preserve_paths": [
+    "FlyBaseTool/Classes/**/*",
+    "FlyBaseTool/Resource/**/*",
+    "FlyBaseTool/Assets/**/*",
+    "FlyBaseTool/Framework/**/*",
+    "FlyBaseTool/Archive/**/*",
+    "FlyBaseTool/Dependencies/**/*"
+  ],
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "FlyBaseTool/Framework/Base/Debug/*.h",
+      "vendored_frameworks": "FlyBaseTool/Framework/Base/Debug/*.framework",
+      "resource_bundles": {
+        "Base": [
+          "FlyBaseTool/Classes/Base/Resource/**/*",
+          "FlyBaseTool/Classes/Base/Resource/**/*.{xcassets}"
+        ]
+      },
+      "public_header_files": "FlyBaseTool/Framework/Base/Debug/*.h"
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "FlyBaseTool/Base": [
+
+        ]
+      }
+    }
+  ]
+}

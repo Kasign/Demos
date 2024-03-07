@@ -1,0 +1,16 @@
+//
+//  FlyTestCollectionPrefixPrefix.pch
+//  ProgramCollection
+//
+//  Created by Walg on 2024/3/6.
+//  Copyright © 2024 FLY. All rights reserved.
+//
+
+#ifndef FlyTestCollectionPrefix_pch
+#define FlyTestCollectionPrefix_pch
+
+#import "FlyRuntimeTool.h"
+#import "FlyBaseView.h"
+#import <FlyBaseTool/FlyBaseDefine.h>
+
+#endif /* FlyTestCollectionPrefix_pch */

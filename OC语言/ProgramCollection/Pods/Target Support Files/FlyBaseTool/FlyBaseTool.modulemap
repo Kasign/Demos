@@ -1,0 +1,6 @@
+framework module FlyBaseTool {
+  umbrella header "FlyBaseTool-umbrella.h"
+
+  export *
+  module * { export * }
+}

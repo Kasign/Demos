@@ -1,0 +1,15 @@
+//
+//  FlyBaseToolPrefix.pch
+//  ProgramCollection
+//
+//  Created by Walg on 2024/3/6.
+//  Copyright © 2024 FLY. All rights reserved.
+//
+
+#ifndef FlyBaseToolPrefix_pch
+#define FlyBaseToolPrefix_pch
+
+#import <objc/message.h>
+#import "FlyBaseDefine.h"
+
+#endif /* FlyBaseToolPrefix_pch */
