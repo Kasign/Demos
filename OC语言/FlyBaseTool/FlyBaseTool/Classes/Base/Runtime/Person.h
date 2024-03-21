@@ -14,8 +14,8 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, copy)   NSString *NICK;
 
--(void)eat;
--(void)run;
--(void)walk;
+- (void)eat;
+- (void)run;
+- (void)walk;
 
 @end
