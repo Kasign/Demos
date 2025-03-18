@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "FlyCollectionView.h"
-#import "FlyMenuController.h"
+//#import "FlyMenuController.h"
 
 static NSString * kIdentifier_CELL = @"kIdentifier_CELL";
 static NSString * kIdentifier_HEADER = @"kIdentifier_HEADER";
@@ -21,10 +21,10 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
 @property (nonatomic, strong) NSMutableArray   *   dataSourceArr;
 
 @property (nonatomic, strong) NSIndexPath   *   currentIndexPath;
-@property (nonatomic, strong) FlyMenuItem   *   repeatItem;
-@property (nonatomic, strong) FlyMenuItem   *   pasteItem;
-@property (nonatomic, strong) FlyMenuItem   *   deleteItem;
-@property (nonatomic, strong) FlyMenuController   *   menuController;
+//@property (nonatomic, strong) FlyMenuItem   *   repeatItem;
+//@property (nonatomic, strong) FlyMenuItem   *   pasteItem;
+//@property (nonatomic, strong) FlyMenuItem   *   deleteItem;
+//@property (nonatomic, strong) FlyMenuController   *   menuController;
 
 @end
 
@@ -37,36 +37,36 @@ static NSString * kIdentifier_FOOTER = @"kIdentifier_FOOTER";
     [self.view addSubview:self.collectionView];
 }
 
-- (FlyMenuController *)menuController
-{
-    if (!_menuController) {
-        _menuController = [FlyMenuController sharedMenuController];
-        _repeatItem = [[FlyMenuItem alloc] initWithTitle:@"复制" fontSize:14.f];
-        _pasteItem = [[FlyMenuItem alloc] initWithTitle:@"粘贴" fontSize:14.f];
-        _deleteItem = [[FlyMenuItem alloc] initWithTitle:@"删除" fontSize:14.f];
-        [_menuController setMenuItems:@[_repeatItem,_deleteItem]];
-        __weak typeof(self) weakSelf = self;
-        _menuController.flyMenuClickBlock = ^(FlyMenuItem * _Nonnull menuItem, UIView * _Nonnull relyView) {
-            [weakSelf menuDidClick:menuItem];
-        };
-    }
-    return _menuController;
-}
+//- (FlyMenuController *)menuController
+//{
+//    if (!_menuController) {
+//        _menuController = [FlyMenuController sharedMenuController];
+//        _repeatItem = [[FlyMenuItem alloc] initWithTitle:@"复制" fontSize:14.f];
+//        _pasteItem = [[FlyMenuItem alloc] initWithTitle:@"粘贴" fontSize:14.f];
+//        _deleteItem = [[FlyMenuItem alloc] initWithTitle:@"删除" fontSize:14.f];
+//        [_menuController setMenuItems:@[_repeatItem,_deleteItem]];
+//        __weak typeof(self) weakSelf = self;
+//        _menuController.flyMenuClickBlock = ^(FlyMenuItem * _Nonnull menuItem, UIView * _Nonnull relyView) {
+//            [weakSelf menuDidClick:menuItem];
+//        };
+//    }
+//    return _menuController;
+//}
 
-- (void)menuDidClick:(FlyMenuItem *)menuItem
-{
-    id object = _dataSourceArr[_currentIndexPath.row];
-    if (menuItem == _repeatItem) {
-        [_dataSourceArr insertObject:object atIndex:_currentIndexPath.row];
-        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
-    } else if (menuItem == _pasteItem) {
-        
-        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
-    } else if (menuItem == _deleteItem) {
-        [_dataSourceArr removeObjectAtIndex:_currentIndexPath.row];
-        [self.collectionView deleteItemsAtIndexPaths:@[_currentIndexPath]];
-    }
-}
+//- (void)menuDidClick:(FlyMenuItem *)menuItem
+//{
+//    id object = _dataSourceArr[_currentIndexPath.row];
+//    if (menuItem == _repeatItem) {
+//        [_dataSourceArr insertObject:object atIndex:_currentIndexPath.row];
+//        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
+//    } else if (menuItem == _pasteItem) {
+//        
+//        [self.collectionView insertItemsAtIndexPaths:@[_currentIndexPath]];
+//    } else if (menuItem == _deleteItem) {
+//        [_dataSourceArr removeObjectAtIndex:_currentIndexPath.row];
+//        [self.collectionView deleteItemsAtIndexPaths:@[_currentIndexPath]];
+//    }
+//}
 
 - (FlyCollectionView *)collectionView
 {

@@ -287,7 +287,8 @@ typedef void(^ProgressBlock)(CGFloat progress);
 - (void)recoverAction {
     
     [_imageManager setChangType:FLYImageChangeType_GetColor];
-    UIImage *image = [UIImage imageNamed:@"th.jpeg"];
+//    UIImage *image = [UIImage imageNamed:@"th.jpeg"];
+    UIImage *image = [UIImage imageNamed:@"1.jpeg"];
     if (image) {
         [_imageManager setOriImage:image];
         [self.imageView setImage:image];

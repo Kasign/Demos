@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3950E3DF2C955269009E5D7A /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3950E3DE2C955269009E5D7A /* 1.jpeg */; };
 		7B0010D223CF1AE400A86BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0010D123CF1AE400A86BEC /* AppDelegate.m */; };
 		7B0010D523CF1AE400A86BEC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0010D423CF1AE400A86BEC /* SceneDelegate.m */; };
 		7B0010D823CF1AE400A86BEC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0010D723CF1AE400A86BEC /* ViewController.m */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3950E3DE2C955269009E5D7A /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		7B0010CD23CF1AE400A86BEC /* 图像修改器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图像修改器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0010D023CF1AE400A86BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B0010D123CF1AE400A86BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				7B0010E923CF1B5F00A86BEC /* 图像修改器.entitlements */,
 				7B0010EA23CF1C0600A86BEC /* th.jpeg */,
+				3950E3DE2C955269009E5D7A /* 1.jpeg */,
 				7B0010D023CF1AE400A86BEC /* AppDelegate.h */,
 				7B0010D123CF1AE400A86BEC /* AppDelegate.m */,
 				7B0010D323CF1AE400A86BEC /* SceneDelegate.h */,
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3950E3DF2C955269009E5D7A /* 1.jpeg in Resources */,
 				7B0010E023CF1AE600A86BEC /* LaunchScreen.storyboard in Resources */,
 				7B0010DD23CF1AE600A86BEC /* Assets.xcassets in Resources */,
 				7B0010DB23CF1AE400A86BEC /* Main.storyboard in Resources */,

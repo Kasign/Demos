@@ -29,9 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
 
 
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForItemInSection:(NSIndexPath *)indexPath;
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForHeaderInSection:(NSInteger)section;
-- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout flyoutAttributesForFooterInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout layoutAttributesForItemInSection:(NSIndexPath *)indexPath;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout layoutAttributesForHeaderInSection:(NSInteger)section;
+- (UICollectionViewLayoutAttributes *)flyCollectionView:(FlyCollectionView *)collectionView layout:(FlyCollectionViewLayout *)collectionViewLayout layoutAttributesForFooterInSection:(NSInteger)section;
 
 @end
 

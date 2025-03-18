@@ -15,7 +15,7 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+         
         RSSwizzleInstanceMethod(self,
                                 @selector(touchesBegan:withEvent:),
                                 RSSWReturnType(void),
