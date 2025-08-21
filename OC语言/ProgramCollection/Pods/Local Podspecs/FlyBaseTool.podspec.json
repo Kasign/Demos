@@ -51,9 +51,7 @@
     {
       "name": "All",
       "dependencies": {
-        "FlyBaseTool/Base": [
-
-        ]
+        "FlyBaseTool/Base": []
       }
     }
   ]

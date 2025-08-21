@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395B22EF2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 395B22EE2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.m */; };
 		7B346B6A21AF8A4C00C7FD8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B6921AF8A4C00C7FD8D /* AppDelegate.m */; };
 		7B346B6D21AF8A4C00C7FD8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B346B6C21AF8A4C00C7FD8D /* ViewController.m */; };
 		7B346B7021AF8A4C00C7FD8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B346B6E21AF8A4C00C7FD8D /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		395B22ED2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LIChatCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		395B22EE2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LIChatCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		7B346B6521AF8A4C00C7FD8D /* DiyCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiyCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B346B6821AF8A4C00C7FD8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B346B6921AF8A4C00C7FD8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				7B346B9E21AF90FD00C7FD8D /* FlyCollectionViewLayout.m */,
 				7BBD166821B11B6300D045CF /* FlyCollectionReusableView.h */,
 				7BBD166921B11B6300D045CF /* FlyCollectionReusableView.m */,
+				395B22ED2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.h */,
+				395B22EE2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.m */,
 				7BFE3EE421B53ADE0012C2F8 /* Header.h */,
 				7B346B6E21AF8A4C00C7FD8D /* Main.storyboard */,
 				7B346B7121AF8A4E00C7FD8D /* Assets.xcassets */,
@@ -282,6 +287,7 @@
 				7B346B9C21AF8A5F00C7FD8D /* FlyCollectionView.m in Sources */,
 				7B346B6D21AF8A4C00C7FD8D /* ViewController.m in Sources */,
 				7B346B9F21AF90FD00C7FD8D /* FlyCollectionViewLayout.m in Sources */,
+				395B22EF2DAD05660088FA4F /* LIChatCollectionViewFlowLayout.m in Sources */,
 				7B346B7821AF8A4E00C7FD8D /* main.m in Sources */,
 				7BBD166A21B11B6300D045CF /* FlyCollectionReusableView.m in Sources */,
 				7B346B6A21AF8A4C00C7FD8D /* AppDelegate.m in Sources */,
