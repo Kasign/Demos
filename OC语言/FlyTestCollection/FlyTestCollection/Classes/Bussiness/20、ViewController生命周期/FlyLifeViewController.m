@@ -7,8 +7,6 @@
 
 #import "FlyLifeViewController.h"
 
-#define LOG2 FLYTIMELog(@" --- %s view:%p superview:%p alpha:%f isHidden:%d", __func__, self.view, self.view.superview, self.view.alpha, self.view.isHidden)
-
 @interface FlyLifeViewController ()
 
 @end

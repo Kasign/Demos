@@ -14,11 +14,6 @@
 
 @implementation FlyBaseController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-}
-
 + (NSString *)functionName {
     
     return @"未定义";

@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     LOG2; // viewDidLoad
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     LOG3;
 }
 
