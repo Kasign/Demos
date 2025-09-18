@@ -63,42 +63,42 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
     FlyRunloopTool *tool = (__bridge FlyRunloopTool *)info;
     NSTimeInterval currentTime = [tool getCurrentTime];
     
-    FLYLog(@"\nTime : %f \nMode:%@", currentTime, currentMode);
+    FLYTIMELog(@"\nTime : %f \nMode:%@", currentTime, currentMode);
     switch (activity) {
         case kCFRunLoopEntry:
         {
-            FLYLog(@"-- kCFRunLoopEntry  ---->> 1.进入loop");
+            FLYTIMELog(@"-- kCFRunLoopEntry  ---->> 1.进入loop");
         }
             break;
         case kCFRunLoopBeforeTimers:
         {
-            FLYLog(@"-- kCFRunLoopBeforeTimers  ---->> 2.将要处理timer");
+            FLYTIMELog(@"-- kCFRunLoopBeforeTimers  ---->> 2.将要处理timer");
         }
             break;
         case kCFRunLoopBeforeSources:
         {
-            FLYLog(@"-- kCFRunLoopBeforeSources ---->> 3.将要处理source");
+            FLYTIMELog(@"-- kCFRunLoopBeforeSources ---->> 3.将要处理source");
         }
             break;
         case kCFRunLoopBeforeWaiting:
         {
-            FLYLog(@"-- kCFRunLoopBeforeWaiting ---->> 4.将要进入等待状态");
+            FLYTIMELog(@"-- kCFRunLoopBeforeWaiting ---->> 4.将要进入等待状态");
             [tool startPerformTask];
         }
             break;
         case kCFRunLoopAfterWaiting:
         {
-            FLYLog(@"-- kCFRunLoopAfterWaiting  ---->> 5.将要唤醒");
+            FLYTIMELog(@"-- kCFRunLoopAfterWaiting  ---->> 5.将要唤醒");
         }
             break;
         case kCFRunLoopExit:
-            FLYLog(@"-- kCFRunLoopExit ---->> 6.退出loop");
+            FLYTIMELog(@"-- kCFRunLoopExit ---->> 6.退出loop");
             break;
             
         default:
             break;
     }
-//    FLYLog(@"%@", [tool getCurrentTrack]);
+//    FLYTIMELog(@"%@", [tool getCurrentTrack]);
 }
 
 //- (NSString *)getCurrentTrack {
@@ -128,7 +128,7 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
         if ([array isKindOfClass:[NSMutableArray class]] && array.count > 0) {
             FlyLoopTask task = array.firstObject;
             if (task) {
-                FLYLog(@"执行了任务");
+                FLYTIMELog(@"执行了任务");
                 task();
                 [array removeObjectAtIndex:0];
             }
@@ -172,7 +172,7 @@ static void RunloopCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity act
 
 - (void)dealloc {
     
-    FLYLog(@"----* %@ dealloc *----", [self class]);
+    FLYTIMELog(@"----* %@ dealloc *----", [self class]);
 }
 
 @end

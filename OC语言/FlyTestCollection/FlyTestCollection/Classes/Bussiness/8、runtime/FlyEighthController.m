@@ -49,7 +49,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
         [methodArray addObject:NSStringFromSelector(methodSEL)];
     }
     free(methodList);
-    FLYLog(@"实例方法->>%@", methodArray);//note:获取不到类方法
+    FLYTIMELog(@"实例方法->>%@", methodArray);//note:获取不到类方法
     
     //类方法都是在元类方法列表里
     methodCount = 0;
@@ -65,7 +65,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
         //        const char *methodName = sel_getName(selector);
         [methodArray addObject:NSStringFromSelector(selector)];
     }
-    FLYLog(@"类方法->>%@", methodArray);
+    FLYTIMELog(@"类方法->>%@", methodArray);
     free(metaMethodList);
     
     
@@ -76,7 +76,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
     Person *person = [Person new];
     person.nickname = @"aaa";
     
-    FLYLog(@"名字是：%@",person.nickname);
+    FLYTIMELog(@"名字是：%@",person.nickname);
     
     unsigned int count;
     Method *methodlist = class_copyMethodList([p class], &count);
@@ -104,7 +104,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
     //    for (int i = 0; i<ivarCount; i++) {
     //        Ivar ivar = ivars[i];
     //        NSString *name = [NSString stringWithCString:ivar_getName(ivar) encoding:NSUTF8StringEncoding];
-    //        FLYLog(@"那么：%@",name);
+    //        FLYTIMELog(@"那么：%@",name);
     //    }
     //    free(ivars);
     /*
@@ -120,7 +120,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
     //    for (int i = 0; i<outCount; i++) {
     //        objc_property_t property = propertyList[i];
     //        NSString *name = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-    //        FLYLog(@"那么：%@",name);
+    //        FLYTIMELog(@"那么：%@",name);
     //    }
     //    free(propertyList);
     /*
@@ -139,7 +139,7 @@ static id _Nullable (*fly_msgSend)(id, SEL, ...) = (void *)objc_msgSend;
     //        const char *protocolName =  protocol_getName(protocol);
     //        [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
     //    }
-    //    FLYLog(@"协议列表：%@",protocoArray);
+    //    FLYTIMELog(@"协议列表：%@",protocoArray);
     
 }
 

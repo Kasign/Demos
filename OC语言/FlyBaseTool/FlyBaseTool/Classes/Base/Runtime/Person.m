@@ -13,42 +13,42 @@
 
 + (void)load {
     
-    FLYLog(@"%s", __func__);
+    FLYTIMELog(@"%s", __func__);
 }
 
 + (void)initialize {
     
-    FLYLog(@"%@ %s", [self class], __func__);
+    FLYTIMELog(@"%@ %s", [self class], __func__);
 }
 
 - (void)walk {
     
-    FLYLog(@"人在走");
+    FLYTIMELog(@"人在走");
 }
 
 - (void)eat {
     
-    FLYLog(@"人在吃");
+    FLYTIMELog(@"人在吃");
 }
 
 - (void)run{
     
-    FLYLog(@"人跑了");
+    FLYTIMELog(@"人跑了");
 }
 
 - (void)drink {
     
-    FLYLog(@"喝水");
+    FLYTIMELog(@"喝水");
 }
 
 + (void)dance {
     
-    FLYLog(@"跳舞");
+    FLYTIMELog(@"跳舞");
 }
 
 void sleepMethodIMP(id self,SEL _cmd)
 {
-    FLYLog(@"睡觉了");
+    FLYTIMELog(@"睡觉了");
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel {

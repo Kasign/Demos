@@ -8,32 +8,45 @@
 #ifndef FlyBaseDefine_h
 #define FlyBaseDefine_h
 
+#import "FLYCustomUtil.h"
+
 #ifndef FlyStringFormat
 #define FlyStringFormat(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 #endif
 
 
-#ifndef FLYAccurateLog
+#ifndef FLYNSLog
 #if DEBUG
-#define FLYAccurateLog(format, ...) NSLog((format), ##__VA_ARGS__)
+#define FLYNSLog(format, ...) NSLog((format), ##__VA_ARGS__)
 #else
-#define FLYAccurateLog(format, ...)
+#define FLYNSLog(format, ...)
 #endif
 #endif
 
-#ifndef FLYLog
-#if DEBUG
-#define FLYLog(format, ...) printf("%s  %s\n", [[NSString stringWithFormat:@"%@", [NSDate dateWithTimeIntervalSinceNow:8.0 * 60 * 60]] UTF8String], [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String])
-#else
-#define FLYLog(format, ...)
-#endif
-#endif
+
+//#ifndef LINSLog
+//#if DEBUG
+//#define LINSLog(...) NSLog(__VA_ARGS__)
+//#else
+//#define LINSLog(...)
+//#endif
+//#endif
+
 
 #ifndef FLYClearLog
 #if DEBUG
 #define FLYClearLog(format, ...) printf("%s\n", [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String])
 #else
 #define FLYClearLog(format, ...)
+#endif
+#endif
+
+
+#ifndef FLYTIMELog
+#if DEBUG
+#define FLYTIMELog(format, ...) printf("%s  %s\n", [FLYExactTime() UTF8String], [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String])
+#else
+#define FLYTIMELog(format, ...)
 #endif
 #endif
 

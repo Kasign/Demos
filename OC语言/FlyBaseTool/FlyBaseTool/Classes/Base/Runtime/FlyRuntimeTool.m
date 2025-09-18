@@ -20,8 +20,8 @@
 
 + (void)getClassMethods:(id)instance
 {
-    FLYLog(@"-------------------------********-------------------------");
-    FLYLog(@"当前类名：%@", [instance class]);
+    FLYTIMELog(@"-------------------------********-------------------------");
+    FLYTIMELog(@"当前类名：%@", [instance class]);
     NSMutableArray *methodArray = [NSMutableArray array];
     unsigned int methodCount = 0;
     Method *methodList = class_copyMethodList([instance class], &methodCount);
@@ -33,7 +33,7 @@
         [methodArray addObject:[NSString stringWithFormat:@"%@ - %@", NSStringFromSelector(methodSEL), type]];
     }
     free(methodList);
-    FLYLog(@"实例方法：%@", methodArray);
+    FLYTIMELog(@"实例方法：%@", methodArray);
     
     //类方法都是在元类方法列表里
     [methodArray removeAllObjects];
@@ -49,7 +49,7 @@
         [methodArray addObject:[NSString stringWithFormat:@"%@ - %@", NSStringFromSelector(selector), type]];
     }
     free(metaMethodList);
-    FLYLog(@"类方法：%@", methodArray);
+    FLYTIMELog(@"类方法：%@", methodArray);
     
     
     //获取成员变量和属性
@@ -65,7 +65,7 @@
         [nameTypeDict setObject:ivarType forKey:ivarName];
     }
     free(ivars);
-    FLYLog(@"成员变量:%@", nameTypeDict);
+    FLYTIMELog(@"成员变量:%@", nameTypeDict);
     
     //获取属性
     [nameTypeDict removeAllObjects];
@@ -86,7 +86,7 @@
         [nameTypeDict setObject:attributesStr forKey:propertyName];
     }
     free(propertyList);
-    FLYLog(@"属性:%@",nameTypeDict);
+    FLYTIMELog(@"属性:%@",nameTypeDict);
 
     //获取协议列表
     NSMutableArray *protocoArray = [NSMutableArray array];
@@ -97,8 +97,8 @@
         const char *protocolName =  protocol_getName(protocol);
         [protocoArray addObject:[NSString stringWithUTF8String:protocolName]];
     }
-    FLYLog(@"协议列表：%@", protocoArray);
-    FLYLog(@"-------------------------********-------------------------");
+    FLYTIMELog(@"协议列表：%@", protocoArray);
+    FLYTIMELog(@"-------------------------********-------------------------");
 }
 
 @end

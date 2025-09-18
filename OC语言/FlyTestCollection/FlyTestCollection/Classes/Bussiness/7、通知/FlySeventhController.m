@@ -18,7 +18,7 @@
 - (void)didReceivedNoti:(NSNotification *)noti
 {
     sleep(3);
-    FLYLog(@"---didReceivedNoti--->>> \n%@ \n%@ \n%@", [NSThread currentThread], self, noti.object);
+    FLYTIMELog(@"---didReceivedNoti--->>> \n%@ \n%@ \n%@", [NSThread currentThread], self, noti.object);
 }
 
 @end

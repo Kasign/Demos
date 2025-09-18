@@ -13,19 +13,19 @@
 
 + (void)load {
 
-    FLYLog(@"%s", __func__);
+    FLYTIMELog(@"%s", __func__);
 }
 
 //+ (void)initialize {
 //
-//    FLYLog(@"%s", __func__);
+//    FLYTIMELog(@"%s", __func__);
 //}
 
 - (void)eat {
-    FLYLog(@"狗在吃");
+    FLYTIMELog(@"狗在吃");
 }
 
 - (void)run {
-    FLYLog(@"狗在跑");
+    FLYTIMELog(@"狗在跑");
 }
 @end

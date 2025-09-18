@@ -26,7 +26,7 @@
 
 - (void)dealloc {
     
-    FLYLog(@"----* %@ dealloc *----", [self class]);
+    FLYTIMELog(@"----* %@ dealloc *----", [self class]);
 }
 
 @end

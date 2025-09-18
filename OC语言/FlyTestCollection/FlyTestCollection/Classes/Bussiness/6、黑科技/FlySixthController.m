@@ -28,7 +28,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (isDebugger()) {
-        FLYLog(@"123");
+        FLYTIMELog(@"123");
     }
 //    [NSThread exit];//主线程可以退出，但是不影响子线程的运行
 //

@@ -198,9 +198,9 @@
 #pragma mark - Thread
 - (void)startTestThread
 {
-    FLYLog(@"------------------------Start-----------------------");
+    FLYTIMELog(@"------------------------Start-----------------------");
     [self testThread];
-    FLYLog(@"------------------------End-----------------------");
+    FLYTIMELog(@"------------------------End-----------------------");
 }
 
 
@@ -242,7 +242,7 @@
     
     dispatch_async(currentQ, ^{
         
-        FLYLog(@"当前线程：%@", [NSThread currentThread]);
+        FLYTIMELog(@"当前线程：%@", [NSThread currentThread]);
         __block int a = 0;
         __block NSRunLoop *runloop = nil;
         dispatch_async(currentQ, ^{
@@ -261,7 +261,7 @@
         while (a < 5) {
             dispatch_sync(currentQ, ^{
                 a ++;
-                FLYLog(@"sync currentQ %@ - %d", [NSThread currentThread], a);
+                FLYTIMELog(@"sync currentQ %@ - %d", [NSThread currentThread], a);
             });
         }
         
@@ -270,18 +270,18 @@
         });
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            FLYLog(@"sync main %@ - %d", [NSThread currentThread], a);
+            FLYTIMELog(@"sync main %@ - %d", [NSThread currentThread], a);
         });
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            FLYLog(@"async main %@ - %d", [NSThread currentThread], a);
+            FLYTIMELog(@"async main %@ - %d", [NSThread currentThread], a);
         });
         
         dispatch_async(currentQ, ^{
-            FLYLog(@"最终结果 ***** %@ - %d", [NSThread currentThread], a);
+            FLYTIMELog(@"最终结果 ***** %@ - %d", [NSThread currentThread], a);
         });
         
-        FLYLog(@" >>>> --- >>> %d", a);
+        FLYTIMELog(@" >>>> --- >>> %d", a);
     });
 }
 
@@ -341,16 +341,16 @@
 
 - (void)logNum:(int)num
 {
-    FLYLog(@"start-->> %d %@", num, [NSThread currentThread]);
+    FLYTIMELog(@"start-->> %d %@", num, [NSThread currentThread]);
     sleep(3);
-    FLYLog(@"  end-->> %d %@", num, [NSThread currentThread]);
+    FLYTIMELog(@"  end-->> %d %@", num, [NSThread currentThread]);
 }
 
 #pragma mark - Thread & Lock
 - (void)startTestLock
 {
-    FLYLog(@" ---->>>>> 当前锁类型：%@", _lockType);
-    FLYLog(@"------------------------Start-----------------------");
+    FLYTIMELog(@" ---->>>>> 当前锁类型：%@", _lockType);
+    FLYTIMELog(@"------------------------Start-----------------------");
 
     if ([_lockType isEqualToString:@"dispatch_semaphore"]) {
         [self lockTestSemaphore];
@@ -358,7 +358,7 @@
 //        [self lockTest];
         [self lockTest2];
     }
-    FLYLog(@"------------------------End-----------------------");
+    FLYTIMELog(@"------------------------End-----------------------");
 }
 
 - (BOOL)fly_lock
@@ -435,45 +435,45 @@
 
 - (void)logString:(NSString *)string
 {
-    FLYLog(@"start-->> %@ %@", string, [NSThread currentThread]);
+    FLYTIMELog(@"start-->> %@ %@", string, [NSThread currentThread]);
     sleep(3);
-    FLYLog(@"  end-->> %@ %@", string, [NSThread currentThread]);
+    FLYTIMELog(@"  end-->> %@ %@", string, [NSThread currentThread]);
 }
 
 - (void)lockTest
 {
-    FLYLog(@"*** 外部1 ***");
+    FLYTIMELog(@"*** 外部1 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FLYLog(@"=== 进入 线程1 --");
+        FLYTIMELog(@"=== 进入 线程1 --");
         [self lockAndlogStrings:@"线程1 异步 执行"];
-        FLYLog(@"=== 离开 线程1 ++");
+        FLYTIMELog(@"=== 离开 线程1 ++");
     });
     
-    FLYLog(@"*** 外部2 ***");
+    FLYTIMELog(@"*** 外部2 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FLYLog(@"=== 进入 线程2 --");
+        FLYTIMELog(@"=== 进入 线程2 --");
         [self lockAndlogStrings:@"线程2 异步 执行"];
-        FLYLog(@"=== 离开 线程2 ++");
+        FLYTIMELog(@"=== 离开 线程2 ++");
     });
     
-    FLYLog(@"*** 外部3 ***");
+    FLYTIMELog(@"*** 外部3 ***");
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FLYLog(@"=== 进入 线程3 --");
+        FLYTIMELog(@"=== 进入 线程3 --");
         [self lockAndlogStrings:@"线程3 同步 执行"];
-        FLYLog(@"=== 离开 线程3 ++");
+        FLYTIMELog(@"=== 离开 线程3 ++");
     });
     
-    FLYLog(@"*** 外部4 ***");
+    FLYTIMELog(@"*** 外部4 ***");
     [self lockAndlogStrings:@"线程4 异步 执行"];
     
-    FLYLog(@"*** 外部5 ***");
+    FLYTIMELog(@"*** 外部5 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        FLYLog(@"=== 进入 线程5 --");
+        FLYTIMELog(@"=== 进入 线程5 --");
         [self lockAndlogStrings:@"线程5 异步 执行"];
-        FLYLog(@"=== 离开 线程5 ++");
+        FLYTIMELog(@"=== 离开 线程5 ++");
     });
     
-    FLYLog(@"*** 外部6 ***");
+    FLYTIMELog(@"*** 外部6 ***");
 }
 
 - (void)lockTest2
@@ -483,47 +483,47 @@
 //    queue = dispatch_queue_create("abc", DISPATCH_QUEUE_CONCURRENT);
     queue = dispatch_queue_create("bcd", DISPATCH_QUEUE_SERIAL);
     
-    FLYLog(@"*** 外部1 ***");
+    FLYTIMELog(@"*** 外部1 ***");
     dispatch_async(queue, ^{
-        FLYLog(@"=== 进入 线程1 --");
+        FLYTIMELog(@"=== 进入 线程1 --");
         [self lockAndlogStrings:@"线程1 异步 执行"];
-        FLYLog(@"=== 离开 线程1 ++");
+        FLYTIMELog(@"=== 离开 线程1 ++");
     });
     
-    FLYLog(@"*** 外部2 ***");
+    FLYTIMELog(@"*** 外部2 ***");
     dispatch_async(queue, ^{
-        FLYLog(@"=== 进入 线程2 --");
+        FLYTIMELog(@"=== 进入 线程2 --");
         [self lockAndlogStrings:@"线程2 异步 执行"];
-        FLYLog(@"=== 离开 线程2 ++");
+        FLYTIMELog(@"=== 离开 线程2 ++");
     });
     
-    FLYLog(@"*** 外部3 ***");
+    FLYTIMELog(@"*** 外部3 ***");
     dispatch_sync(queue, ^{
-        FLYLog(@"=== 进入 线程3 --");
+        FLYTIMELog(@"=== 进入 线程3 --");
         [self lockAndlogStrings:@"线程3 同步 执行"];
-        FLYLog(@"=== 离开 线程3 ++");
+        FLYTIMELog(@"=== 离开 线程3 ++");
     });
-    FLYLog(@"*** 外部4 ***");
+    FLYTIMELog(@"*** 外部4 ***");
     
     dispatch_async(queue, ^{
-        FLYLog(@"=== 进入 线程4 --");
+        FLYTIMELog(@"=== 进入 线程4 --");
         [self lockAndlogStrings:@"线程4 异步 执行"];
-        FLYLog(@"=== 离开 线程4 ++");
+        FLYTIMELog(@"=== 离开 线程4 ++");
     });
     
-    FLYLog(@"*** 外部5 ***");
+    FLYTIMELog(@"*** 外部5 ***");
 }
 
 - (void)lockTestSemaphore
 {
-    FLYLog(@"*** 外部1 ***");
+    FLYTIMELog(@"*** 外部1 ***");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fly_lock];
         [self logString:@"线程1 异步 执行"];
         [self fly_unlock];
     });
 
-    FLYLog(@"*** 外部2 ***");
+    FLYTIMELog(@"*** 外部2 ***");
 //    [self fly_lock];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fly_lock];
@@ -531,7 +531,7 @@
         [self fly_unlock];
     });
 
-    FLYLog(@"*** 外部3 ***");
+    FLYTIMELog(@"*** 外部3 ***");
 //    [self fly_lock];
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fly_lock];
@@ -539,10 +539,10 @@
         [self fly_unlock];
     });
 
-    FLYLog(@"*** 外部4 ***");
+    FLYTIMELog(@"*** 外部4 ***");
     [self lockAndlogStrings:@"线程4 异步 执行"];
 
-    FLYLog(@"*** 外部5 ***");
+    FLYTIMELog(@"*** 外部5 ***");
 //    [self fly_lock];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fly_lock];
@@ -550,7 +550,7 @@
         [self fly_unlock];
     });
 
-    FLYLog(@"*** 外部6 ***");
+    FLYTIMELog(@"*** 外部6 ***");
     
     _ticketCount = 50;
     dispatch_queue_t queue1 = dispatch_queue_create("net.bujige.testQueue1", DISPATCH_QUEUE_CONCURRENT);
@@ -574,13 +574,13 @@
         if (self.ticketCount > 0) {
             //如果还有票，继续售卖
             self.ticketCount--;
-            FLYLog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", self.ticketCount, [NSThread currentThread]]);
+            FLYTIMELog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", self.ticketCount, [NSThread currentThread]]);
             sleep(1);
             //解锁
             [self fly_unlock];
         } else {
             //如果已卖完，关闭售票窗口
-            FLYLog(@"所有火车票均已售完");
+            FLYTIMELog(@"所有火车票均已售完");
             //解锁
             [self fly_unlock];
             break;

@@ -104,7 +104,7 @@
     
     _timer = [NSTimer timerWithTimeInterval:3 repeats:YES block:^(NSTimer *_Nonnull timer) {
 
-        FLYLog(@"timer ++++");
+        FLYTIMELog(@"timer ++++");
     }];
 //    [_timer fire];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
@@ -144,7 +144,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    FLYLog(@"scrollViewDidScroll");
+    FLYTIMELog(@"scrollViewDidScroll");
 }
 
 - (void)addImagesForCell:(FlyTableViewCell *)cell {
@@ -173,21 +173,21 @@
 {
     UIImage *image = [self loadImageWithName:@"1"];
     [cell.imageView1 setImage:image];
-    FLYLog(@"加载第一张图片");
+    FLYTIMELog(@"加载第一张图片");
 }
 
 - (void)addImageForCell2:(FlyTableViewCell *)cell
 {
     UIImage *image = [self loadImageWithName:@"2"];
     [cell.imageView2 setImage:image];
-    FLYLog(@"加载第二张图片");
+    FLYTIMELog(@"加载第二张图片");
 }
 
 - (void)addImageForCell3:(FlyTableViewCell *)cell
 {
     UIImage *image = [self loadImageWithName:@"3"];
     [cell.imageView3 setImage:image];
-    FLYLog(@"加载第三张图片");
+    FLYTIMELog(@"加载第三张图片");
 }
 
 - (UIImage *)loadImageWithName:(NSString *)imageName {

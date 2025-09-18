@@ -7,7 +7,7 @@
 
 #import "FlyLifeViewController.h"
 
-#define LOG2 FLYLog(@"%s view:%p superview:%p alpha:%f isHidden:%d", __func__, self.view, self.view.superview, self.view.alpha, self.view.isHidden)
+#define LOG2 FLYTIMELog(@" --- %s view:%p superview:%p alpha:%f isHidden:%d", __func__, self.view, self.view.superview, self.view.alpha, self.view.isHidden)
 
 @interface FlyLifeViewController ()
 
@@ -15,20 +15,8 @@
 
 @implementation FlyLifeViewController
 
-- (void)loadView {
-    [super loadView];
-    LOG2; // loadView
-}
-
-- (void)loadViewIfNeeded {
-    
-    [super loadViewIfNeeded];
-    LOG2;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LOG2; // viewDidLoad
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Second";
 
@@ -46,48 +34,8 @@
 }
 
 - (void)popTapped {
-    FLYLog(@" ============= pop");
+    FLYTIMELog(@" ============= pop");
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)viewWillUnload {
-    [super viewWillUnload];
-    LOG2;
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    LOG2;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    LOG2; // viewWillAppear
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    LOG2; // viewDidAppear
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    LOG2; // viewWillDisappear
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    LOG2; // viewDidDisappear
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    LOG2; // viewWillLayoutSubviews
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    LOG2; // viewDidLayoutSubviews
 }
 
 @end

@@ -55,17 +55,17 @@
     self.strC4 =  (NSMutableString*)[NSString stringWithFormat:@"%@",self.str];
     self.strS4 =  (NSMutableString*)[NSString stringWithFormat:@"%@",self.str];
     
-    FLYLog(@"---------->>>开始<<<----------");
-    FLYLog(@"Ori_address----->>>>>>：value:%@---%p==%p",_str,_str,&_str);
-    FLYLog(@"address----->>>>>>C1：value:%@---%p==%p",_strC1,_strC1,&_strC1);
-    FLYLog(@"address----->>>>>>S1：value:%@---%p==%p",_strS1,_strS1,&_strS1);
-    FLYLog(@"address----->>>>>>C2：value:%@---%p==%p",_strC2,_strC2,&_strC2);
-    FLYLog(@"address----->>>>>>S2：value:%@---%p==%p",_strS2,_strS2,&_strS2);
-    FLYLog(@"address----->>>>>>C3：value:%@---%p==%p",_strC3,_strC3,&_strC3);
-    FLYLog(@"address----->>>>>>S3：value:%@---%p==%p",_strS3,_strS3,&_strS3);
-    FLYLog(@"address----->>>>>>C4：value:%@---%p==%p",_strC4,_strC4,&_strC4);
-    FLYLog(@"address----->>>>>>S4：value:%@---%p==%p",_strS4,_strS4,&_strS4);
-    FLYLog(@"---------->>>结束<<<----------\n");
+    FLYTIMELog(@"---------->>>开始<<<----------");
+    FLYTIMELog(@"Ori_address----->>>>>>：value:%@---%p==%p",_str,_str,&_str);
+    FLYTIMELog(@"address----->>>>>>C1：value:%@---%p==%p",_strC1,_strC1,&_strC1);
+    FLYTIMELog(@"address----->>>>>>S1：value:%@---%p==%p",_strS1,_strS1,&_strS1);
+    FLYTIMELog(@"address----->>>>>>C2：value:%@---%p==%p",_strC2,_strC2,&_strC2);
+    FLYTIMELog(@"address----->>>>>>S2：value:%@---%p==%p",_strS2,_strS2,&_strS2);
+    FLYTIMELog(@"address----->>>>>>C3：value:%@---%p==%p",_strC3,_strC3,&_strC3);
+    FLYTIMELog(@"address----->>>>>>S3：value:%@---%p==%p",_strS3,_strS3,&_strS3);
+    FLYTIMELog(@"address----->>>>>>C4：value:%@---%p==%p",_strC4,_strC4,&_strC4);
+    FLYTIMELog(@"address----->>>>>>S4：value:%@---%p==%p",_strS4,_strS4,&_strS4);
+    FLYTIMELog(@"---------->>>结束<<<----------\n");
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -74,17 +74,17 @@
 //    self.str = [_str stringByAppendingString:@"de"];
 //    [_str appendString:@"de"];
     
-    FLYLog(@"---------->>>点击开始输出<<<----------");
-    FLYLog(@"Ori_address<<<<<<----->>>>>>：value:%@---%p==%p",_str,_str,&_str);
-    FLYLog(@"address<<<<<<----->>>>>>C1：value:%@---%p==%p",_strC1,_strC1,&_strC1);
-    FLYLog(@"address<<<<<<----->>>>>>S1：value:%@---%p==%p",_strS1,_strS1,&_strS1);
-    FLYLog(@"address<<<<<<----->>>>>>C2：value:%@---%p==%p",_strC2,_strC2,&_strC2);
-    FLYLog(@"address<<<<<<----->>>>>>S2：value:%@---%p==%p",_strS2,_strS2,&_strS2);
-    FLYLog(@"address<<<<<<----->>>>>>C3：value:%@---%p==%p",_strC3,_strC3,&_strC3);
-    FLYLog(@"address<<<<<<----->>>>>>S3：value:%@---%p==%p",_strS3,_strS3,&_strS3);
-    FLYLog(@"address<<<<<<----->>>>>>C4：value:%@---%p==%p",_strC4,_strC4,&_strC4);
-    FLYLog(@"address<<<<<<----->>>>>>S4：value:%@---%p==%p",_strS4,_strS4,&_strS4);
-    FLYLog(@"---------->>>点击结束输出<<<----------\n");
+    FLYTIMELog(@"---------->>>点击开始输出<<<----------");
+    FLYTIMELog(@"Ori_address<<<<<<----->>>>>>：value:%@---%p==%p",_str,_str,&_str);
+    FLYTIMELog(@"address<<<<<<----->>>>>>C1：value:%@---%p==%p",_strC1,_strC1,&_strC1);
+    FLYTIMELog(@"address<<<<<<----->>>>>>S1：value:%@---%p==%p",_strS1,_strS1,&_strS1);
+    FLYTIMELog(@"address<<<<<<----->>>>>>C2：value:%@---%p==%p",_strC2,_strC2,&_strC2);
+    FLYTIMELog(@"address<<<<<<----->>>>>>S2：value:%@---%p==%p",_strS2,_strS2,&_strS2);
+    FLYTIMELog(@"address<<<<<<----->>>>>>C3：value:%@---%p==%p",_strC3,_strC3,&_strC3);
+    FLYTIMELog(@"address<<<<<<----->>>>>>S3：value:%@---%p==%p",_strS3,_strS3,&_strS3);
+    FLYTIMELog(@"address<<<<<<----->>>>>>C4：value:%@---%p==%p",_strC4,_strC4,&_strC4);
+    FLYTIMELog(@"address<<<<<<----->>>>>>S4：value:%@---%p==%p",_strS4,_strS4,&_strS4);
+    FLYTIMELog(@"---------->>>点击结束输出<<<----------\n");
 
 }
 

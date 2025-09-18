@@ -42,7 +42,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-    FLYLog(@" 来了 -->>%@ ---->>>>  %@", object, change);
+    FLYTIMELog(@" 来了 -->>%@ ---->>>>  %@", object, change);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

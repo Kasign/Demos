@@ -8,23 +8,13 @@
 #import "Fly20Controller.h"
 #import "FlyLifeViewController.h"
 
-#define LOG FLYLog(@"%s view:%p superview:%p alpha:%f isHidden:%d", __func__, self.view, self.view.superview, self.view.alpha, self.view.isHidden)
+#define LOG FLYTIMELog(@"%s view:%p superview:%p alpha:%f isHidden:%d", __func__, self.view, self.view.superview, self.view.alpha, self.view.isHidden)
 
 @interface Fly20Controller ()
 
 @end
 
 @implementation Fly20Controller
-
-- (void)loadView {
-    [super loadView];
-    LOG; // loadView
-}
-
-- (void)loadViewIfNeeded {
-    [super loadViewIfNeeded];
-    LOG; 
-}
 
 + (NSString *)functionName {
     
@@ -33,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LOG; // viewDidLoad
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton *pushBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [pushBtn setTitle:@"Push" forState:UIControlStateNormal];
@@ -62,51 +51,11 @@
 
 - (void)pushTapped {
     
-    FLYLog(@" ============= push");
+    FLYTIMELog(@" ============= push");
     FlyLifeViewController *vc = [[FlyLifeViewController alloc] init];
     // 下面这行如果取消注释，会提前访问 vc.view，从而触发 viewDidLoad 在 push 更早发生。
     // (void)vc.view;
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)viewWillUnload {
-    [super viewWillUnload];
-    LOG;
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    LOG;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    LOG; // viewWillAppear
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    LOG; // viewDidAppear
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    LOG; // viewWillDisappear
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    LOG; // viewDidDisappear
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    LOG; // viewWillLayoutSubviews
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    LOG; // viewDidLayoutSubviews
 }
 
 @end

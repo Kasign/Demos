@@ -110,7 +110,7 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 //                    NSString *report = [PLCrashReportTextFormatter stringValueForCrashReport:reporter
 //                                                                               withTextFormat:PLCrashReportTextFormatiOS];
                     
-//                    FLYLog(@"卡顿了------------\n%@\n------------", report);
+//                    FLYTIMELog(@"卡顿了------------\n%@\n------------", report);
                 }
             }
             self.timeoutCount = 0;
@@ -141,7 +141,7 @@ static void RunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
                     //记录数据库中
                     //                    [[[SMLagDB shareInstance] increaseWithStackString:reStr] subscribeNext:^(id x) {}];
                     //                        NSLog(@"CPU useage overload thread stack：\n%@",reStr);
-//                    FLYLog(@"CPU useage overload thread stack %@", GetCurrentStackInfo());
+//                    FLYTIMELog(@"CPU useage overload thread stack %@", GetCurrentStackInfo());
                 }
             }
         }

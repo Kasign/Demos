@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FlyBaseTool/FLYViewController.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : FLYViewController
 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import <FlyBaseTool/FlyBaseDefine.h>
+#import <FlyBaseTool/FLYNavigationController.h>
 
 @interface SceneDelegate ()
 
@@ -25,14 +27,15 @@
         _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     [_window setBackgroundColor:[UIColor whiteColor]];
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    FLYTIMELog(@"--->>> navi set root");
+    FLYNavigationController *navi = [[FLYNavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [navi.view setBackgroundColor:[UIColor whiteColor]];
+    FLYTIMELog(@"--->>> window set root");
     [_window setRootViewController:navi];
+    FLYTIMELog(@"--->>> window makeKeyAndVisible");
     [_window makeKeyAndVisible];
-    
-    NSLog(@"%s", __func__);
+    FLYTIMELog(@"%s", __func__);
 }
-
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
     // Called as the scene is being released by the system.

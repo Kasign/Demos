@@ -65,7 +65,7 @@
 - (void)logMsg:(NSString *)msg {
     
     NSString *des = FlyStringFormat(@"<%@ %p>", self.class, self);
-    FLYLog(@"\n--->>> \n%@\n%@\n%@\n%@\n<<<----", [NSThread currentThread], des, self.gestureRecognizers, msg);
+    FLYTIMELog(@"\n--->>> \n%@\n%@\n%@\n%@\n<<<----", [NSThread currentThread], des, self.gestureRecognizers, msg);
 }
 
 @end

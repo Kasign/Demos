@@ -12,7 +12,7 @@
 
 + (void)load {
     
-    FLYLog(@"%s", __func__);
+    FLYTIMELog(@"%s", __func__);
 }
 
 //+ (void)initialize {
@@ -22,7 +22,7 @@
 
 //- (void)run {
 //    
-//    FLYLog(@"人在跑");
+//    FLYTIMELog(@"人在跑");
 //}
 
 - (NSString *)nickname {
@@ -37,6 +37,6 @@
 
 
 //-(void)walk{
-//    FLYLog(@"人在走");
+//    FLYTIMELog(@"人在走");
 //}
 @end

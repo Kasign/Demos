@@ -47,7 +47,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
  */
 + (BOOL)resolveInstanceMethod:(SEL)sel {
  
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(sel));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(sel));
     return [super resolveInstanceMethod:sel];
 }
 
@@ -56,7 +56,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
  */
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(aSelector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(aSelector));
     return [super forwardingTargetForSelector:aSelector];
 }
 
@@ -68,13 +68,13 @@ extern void instrumentObjcMessageSends(BOOL flag);
 
 + (IMP)instanceMethodForSelector:(SEL)aSelector {
     
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(aSelector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(aSelector));
     return [super instanceMethodForSelector:aSelector];
 }
 
 - (IMP)methodForSelector:(SEL)aSelector {
     
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(aSelector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(aSelector));
     return [super methodForSelector:aSelector];
 }
 
@@ -83,7 +83,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
  */
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
 
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(selector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(selector));
     if ([self respondsToSelector:selector]) {
         return [[self class] instanceMethodSignatureForSelector:selector];
     }
@@ -95,7 +95,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
  */
 - (void)forwardInvocation:(NSInvocation *)invocation {
     
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(invocation.selector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(invocation.selector));
     SEL selector = [invocation selector];
     if ([self respondsToSelector:selector]) {
         [invocation invokeWithTarget:self];
@@ -107,7 +107,7 @@ extern void instrumentObjcMessageSends(BOOL flag);
 
 + (NSMethodSignature *)instanceMethodSignatureForSelector:(SEL)aSelector {
     
-    FLYLog(@"%s %@", __func__, NSStringFromSelector(aSelector));
+    FLYTIMELog(@"%s %@", __func__, NSStringFromSelector(aSelector));
     if ([self respondsToSelector:aSelector]) {
         return [[self class] instanceMethodSignatureForSelector:aSelector];
     }

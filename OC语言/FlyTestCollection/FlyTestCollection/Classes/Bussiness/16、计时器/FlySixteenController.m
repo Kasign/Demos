@@ -39,7 +39,7 @@
 
 - (void)update:(CADisplayLink *)link {
     
-    FLYLog(@"%@ dur:%f timestamp:%f target:%f", link, link.duration, link.timestamp, link.targetTimestamp);
+    FLYTIMELog(@"%@ dur:%f timestamp:%f target:%f", link, link.duration, link.timestamp, link.targetTimestamp);
 }
 
 - (void)dealloc {

@@ -80,7 +80,7 @@
 //            }
 //        }
 //
-//        FLYLog(@"count : %ld", _imageModelArr.count);
+//        FLYTIMELog(@"count : %ld", _imageModelArr.count);
 //
 //        if (_imageModelArr.count == framesTotal) {
 //

@@ -27,51 +27,51 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     [super willMoveToSuperview:newSuperview];
-    FLYAccurateLog(@"%@ willMoveToSuperview %@",self, newSuperview);
+    FLYNSLog(@"%@ willMoveToSuperview %@",self, newSuperview);
 }
 
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
-    FLYAccurateLog(@"%@ didMoveToSuperview", self);
+    FLYNSLog(@"%@ didMoveToSuperview", self);
 }
 
 - (void)setNeedsLayout
 {
     [super setNeedsLayout];
-    FLYAccurateLog(@"%@ %s", self, __func__);
+    FLYNSLog(@"%@ %s", self, __func__);
 }
 
 - (void)layoutIfNeeded
 {
     [super layoutIfNeeded];
-    FLYAccurateLog(@"%@ %s", self, __func__);
+    FLYNSLog(@"%@ %s", self, __func__);
 }
 
 - (void)fly_willAddSubview:(UIView *)subview
 {
-    FLYAccurateLog(@"%@ willAddSubview %@", self, subview);
+    FLYNSLog(@"%@ willAddSubview %@", self, subview);
 }
 
 - (void)fly_didAddSubview:(UIView *)subview
 {
-    FLYAccurateLog(@"%@ fly_didAddSubview %@", self, subview);
+    FLYNSLog(@"%@ fly_didAddSubview %@", self, subview);
 }
 
 - (void)fly_willChangeFrame
 {
-    FLYAccurateLog(@"%@ %s", self, __func__);
+    FLYNSLog(@"%@ %s", self, __func__);
 }
 
 - (void)fly_didChangeFrame
 {
-    FLYAccurateLog(@"%@ %s", self, __func__);
+    FLYNSLog(@"%@ %s", self, __func__);
 }
 
 - (void)layoutSubviews
 {    
     [super layoutSubviews];
-    FLYAccurateLog(@"%@ layoutSubviews", self);
+    FLYNSLog(@"%@ layoutSubviews", self);
 }
 
 - (NSString *)description {

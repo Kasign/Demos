@@ -88,7 +88,7 @@
 
 - (void)logMsg:(NSString *)msg {
     
-    FLYLog(@"\n------------------------->>> \n%@\n\n%@\n<<<------------------------", [self description], msg);
+    FLYTIMELog(@"\n------------------------->>> \n%@\n\n%@\n<<<------------------------", [self description], msg);
 }
 
 @end

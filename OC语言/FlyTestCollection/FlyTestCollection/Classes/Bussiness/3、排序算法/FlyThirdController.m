@@ -42,20 +42,20 @@
 
 - (void)setFilled:(NSInteger)number{
     
-    FLYLog(@"%ld",++_num);
+    FLYTIMELog(@"%ld",++_num);
     
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
-    FLYLog(@"%@", change);
+    FLYTIMELog(@"%@", change);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
 //    NSArray *sortArr = @[@(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(13), @(61), @(44), @(13), @(48), @(19), @(30), @(13), @(61), @(44), @(10), @(8), @(12), @(80), @(13), @(61), @(44), @(10), @(8), @(12), @(30), @(53), @(21), @(54), @(10), @(8), @(12), @(30), @(13), @(65), @(44), @(11), @(28), @(12), @(30), @(13), @(61), @(44), @(11), @(8), @(52), @(32), @(13), @(61), @(44), @(2)];
 //
-//    FLYLog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
+//    FLYTIMELog(@"待排序 %@", [sortArr componentsJoinedByString:@"-"]);
 //    [self insertSortList:sortArr];
 //    [self stackSortList:sortArr];
 //    [self quickSortList:sortArr];
@@ -67,7 +67,7 @@
 - (void)insertSortList:(NSArray *)sortArray {
     
     sortArray = [FlySort fly_insertSortList:sortArray];
-    FLYLog(@"插入排序 %@", [sortArray componentsJoinedByString:@"-"]);
+    FLYTIMELog(@"插入排序 %@", [sortArray componentsJoinedByString:@"-"]);
 }
 
 
@@ -81,7 +81,7 @@
 - (void)quickSortList:(NSArray *)sortArray {
     
     NSArray *arr = [FlySort fly_quickSortList:sortArray];
-    FLYLog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
+    FLYTIMELog(@"快速排序 %@", [arr componentsJoinedByString:@"-"]);
 }
 
 ///堆排序
@@ -90,7 +90,7 @@
     NSMutableArray *array = [NSMutableArray arrayWithArray:sortArray];
     
     
-    FLYLog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);
+    FLYTIMELog(@"堆排序 %@", [array componentsJoinedByString:@"-"]);
 }
 
 @end

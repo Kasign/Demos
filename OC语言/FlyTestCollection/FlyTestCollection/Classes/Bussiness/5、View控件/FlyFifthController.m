@@ -35,7 +35,7 @@
 
 - (void)updateFrames {
     
-    FLYAccurateLog(@"%s", __func__);
+    FLYNSLog(@"%s", __func__);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -75,7 +75,7 @@
     [self.view addSubview:aView];
     [aView addSubview:bView];
     
-    //    FLYLog(@"\naFrame-> %@\naBound-> %@\naCenter-> %@\n\nbFrame-> %@\nbBound-> %@\nbCenter-> %@", NSStringFromCGRect(aView.frame), NSStringFromCGRect(aView.bounds), NSStringFromCGPoint(aView.center), NSStringFromCGRect(bView.frame), NSStringFromCGRect(bView.bounds), NSStringFromCGPoint(bView.center));
+    //    FLYTIMELog(@"\naFrame-> %@\naBound-> %@\naCenter-> %@\n\nbFrame-> %@\nbBound-> %@\nbCenter-> %@", NSStringFromCGRect(aView.frame), NSStringFromCGRect(aView.bounds), NSStringFromCGPoint(aView.center), NSStringFromCGRect(bView.frame), NSStringFromCGRect(bView.bounds), NSStringFromCGPoint(bView.center));
     
     [aView setBackgroundColor:[UIColor redColor]];
     [bView setBackgroundColor:[UIColor purpleColor]];
@@ -86,7 +86,7 @@
     aView.transform = CGAffineTransformMakeScale(2, 2);
     bView.frame = CGRectMake(0, 0, 50, 50);
     
-    FLYLog(@"\naFrame-> %@\naBound-> %@\naCenter-> %@\n\nbFrame-> %@\nbBound-> %@\nbCenter-> %@", NSStringFromCGRect(aView.frame), NSStringFromCGRect(aView.bounds), NSStringFromCGPoint(aView.center), NSStringFromCGRect(bView.frame), NSStringFromCGRect(bView.bounds), NSStringFromCGPoint(bView.center));
+    FLYTIMELog(@"\naFrame-> %@\naBound-> %@\naCenter-> %@\n\nbFrame-> %@\nbBound-> %@\nbCenter-> %@", NSStringFromCGRect(aView.frame), NSStringFromCGRect(aView.bounds), NSStringFromCGPoint(aView.center), NSStringFromCGRect(bView.frame), NSStringFromCGRect(bView.bounds), NSStringFromCGPoint(bView.center));
     
     UIView *cView = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 95)];
     UIView *dView = [[UIView alloc] initWithFrame:CGRectMake(200, 0, 1, 100)];
