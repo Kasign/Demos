@@ -1,0 +1,2365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		014ED05D92960A2BE66949771328DFDF /* UIGestureRecognizer+FLYTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6647432F662C00615311A6CAD856F7AF /* UIGestureRecognizer+FLYTouch.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0877BD59B4C441E0EB7E5515BD39225C /* FlyPerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B20497F287CF62D5B4FEA6403881642 /* FlyPerformanceMonitor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		09D41A7EE420D9EF74DA6D16BB1D18AF /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = DD7CCE18320407426B3A6EE4A465A80C /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0BD6355A1E61F0CF99D59FBE159A0936 /* PLCrashReportStackFrameInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE9FCE941AFF25B82BB684D905A44A4 /* PLCrashReportStackFrameInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0DA15F81A5C134BFCDD47A896EAE2481 /* PLCrashReporterConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 11EC3C97F08405198426029849049923 /* PLCrashReporterConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0F0588925F3DC738C4D5AB5213FA8D5B /* Pods-FlyiOSWorkProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9304ADA8D84743FC8DD417DD79DB210 /* Pods-FlyiOSWorkProject-dummy.m */; };
+		0F06BEAC70802267969902B8CAA10C32 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFD19BCB0662DFC0E82D770841A4F82 /* Dog.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		11E7821FF4B9378A32B11D8AA264076D /* FlyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BB75D93C6267637F747797E79D5B2EC2 /* FlyButton.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		137D044CFFD8F4D6A4FEC1B366EA9B39 /* FlyBaseToolPrefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = 440109BC6B92EBE638CA8F609C913677 /* FlyBaseToolPrefix.pch */; };
+		17F156EF250838B739334186D63BCA9A /* FlyPerformanceMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DF3CFBC9D6F1D31534F2B831D6C76CAA /* FlyPerformanceMonitor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		192E2EF5FE075A76EC261473453A868E /* Fly19Controller.h in Headers */ = {isa = PBXBuildFile; fileRef = BE0379A8691EB92978FC528F75B0B87C /* Fly19Controller.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		19A00AE6E518DF2EE7FB9ECA5C0E0696 /* FlyImageDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = CB81098E94E4951BA859DC454D076337 /* FlyImageDecode.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		19C677F3E56965EF458283B0F60415B2 /* Dog+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E5F6C3AE0D6CCF890F84F12B955C7 /* Dog+Custom.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1B8862BF27EF331FAFE259230F2CAF8D /* FLYWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BD0A83BBB93B2B0FDA0447339F0C1 /* FLYWindow.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1DC85BEB11E6F7A10E4661BC15B5ECEA /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BA6EFA069FE500EEABF803E6B9A2FA /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1F6CB94B8133CC34F44B0E102691B744 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E1B0DC844801A15DC56F0C33530CF7 /* Person.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1FF2AD55F0BDF2EEEA38B26A521BBFCC /* Dog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6483DFE6BEE737B71B8C0E7DDF95C5BF /* Dog.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		201B363E66006620D5DEC6F958C6306D /* CrashReporter in Sources */ = {isa = PBXBuildFile; fileRef = 8A7DF67A2AACC492A281EC3B2DBE3CF7 /* CrashReporter */; };
+		222C21C997F77ED9E2FF9FA35AF8AA77 /* Person.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C360E70A0620E58A80DA24DC1D72693 /* Person.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		229FB71F58F302D4695B1042DD335EF7 /* FlyCIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = DF07C4265A88D81312D33143E09CB278 /* FlyCIImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		22C75AB39E72FDF65C5F83D380CC0E62 /* FlySort.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9A5BB00C034E29FC421D79332CE0D8 /* FlySort.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2423C220CA16CE191F7957F1403A5FC9 /* FlyContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C0CFB97E6F80E5590D2F6C250FC176B /* FlyContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		24FE8D4E019DF988E1A0826F4E0E0D8F /* FlyEighthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522CDC7AD6B40B1C0E07C3B1F63027F0 /* FlyEighthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		260862ED626489399BA1261E3CA82534 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AB1677C7E9B24B60686670F50AAD88 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		260A82F4E60F8AEBD37E502EFA86D225 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8549585EB2BFC8C673C088D58E2C8910 /* NSObject+LGKVO.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		26200CE7EBEC065B7E2AC8078FBC0986 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DFA730E37794B872E2A11A86F11EA5C5 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		269102EEF7F25E8975FC729153D552D0 /* FlyThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7545E07833741CEA3C304FC6EB8511 /* FlyThirdController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		273F5FA68090A9E6FF72EAD0DE9425BB /* FlyThirdController.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B01736EF804C910695F71B9F0D5B95 /* FlyThirdController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2AC00D4BAD2D955F98982B048AC758F0 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D0596AD051C2EA05E2016C60001E3 /* UIButton+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AD9662E95071D8EE148C3619340BE6B /* FlySecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB62B234677CECD47EB80BAA273BFD6F /* FlySecondController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2B0183E23356BE2A116E3979EE2CFAF3 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4894681A7D0F6CFE4AEAC9E1674 /* Info.plist */; };
+		2B8757E7F8EEA7A84A3DAB1AF660B564 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3DABBA35096672DD7371638C241FE /* AFURLSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2C6624CEA05403BA5EAD464DF4E8AF7A /* WKWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 91054E45B1DF05F7CCCFA7C7ED5C1B42 /* WKWebView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2CAA31D972F5F5C5B8E4732686A6C300 /* FlyEleventhController.h in Headers */ = {isa = PBXBuildFile; fileRef = 03424B70C865EA8A71E4F47AAD221DC4 /* FlyEleventhController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		30B405F13FDC9437D696530DBB060471 /* FlyRuntimeTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1678E681EE0A800C66B327514DF7BE79 /* FlyRuntimeTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		31B89F0F5C354370193D8158A0C11DD0 /* NSObject+FlyKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = F09387CA59592879E78CB71145AC50AE /* NSObject+FlyKVO.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		31C3B4ADE0729465AD258ED60755F9CD /* RSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB79758DB297CB3D3BD26E4AEA3B0E7 /* RSSwizzle.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		32ED18D4EFB8B3461DFCC4F16464CEFB /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E9CAAF8F2112864D4B5BE41F0327A7 /* AFNetworking-dummy.m */; };
+		3305B9CFADF6A27973327DDCF48E22A6 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E87D851D3ACCBBC33E492783A5FE5D5 /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		34673D688D67F1030023888E8A3D43EA /* FlyFourteenController.h in Headers */ = {isa = PBXBuildFile; fileRef = B19F18363DFC446172656596E5B475E4 /* FlyFourteenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3C33096394F9657630D2CAC8320B5404 /* FlyFifteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06029417AB218ED9ADC577D3DA86DC2A /* FlyFifteenController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3EF048DAE0ED828AE57A75789EDC4E7E /* FlyBaseDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = F8C3A850C23A63BA25EFC9177D1A1F0B /* FlyBaseDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		417F75137251879A5E1676E07F230546 /* FLYCustomUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 031FF880357B9E305C38B557384958AE /* FLYCustomUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		418F5652244872B5B5C7AD3ECADAF37A /* Person+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A62379087FEC68FA3B99D04DA88C54 /* Person+Custom.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		429943DF9F1DFCED99D352CF4441D3EC /* FlyLifeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8B7EFA843B1FF2A2B8369049C2EEBD /* FlyLifeViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4361C66728ECD7846FF4AC82BFDC0E49 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = B9D20FEE28574EFB2DC0D3663A3FD722 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		445FCF5DDBFB24E02844CABEE4663B89 /* b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C7952DF709D18A86C0E12502CA94257 /* b.jpg */; };
+		452A04926DBF66CA6B674CF33A4659CC /* UIView+FLYTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DEDCB5082ED2F618037765A49103AA6 /* UIView+FLYTouch.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		46D74556F84DB00A02BD2A2D1A8DAF4F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0527CF1BE2A3C384E1ADA96E998924EC /* AFURLRequestSerialization.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		47FA1D51BD4EECB6F9DD4C0CA55370E0 /* SalConverVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1266C077A2931AE04309C05716E557FC /* SalConverVideoTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		482F7C1BEF6C52E9417F15877A9B3845 /* PLCrashReportSignalInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 918C126A5687D5A66153BF8E3802B408 /* PLCrashReportSignalInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		484C2D699ABE1390BD0B407957DCE2A8 /* FlyRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 557D6593D38495C6B750D7307BEDCE84 /* FlyRenderer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		494ECB31ACC1AE90093F04EE752CD3DF /* FlyFourteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = E782F6F76BE1FEF7A7FD544A54C130B2 /* FlyFourteenController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4AFF544A739DCE5127845EC3BA25599C /* FlyEighthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5686AFADDD6351948E538D296F61D447 /* FlyEighthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4CA05CDB2B91A0324E07A41C722E71AF /* PLCrashReportMachExceptionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 584E4ABC0A6D50557888532E52C48E5B /* PLCrashReportMachExceptionInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4CC0D8F4A6E476AE5C5458B6FFA7D871 /* FlyFifteenController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FA15A8982F919E2A8E0F5B2864DE483 /* FlyFifteenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		51A21009AA374B53730D8A62FCFBB1ED /* FlyContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F37B3D6301EC576D2549F09817D6004 /* FlyContext.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5254C29F874D17AE6835DF4BF099F685 /* FlyImageIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC5C19ACC398D38EFC2F7870F51B1 /* FlyImageIO.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5296BB9EC7F273E0648C263E4676FFF8 /* FlyTestCollectionPrefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = EC9279EF56A6D14B93F4C2ABD584CF10 /* FlyTestCollectionPrefix.pch */; };
+		53352ED6438EAFAB849541F71E3D3B6B /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A7F7F5D77EBEA5DD0DE553076669D4AE /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		53B41B3542DA842C1786FD12AF7B3974 /* SalConverVideoTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A562D28C3567EA0F87E083C04BCCD16 /* SalConverVideoTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		54D4143FC02488558AC95ABC1D8FD5E0 /* FlyDrawManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD037337A822938D850ACFFAF8898914 /* FlyDrawManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5535C36E7B34923AFACCBC7C9EC80F4E /* NSObject+FlyKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ED2EFF82331C612728092621BB85DE /* NSObject+FlyKVO.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		560D4392469F73E0CE4A2B56E41A8EB6 /* PLCrashReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 238CDCD94C45B44F603B682FFCBF9A1B /* PLCrashReport.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		563BA5E52BA4227AFA4A491BC1FC07E9 /* FlyNinthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99CB303A6F5347BFAB107CB739ECFF68 /* FlyNinthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		56CFCC64910D443D7ED9BDB627A1AF18 /* FLYGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 078DD32EF58673B0EC4EDEE5BEF85D42 /* FLYGCD.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		572E9D6975DBF91AB62360195251AE8B /* NSObject+LGKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 58666E59480BD294525E8E5F85BF58E3 /* NSObject+LGKVO.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5746B2AACFD8A4DC9B66D947C654B530 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0BC416E1AC3F24B7EA75E3DFBBD5066 /* 4.jpg */; };
+		58BB203B0E1FA124D83ADE723CFD1B7E /* FlyFirstController.h in Headers */ = {isa = PBXBuildFile; fileRef = A37C3C4022A76C92C0A72D878B956412 /* FlyFirstController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5C46F48BC9AB6370CA32A2788D86B3F0 /* WKWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 30B3E19CFB6C9628433DD73AEA25E97C /* WKWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5EEF362551180E284D07BC6D3E6A4C3E /* FlyImageIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 66E63417AA5C58A9A0E9B0DE9173FAAE /* FlyImageIO.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		60761236A6A68BDE6492CDE252E05007 /* FlyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC16B3FCAFF2BF203F1A13C458D93C3 /* FlyBaseView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		609DF50B28B7616727DE04915E2D901D /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9905C51FA65F12F98E7635AC81BF70 /* AFAutoPurgingImageCache.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		627E62281D84BF3D80C3746E79B813CD /* Person+Custom.h in Headers */ = {isa = PBXBuildFile; fileRef = E6F5C81E0B41DFFF8F81478238E63E09 /* Person+Custom.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		62C99E03D053C1C36A210BCEBD56A266 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 37601854A97FADD030EEFA137AA207E1 /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		635513BAB2473FDFF9B045167C943BE6 /* FLYGCD.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD7619DEA3236F8BF40BEE59198E508 /* FLYGCD.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		64A2F7B325ECB35B95315152C28ED5E0 /* FlySixteenController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A5F7E0FD0FA4E199B5E2464211E9FA6 /* FlySixteenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		64A73CF70A93DDDE5D8E41CB19A261C0 /* SALSteam.m in Sources */ = {isa = PBXBuildFile; fileRef = 74741CF914DE40BD0C5CA56FB60BA553 /* SALSteam.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		64D06C26FD5AB5B0FEC43B2C97D38F88 /* FlySecondController.h in Headers */ = {isa = PBXBuildFile; fileRef = 26142DEAC505F8B85A64F7B0E1897127 /* FlySecondController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		67DB7415A345A0A42CC30F85B0FEEBFB /* PLCrashReportProcessInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 45F25F8FE61D4D20C9D1F66343D7AA21 /* PLCrashReportProcessInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		68F15DD58D0E5F749629E0915CDFFE13 /* FlyvImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 348F94B0B12E9FB3BCE450246D545232 /* FlyvImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		69D4ED9B8C55083502EA91A200E5397D /* FLYCustomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7ABD6F30C27265FE267D45FDD3D6D /* FLYCustomUtil.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6A8ABD3F857F1E54C0C97DE5757A9DEC /* RSSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 21565D2D68DAACFE103BEE0CCE8A4F4F /* RSSwizzle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6E8B9CCA622859B6228C6BDC967804E6 /* PLCrashReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 00013F536D2851EFB737418F6A571A95 /* PLCrashReporter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6ECC3C1991C8D839B4DB3C81F553786E /* SalDrawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E09A63B08CD5891C79677EF5C601E /* SalDrawTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6FF77C209A17A71DFECF9FEEE8DE5F03 /* FLYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C4E021A33815C08ED9E238A0CB97 /* FLYViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7034D2D81EF21225240B77D441A6D74C /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B3B45CDFC1BEA0FCAA5CE7D7CF4A /* UIRefreshControl+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7064EA4D0E7FF6259D2293F9E462A55F /* FLYViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C9BA1F7A220CA85AB7AB4F8081847CE /* FLYViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		712DC6888ECFC9B5E9F04EF981820F06 /* Fly19Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 957AC78A280E9BAEB76EA6C08F210D80 /* Fly19Controller.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		73E6FB73731AA54E9C0A0B7B89B8DA6E /* SALSteam.h in Headers */ = {isa = PBXBuildFile; fileRef = 48F758233246B3D12C865145335975CD /* SALSteam.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		74D3826F83A59D9CB442F5652C00A088 /* PLCrashReportFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = DF6F58B6F41272C84E5FDA2C0B0A1C1A /* PLCrashReportFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		76636BB381028A7E23AF867893698DE5 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 659574440C85CA53E36A00D99C6A5265 /* AFURLResponseSerialization.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		784D7F5D5E79423B4D51A170FF9A177C /* CrashReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 524E8006223467037A911CB17FDCF537 /* CrashReporter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		788FEC59F4EAE4C5E9557F94D8F2AB05 /* UIView+FLYTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1B36C713AB642EE41C1E48632F4949 /* UIView+FLYTouch.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7FC770B452C62E7FDC0052524EDD49C8 /* PLCrashReportApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E73976192C6EA6D00C69D8A6E8F98262 /* PLCrashReportApplicationInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		80DE89975A02D43D451D35195BFD5C25 /* Fly20Controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FC0F8CFB8891228059919A7273AE29A /* Fly20Controller.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		85BA674BFE02D2CA8C96BC2FB60788B9 /* PLCrashNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 515D33937A9A20CB3BB235AC9A0C4A1F /* PLCrashNamespace.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8612D342953F3A933EF8F8D6F6DA45EB /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 104BC6955343B6303EB8701D63471EF4 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		867566A81C39E5E658D72819805D5180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B248FD685D878F0422C4D71EF60BBF /* Assets.xcassets */; };
+		896DC3ACBE718B0247EFF83061F6F677 /* FlyNinthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5102B08284A58C9694823B8EF0624759 /* FlyNinthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		898ABCCA33A828FD729EA4E78A31AA41 /* Fly18Controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D5234F855DC93D2BFE66E7EDE318B6 /* Fly18Controller.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89EDCE19F317507DA84F5FA14EF7A197 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D4E9A437BC5040183611F80079B85F /* 5.png */; };
+		8A359A05FBEF1A50BD9DD9F7676846CF /* FlyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 65AA8121B7929608C35FDCE3C0627F20 /* FlyNode.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8BDC645A8F5918346D2A8DA1760C3A12 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A796155BF745648638ACE782718C164 /* AFImageDownloader.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8C0DCCC5915A4AA7E041EB4BAC7FFEA4 /* FlyForthController.h in Headers */ = {isa = PBXBuildFile; fileRef = A362CBE5AC301FC4099F1BC03F697DA8 /* FlyForthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8C2BCB5F59C1DE82D240083DEAA5CE84 /* FlySeventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9101CBB4EBF0CF2AC5C5A330D1D492 /* FlySeventhController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8D5AB075BC93F3D732E76B622B65CE31 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FCB638A229BC4D2680A3D1DE588AA92 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8D77F7817A8AB73258BDE6BDB0536F93 /* SalImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D85C01BE18050EBD5AF31016BBFC0904 /* SalImageInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9129BB02E0094B5CB8943263EFF9BD75 /* RSSwizzle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C40D7D9DF2C925350BB9281872A3D86F /* RSSwizzle-dummy.m */; };
+		91BFA3F738D6CEB8CCC3C6C77E32D46A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53351514D29F01186E2FC3E506A8CA53 /* 2.jpg */; };
+		939565F67C75F1193E96B2E3B5FB1DB1 /* FlyThirteenController.h in Headers */ = {isa = PBXBuildFile; fileRef = 74EAD14528BDBE90DD60253FBF3C5F24 /* FlyThirteenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		941FA59066C026B8AE1C319001603AA6 /* AFCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF098BD66453A8A37E97A362661C279 /* AFCompatibilityMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		95504B9865F6969BA551C5DB39B4C4E7 /* FlyDrawManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F46F0D81A0AD7C5069F92DEA2CEEE63 /* FlyDrawManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9557FED9898844D3AC284EBF13F514C6 /* PLCrashAsyncSignalInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 305A111EEB0616E14AD9F9A15E940BF0 /* PLCrashAsyncSignalInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		970FA5394623430EFE6128A9510D695C /* FLYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905FF96B644783F50E84CCD3993D50DE /* FLYNavigationController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97CE4E4B46BC9FF5AA69CA5208C2050C /* PLCrashReportTextFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = C27DEFBFB7671295D3D020167666ADE3 /* PLCrashReportTextFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9908B15B39D56AA98B9162A425A6A921 /* FlyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61F7AFC75B5ACE501A2A553392E523 /* FlyBaseController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		99F943F693D5CFF372ED369038200599 /* FlyFirstController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B56E4C038576C589C0A6EBAC8776AC /* FlyFirstController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9A0E162F3CADA444941A60F93E86CA96 /* FlySixteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF573F2350215BC5910951D0754BF2 /* FlySixteenController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9A7175E379E95F3C019B545944399AB5 /* FlyBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = E665356425975D2B8FE8F759946B7D8B /* FlyBaseView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9BA613662B823FE74F595A53CE05DAC6 /* PLCrashReportMachineInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 51D98CE5B1B7A860B8BC258D75C65618 /* PLCrashReportMachineInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9BE9D4C470553041DC31D3804DC884A7 /* FlyTwelfthController.h in Headers */ = {isa = PBXBuildFile; fileRef = FAF5BF2C4649837822E761EFF63A3535 /* FlyTwelfthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9CCA75028DBEE2B05F78E1AF853B5F20 /* FlyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 646493F1FAE19C2A286289778B395F5C /* FlyNode.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9D364EC1B38E51ACE617F152245E9A25 /* FlySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 218874B9CD536AEE3D30C6591A600378 /* FlySort.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A0BAA9DD9598B1031BE8E84516340DF9 /* Fly18Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 47217D54CEA9B44BDBFD7B7F82C6CE1A /* Fly18Controller.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A461FBBD6946D519ECB0F3722AF2E1BD /* FlyTestCollection-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26876DAE8E92D699649FF1285A2FE641 /* FlyTestCollection-dummy.m */; };
+		A4745307C39C9CBD6404591B504350A0 /* FlyTwelfthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82733C36327F31C6B6AC398354F4B6EF /* FlyTwelfthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A592DC9E31A4F433D368918A64BE76EA /* FlyDictionaryOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA671BF69528DA274E51B33B16D531 /* FlyDictionaryOrder.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A762DD5CFDF01E0C9FBBBFEA26DF67CD /* UIGestureRecognizer+FLYTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = CB500B08D24619861D6525CE682E9F2E /* UIGestureRecognizer+FLYTouch.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A7EB38A8BA7E1467459C48AC6BB5C014 /* FlyForthController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8AB1063DE690E554FDE804A3A9C276 /* FlyForthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AA13BC6C9DC814D647526661BF7544A3 /* FlySeventeenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747324F5F89B3DCB874EA1C217965FFC /* FlySeventeenController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AB0B05ABC053548EB6AF944DA21B671D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 817741A2EE073570E14B44077C00EF00 /* AFNetworkReachabilityManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AB0DBB06EBD36910FAE7CB5FC85601B6 /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 893E10BAE37642EBD20FF247A34D9234 /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AB665E2CEBACE6D5D19EF1E4D74FA543 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E06CAA954F60AA0336902BF297F173A0 /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AB8BC9728240BEA738579B8F5E2505D7 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4B44701698D0738FF56AF515CC90C8 /* UIActivityIndicatorView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AC559CF59DB3F7B797E3860FA4F989CB /* FlySeventhController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B163FC69A7F2E16A563BFC208A6B86D /* FlySeventhController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B03B1E89024B3BB1C02D1C8026FC4E2B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21FCBC89A355B9C85C4718D375B962FE /* 3.jpg */; };
+		B1FAB69E8ACE37127CEB0BD342EFA07E /* FlySixthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D0BFEBDCA891D267EAA848B4F11A45 /* FlySixthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B2F3465BBDEC683749215DAE438F5215 /* SalScreenShotTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2028AB2D082E2AB1448656EDAB11FA /* SalScreenShotTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B3E0B9BD51966CAA6706AE455AF3E52D /* FlySixthController.h in Headers */ = {isa = PBXBuildFile; fileRef = E7B7BE686CD10D1B7CF7ADB224562F41 /* FlySixthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B4E7C79EEF47BA99E1DAF84F9533F357 /* FlyDictionaryOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D8B0E9FB0FFCCBFB356827978C2840 /* FlyDictionaryOrder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B610D799C3427030954BF3D00397505B /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE9C240D3C5FDFC62C5B26E28D6DBE /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B78D28E6963606840AD99A3E97ED1117 /* 从加载window到rootvc声明周期.md in Sources */ = {isa = PBXBuildFile; fileRef = 80C5903C8BFF3AF124127DDA69ED99C2 /* 从加载window到rootvc声明周期.md */; };
+		BB3717E8A5F352CC04FC7F9F00C72CEA /* NSObject+FlyKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A538228DA51F68EB2E76E99FBEAF317F /* NSObject+FlyKVC.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BC24B49440AFC5E80CF934EDB3318D84 /* Fly20Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B7B52571EB378DF8A088CAD7337AAA /* Fly20Controller.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C01F2FB0A7DF020D95630B3AF1F5B673 /* SalDrawTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 57542C6A33886C8251CB675F116D3074 /* SalDrawTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C0C53295B4F18B5E934F6A18152618E5 /* FlyFifthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E341999E5F9B705AFF0606E6C911F27 /* FlyFifthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C1C50F5C769F083F08A65F42A809B3C5 /* ye.png in Resources */ = {isa = PBXBuildFile; fileRef = C01CE5D352CE4594C278C77C30387EE5 /* ye.png */; };
+		C1D9F7BF01AE629996B63FABAB1230DE /* FlyEleventhController.m in Sources */ = {isa = PBXBuildFile; fileRef = E702A7416DEBF92A63E240211EFE6F2D /* FlyEleventhController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C3B78E3D74A8F0EF07BF221ACAE40F84 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23731553E8B2D35B154095B8DE883637 /* AFSecurityPolicy.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C4F220061A1AA276466F6AB4E2A024DF /* FlyBaseTool-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEFD8BCED6C91B6EF1B33E475B7AC0 /* FlyBaseTool-dummy.m */; };
+		C66CBAD2204C0EBC29F2E3F2BCE34AB4 /* PLCrashReportBinaryImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2BA2EAFC61DF002B0C7B32AA9D2478 /* PLCrashReportBinaryImageInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C7C0453C6D9A7E2F53B7109D1ADF1EF4 /* PLCrashReportRegisterInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C5A644B9EF6A1ABFEF9D0001223F351F /* PLCrashReportRegisterInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C8EF6744FB1A54C9FB828B35184EC4FF /* FlySeventeenController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B94CD592CC1C4F319554E8872D5C68C /* FlySeventeenController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CC11F6179BB75DEA8C4E1C4EE302176B /* CrashReporter in Sources */ = {isa = PBXBuildFile; fileRef = 5710C299EE9C48000A6139127763B6B9 /* CrashReporter */; };
+		CC93720C79218D341CCBD644C499AB73 /* NSObject+FlyKVC.h in Headers */ = {isa = PBXBuildFile; fileRef = C294853BEA17605E86A37E409C5E63A4 /* NSObject+FlyKVC.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CD5EE6ED19DDD6B27E4438AD4B96C71E /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = E48BAFD89A97EEB869B2B74DDE38AF80 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CF092267652C9EC3CB7A7F3F605F0016 /* PLCrashReportSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D685A52A002CBB3CDC8EF9E82846D3 /* PLCrashReportSystemInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D0171A08794BB3DA1182E5273C5AED09 /* PLCrashReportSymbolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 30AE6FFFD053DB9B9CA398C7E0DD6B72 /* PLCrashReportSymbolInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D1CFFFE5ED6656BEE514F21389CEE997 /* FLYNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 499B61A6B106595EACF64F252C50AF27 /* FLYNavigationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D1EA358F1100E8A0316F1A054035C380 /* PLCrashReportThreadInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1268B9A0E7EE49ABECC98558CC38D9D4 /* PLCrashReportThreadInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D3B8A3E487D4986375B17E4B711ACF53 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 320D1C828F152E117A871C649394E3A9 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D4BE26D415D2D5BF49A1CBB062A3FE06 /* FlyFifthController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0972B26AC22C3D89925EB6EB90EEEE /* FlyFifthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D6075B9382AC3E4FD0AEE5D937EFE216 /* PLCrashReportProcessorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5056C50F847F8B9456B17D952551D186 /* PLCrashReportProcessorInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D75EDD50F4BC328F765F9CBD363122B9 /* FlyRuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA0F94BAF359147074220AA01CB781 /* FlyRuntimeTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D85E13EC2DA7F3189D8630870A5D976C /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CA771E1F357C703CADCCE83ED8004D /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D8E67D3AA00B86BE41B923D73CC16B6A /* FlyImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D8EE7EDD2CD97B4DEECBFE749F63D1 /* FlyImageDecode.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D95D56B6A18B80076024678AB9AD280C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40C33EA8076D46078E2686D20B17F0DA /* 1.jpg */; };
+		D9C0900CF64E9F02C4B3135D3F204BE9 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E0028D539B8278D655EA5DEE15F5FA /* UIProgressView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DBCCB843F14807E86FE0C2064057F632 /* PLCrashFeatureConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D33FF846F5376859ACCDB10DDC74958C /* PLCrashFeatureConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E013A755DE8355A2653FE7363705CAFC /* FlyRunloopTool.h in Headers */ = {isa = PBXBuildFile; fileRef = DF07161C0149DCD5B224AC0C59EA0B68 /* FlyRunloopTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E05D25772B0ABF788B908B034C68B905 /* FlyLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 909B88B065D8092DF1CB739DC6A59785 /* FlyLifeViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E0A1FF098901475FE87DE4A68A58E249 /* FlyRunloopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 54218704393A28829589C592ECDC0C7B /* FlyRunloopTool.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E0D9661A33C10A362CD2FA0374025655 /* FlyvImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4221125C8A8C90A483E80A91A643C9 /* FlyvImage.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E2358E0DFBE56D5337E0D24787CC4629 /* Dog+Custom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2235184CC102E7FCD023FA83859390 /* Dog+Custom.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E264F07E2E76B954210C7B6C3FD4F15A /* FLYWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 95965208394380DE70BBFB9460E7411A /* FLYWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E3B9C0B78AAE4F7807FEFB75FB4955F3 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D89CFE992CA57691DD8F3A33139BD5D /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E67888EAD9EE8BE91ED47958C9CB71D7 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D14E72189D6B4DEAC25DCB99E8B3035 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E8E02D3BDBCE6B56AEC673881DF6E28E /* FlyTenthController.h in Headers */ = {isa = PBXBuildFile; fileRef = CF5AE89AE815BD6D86AE6F1AB1AFB28D /* FlyTenthController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E9E170BE82961F92950760817415834B /* FlyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A83D96F2B9E5CCF7C1649347453064D /* FlyBaseController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EBCB2BE2C186AF707C2BE96AB1906D2C /* SalImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEDCB6B9BF450852AE88F22FF3B74DD /* SalImageInfo.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EC2CE8B5F037D2BDA3940FF23E3DC2B6 /* FlyTenthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A962D6E4F318417F056B66CD088555 /* FlyTenthController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F10C8933A9E01835229C2BE3DB33FCFF /* SalScreenShotTool.h in Headers */ = {isa = PBXBuildFile; fileRef = B26C9CA9B99A7175BD1DE15CFDE0E8C6 /* SalScreenShotTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F3A4E68AA82AEE2F1D33EE45406C1F8A /* a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7E66595A3FB7D10560437A1EE6A8F37F /* a.jpg */; };
+		F3DDEB3678CFD8AC3A3EEDB13BD03937 /* FlyButton.h in Headers */ = {isa = PBXBuildFile; fileRef = FDF1081B956DC25711020AADBA6E3C02 /* FlyButton.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4342FD1C891154C1251D2CF9C9CEB1D /* FlyThirteenController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B591F2E4A81409A816B7CE13A5FE9 /* FlyThirteenController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F5AB2C8AB21989F82AE542617552BF84 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD1A5F75DE97098244BDE2565152D20 /* AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F7ABC7EEDD0F5F474E57E66069C8FF45 /* FlyRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E288B0AFE4642BADD6D25601ED456214 /* FlyRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC5EF1516EF440E2503D26C312EDED47 /* FlyCIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FB4F48D1991782B093B118E90247DE /* FlyCIImage.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FCA2DC3A2BC15BED6431FBED750CC7A2 /* PLCrashMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 34AA4BD19961DFC51FDA07132E74647A /* PLCrashMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FE3AD7E5D7A4A90B820F3CBE3FA43545 /* PLCrashReportExceptionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F05303526A16A40EE30E20179EA1B09 /* PLCrashReportExceptionInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BF640D814214D9927BA7E2D1D5EC235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D8380E6EEBCE39C17D7992C2131202F;
+			remoteInfo = RSSwizzle;
+		};
+		2622835043779ECC658365B8F40AAEAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81EB7FA3DA9959AB538EC1A69BCA6C37;
+			remoteInfo = "FlyTestCollection-FlyTestCollection";
+		};
+		31FB35084B81C0AEDE7CD4F1BAF78805 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEF74AF76AFDDE14F35E445D4271AA41;
+			remoteInfo = FlyBaseTool;
+		};
+		8DAAF4E4A49AB375E19767D0D2089D1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E75B66F84342E5760CF08244DFC4F2BD;
+			remoteInfo = "FlyBaseTool-Base";
+		};
+		CD9E829A060894A5746A39CFEBE14A6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEF74AF76AFDDE14F35E445D4271AA41;
+			remoteInfo = FlyBaseTool;
+		};
+		D49498DFF684C40CA614A42C62961199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C487844DEAFBACE11097CC87280A5D5;
+			remoteInfo = FlyTestCollection;
+		};
+		D683B0A60B6646694B95C00B0B29C8F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0130B3724283586C0E9D2A112D4F2AA1;
+			remoteInfo = AFNetworking;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00013F536D2851EFB737418F6A571A95 /* PLCrashReporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReporter.h; sourceTree = "<group>"; };
+		0157D0867FFD1E8018E842FA55574982 /* Pods-FlyiOSWorkProject-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlyiOSWorkProject-resources.sh"; sourceTree = "<group>"; };
+		01D0BFEBDCA891D267EAA848B4F11A45 /* FlySixthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySixthController.m; sourceTree = "<group>"; };
+		031FF880357B9E305C38B557384958AE /* FLYCustomUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLYCustomUtil.h; sourceTree = "<group>"; };
+		03424B70C865EA8A71E4F47AAD221DC4 /* FlyEleventhController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyEleventhController.h; sourceTree = "<group>"; };
+		03E3DABBA35096672DD7371638C241FE /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		0527CF1BE2A3C384E1ADA96E998924EC /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		06029417AB218ED9ADC577D3DA86DC2A /* FlyFifteenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyFifteenController.m; sourceTree = "<group>"; };
+		06120E9BE646C793AA8B2AF1860CA9D6 /* Pods-FlyiOSWorkProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlyiOSWorkProject.release.xcconfig"; sourceTree = "<group>"; };
+		078DD32EF58673B0EC4EDEE5BEF85D42 /* FLYGCD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLYGCD.m; sourceTree = "<group>"; };
+		0A796155BF745648638ACE782718C164 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
+		0B6E09A63B08CD5891C79677EF5C601E /* SalDrawTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SalDrawTool.m; sourceTree = "<group>"; };
+		0C360E70A0620E58A80DA24DC1D72693 /* Person.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		0C9A5BB00C034E29FC421D79332CE0D8 /* FlySort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySort.h; sourceTree = "<group>"; };
+		0F37B3D6301EC576D2549F09817D6004 /* FlyContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyContext.m; sourceTree = "<group>"; };
+		0FA15A8982F919E2A8E0F5B2864DE483 /* FlyFifteenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyFifteenController.h; sourceTree = "<group>"; };
+		104BC6955343B6303EB8701D63471EF4 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
+		11EC3C97F08405198426029849049923 /* PLCrashReporterConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReporterConfig.h; sourceTree = "<group>"; };
+		1266C077A2931AE04309C05716E557FC /* SalConverVideoTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SalConverVideoTool.m; sourceTree = "<group>"; };
+		1268B9A0E7EE49ABECC98558CC38D9D4 /* PLCrashReportThreadInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportThreadInfo.h; sourceTree = "<group>"; };
+		12A62379087FEC68FA3B99D04DA88C54 /* Person+Custom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Person+Custom.m"; sourceTree = "<group>"; };
+		1362B3B45CDFC1BEA0FCAA5CE7D7CF4A /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		1678E681EE0A800C66B327514DF7BE79 /* FlyRuntimeTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyRuntimeTool.h; sourceTree = "<group>"; };
+		1D95A0F9D9FE0FAC6A9E44558527A973 /* RSSwizzle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSSwizzle-prefix.pch"; sourceTree = "<group>"; };
+		1DEDCB5082ED2F618037765A49103AA6 /* UIView+FLYTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+FLYTouch.h"; sourceTree = "<group>"; };
+		1DEDCB6B9BF450852AE88F22FF3B74DD /* SalImageInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SalImageInfo.m; sourceTree = "<group>"; };
+		1E87D851D3ACCBBC33E492783A5FE5D5 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		21565D2D68DAACFE103BEE0CCE8A4F4F /* RSSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSSwizzle.h; path = RSSwizzle/RSSwizzle.h; sourceTree = "<group>"; };
+		218874B9CD536AEE3D30C6591A600378 /* FlySort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySort.m; sourceTree = "<group>"; };
+		21FCBC89A355B9C85C4718D375B962FE /* 3.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = 3.jpg; sourceTree = "<group>"; };
+		23731553E8B2D35B154095B8DE883637 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		238CDCD94C45B44F603B682FFCBF9A1B /* PLCrashReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReport.h; sourceTree = "<group>"; };
+		23A962D6E4F318417F056B66CD088555 /* FlyTenthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyTenthController.m; sourceTree = "<group>"; };
+		26142DEAC505F8B85A64F7B0E1897127 /* FlySecondController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySecondController.h; sourceTree = "<group>"; };
+		26876DAE8E92D699649FF1285A2FE641 /* FlyTestCollection-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlyTestCollection-dummy.m"; sourceTree = "<group>"; };
+		2AF098BD66453A8A37E97A362661C279 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCompatibilityMacros.h; path = AFNetworking/AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		2B94CD592CC1C4F319554E8872D5C68C /* FlySeventeenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySeventeenController.h; sourceTree = "<group>"; };
+		2EFD19BCB0662DFC0E82D770841A4F82 /* Dog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
+		305A111EEB0616E14AD9F9A15E940BF0 /* PLCrashAsyncSignalInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashAsyncSignalInfo.h; sourceTree = "<group>"; };
+		30AE6FFFD053DB9B9CA398C7E0DD6B72 /* PLCrashReportSymbolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSymbolInfo.h; sourceTree = "<group>"; };
+		30B3E19CFB6C9628433DD73AEA25E97C /* WKWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+AFNetworking.h"; path = "UIKit+AFNetworking/WKWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		31D8EE7EDD2CD97B4DEECBFE749F63D1 /* FlyImageDecode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyImageDecode.m; sourceTree = "<group>"; };
+		320D1C828F152E117A871C649394E3A9 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		348F94B0B12E9FB3BCE450246D545232 /* FlyvImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyvImage.h; sourceTree = "<group>"; };
+		34AA4BD19961DFC51FDA07132E74647A /* PLCrashMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashMacros.h; sourceTree = "<group>"; };
+		37601854A97FADD030EEFA137AA207E1 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		38FB4F48D1991782B093B118E90247DE /* FlyCIImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyCIImage.m; sourceTree = "<group>"; };
+		3ABEFD8BCED6C91B6EF1B33E475B7AC0 /* FlyBaseTool-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlyBaseTool-dummy.m"; sourceTree = "<group>"; };
+		3B20497F287CF62D5B4FEA6403881642 /* FlyPerformanceMonitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyPerformanceMonitor.m; sourceTree = "<group>"; };
+		3C1BD0A83BBB93B2B0FDA0447339F0C1 /* FLYWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLYWindow.m; sourceTree = "<group>"; };
+		3C2BA2EAFC61DF002B0C7B32AA9D2478 /* PLCrashReportBinaryImageInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportBinaryImageInfo.h; sourceTree = "<group>"; };
+		3F2235184CC102E7FCD023FA83859390 /* Dog+Custom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Dog+Custom.h"; sourceTree = "<group>"; };
+		40C33EA8076D46078E2686D20B17F0DA /* 1.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.jpg; sourceTree = "<group>"; };
+		42A32412485D65E89349F2EE234A5306 /* FlyTestCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlyTestCollection.release.xcconfig; sourceTree = "<group>"; };
+		42ED2EFF82331C612728092621BB85DE /* NSObject+FlyKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FlyKVO.m"; sourceTree = "<group>"; };
+		440109BC6B92EBE638CA8F609C913677 /* FlyBaseToolPrefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlyBaseToolPrefix.pch; path = FlyBaseTool/Classes/FlyBaseToolPrefix.pch; sourceTree = "<group>"; };
+		45F25F8FE61D4D20C9D1F66343D7AA21 /* PLCrashReportProcessInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessInfo.h; sourceTree = "<group>"; };
+		468BFAF0F0BD8625DD299599E10688B5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		47217D54CEA9B44BDBFD7B7F82C6CE1A /* Fly18Controller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Fly18Controller.m; sourceTree = "<group>"; };
+		48F758233246B3D12C865145335975CD /* SALSteam.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SALSteam.h; sourceTree = "<group>"; };
+		499B61A6B106595EACF64F252C50AF27 /* FLYNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLYNavigationController.h; sourceTree = "<group>"; };
+		49AA26D5C9C64B8A7B42BE16AFFCB6E3 /* FlyTestCollection-FlyTestCollection */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FlyTestCollection-FlyTestCollection"; path = FlyTestCollection.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B248FD685D878F0422C4D71EF60BBF /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = FlyTestCollection/Assets/Assets.xcassets; sourceTree = "<group>"; };
+		49CA771E1F357C703CADCCE83ED8004D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		4B163FC69A7F2E16A563BFC208A6B86D /* FlySeventhController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySeventhController.h; sourceTree = "<group>"; };
+		4BE7ABD6F30C27265FE267D45FDD3D6D /* FLYCustomUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLYCustomUtil.m; sourceTree = "<group>"; };
+		4C0CFB97E6F80E5590D2F6C250FC176B /* FlyContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyContext.h; sourceTree = "<group>"; };
+		4EB96BA3453BF9199770A70A50C05112 /* RSSwizzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSSwizzle.debug.xcconfig; sourceTree = "<group>"; };
+		4FCB638A229BC4D2680A3D1DE588AA92 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		5056C50F847F8B9456B17D952551D186 /* PLCrashReportProcessorInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessorInfo.h; sourceTree = "<group>"; };
+		5102B08284A58C9694823B8EF0624759 /* FlyNinthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyNinthController.m; sourceTree = "<group>"; };
+		515D33937A9A20CB3BB235AC9A0C4A1F /* PLCrashNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashNamespace.h; sourceTree = "<group>"; };
+		51AB1677C7E9B24B60686670F50AAD88 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		51D98CE5B1B7A860B8BC258D75C65618 /* PLCrashReportMachineInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportMachineInfo.h; sourceTree = "<group>"; };
+		522CDC7AD6B40B1C0E07C3B1F63027F0 /* FlyEighthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyEighthController.m; sourceTree = "<group>"; };
+		524E8006223467037A911CB17FDCF537 /* CrashReporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CrashReporter.h; sourceTree = "<group>"; };
+		53351514D29F01186E2FC3E506A8CA53 /* 2.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.jpg; sourceTree = "<group>"; };
+		54218704393A28829589C592ECDC0C7B /* FlyRunloopTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyRunloopTool.m; sourceTree = "<group>"; };
+		557D6593D38495C6B750D7307BEDCE84 /* FlyRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyRenderer.m; sourceTree = "<group>"; };
+		5686AFADDD6351948E538D296F61D447 /* FlyEighthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyEighthController.h; sourceTree = "<group>"; };
+		5710C299EE9C48000A6139127763B6B9 /* CrashReporter */ = {isa = PBXFileReference; includeInIndex = 1; name = CrashReporter; path = Versions/A/CrashReporter; sourceTree = "<group>"; };
+		57542C6A33886C8251CB675F116D3074 /* SalDrawTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SalDrawTool.h; sourceTree = "<group>"; };
+		5773D44C1E625C95A34048C8A28E66D1 /* FlyTestCollection.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlyTestCollection.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		584E4ABC0A6D50557888532E52C48E5B /* PLCrashReportMachExceptionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportMachExceptionInfo.h; sourceTree = "<group>"; };
+		58666E59480BD294525E8E5F85BF58E3 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
+		5971DAF250C9416D601912428CC325A0 /* FlyBaseTool.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlyBaseTool.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5A562D28C3567EA0F87E083C04BCCD16 /* SalConverVideoTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SalConverVideoTool.h; sourceTree = "<group>"; };
+		5BD7619DEA3236F8BF40BEE59198E508 /* FLYGCD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLYGCD.h; sourceTree = "<group>"; };
+		5C7952DF709D18A86C0E12502CA94257 /* b.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = b.jpg; sourceTree = "<group>"; };
+		5D9101CBB4EBF0CF2AC5C5A330D1D492 /* FlySeventhController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySeventhController.m; sourceTree = "<group>"; };
+		5F05303526A16A40EE30E20179EA1B09 /* PLCrashReportExceptionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportExceptionInfo.h; sourceTree = "<group>"; };
+		5FC0F8CFB8891228059919A7273AE29A /* Fly20Controller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Fly20Controller.h; sourceTree = "<group>"; };
+		621FC5C19ACC398D38EFC2F7870F51B1 /* FlyImageIO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyImageIO.m; sourceTree = "<group>"; };
+		646493F1FAE19C2A286289778B395F5C /* FlyNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyNode.m; sourceTree = "<group>"; };
+		6483DFE6BEE737B71B8C0E7DDF95C5BF /* Dog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		659574440C85CA53E36A00D99C6A5265 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		65AA8121B7929608C35FDCE3C0627F20 /* FlyNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyNode.h; sourceTree = "<group>"; };
+		660BC9CB02588F89E647B5A353354F63 /* FlyTestCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlyTestCollection.debug.xcconfig; sourceTree = "<group>"; };
+		6647432F662C00615311A6CAD856F7AF /* UIGestureRecognizer+FLYTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+FLYTouch.h"; sourceTree = "<group>"; };
+		66E63417AA5C58A9A0E9B0DE9173FAAE /* FlyImageIO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyImageIO.h; sourceTree = "<group>"; };
+		6A5F7E0FD0FA4E199B5E2464211E9FA6 /* FlySixteenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySixteenController.h; sourceTree = "<group>"; };
+		6F46F0D81A0AD7C5069F92DEA2CEEE63 /* FlyDrawManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyDrawManager.h; sourceTree = "<group>"; };
+		6FA95986B180E1F813F89A86F8DF3BD6 /* RSSwizzle */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RSSwizzle; path = libRSSwizzle.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FD1A5F75DE97098244BDE2565152D20 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		6FDA671BF69528DA274E51B33B16D531 /* FlyDictionaryOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyDictionaryOrder.m; sourceTree = "<group>"; };
+		747324F5F89B3DCB874EA1C217965FFC /* FlySeventeenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySeventeenController.m; sourceTree = "<group>"; };
+		74741CF914DE40BD0C5CA56FB60BA553 /* SALSteam.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SALSteam.m; sourceTree = "<group>"; };
+		74D5234F855DC93D2BFE66E7EDE318B6 /* Fly18Controller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Fly18Controller.h; sourceTree = "<group>"; };
+		74EAD14528BDBE90DD60253FBF3C5F24 /* FlyThirteenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyThirteenController.h; sourceTree = "<group>"; };
+		794FEDF5DD771FE81D9638825A1D9BE4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7A83D96F2B9E5CCF7C1649347453064D /* FlyBaseController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyBaseController.h; sourceTree = "<group>"; };
+		7A9905C51FA65F12F98E7635AC81BF70 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
+		7C4B44701698D0738FF56AF515CC90C8 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		7CB79758DB297CB3D3BD26E4AEA3B0E7 /* RSSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSSwizzle.m; path = RSSwizzle/RSSwizzle.m; sourceTree = "<group>"; };
+		7DC48F8E63DBC9AC5060BE4E605E5A67 /* RSSwizzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSSwizzle.release.xcconfig; sourceTree = "<group>"; };
+		7E341999E5F9B705AFF0606E6C911F27 /* FlyFifthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyFifthController.h; sourceTree = "<group>"; };
+		7E66595A3FB7D10560437A1EE6A8F37F /* a.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = a.jpg; sourceTree = "<group>"; };
+		80C5903C8BFF3AF124127DDA69ED99C2 /* 从加载window到rootvc声明周期.md */ = {isa = PBXFileReference; includeInIndex = 1; path = "从加载window到rootvc声明周期.md"; sourceTree = "<group>"; };
+		80FA8C7546A958F8C50B0BACE5E3A0FB /* Pods-FlyiOSWorkProject */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-FlyiOSWorkProject"; path = "libPods-FlyiOSWorkProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		817741A2EE073570E14B44077C00EF00 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		82733C36327F31C6B6AC398354F4B6EF /* FlyTwelfthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyTwelfthController.m; sourceTree = "<group>"; };
+		835E5F6C3AE0D6CCF890F84F12B955C7 /* Dog+Custom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Dog+Custom.m"; sourceTree = "<group>"; };
+		8549585EB2BFC8C673C088D58E2C8910 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
+		88BA6EFA069FE500EEABF803E6B9A2FA /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		893E10BAE37642EBD20FF247A34D9234 /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
+		89E9CAAF8F2112864D4B5BE41F0327A7 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		8A7DF67A2AACC492A281EC3B2DBE3CF7 /* CrashReporter */ = {isa = PBXFileReference; includeInIndex = 1; path = CrashReporter; sourceTree = "<group>"; };
+		8C9BA1F7A220CA85AB7AB4F8081847CE /* FLYViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLYViewController.h; sourceTree = "<group>"; };
+		8CAA0F94BAF359147074220AA01CB781 /* FlyRuntimeTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyRuntimeTool.m; sourceTree = "<group>"; };
+		8D14E72189D6B4DEAC25DCB99E8B3035 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		8D89CFE992CA57691DD8F3A33139BD5D /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		905FF96B644783F50E84CCD3993D50DE /* FLYNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLYNavigationController.m; sourceTree = "<group>"; };
+		909B88B065D8092DF1CB739DC6A59785 /* FlyLifeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyLifeViewController.m; sourceTree = "<group>"; };
+		91054E45B1DF05F7CCCFA7C7ED5C1B42 /* WKWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WKWebView+AFNetworking.m"; path = "UIKit+AFNetworking/WKWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		918C126A5687D5A66153BF8E3802B408 /* PLCrashReportSignalInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSignalInfo.h; sourceTree = "<group>"; };
+		950BF2944472B7D0E62E76A1476730EF /* AFNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.release.xcconfig; sourceTree = "<group>"; };
+		957AC78A280E9BAEB76EA6C08F210D80 /* Fly19Controller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Fly19Controller.m; sourceTree = "<group>"; };
+		95965208394380DE70BBFB9460E7411A /* FLYWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLYWindow.h; sourceTree = "<group>"; };
+		97907C2A767CB357ED987751F20905D0 /* FlyBaseTool-Base */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FlyBaseTool-Base"; path = Base.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		99CB303A6F5347BFAB107CB739ECFF68 /* FlyNinthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyNinthController.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FA2907FEC5EC060BE6CCE624D793D0B /* ResourceBundle-Base-FlyBaseTool-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Base-FlyBaseTool-Info.plist"; sourceTree = "<group>"; };
+		A0B86BCD85C8B025C7054113B1686936 /* AFNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.debug.xcconfig; sourceTree = "<group>"; };
+		A362CBE5AC301FC4099F1BC03F697DA8 /* FlyForthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyForthController.h; sourceTree = "<group>"; };
+		A37C3C4022A76C92C0A72D878B956412 /* FlyFirstController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyFirstController.h; sourceTree = "<group>"; };
+		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = AFNetworking; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A538228DA51F68EB2E76E99FBEAF317F /* NSObject+FlyKVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FlyKVC.m"; sourceTree = "<group>"; };
+		A6E14F239820854AB93DAA58D49FC143 /* FlyBaseTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlyBaseTool.release.xcconfig; sourceTree = "<group>"; };
+		A7F7F5D77EBEA5DD0DE553076669D4AE /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		A95358E94D89E8ABBD549EAAE6B94C8C /* Pods-FlyiOSWorkProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlyiOSWorkProject.debug.xcconfig"; sourceTree = "<group>"; };
+		AB8AB1063DE690E554FDE804A3A9C276 /* FlyForthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyForthController.m; sourceTree = "<group>"; };
+		ABBF573F2350215BC5910951D0754BF2 /* FlySixteenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySixteenController.m; sourceTree = "<group>"; };
+		AC364F9003043CE2EF4758B82EFAFBF2 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		B19F18363DFC446172656596E5B475E4 /* FlyFourteenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyFourteenController.h; sourceTree = "<group>"; };
+		B26C9CA9B99A7175BD1DE15CFDE0E8C6 /* SalScreenShotTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SalScreenShotTool.h; sourceTree = "<group>"; };
+		B3052DE69C23DE416F5EDBFF50893C51 /* ResourceBundle-FlyTestCollection-FlyTestCollection-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FlyTestCollection-FlyTestCollection-Info.plist"; sourceTree = "<group>"; };
+		B80D690AADE81C8E656F9BAEBF87F0F3 /* FlyBaseTool */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FlyBaseTool; path = libFlyBaseTool.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EE9C240D3C5FDFC62C5B26E28D6DBE /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		B9B56E4C038576C589C0A6EBAC8776AC /* FlyFirstController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyFirstController.m; sourceTree = "<group>"; };
+		B9D20FEE28574EFB2DC0D3663A3FD722 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		BA24D4894681A7D0F6CFE4AEAC9E1674 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA8B7EFA843B1FF2A2B8369049C2EEBD /* FlyLifeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyLifeViewController.h; sourceTree = "<group>"; };
+		BB62B234677CECD47EB80BAA273BFD6F /* FlySecondController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlySecondController.m; sourceTree = "<group>"; };
+		BB75D93C6267637F747797E79D5B2EC2 /* FlyButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyButton.m; sourceTree = "<group>"; };
+		BB7B591F2E4A81409A816B7CE13A5FE9 /* FlyThirteenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyThirteenController.m; sourceTree = "<group>"; };
+		BD037337A822938D850ACFFAF8898914 /* FlyDrawManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyDrawManager.m; sourceTree = "<group>"; };
+		BD7545E07833741CEA3C304FC6EB8511 /* FlyThirdController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyThirdController.m; sourceTree = "<group>"; };
+		BE0379A8691EB92978FC528F75B0B87C /* Fly19Controller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Fly19Controller.h; sourceTree = "<group>"; };
+		C01CE5D352CE4594C278C77C30387EE5 /* ye.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ye.png; sourceTree = "<group>"; };
+		C27DEFBFB7671295D3D020167666ADE3 /* PLCrashReportTextFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportTextFormatter.h; sourceTree = "<group>"; };
+		C294853BEA17605E86A37E409C5E63A4 /* NSObject+FlyKVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVC.h"; sourceTree = "<group>"; };
+		C40D7D9DF2C925350BB9281872A3D86F /* RSSwizzle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSSwizzle-dummy.m"; sourceTree = "<group>"; };
+		C5A644B9EF6A1ABFEF9D0001223F351F /* PLCrashReportRegisterInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportRegisterInfo.h; sourceTree = "<group>"; };
+		C9304ADA8D84743FC8DD417DD79DB210 /* Pods-FlyiOSWorkProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlyiOSWorkProject-dummy.m"; sourceTree = "<group>"; };
+		CA62047D355F2EC3FD20CB9F6130F61A /* FlyBaseTool-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlyBaseTool-prefix.pch"; sourceTree = "<group>"; };
+		CB500B08D24619861D6525CE682E9F2E /* UIGestureRecognizer+FLYTouch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+FLYTouch.m"; sourceTree = "<group>"; };
+		CB81098E94E4951BA859DC454D076337 /* FlyImageDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyImageDecode.h; sourceTree = "<group>"; };
+		CC48DFE2CFE2D05AA4CEA7030648474B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		CCE9FCE941AFF25B82BB684D905A44A4 /* PLCrashReportStackFrameInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportStackFrameInfo.h; sourceTree = "<group>"; };
+		CF2028AB2D082E2AB1448656EDAB11FA /* SalScreenShotTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SalScreenShotTool.m; sourceTree = "<group>"; };
+		CF4221125C8A8C90A483E80A91A643C9 /* FlyvImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyvImage.m; sourceTree = "<group>"; };
+		CF5AE89AE815BD6D86AE6F1AB1AFB28D /* FlyTenthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyTenthController.h; sourceTree = "<group>"; };
+		D20C456C7E8DE3617CEBD80274F8B721 /* Pods-FlyiOSWorkProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlyiOSWorkProject-acknowledgements.plist"; sourceTree = "<group>"; };
+		D2237F5A5E08DDA08F9D9CBCF232CDD3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D30D0596AD051C2EA05E2016C60001E3 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		D33FF846F5376859ACCDB10DDC74958C /* PLCrashFeatureConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashFeatureConfig.h; sourceTree = "<group>"; };
+		D3D685A52A002CBB3CDC8EF9E82846D3 /* PLCrashReportSystemInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSystemInfo.h; sourceTree = "<group>"; };
+		D6D8B0E9FB0FFCCBFB356827978C2840 /* FlyDictionaryOrder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyDictionaryOrder.h; sourceTree = "<group>"; };
+		D85C01BE18050EBD5AF31016BBFC0904 /* SalImageInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SalImageInfo.h; sourceTree = "<group>"; };
+		DD7CCE18320407426B3A6EE4A465A80C /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		DF07161C0149DCD5B224AC0C59EA0B68 /* FlyRunloopTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyRunloopTool.h; sourceTree = "<group>"; };
+		DF07C4265A88D81312D33143E09CB278 /* FlyCIImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyCIImage.h; sourceTree = "<group>"; };
+		DF3CFBC9D6F1D31534F2B831D6C76CAA /* FlyPerformanceMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyPerformanceMonitor.h; sourceTree = "<group>"; };
+		DF6F58B6F41272C84E5FDA2C0B0A1C1A /* PLCrashReportFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportFormatter.h; sourceTree = "<group>"; };
+		DFA730E37794B872E2A11A86F11EA5C5 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		E06CAA954F60AA0336902BF297F173A0 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		E0B8A90A599DD7E0D0D210AE32070090 /* FlyTestCollection */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FlyTestCollection; path = libFlyTestCollection.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E0028D539B8278D655EA5DEE15F5FA /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		E288B0AFE4642BADD6D25601ED456214 /* FlyRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyRenderer.h; sourceTree = "<group>"; };
+		E48BAFD89A97EEB869B2B74DDE38AF80 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		E665356425975D2B8FE8F759946B7D8B /* FlyBaseView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyBaseView.h; sourceTree = "<group>"; };
+		E6F5C81E0B41DFFF8F81478238E63E09 /* Person+Custom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Person+Custom.h"; sourceTree = "<group>"; };
+		E702A7416DEBF92A63E240211EFE6F2D /* FlyEleventhController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyEleventhController.m; sourceTree = "<group>"; };
+		E73976192C6EA6D00C69D8A6E8F98262 /* PLCrashReportApplicationInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCrashReportApplicationInfo.h; sourceTree = "<group>"; };
+		E782F6F76BE1FEF7A7FD544A54C130B2 /* FlyFourteenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyFourteenController.m; sourceTree = "<group>"; };
+		E7B7BE686CD10D1B7CF7ADB224562F41 /* FlySixthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlySixthController.h; sourceTree = "<group>"; };
+		E8B7B52571EB378DF8A088CAD7337AAA /* Fly20Controller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Fly20Controller.m; sourceTree = "<group>"; };
+		EC9279EF56A6D14B93F4C2ABD584CF10 /* FlyTestCollectionPrefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlyTestCollectionPrefix.pch; path = FlyTestCollection/Classes/FlyTestCollectionPrefix.pch; sourceTree = "<group>"; };
+		EEC16B3FCAFF2BF203F1A13C458D93C3 /* FlyBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyBaseView.m; sourceTree = "<group>"; };
+		EF1B36C713AB642EE41C1E48632F4949 /* UIView+FLYTouch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLYTouch.m"; sourceTree = "<group>"; };
+		F09387CA59592879E78CB71145AC50AE /* NSObject+FlyKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+FlyKVO.h"; sourceTree = "<group>"; };
+		F0BC416E1AC3F24B7EA75E3DFBBD5066 /* 4.jpg */ = {isa = PBXFileReference; includeInIndex = 1; path = 4.jpg; sourceTree = "<group>"; };
+		F0D7C4E021A33815C08ED9E238A0CB97 /* FLYViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLYViewController.m; sourceTree = "<group>"; };
+		F1B01736EF804C910695F71B9F0D5B95 /* FlyThirdController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyThirdController.h; sourceTree = "<group>"; };
+		F2395A5811C045913FBCF6C35DDC01DF /* Pods-FlyiOSWorkProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlyiOSWorkProject-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F3E5CA33FD7E5FC71C2D3204681D14C6 /* FlyBaseTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlyBaseTool.debug.xcconfig; sourceTree = "<group>"; };
+		F4D4E9A437BC5040183611F80079B85F /* 5.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		F5E1B0DC844801A15DC56F0C33530CF7 /* Person.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		F5FA97934F8BEA998E67B3C43A88BB9A /* FlyTestCollection-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlyTestCollection-prefix.pch"; sourceTree = "<group>"; };
+		F8C3A850C23A63BA25EFC9177D1A1F0B /* FlyBaseDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlyBaseDefine.h; path = FlyBaseTool/Classes/FlyBaseDefine.h; sourceTree = "<group>"; };
+		FAF5BF2C4649837822E761EFF63A3535 /* FlyTwelfthController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyTwelfthController.h; sourceTree = "<group>"; };
+		FB0972B26AC22C3D89925EB6EB90EEEE /* FlyFifthController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyFifthController.m; sourceTree = "<group>"; };
+		FDF1081B956DC25711020AADBA6E3C02 /* FlyButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FlyButton.h; sourceTree = "<group>"; };
+		FF61F7AFC75B5ACE501A2A553392E523 /* FlyBaseController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FlyBaseController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		012094AA8F454559FFECB21448BD20D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4892D5843AD52931AA277A19B2360ACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8644124F2B930283F7F6859A7F0544EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA874339248A08E7DFE1936E362FBB3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39F59C65EF8C6E73DBFB8B6B9821774 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F807C3065370307F2D7E6578E1415D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E321B03B87F393AE85CE6555A412C009 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F33C42E0EBDEBF28122FE9713469F30 /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				6F46F0D81A0AD7C5069F92DEA2CEEE63 /* FlyDrawManager.h */,
+				BD037337A822938D850ACFFAF8898914 /* FlyDrawManager.m */,
+				D32D0E7471BA108DF3A61D73BD6D9760 /* Decode */,
+				66DF49C18F64E4A3CB35E4D01962C82C /* SAL */,
+			);
+			name = Draw;
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		10095D99ACC72D911B60970F73873B3D /* 18、动画 */ = {
+			isa = PBXGroup;
+			children = (
+				74D5234F855DC93D2BFE66E7EDE318B6 /* Fly18Controller.h */,
+				47217D54CEA9B44BDBFD7B7F82C6CE1A /* Fly18Controller.m */,
+			);
+			name = "18、动画";
+			path = "18、动画";
+			sourceTree = "<group>";
+		};
+		1764D6CBBC695FAB682C73549CF495EE /* 5、View控件 */ = {
+			isa = PBXGroup;
+			children = (
+				7E341999E5F9B705AFF0606E6C911F27 /* FlyFifthController.h */,
+				FB0972B26AC22C3D89925EB6EB90EEEE /* FlyFifthController.m */,
+			);
+			name = "5、View控件";
+			path = "5、View控件";
+			sourceTree = "<group>";
+		};
+		1948FDBBC16BAC54A308FF622A1B63D0 /* 6、黑科技 */ = {
+			isa = PBXGroup;
+			children = (
+				E7B7BE686CD10D1B7CF7ADB224562F41 /* FlySixthController.h */,
+				01D0BFEBDCA891D267EAA848B4F11A45 /* FlySixthController.m */,
+			);
+			name = "6、黑科技";
+			path = "6、黑科技";
+			sourceTree = "<group>";
+		};
+		1BFA01E240E4AF8009C2D3A62F2640D0 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				DFA730E37794B872E2A11A86F11EA5C5 /* AFNetworkReachabilityManager.h */,
+				817741A2EE073570E14B44077C00EF00 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		1C6B65FF62CC1C95C88FE2B4D56080EA /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				5A562D28C3567EA0F87E083C04BCCD16 /* SalConverVideoTool.h */,
+				1266C077A2931AE04309C05716E557FC /* SalConverVideoTool.m */,
+				B26C9CA9B99A7175BD1DE15CFDE0E8C6 /* SalScreenShotTool.h */,
+				CF2028AB2D082E2AB1448656EDAB11FA /* SalScreenShotTool.m */,
+			);
+			name = Video;
+			path = Video;
+			sourceTree = "<group>";
+		};
+		1E86AF9E19E6AE1093486817C114239C /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				478FE30C433749647AF572188A4F6704 /* 0、BaseVC */,
+				D191E9350E5E2AE4CB8485A24D980338 /* 10、重写KVO */,
+				C2E3C91BB6ADB86EF412DCD43A27829C /* 11、沙盒深入理解 */,
+				E282F565788F427118DD8E1D5C8D6ED7 /* 12、绘制 */,
+				E3EAC92FD8E543ECD3071C5DD9890500 /* 13、类簇 */,
+				F98DE94E0BE1926F6F117A23549934DC /* 14、Block */,
+				7F68C922243BC6CCB5CB70DD8F508F46 /* 15、消息转发 */,
+				8CDE71617A9058EB08E85885976EDCC8 /* 16、计时器 */,
+				98C0C17BFDD87A1CCBCB2B10D4F68386 /* 17、布局 */,
+				10095D99ACC72D911B60970F73873B3D /* 18、动画 */,
+				54B87A0814002D90857BDB51FC2A4444 /* 19、内存 */,
+				9BFC7E342414871CB60520F909868F75 /* 1、没想好 */,
+				AB99C86BBDC982612F5866386FBEA3AC /* 20、ViewController生命周期 */,
+				A06F8B270C8C23A1406D6E3FCE9FB0E4 /* 2、链表 */,
+				AA4C38BBDA13BF0B4B4B7E348EC7FE4C /* 3、排序算法 */,
+				C6EC037C870D21AA7FEC6F8088AF2374 /* 4、锁+多线程 */,
+				1764D6CBBC695FAB682C73549CF495EE /* 5、View控件 */,
+				1948FDBBC16BAC54A308FF622A1B63D0 /* 6、黑科技 */,
+				ECBBB85D1D867856AEA6482BB0359BD7 /* 7、通知 */,
+				45DAF61B25BF07C08234DC6B6E3A0243 /* 8、runtime */,
+				CD610B2D35926E60403AC50D155ED9B6 /* 9、runloop */,
+			);
+			name = Bussiness;
+			path = FlyTestCollection/Classes/Bussiness;
+			sourceTree = "<group>";
+		};
+		250AC097E671176A736582AC5C65400C /* Versions */ = {
+			isa = PBXGroup;
+			children = (
+				F3402967CC8255F4C0DC6EFB09F4F010 /* A */,
+			);
+			name = Versions;
+			path = Versions;
+			sourceTree = "<group>";
+		};
+		2871879A5BC519159929BEA0D5AAADE7 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				104BC6955343B6303EB8701D63471EF4 /* AFAutoPurgingImageCache.h */,
+				7A9905C51FA65F12F98E7635AC81BF70 /* AFAutoPurgingImageCache.m */,
+				893E10BAE37642EBD20FF247A34D9234 /* AFImageDownloader.h */,
+				0A796155BF745648638ACE782718C164 /* AFImageDownloader.m */,
+				320D1C828F152E117A871C649394E3A9 /* AFNetworkActivityIndicatorManager.h */,
+				B8EE9C240D3C5FDFC62C5B26E28D6DBE /* AFNetworkActivityIndicatorManager.m */,
+				1E87D851D3ACCBBC33E492783A5FE5D5 /* UIActivityIndicatorView+AFNetworking.h */,
+				7C4B44701698D0738FF56AF515CC90C8 /* UIActivityIndicatorView+AFNetworking.m */,
+				DD7CCE18320407426B3A6EE4A465A80C /* UIButton+AFNetworking.h */,
+				D30D0596AD051C2EA05E2016C60001E3 /* UIButton+AFNetworking.m */,
+				8D89CFE992CA57691DD8F3A33139BD5D /* UIImageView+AFNetworking.h */,
+				51AB1677C7E9B24B60686670F50AAD88 /* UIImageView+AFNetworking.m */,
+				37601854A97FADD030EEFA137AA207E1 /* UIKit+AFNetworking.h */,
+				8D14E72189D6B4DEAC25DCB99E8B3035 /* UIProgressView+AFNetworking.h */,
+				E1E0028D539B8278D655EA5DEE15F5FA /* UIProgressView+AFNetworking.m */,
+				A7F7F5D77EBEA5DD0DE553076669D4AE /* UIRefreshControl+AFNetworking.h */,
+				1362B3B45CDFC1BEA0FCAA5CE7D7CF4A /* UIRefreshControl+AFNetworking.m */,
+				30B3E19CFB6C9628433DD73AEA25E97C /* WKWebView+AFNetworking.h */,
+				91054E45B1DF05F7CCCFA7C7ED5C1B42 /* WKWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		2E406E019F33A0EA4AAA1C16760AFCF6 /* Pods-FlyiOSWorkProject */ = {
+			isa = PBXGroup;
+			children = (
+				F2395A5811C045913FBCF6C35DDC01DF /* Pods-FlyiOSWorkProject-acknowledgements.markdown */,
+				D20C456C7E8DE3617CEBD80274F8B721 /* Pods-FlyiOSWorkProject-acknowledgements.plist */,
+				C9304ADA8D84743FC8DD417DD79DB210 /* Pods-FlyiOSWorkProject-dummy.m */,
+				0157D0867FFD1E8018E842FA55574982 /* Pods-FlyiOSWorkProject-resources.sh */,
+				A95358E94D89E8ABBD549EAAE6B94C8C /* Pods-FlyiOSWorkProject.debug.xcconfig */,
+				06120E9BE646C793AA8B2AF1860CA9D6 /* Pods-FlyiOSWorkProject.release.xcconfig */,
+			);
+			name = "Pods-FlyiOSWorkProject";
+			path = "Target Support Files/Pods-FlyiOSWorkProject";
+			sourceTree = "<group>";
+		};
+		332894731FF6BB5E737D6349AB6A0261 /* FlyBaseTool */ = {
+			isa = PBXGroup;
+			children = (
+				F8C3A850C23A63BA25EFC9177D1A1F0B /* FlyBaseDefine.h */,
+				440109BC6B92EBE638CA8F609C913677 /* FlyBaseToolPrefix.pch */,
+				F40BDA0C388E444B7C6895801EDE2422 /* Base */,
+				53528F4467A9D65B43DAAFF402E3BB72 /* Framework */,
+				5EC7A9B4BE476BEB2D144607F1B772BC /* Pod */,
+				A633F69B627AE86E777F9D9306972B63 /* Support Files */,
+			);
+			name = FlyBaseTool;
+			path = ../../FlyBaseTool;
+			sourceTree = "<group>";
+		};
+		3EC196CC866E402B70D343798E1C2093 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E665356425975D2B8FE8F759946B7D8B /* FlyBaseView.h */,
+				EEC16B3FCAFF2BF203F1A13C458D93C3 /* FlyBaseView.m */,
+				FDF1081B956DC25711020AADBA6E3C02 /* FlyButton.h */,
+				BB75D93C6267637F747797E79D5B2EC2 /* FlyButton.m */,
+				499B61A6B106595EACF64F252C50AF27 /* FLYNavigationController.h */,
+				905FF96B644783F50E84CCD3993D50DE /* FLYNavigationController.m */,
+				8C9BA1F7A220CA85AB7AB4F8081847CE /* FLYViewController.h */,
+				F0D7C4E021A33815C08ED9E238A0CB97 /* FLYViewController.m */,
+				95965208394380DE70BBFB9460E7411A /* FLYWindow.h */,
+				3C1BD0A83BBB93B2B0FDA0447339F0C1 /* FLYWindow.m */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		409FF088698ACCB951C3979535DA25D7 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				332894731FF6BB5E737D6349AB6A0261 /* FlyBaseTool */,
+				5CB93DC8D2109298D78A00F354D19108 /* FlyTestCollection */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		431302FE90AD2C7619C09CDDFE02DB22 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				6483DFE6BEE737B71B8C0E7DDF95C5BF /* Dog.h */,
+				2EFD19BCB0662DFC0E82D770841A4F82 /* Dog.m */,
+				3F2235184CC102E7FCD023FA83859390 /* Dog+Custom.h */,
+				835E5F6C3AE0D6CCF890F84F12B955C7 /* Dog+Custom.m */,
+				1678E681EE0A800C66B327514DF7BE79 /* FlyRuntimeTool.h */,
+				8CAA0F94BAF359147074220AA01CB781 /* FlyRuntimeTool.m */,
+				0C360E70A0620E58A80DA24DC1D72693 /* Person.h */,
+				F5E1B0DC844801A15DC56F0C33530CF7 /* Person.m */,
+				E6F5C81E0B41DFFF8F81478238E63E09 /* Person+Custom.h */,
+				12A62379087FEC68FA3B99D04DA88C54 /* Person+Custom.m */,
+			);
+			name = Runtime;
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		43DC2065557FBF634980018A4A6995B8 /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				6647432F662C00615311A6CAD856F7AF /* UIGestureRecognizer+FLYTouch.h */,
+				CB500B08D24619861D6525CE682E9F2E /* UIGestureRecognizer+FLYTouch.m */,
+				1DEDCB5082ED2F618037765A49103AA6 /* UIView+FLYTouch.h */,
+				EF1B36C713AB642EE41C1E48632F4949 /* UIView+FLYTouch.m */,
+			);
+			name = Touch;
+			path = Touch;
+			sourceTree = "<group>";
+		};
+		45DAF61B25BF07C08234DC6B6E3A0243 /* 8、runtime */ = {
+			isa = PBXGroup;
+			children = (
+				5686AFADDD6351948E538D296F61D447 /* FlyEighthController.h */,
+				522CDC7AD6B40B1C0E07C3B1F63027F0 /* FlyEighthController.m */,
+			);
+			name = "8、runtime";
+			path = "8、runtime";
+			sourceTree = "<group>";
+		};
+		478FE30C433749647AF572188A4F6704 /* 0、BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				7A83D96F2B9E5CCF7C1649347453064D /* FlyBaseController.h */,
+				FF61F7AFC75B5ACE501A2A553392E523 /* FlyBaseController.m */,
+			);
+			name = "0、BaseVC";
+			path = "0、BaseVC";
+			sourceTree = "<group>";
+		};
+		53528F4467A9D65B43DAAFF402E3BB72 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7ABCFA370A16C26EEE09CFFAB5FC7 /* CrashReporter.framework */,
+			);
+			name = Framework;
+			path = FlyBaseTool/Classes/Framework;
+			sourceTree = "<group>";
+		};
+		54B87A0814002D90857BDB51FC2A4444 /* 19、内存 */ = {
+			isa = PBXGroup;
+			children = (
+				BE0379A8691EB92978FC528F75B0B87C /* Fly19Controller.h */,
+				957AC78A280E9BAEB76EA6C08F210D80 /* Fly19Controller.m */,
+			);
+			name = "19、内存";
+			path = "19、内存";
+			sourceTree = "<group>";
+		};
+		5CB93DC8D2109298D78A00F354D19108 /* FlyTestCollection */ = {
+			isa = PBXGroup;
+			children = (
+				49B248FD685D878F0422C4D71EF60BBF /* Assets.xcassets */,
+				EC9279EF56A6D14B93F4C2ABD584CF10 /* FlyTestCollectionPrefix.pch */,
+				1E86AF9E19E6AE1093486817C114239C /* Bussiness */,
+				E4064287A1BDBAC0559E5E7A135D0AEB /* Pod */,
+				9701DBA961E3A62C0E28EF87C104707D /* Resource */,
+				FC9EA71AF95C68B9271FD0A930847833 /* Support Files */,
+			);
+			name = FlyTestCollection;
+			path = ../../FlyTestCollection;
+			sourceTree = "<group>";
+		};
+		5EC7A9B4BE476BEB2D144607F1B772BC /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5971DAF250C9416D601912428CC325A0 /* FlyBaseTool.podspec */,
+				D2237F5A5E08DDA08F9D9CBCF232CDD3 /* LICENSE */,
+				794FEDF5DD771FE81D9638825A1D9BE4 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		654EC7E3B2E560C749A3678D1B3ACFBD /* Runloop */ = {
+			isa = PBXGroup;
+			children = (
+				DF3CFBC9D6F1D31534F2B831D6C76CAA /* FlyPerformanceMonitor.h */,
+				3B20497F287CF62D5B4FEA6403881642 /* FlyPerformanceMonitor.m */,
+				DF07161C0149DCD5B224AC0C59EA0B68 /* FlyRunloopTool.h */,
+				54218704393A28829589C592ECDC0C7B /* FlyRunloopTool.m */,
+			);
+			name = Runloop;
+			path = Runloop;
+			sourceTree = "<group>";
+		};
+		66DF49C18F64E4A3CB35E4D01962C82C /* SAL */ = {
+			isa = PBXGroup;
+			children = (
+				57542C6A33886C8251CB675F116D3074 /* SalDrawTool.h */,
+				0B6E09A63B08CD5891C79677EF5C601E /* SalDrawTool.m */,
+				D85C01BE18050EBD5AF31016BBFC0904 /* SalImageInfo.h */,
+				1DEDCB6B9BF450852AE88F22FF3B74DD /* SalImageInfo.m */,
+				48F758233246B3D12C865145335975CD /* SALSteam.h */,
+				74741CF914DE40BD0C5CA56FB60BA553 /* SALSteam.m */,
+			);
+			name = SAL;
+			path = SAL;
+			sourceTree = "<group>";
+		};
+		7F68C922243BC6CCB5CB70DD8F508F46 /* 15、消息转发 */ = {
+			isa = PBXGroup;
+			children = (
+				0FA15A8982F919E2A8E0F5B2864DE483 /* FlyFifteenController.h */,
+				06029417AB218ED9ADC577D3DA86DC2A /* FlyFifteenController.m */,
+			);
+			name = "15、消息转发";
+			path = "15、消息转发";
+			sourceTree = "<group>";
+		};
+		8CDE71617A9058EB08E85885976EDCC8 /* 16、计时器 */ = {
+			isa = PBXGroup;
+			children = (
+				6A5F7E0FD0FA4E199B5E2464211E9FA6 /* FlySixteenController.h */,
+				ABBF573F2350215BC5910951D0754BF2 /* FlySixteenController.m */,
+			);
+			name = "16、计时器";
+			path = "16、计时器";
+			sourceTree = "<group>";
+		};
+		96BD2EB1D8C88E59D4B722B9420EFF50 /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				F09387CA59592879E78CB71145AC50AE /* NSObject+FlyKVO.h */,
+				42ED2EFF82331C612728092621BB85DE /* NSObject+FlyKVO.m */,
+				58666E59480BD294525E8E5F85BF58E3 /* NSObject+LGKVO.h */,
+				8549585EB2BFC8C673C088D58E2C8910 /* NSObject+LGKVO.m */,
+			);
+			name = KVO;
+			path = KVO;
+			sourceTree = "<group>";
+		};
+		9701DBA961E3A62C0E28EF87C104707D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				40C33EA8076D46078E2686D20B17F0DA /* 1.jpg */,
+				53351514D29F01186E2FC3E506A8CA53 /* 2.jpg */,
+				21FCBC89A355B9C85C4718D375B962FE /* 3.jpg */,
+				F0BC416E1AC3F24B7EA75E3DFBBD5066 /* 4.jpg */,
+				F4D4E9A437BC5040183611F80079B85F /* 5.png */,
+				7E66595A3FB7D10560437A1EE6A8F37F /* a.jpg */,
+				5C7952DF709D18A86C0E12502CA94257 /* b.jpg */,
+				C01CE5D352CE4594C278C77C30387EE5 /* ye.png */,
+			);
+			name = Resource;
+			path = FlyTestCollection/Assets/Resource;
+			sourceTree = "<group>";
+		};
+		98C0C17BFDD87A1CCBCB2B10D4F68386 /* 17、布局 */ = {
+			isa = PBXGroup;
+			children = (
+				2B94CD592CC1C4F319554E8872D5C68C /* FlySeventeenController.h */,
+				747324F5F89B3DCB874EA1C217965FFC /* FlySeventeenController.m */,
+			);
+			name = "17、布局";
+			path = "17、布局";
+			sourceTree = "<group>";
+		};
+		9BFC7E342414871CB60520F909868F75 /* 1、没想好 */ = {
+			isa = PBXGroup;
+			children = (
+				A37C3C4022A76C92C0A72D878B956412 /* FlyFirstController.h */,
+				B9B56E4C038576C589C0A6EBAC8776AC /* FlyFirstController.m */,
+			);
+			name = "1、没想好";
+			path = "1、没想好";
+			sourceTree = "<group>";
+		};
+		A06F8B270C8C23A1406D6E3FCE9FB0E4 /* 2、链表 */ = {
+			isa = PBXGroup;
+			children = (
+				65AA8121B7929608C35FDCE3C0627F20 /* FlyNode.h */,
+				646493F1FAE19C2A286289778B395F5C /* FlyNode.m */,
+				26142DEAC505F8B85A64F7B0E1897127 /* FlySecondController.h */,
+				BB62B234677CECD47EB80BAA273BFD6F /* FlySecondController.m */,
+			);
+			name = "2、链表";
+			path = "2、链表";
+			sourceTree = "<group>";
+		};
+		A60FB7577D523E3986EEE8338119BF11 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C40D7D9DF2C925350BB9281872A3D86F /* RSSwizzle-dummy.m */,
+				1D95A0F9D9FE0FAC6A9E44558527A973 /* RSSwizzle-prefix.pch */,
+				4EB96BA3453BF9199770A70A50C05112 /* RSSwizzle.debug.xcconfig */,
+				7DC48F8E63DBC9AC5060BE4E605E5A67 /* RSSwizzle.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RSSwizzle";
+			sourceTree = "<group>";
+		};
+		A633F69B627AE86E777F9D9306972B63 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ABEFD8BCED6C91B6EF1B33E475B7AC0 /* FlyBaseTool-dummy.m */,
+				CA62047D355F2EC3FD20CB9F6130F61A /* FlyBaseTool-prefix.pch */,
+				F3E5CA33FD7E5FC71C2D3204681D14C6 /* FlyBaseTool.debug.xcconfig */,
+				A6E14F239820854AB93DAA58D49FC143 /* FlyBaseTool.release.xcconfig */,
+				9FA2907FEC5EC060BE6CCE624D793D0B /* ResourceBundle-Base-FlyBaseTool-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../FlyiOSWorkProject/Pods/Target Support Files/FlyBaseTool";
+			sourceTree = "<group>";
+		};
+		AA4C38BBDA13BF0B4B4B7E348EC7FE4C /* 3、排序算法 */ = {
+			isa = PBXGroup;
+			children = (
+				D6D8B0E9FB0FFCCBFB356827978C2840 /* FlyDictionaryOrder.h */,
+				6FDA671BF69528DA274E51B33B16D531 /* FlyDictionaryOrder.m */,
+				0C9A5BB00C034E29FC421D79332CE0D8 /* FlySort.h */,
+				218874B9CD536AEE3D30C6591A600378 /* FlySort.m */,
+				F1B01736EF804C910695F71B9F0D5B95 /* FlyThirdController.h */,
+				BD7545E07833741CEA3C304FC6EB8511 /* FlyThirdController.m */,
+			);
+			name = "3、排序算法";
+			path = "3、排序算法";
+			sourceTree = "<group>";
+		};
+		AB99C86BBDC982612F5866386FBEA3AC /* 20、ViewController生命周期 */ = {
+			isa = PBXGroup;
+			children = (
+				5FC0F8CFB8891228059919A7273AE29A /* Fly20Controller.h */,
+				E8B7B52571EB378DF8A088CAD7337AAA /* Fly20Controller.m */,
+				BA8B7EFA843B1FF2A2B8369049C2EEBD /* FlyLifeViewController.h */,
+				909B88B065D8092DF1CB739DC6A59785 /* FlyLifeViewController.m */,
+				80C5903C8BFF3AF124127DDA69ED99C2 /* 从加载window到rootvc声明周期.md */,
+			);
+			name = "20、ViewController生命周期";
+			path = "20、ViewController生命周期";
+			sourceTree = "<group>";
+		};
+		ABE4A786E7A1C9924F3D8E8D7AF07325 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				2AF098BD66453A8A37E97A362661C279 /* AFCompatibilityMacros.h */,
+				49CA771E1F357C703CADCCE83ED8004D /* AFHTTPSessionManager.h */,
+				E06CAA954F60AA0336902BF297F173A0 /* AFHTTPSessionManager.m */,
+				4FCB638A229BC4D2680A3D1DE588AA92 /* AFURLSessionManager.h */,
+				03E3DABBA35096672DD7371638C241FE /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		B2EBA16AE37AED12173EF37DFECF36EC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				524E8006223467037A911CB17FDCF537 /* CrashReporter.h */,
+				305A111EEB0616E14AD9F9A15E940BF0 /* PLCrashAsyncSignalInfo.h */,
+				D33FF846F5376859ACCDB10DDC74958C /* PLCrashFeatureConfig.h */,
+				34AA4BD19961DFC51FDA07132E74647A /* PLCrashMacros.h */,
+				515D33937A9A20CB3BB235AC9A0C4A1F /* PLCrashNamespace.h */,
+				238CDCD94C45B44F603B682FFCBF9A1B /* PLCrashReport.h */,
+				E73976192C6EA6D00C69D8A6E8F98262 /* PLCrashReportApplicationInfo.h */,
+				3C2BA2EAFC61DF002B0C7B32AA9D2478 /* PLCrashReportBinaryImageInfo.h */,
+				00013F536D2851EFB737418F6A571A95 /* PLCrashReporter.h */,
+				11EC3C97F08405198426029849049923 /* PLCrashReporterConfig.h */,
+				5F05303526A16A40EE30E20179EA1B09 /* PLCrashReportExceptionInfo.h */,
+				DF6F58B6F41272C84E5FDA2C0B0A1C1A /* PLCrashReportFormatter.h */,
+				584E4ABC0A6D50557888532E52C48E5B /* PLCrashReportMachExceptionInfo.h */,
+				51D98CE5B1B7A860B8BC258D75C65618 /* PLCrashReportMachineInfo.h */,
+				45F25F8FE61D4D20C9D1F66343D7AA21 /* PLCrashReportProcessInfo.h */,
+				5056C50F847F8B9456B17D952551D186 /* PLCrashReportProcessorInfo.h */,
+				C5A644B9EF6A1ABFEF9D0001223F351F /* PLCrashReportRegisterInfo.h */,
+				918C126A5687D5A66153BF8E3802B408 /* PLCrashReportSignalInfo.h */,
+				CCE9FCE941AFF25B82BB684D905A44A4 /* PLCrashReportStackFrameInfo.h */,
+				30AE6FFFD053DB9B9CA398C7E0DD6B72 /* PLCrashReportSymbolInfo.h */,
+				D3D685A52A002CBB3CDC8EF9E82846D3 /* PLCrashReportSystemInfo.h */,
+				C27DEFBFB7671295D3D020167666ADE3 /* PLCrashReportTextFormatter.h */,
+				1268B9A0E7EE49ABECC98558CC38D9D4 /* PLCrashReportThreadInfo.h */,
+			);
+			name = Headers;
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		BA374DB0B7A369FB1116D9214407425D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA9260BFF5A95A1AB3746DB828B99016 /* AFNetworking */,
+				F4388EE9B5EC17DDC98FF48F8FBF935E /* RSSwizzle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA80CB8535166669582E2940192CC406 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E406E019F33A0EA4AAA1C16760AFCF6 /* Pods-FlyiOSWorkProject */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BA9260BFF5A95A1AB3746DB828B99016 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1A5F75DE97098244BDE2565152D20 /* AFNetworking.h */,
+				ABE4A786E7A1C9924F3D8E8D7AF07325 /* NSURLSession */,
+				1BFA01E240E4AF8009C2D3A62F2640D0 /* Reachability */,
+				C08B52C3A32840981DCAD10D6BCC5E42 /* Security */,
+				F7451929791EDBDD3F3F4C9F7D9744F1 /* Serialization */,
+				FE0AA4E446F30008FF068F9727F634AD /* Support Files */,
+				2871879A5BC519159929BEA0D5AAADE7 /* UIKit */,
+			);
+			name = AFNetworking;
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		C064A2902547C2CB48B352BFF9A2B211 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				031FF880357B9E305C38B557384958AE /* FLYCustomUtil.h */,
+				4BE7ABD6F30C27265FE267D45FDD3D6D /* FLYCustomUtil.m */,
+			);
+			name = Util;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		C08B52C3A32840981DCAD10D6BCC5E42 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				E48BAFD89A97EEB869B2B74DDE38AF80 /* AFSecurityPolicy.h */,
+				23731553E8B2D35B154095B8DE883637 /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		C2E3C91BB6ADB86EF412DCD43A27829C /* 11、沙盒深入理解 */ = {
+			isa = PBXGroup;
+			children = (
+				03424B70C865EA8A71E4F47AAD221DC4 /* FlyEleventhController.h */,
+				E702A7416DEBF92A63E240211EFE6F2D /* FlyEleventhController.m */,
+			);
+			name = "11、沙盒深入理解";
+			path = "11、沙盒深入理解";
+			sourceTree = "<group>";
+		};
+		C6EC037C870D21AA7FEC6F8088AF2374 /* 4、锁+多线程 */ = {
+			isa = PBXGroup;
+			children = (
+				A362CBE5AC301FC4099F1BC03F697DA8 /* FlyForthController.h */,
+				AB8AB1063DE690E554FDE804A3A9C276 /* FlyForthController.m */,
+			);
+			name = "4、锁+多线程";
+			path = "4、锁+多线程";
+			sourceTree = "<group>";
+		};
+		C8D817623B8BC62648F5D37B9A17D633 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA24D4894681A7D0F6CFE4AEAC9E1674 /* Info.plist */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD610B2D35926E60403AC50D155ED9B6 /* 9、runloop */ = {
+			isa = PBXGroup;
+			children = (
+				99CB303A6F5347BFAB107CB739ECFF68 /* FlyNinthController.h */,
+				5102B08284A58C9694823B8EF0624759 /* FlyNinthController.m */,
+			);
+			name = "9、runloop";
+			path = "9、runloop";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				409FF088698ACCB951C3979535DA25D7 /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				BA374DB0B7A369FB1116D9214407425D /* Pods */,
+				E087B29F07047BDE006AE18CA0C3BF5F /* Products */,
+				BA80CB8535166669582E2940192CC406 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D191E9350E5E2AE4CB8485A24D980338 /* 10、重写KVO */ = {
+			isa = PBXGroup;
+			children = (
+				CF5AE89AE815BD6D86AE6F1AB1AFB28D /* FlyTenthController.h */,
+				23A962D6E4F318417F056B66CD088555 /* FlyTenthController.m */,
+			);
+			name = "10、重写KVO";
+			path = "10、重写KVO";
+			sourceTree = "<group>";
+		};
+		D32D0E7471BA108DF3A61D73BD6D9760 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				DF07C4265A88D81312D33143E09CB278 /* FlyCIImage.h */,
+				38FB4F48D1991782B093B118E90247DE /* FlyCIImage.m */,
+				4C0CFB97E6F80E5590D2F6C250FC176B /* FlyContext.h */,
+				0F37B3D6301EC576D2549F09817D6004 /* FlyContext.m */,
+				CB81098E94E4951BA859DC454D076337 /* FlyImageDecode.h */,
+				31D8EE7EDD2CD97B4DEECBFE749F63D1 /* FlyImageDecode.m */,
+				66E63417AA5C58A9A0E9B0DE9173FAAE /* FlyImageIO.h */,
+				621FC5C19ACC398D38EFC2F7870F51B1 /* FlyImageIO.m */,
+				E288B0AFE4642BADD6D25601ED456214 /* FlyRenderer.h */,
+				557D6593D38495C6B750D7307BEDCE84 /* FlyRenderer.m */,
+				348F94B0B12E9FB3BCE450246D545232 /* FlyvImage.h */,
+				CF4221125C8A8C90A483E80A91A643C9 /* FlyvImage.m */,
+			);
+			name = Decode;
+			path = Decode;
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E087B29F07047BDE006AE18CA0C3BF5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */,
+				B80D690AADE81C8E656F9BAEBF87F0F3 /* FlyBaseTool */,
+				97907C2A767CB357ED987751F20905D0 /* FlyBaseTool-Base */,
+				E0B8A90A599DD7E0D0D210AE32070090 /* FlyTestCollection */,
+				49AA26D5C9C64B8A7B42BE16AFFCB6E3 /* FlyTestCollection-FlyTestCollection */,
+				80FA8C7546A958F8C50B0BACE5E3A0FB /* Pods-FlyiOSWorkProject */,
+				6FA95986B180E1F813F89A86F8DF3BD6 /* RSSwizzle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E282F565788F427118DD8E1D5C8D6ED7 /* 12、绘制 */ = {
+			isa = PBXGroup;
+			children = (
+				FAF5BF2C4649837822E761EFF63A3535 /* FlyTwelfthController.h */,
+				82733C36327F31C6B6AC398354F4B6EF /* FlyTwelfthController.m */,
+			);
+			name = "12、绘制";
+			path = "12、绘制";
+			sourceTree = "<group>";
+		};
+		E3EAC92FD8E543ECD3071C5DD9890500 /* 13、类簇 */ = {
+			isa = PBXGroup;
+			children = (
+				74EAD14528BDBE90DD60253FBF3C5F24 /* FlyThirteenController.h */,
+				BB7B591F2E4A81409A816B7CE13A5FE9 /* FlyThirteenController.m */,
+			);
+			name = "13、类簇";
+			path = "13、类簇";
+			sourceTree = "<group>";
+		};
+		E4064287A1BDBAC0559E5E7A135D0AEB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5773D44C1E625C95A34048C8A28E66D1 /* FlyTestCollection.podspec */,
+				468BFAF0F0BD8625DD299599E10688B5 /* LICENSE */,
+				CC48DFE2CFE2D05AA4CEA7030648474B /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		ECBBB85D1D867856AEA6482BB0359BD7 /* 7、通知 */ = {
+			isa = PBXGroup;
+			children = (
+				4B163FC69A7F2E16A563BFC208A6B86D /* FlySeventhController.h */,
+				5D9101CBB4EBF0CF2AC5C5A330D1D492 /* FlySeventhController.m */,
+			);
+			name = "7、通知";
+			path = "7、通知";
+			sourceTree = "<group>";
+		};
+		EEE093A8DBDE3F54A5A624CB9727D83B /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				C294853BEA17605E86A37E409C5E63A4 /* NSObject+FlyKVC.h */,
+				A538228DA51F68EB2E76E99FBEAF317F /* NSObject+FlyKVC.m */,
+			);
+			name = KVC;
+			path = KVC;
+			sourceTree = "<group>";
+		};
+		F0F7ABCFA370A16C26EEE09CFFAB5FC7 /* CrashReporter.framework */ = {
+			isa = PBXGroup;
+			children = (
+				5710C299EE9C48000A6139127763B6B9 /* CrashReporter */,
+				250AC097E671176A736582AC5C65400C /* Versions */,
+			);
+			name = CrashReporter.framework;
+			path = CrashReporter.framework;
+			sourceTree = "<group>";
+		};
+		F3402967CC8255F4C0DC6EFB09F4F010 /* A */ = {
+			isa = PBXGroup;
+			children = (
+				8A7DF67A2AACC492A281EC3B2DBE3CF7 /* CrashReporter */,
+				B2EBA16AE37AED12173EF37DFECF36EC /* Headers */,
+				C8D817623B8BC62648F5D37B9A17D633 /* Resources */,
+			);
+			name = A;
+			path = A;
+			sourceTree = "<group>";
+		};
+		F40BDA0C388E444B7C6895801EDE2422 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0F33C42E0EBDEBF28122FE9713469F30 /* Draw */,
+				F47BB69B9D2D1F318CB5444BF39346BF /* GCD */,
+				EEE093A8DBDE3F54A5A624CB9727D83B /* KVC */,
+				96BD2EB1D8C88E59D4B722B9420EFF50 /* KVO */,
+				654EC7E3B2E560C749A3678D1B3ACFBD /* Runloop */,
+				431302FE90AD2C7619C09CDDFE02DB22 /* Runtime */,
+				43DC2065557FBF634980018A4A6995B8 /* Touch */,
+				C064A2902547C2CB48B352BFF9A2B211 /* Util */,
+				1C6B65FF62CC1C95C88FE2B4D56080EA /* Video */,
+				3EC196CC866E402B70D343798E1C2093 /* Views */,
+			);
+			name = Base;
+			path = FlyBaseTool/Classes/Base;
+			sourceTree = "<group>";
+		};
+		F4388EE9B5EC17DDC98FF48F8FBF935E /* RSSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				21565D2D68DAACFE103BEE0CCE8A4F4F /* RSSwizzle.h */,
+				7CB79758DB297CB3D3BD26E4AEA3B0E7 /* RSSwizzle.m */,
+				A60FB7577D523E3986EEE8338119BF11 /* Support Files */,
+			);
+			name = RSSwizzle;
+			path = RSSwizzle;
+			sourceTree = "<group>";
+		};
+		F47BB69B9D2D1F318CB5444BF39346BF /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				5BD7619DEA3236F8BF40BEE59198E508 /* FLYGCD.h */,
+				078DD32EF58673B0EC4EDEE5BEF85D42 /* FLYGCD.m */,
+			);
+			name = GCD;
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		F7451929791EDBDD3F3F4C9F7D9744F1 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				88BA6EFA069FE500EEABF803E6B9A2FA /* AFURLRequestSerialization.h */,
+				0527CF1BE2A3C384E1ADA96E998924EC /* AFURLRequestSerialization.m */,
+				B9D20FEE28574EFB2DC0D3663A3FD722 /* AFURLResponseSerialization.h */,
+				659574440C85CA53E36A00D99C6A5265 /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		F98DE94E0BE1926F6F117A23549934DC /* 14、Block */ = {
+			isa = PBXGroup;
+			children = (
+				B19F18363DFC446172656596E5B475E4 /* FlyFourteenController.h */,
+				E782F6F76BE1FEF7A7FD544A54C130B2 /* FlyFourteenController.m */,
+			);
+			name = "14、Block";
+			path = "14、Block";
+			sourceTree = "<group>";
+		};
+		FC9EA71AF95C68B9271FD0A930847833 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				26876DAE8E92D699649FF1285A2FE641 /* FlyTestCollection-dummy.m */,
+				F5FA97934F8BEA998E67B3C43A88BB9A /* FlyTestCollection-prefix.pch */,
+				660BC9CB02588F89E647B5A353354F63 /* FlyTestCollection.debug.xcconfig */,
+				42A32412485D65E89349F2EE234A5306 /* FlyTestCollection.release.xcconfig */,
+				B3052DE69C23DE416F5EDBFF50893C51 /* ResourceBundle-FlyTestCollection-FlyTestCollection-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../FlyiOSWorkProject/Pods/Target Support Files/FlyTestCollection";
+			sourceTree = "<group>";
+		};
+		FE0AA4E446F30008FF068F9727F634AD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				89E9CAAF8F2112864D4B5BE41F0327A7 /* AFNetworking-dummy.m */,
+				AC364F9003043CE2EF4758B82EFAFBF2 /* AFNetworking-prefix.pch */,
+				A0B86BCD85C8B025C7054113B1686936 /* AFNetworking.debug.xcconfig */,
+				950BF2944472B7D0E62E76A1476730EF /* AFNetworking.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AFNetworking";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0FD9B82253B924854F6D1F109906A25A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				898ABCCA33A828FD729EA4E78A31AA41 /* Fly18Controller.h in Headers */,
+				192E2EF5FE075A76EC261473453A868E /* Fly19Controller.h in Headers */,
+				80DE89975A02D43D451D35195BFD5C25 /* Fly20Controller.h in Headers */,
+				E9E170BE82961F92950760817415834B /* FlyBaseController.h in Headers */,
+				B4E7C79EEF47BA99E1DAF84F9533F357 /* FlyDictionaryOrder.h in Headers */,
+				4AFF544A739DCE5127845EC3BA25599C /* FlyEighthController.h in Headers */,
+				2CAA31D972F5F5C5B8E4732686A6C300 /* FlyEleventhController.h in Headers */,
+				4CC0D8F4A6E476AE5C5458B6FFA7D871 /* FlyFifteenController.h in Headers */,
+				C0C53295B4F18B5E934F6A18152618E5 /* FlyFifthController.h in Headers */,
+				58BB203B0E1FA124D83ADE723CFD1B7E /* FlyFirstController.h in Headers */,
+				8C0DCCC5915A4AA7E041EB4BAC7FFEA4 /* FlyForthController.h in Headers */,
+				34673D688D67F1030023888E8A3D43EA /* FlyFourteenController.h in Headers */,
+				429943DF9F1DFCED99D352CF4441D3EC /* FlyLifeViewController.h in Headers */,
+				563BA5E52BA4227AFA4A491BC1FC07E9 /* FlyNinthController.h in Headers */,
+				8A359A05FBEF1A50BD9DD9F7676846CF /* FlyNode.h in Headers */,
+				64D06C26FD5AB5B0FEC43B2C97D38F88 /* FlySecondController.h in Headers */,
+				C8EF6744FB1A54C9FB828B35184EC4FF /* FlySeventeenController.h in Headers */,
+				AC559CF59DB3F7B797E3860FA4F989CB /* FlySeventhController.h in Headers */,
+				64A2F7B325ECB35B95315152C28ED5E0 /* FlySixteenController.h in Headers */,
+				B3E0B9BD51966CAA6706AE455AF3E52D /* FlySixthController.h in Headers */,
+				22C75AB39E72FDF65C5F83D380CC0E62 /* FlySort.h in Headers */,
+				E8E02D3BDBCE6B56AEC673881DF6E28E /* FlyTenthController.h in Headers */,
+				273F5FA68090A9E6FF72EAD0DE9425BB /* FlyThirdController.h in Headers */,
+				939565F67C75F1193E96B2E3B5FB1DB1 /* FlyThirteenController.h in Headers */,
+				9BE9D4C470553041DC31D3804DC884A7 /* FlyTwelfthController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		478FE79D41AF5B22A15943E850B80546 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8612D342953F3A933EF8F8D6F6DA45EB /* AFAutoPurgingImageCache.h in Headers */,
+				941FA59066C026B8AE1C319001603AA6 /* AFCompatibilityMacros.h in Headers */,
+				D85E13EC2DA7F3189D8630870A5D976C /* AFHTTPSessionManager.h in Headers */,
+				AB0DBB06EBD36910FAE7CB5FC85601B6 /* AFImageDownloader.h in Headers */,
+				D3B8A3E487D4986375B17E4B711ACF53 /* AFNetworkActivityIndicatorManager.h in Headers */,
+				F5AB2C8AB21989F82AE542617552BF84 /* AFNetworking.h in Headers */,
+				26200CE7EBEC065B7E2AC8078FBC0986 /* AFNetworkReachabilityManager.h in Headers */,
+				CD5EE6ED19DDD6B27E4438AD4B96C71E /* AFSecurityPolicy.h in Headers */,
+				1DC85BEB11E6F7A10E4661BC15B5ECEA /* AFURLRequestSerialization.h in Headers */,
+				4361C66728ECD7846FF4AC82BFDC0E49 /* AFURLResponseSerialization.h in Headers */,
+				8D5AB075BC93F3D732E76B622B65CE31 /* AFURLSessionManager.h in Headers */,
+				3305B9CFADF6A27973327DDCF48E22A6 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				09D41A7EE420D9EF74DA6D16BB1D18AF /* UIButton+AFNetworking.h in Headers */,
+				E3B9C0B78AAE4F7807FEFB75FB4955F3 /* UIImageView+AFNetworking.h in Headers */,
+				62C99E03D053C1C36A210BCEBD56A266 /* UIKit+AFNetworking.h in Headers */,
+				E67888EAD9EE8BE91ED47958C9CB71D7 /* UIProgressView+AFNetworking.h in Headers */,
+				53352ED6438EAFAB849541F71E3D3B6B /* UIRefreshControl+AFNetworking.h in Headers */,
+				5C46F48BC9AB6370CA32A2788D86B3F0 /* WKWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C8B343F6444FA3FC2E6144139D70EDB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A8ABD3F857F1E54C0C97DE5757A9DEC /* RSSwizzle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0DE96133DE66FF6BEEC4DF74494BD9D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBF7345833C990521A7BE58002792ADE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				784D7F5D5E79423B4D51A170FF9A177C /* CrashReporter.h in Headers */,
+				1FF2AD55F0BDF2EEEA38B26A521BBFCC /* Dog.h in Headers */,
+				E2358E0DFBE56D5337E0D24787CC4629 /* Dog+Custom.h in Headers */,
+				3EF048DAE0ED828AE57A75789EDC4E7E /* FlyBaseDefine.h in Headers */,
+				9A7175E379E95F3C019B545944399AB5 /* FlyBaseView.h in Headers */,
+				F3DDEB3678CFD8AC3A3EEDB13BD03937 /* FlyButton.h in Headers */,
+				229FB71F58F302D4695B1042DD335EF7 /* FlyCIImage.h in Headers */,
+				2423C220CA16CE191F7957F1403A5FC9 /* FlyContext.h in Headers */,
+				417F75137251879A5E1676E07F230546 /* FLYCustomUtil.h in Headers */,
+				95504B9865F6969BA551C5DB39B4C4E7 /* FlyDrawManager.h in Headers */,
+				635513BAB2473FDFF9B045167C943BE6 /* FLYGCD.h in Headers */,
+				19A00AE6E518DF2EE7FB9ECA5C0E0696 /* FlyImageDecode.h in Headers */,
+				5EEF362551180E284D07BC6D3E6A4C3E /* FlyImageIO.h in Headers */,
+				D1CFFFE5ED6656BEE514F21389CEE997 /* FLYNavigationController.h in Headers */,
+				17F156EF250838B739334186D63BCA9A /* FlyPerformanceMonitor.h in Headers */,
+				F7ABC7EEDD0F5F474E57E66069C8FF45 /* FlyRenderer.h in Headers */,
+				E013A755DE8355A2653FE7363705CAFC /* FlyRunloopTool.h in Headers */,
+				30B405F13FDC9437D696530DBB060471 /* FlyRuntimeTool.h in Headers */,
+				7064EA4D0E7FF6259D2293F9E462A55F /* FLYViewController.h in Headers */,
+				68F15DD58D0E5F749629E0915CDFFE13 /* FlyvImage.h in Headers */,
+				E264F07E2E76B954210C7B6C3FD4F15A /* FLYWindow.h in Headers */,
+				CC93720C79218D341CCBD644C499AB73 /* NSObject+FlyKVC.h in Headers */,
+				31B89F0F5C354370193D8158A0C11DD0 /* NSObject+FlyKVO.h in Headers */,
+				572E9D6975DBF91AB62360195251AE8B /* NSObject+LGKVO.h in Headers */,
+				222C21C997F77ED9E2FF9FA35AF8AA77 /* Person.h in Headers */,
+				627E62281D84BF3D80C3746E79B813CD /* Person+Custom.h in Headers */,
+				9557FED9898844D3AC284EBF13F514C6 /* PLCrashAsyncSignalInfo.h in Headers */,
+				DBCCB843F14807E86FE0C2064057F632 /* PLCrashFeatureConfig.h in Headers */,
+				FCA2DC3A2BC15BED6431FBED750CC7A2 /* PLCrashMacros.h in Headers */,
+				85BA674BFE02D2CA8C96BC2FB60788B9 /* PLCrashNamespace.h in Headers */,
+				560D4392469F73E0CE4A2B56E41A8EB6 /* PLCrashReport.h in Headers */,
+				7FC770B452C62E7FDC0052524EDD49C8 /* PLCrashReportApplicationInfo.h in Headers */,
+				C66CBAD2204C0EBC29F2E3F2BCE34AB4 /* PLCrashReportBinaryImageInfo.h in Headers */,
+				6E8B9CCA622859B6228C6BDC967804E6 /* PLCrashReporter.h in Headers */,
+				0DA15F81A5C134BFCDD47A896EAE2481 /* PLCrashReporterConfig.h in Headers */,
+				FE3AD7E5D7A4A90B820F3CBE3FA43545 /* PLCrashReportExceptionInfo.h in Headers */,
+				74D3826F83A59D9CB442F5652C00A088 /* PLCrashReportFormatter.h in Headers */,
+				4CA05CDB2B91A0324E07A41C722E71AF /* PLCrashReportMachExceptionInfo.h in Headers */,
+				9BA613662B823FE74F595A53CE05DAC6 /* PLCrashReportMachineInfo.h in Headers */,
+				67DB7415A345A0A42CC30F85B0FEEBFB /* PLCrashReportProcessInfo.h in Headers */,
+				D6075B9382AC3E4FD0AEE5D937EFE216 /* PLCrashReportProcessorInfo.h in Headers */,
+				C7C0453C6D9A7E2F53B7109D1ADF1EF4 /* PLCrashReportRegisterInfo.h in Headers */,
+				482F7C1BEF6C52E9417F15877A9B3845 /* PLCrashReportSignalInfo.h in Headers */,
+				0BD6355A1E61F0CF99D59FBE159A0936 /* PLCrashReportStackFrameInfo.h in Headers */,
+				D0171A08794BB3DA1182E5273C5AED09 /* PLCrashReportSymbolInfo.h in Headers */,
+				CF092267652C9EC3CB7A7F3F605F0016 /* PLCrashReportSystemInfo.h in Headers */,
+				97CE4E4B46BC9FF5AA69CA5208C2050C /* PLCrashReportTextFormatter.h in Headers */,
+				D1EA358F1100E8A0316F1A054035C380 /* PLCrashReportThreadInfo.h in Headers */,
+				53B41B3542DA842C1786FD12AF7B3974 /* SalConverVideoTool.h in Headers */,
+				C01F2FB0A7DF020D95630B3AF1F5B673 /* SalDrawTool.h in Headers */,
+				8D77F7817A8AB73258BDE6BDB0536F93 /* SalImageInfo.h in Headers */,
+				F10C8933A9E01835229C2BE3DB33FCFF /* SalScreenShotTool.h in Headers */,
+				73E6FB73731AA54E9C0A0B7B89B8DA6E /* SALSteam.h in Headers */,
+				014ED05D92960A2BE66949771328DFDF /* UIGestureRecognizer+FLYTouch.h in Headers */,
+				452A04926DBF66CA6B674CF33A4659CC /* UIView+FLYTouch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0130B3724283586C0E9D2A112D4F2AA1 /* AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6030B64160BACF6FF0C4822489A2B046 /* Build configuration list for PBXNativeTarget "AFNetworking" */;
+			buildPhases = (
+				478FE79D41AF5B22A15943E850B80546 /* Headers */,
+				037E3698BAB7184AC029666E1F74EEA2 /* Sources */,
+				D39F59C65EF8C6E73DBFB8B6B9821774 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AFNetworking;
+			productName = AFNetworking;
+			productReference = A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1D8380E6EEBCE39C17D7992C2131202F /* RSSwizzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30541CC8EA8CE424A78BCC9C0E4044B /* Build configuration list for PBXNativeTarget "RSSwizzle" */;
+			buildPhases = (
+				8C8B343F6444FA3FC2E6144139D70EDB /* Headers */,
+				8B86BEF88D227C3405F18172AE92D021 /* Sources */,
+				012094AA8F454559FFECB21448BD20D5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RSSwizzle;
+			productName = RSSwizzle;
+			productReference = 6FA95986B180E1F813F89A86F8DF3BD6 /* RSSwizzle */;
+			productType = "com.apple.product-type.library.static";
+		};
+		81EB7FA3DA9959AB538EC1A69BCA6C37 /* FlyTestCollection-FlyTestCollection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B672F13577ACADFA0F5A74EC3913388 /* Build configuration list for PBXNativeTarget "FlyTestCollection-FlyTestCollection" */;
+			buildPhases = (
+				D9A0B9D34D554E453617C5C6623E8DE1 /* Sources */,
+				CA874339248A08E7DFE1936E362FBB3F /* Frameworks */,
+				78298C738F8E566DCD2D9A7FD8AFB985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlyTestCollection-FlyTestCollection";
+			productName = FlyTestCollection;
+			productReference = 49AA26D5C9C64B8A7B42BE16AFFCB6E3 /* FlyTestCollection-FlyTestCollection */;
+			productType = "com.apple.product-type.bundle";
+		};
+		9C487844DEAFBACE11097CC87280A5D5 /* FlyTestCollection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39BF148761345F84AFC9A2C5E17F30A5 /* Build configuration list for PBXNativeTarget "FlyTestCollection" */;
+			buildPhases = (
+				0FD9B82253B924854F6D1F109906A25A /* Headers */,
+				7F988103566EB9DDE5F8F424FAEA89F7 /* Sources */,
+				E321B03B87F393AE85CE6555A412C009 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2F555A393B43944435B81B82A57C80C /* PBXTargetDependency */,
+				B50DB6ECA7BECC470773444375CFD1C0 /* PBXTargetDependency */,
+			);
+			name = FlyTestCollection;
+			productName = FlyTestCollection;
+			productReference = E0B8A90A599DD7E0D0D210AE32070090 /* FlyTestCollection */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BE20F340E5183EDFD39A02FC4C456A02 /* Pods-FlyiOSWorkProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7AFB9837487B4140B3F86BC9531B37 /* Build configuration list for PBXNativeTarget "Pods-FlyiOSWorkProject" */;
+			buildPhases = (
+				E0DE96133DE66FF6BEEC4DF74494BD9D /* Headers */,
+				2B5294F9C74FD25F7F9D9B8B562D8929 /* Sources */,
+				D6F807C3065370307F2D7E6578E1415D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				732F7320FB9860C2DE6605699B02049F /* PBXTargetDependency */,
+				46AA91037FB681B82B9304FC860BD081 /* PBXTargetDependency */,
+				8AC203DC559FFC58D378773B07E99950 /* PBXTargetDependency */,
+				D1222E5F6EB225172E49A869D4FA76AA /* PBXTargetDependency */,
+			);
+			name = "Pods-FlyiOSWorkProject";
+			productName = "Pods-FlyiOSWorkProject";
+			productReference = 80FA8C7546A958F8C50B0BACE5E3A0FB /* Pods-FlyiOSWorkProject */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E75B66F84342E5760CF08244DFC4F2BD /* FlyBaseTool-Base */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A962E8CC8169A3EE726D0C450588704A /* Build configuration list for PBXNativeTarget "FlyBaseTool-Base" */;
+			buildPhases = (
+				E53FE789B7D619A96DBA4A57C3710FE8 /* Sources */,
+				4892D5843AD52931AA277A19B2360ACA /* Frameworks */,
+				9B00E6CEEA3C9E50E6C1BD27F920EA1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlyBaseTool-Base";
+			productName = Base;
+			productReference = 97907C2A767CB357ED987751F20905D0 /* FlyBaseTool-Base */;
+			productType = "com.apple.product-type.bundle";
+		};
+		FEF74AF76AFDDE14F35E445D4271AA41 /* FlyBaseTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32EF2B5143EC20AC12C5275E9AE35C50 /* Build configuration list for PBXNativeTarget "FlyBaseTool" */;
+			buildPhases = (
+				EBF7345833C990521A7BE58002792ADE /* Headers */,
+				A5ADF33E1A87F197018EA32A04AE17C9 /* Sources */,
+				8644124F2B930283F7F6859A7F0544EF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				832C8154AD8AF3B65DCA1E1F77745735 /* PBXTargetDependency */,
+			);
+			name = FlyBaseTool;
+			productName = FlyBaseTool;
+			productReference = B80D690AADE81C8E656F9BAEBF87F0F3 /* FlyBaseTool */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E087B29F07047BDE006AE18CA0C3BF5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0130B3724283586C0E9D2A112D4F2AA1 /* AFNetworking */,
+				FEF74AF76AFDDE14F35E445D4271AA41 /* FlyBaseTool */,
+				E75B66F84342E5760CF08244DFC4F2BD /* FlyBaseTool-Base */,
+				9C487844DEAFBACE11097CC87280A5D5 /* FlyTestCollection */,
+				81EB7FA3DA9959AB538EC1A69BCA6C37 /* FlyTestCollection-FlyTestCollection */,
+				BE20F340E5183EDFD39A02FC4C456A02 /* Pods-FlyiOSWorkProject */,
+				1D8380E6EEBCE39C17D7992C2131202F /* RSSwizzle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		78298C738F8E566DCD2D9A7FD8AFB985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95D56B6A18B80076024678AB9AD280C /* 1.jpg in Resources */,
+				91BFA3F738D6CEB8CCC3C6C77E32D46A /* 2.jpg in Resources */,
+				B03B1E89024B3BB1C02D1C8026FC4E2B /* 3.jpg in Resources */,
+				5746B2AACFD8A4DC9B66D947C654B530 /* 4.jpg in Resources */,
+				89EDCE19F317507DA84F5FA14EF7A197 /* 5.png in Resources */,
+				F3A4E68AA82AEE2F1D33EE45406C1F8A /* a.jpg in Resources */,
+				867566A81C39E5E658D72819805D5180 /* Assets.xcassets in Resources */,
+				445FCF5DDBFB24E02844CABEE4663B89 /* b.jpg in Resources */,
+				C1C50F5C769F083F08A65F42A809B3C5 /* ye.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B00E6CEEA3C9E50E6C1BD27F920EA1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		037E3698BAB7184AC029666E1F74EEA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				609DF50B28B7616727DE04915E2D901D /* AFAutoPurgingImageCache.m in Sources */,
+				AB665E2CEBACE6D5D19EF1E4D74FA543 /* AFHTTPSessionManager.m in Sources */,
+				8BDC645A8F5918346D2A8DA1760C3A12 /* AFImageDownloader.m in Sources */,
+				B610D799C3427030954BF3D00397505B /* AFNetworkActivityIndicatorManager.m in Sources */,
+				32ED18D4EFB8B3461DFCC4F16464CEFB /* AFNetworking-dummy.m in Sources */,
+				AB0B05ABC053548EB6AF944DA21B671D /* AFNetworkReachabilityManager.m in Sources */,
+				C3B78E3D74A8F0EF07BF221ACAE40F84 /* AFSecurityPolicy.m in Sources */,
+				46D74556F84DB00A02BD2A2D1A8DAF4F /* AFURLRequestSerialization.m in Sources */,
+				76636BB381028A7E23AF867893698DE5 /* AFURLResponseSerialization.m in Sources */,
+				2B8757E7F8EEA7A84A3DAB1AF660B564 /* AFURLSessionManager.m in Sources */,
+				AB8BC9728240BEA738579B8F5E2505D7 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				2AC00D4BAD2D955F98982B048AC758F0 /* UIButton+AFNetworking.m in Sources */,
+				260862ED626489399BA1261E3CA82534 /* UIImageView+AFNetworking.m in Sources */,
+				D9C0900CF64E9F02C4B3135D3F204BE9 /* UIProgressView+AFNetworking.m in Sources */,
+				7034D2D81EF21225240B77D441A6D74C /* UIRefreshControl+AFNetworking.m in Sources */,
+				2C6624CEA05403BA5EAD464DF4E8AF7A /* WKWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5294F9C74FD25F7F9D9B8B562D8929 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F0588925F3DC738C4D5AB5213FA8D5B /* Pods-FlyiOSWorkProject-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F988103566EB9DDE5F8F424FAEA89F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0BAA9DD9598B1031BE8E84516340DF9 /* Fly18Controller.m in Sources */,
+				712DC6888ECFC9B5E9F04EF981820F06 /* Fly19Controller.m in Sources */,
+				BC24B49440AFC5E80CF934EDB3318D84 /* Fly20Controller.m in Sources */,
+				9908B15B39D56AA98B9162A425A6A921 /* FlyBaseController.m in Sources */,
+				A592DC9E31A4F433D368918A64BE76EA /* FlyDictionaryOrder.m in Sources */,
+				24FE8D4E019DF988E1A0826F4E0E0D8F /* FlyEighthController.m in Sources */,
+				C1D9F7BF01AE629996B63FABAB1230DE /* FlyEleventhController.m in Sources */,
+				3C33096394F9657630D2CAC8320B5404 /* FlyFifteenController.m in Sources */,
+				D4BE26D415D2D5BF49A1CBB062A3FE06 /* FlyFifthController.m in Sources */,
+				99F943F693D5CFF372ED369038200599 /* FlyFirstController.m in Sources */,
+				A7EB38A8BA7E1467459C48AC6BB5C014 /* FlyForthController.m in Sources */,
+				494ECB31ACC1AE90093F04EE752CD3DF /* FlyFourteenController.m in Sources */,
+				E05D25772B0ABF788B908B034C68B905 /* FlyLifeViewController.m in Sources */,
+				896DC3ACBE718B0247EFF83061F6F677 /* FlyNinthController.m in Sources */,
+				9CCA75028DBEE2B05F78E1AF853B5F20 /* FlyNode.m in Sources */,
+				2AD9662E95071D8EE148C3619340BE6B /* FlySecondController.m in Sources */,
+				AA13BC6C9DC814D647526661BF7544A3 /* FlySeventeenController.m in Sources */,
+				8C2BCB5F59C1DE82D240083DEAA5CE84 /* FlySeventhController.m in Sources */,
+				9A0E162F3CADA444941A60F93E86CA96 /* FlySixteenController.m in Sources */,
+				B1FAB69E8ACE37127CEB0BD342EFA07E /* FlySixthController.m in Sources */,
+				9D364EC1B38E51ACE617F152245E9A25 /* FlySort.m in Sources */,
+				EC2CE8B5F037D2BDA3940FF23E3DC2B6 /* FlyTenthController.m in Sources */,
+				A461FBBD6946D519ECB0F3722AF2E1BD /* FlyTestCollection-dummy.m in Sources */,
+				5296BB9EC7F273E0648C263E4676FFF8 /* FlyTestCollectionPrefix.pch in Sources */,
+				269102EEF7F25E8975FC729153D552D0 /* FlyThirdController.m in Sources */,
+				F4342FD1C891154C1251D2CF9C9CEB1D /* FlyThirteenController.m in Sources */,
+				A4745307C39C9CBD6404591B504350A0 /* FlyTwelfthController.m in Sources */,
+				B78D28E6963606840AD99A3E97ED1117 /* 从加载window到rootvc声明周期.md in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BEF88D227C3405F18172AE92D021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C3B4ADE0729465AD258ED60755F9CD /* RSSwizzle.m in Sources */,
+				9129BB02E0094B5CB8943263EFF9BD75 /* RSSwizzle-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5ADF33E1A87F197018EA32A04AE17C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC11F6179BB75DEA8C4E1C4EE302176B /* CrashReporter in Sources */,
+				201B363E66006620D5DEC6F958C6306D /* CrashReporter in Sources */,
+				0F06BEAC70802267969902B8CAA10C32 /* Dog.m in Sources */,
+				19C677F3E56965EF458283B0F60415B2 /* Dog+Custom.m in Sources */,
+				C4F220061A1AA276466F6AB4E2A024DF /* FlyBaseTool-dummy.m in Sources */,
+				137D044CFFD8F4D6A4FEC1B366EA9B39 /* FlyBaseToolPrefix.pch in Sources */,
+				60761236A6A68BDE6492CDE252E05007 /* FlyBaseView.m in Sources */,
+				11E7821FF4B9378A32B11D8AA264076D /* FlyButton.m in Sources */,
+				FC5EF1516EF440E2503D26C312EDED47 /* FlyCIImage.m in Sources */,
+				51A21009AA374B53730D8A62FCFBB1ED /* FlyContext.m in Sources */,
+				69D4ED9B8C55083502EA91A200E5397D /* FLYCustomUtil.m in Sources */,
+				54D4143FC02488558AC95ABC1D8FD5E0 /* FlyDrawManager.m in Sources */,
+				56CFCC64910D443D7ED9BDB627A1AF18 /* FLYGCD.m in Sources */,
+				D8E67D3AA00B86BE41B923D73CC16B6A /* FlyImageDecode.m in Sources */,
+				5254C29F874D17AE6835DF4BF099F685 /* FlyImageIO.m in Sources */,
+				970FA5394623430EFE6128A9510D695C /* FLYNavigationController.m in Sources */,
+				0877BD59B4C441E0EB7E5515BD39225C /* FlyPerformanceMonitor.m in Sources */,
+				484C2D699ABE1390BD0B407957DCE2A8 /* FlyRenderer.m in Sources */,
+				E0A1FF098901475FE87DE4A68A58E249 /* FlyRunloopTool.m in Sources */,
+				D75EDD50F4BC328F765F9CBD363122B9 /* FlyRuntimeTool.m in Sources */,
+				6FF77C209A17A71DFECF9FEEE8DE5F03 /* FLYViewController.m in Sources */,
+				E0D9661A33C10A362CD2FA0374025655 /* FlyvImage.m in Sources */,
+				1B8862BF27EF331FAFE259230F2CAF8D /* FLYWindow.m in Sources */,
+				2B0183E23356BE2A116E3979EE2CFAF3 /* Info.plist in Sources */,
+				BB3717E8A5F352CC04FC7F9F00C72CEA /* NSObject+FlyKVC.m in Sources */,
+				5535C36E7B34923AFACCBC7C9EC80F4E /* NSObject+FlyKVO.m in Sources */,
+				260A82F4E60F8AEBD37E502EFA86D225 /* NSObject+LGKVO.m in Sources */,
+				1F6CB94B8133CC34F44B0E102691B744 /* Person.m in Sources */,
+				418F5652244872B5B5C7AD3ECADAF37A /* Person+Custom.m in Sources */,
+				47FA1D51BD4EECB6F9DD4C0CA55370E0 /* SalConverVideoTool.m in Sources */,
+				6ECC3C1991C8D839B4DB3C81F553786E /* SalDrawTool.m in Sources */,
+				EBCB2BE2C186AF707C2BE96AB1906D2C /* SalImageInfo.m in Sources */,
+				B2F3465BBDEC683749215DAE438F5215 /* SalScreenShotTool.m in Sources */,
+				64A73CF70A93DDDE5D8E41CB19A261C0 /* SALSteam.m in Sources */,
+				A762DD5CFDF01E0C9FBBBFEA26DF67CD /* UIGestureRecognizer+FLYTouch.m in Sources */,
+				788FEC59F4EAE4C5E9557F94D8F2AB05 /* UIView+FLYTouch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9A0B9D34D554E453617C5C6623E8DE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E53FE789B7D619A96DBA4A57C3710FE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46AA91037FB681B82B9304FC860BD081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlyBaseTool;
+			target = FEF74AF76AFDDE14F35E445D4271AA41 /* FlyBaseTool */;
+			targetProxy = 31FB35084B81C0AEDE7CD4F1BAF78805 /* PBXContainerItemProxy */;
+		};
+		732F7320FB9860C2DE6605699B02049F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFNetworking;
+			target = 0130B3724283586C0E9D2A112D4F2AA1 /* AFNetworking */;
+			targetProxy = D683B0A60B6646694B95C00B0B29C8F4 /* PBXContainerItemProxy */;
+		};
+		832C8154AD8AF3B65DCA1E1F77745735 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FlyBaseTool-Base";
+			target = E75B66F84342E5760CF08244DFC4F2BD /* FlyBaseTool-Base */;
+			targetProxy = 8DAAF4E4A49AB375E19767D0D2089D1A /* PBXContainerItemProxy */;
+		};
+		8AC203DC559FFC58D378773B07E99950 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlyTestCollection;
+			target = 9C487844DEAFBACE11097CC87280A5D5 /* FlyTestCollection */;
+			targetProxy = D49498DFF684C40CA614A42C62961199 /* PBXContainerItemProxy */;
+		};
+		B50DB6ECA7BECC470773444375CFD1C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FlyTestCollection-FlyTestCollection";
+			target = 81EB7FA3DA9959AB538EC1A69BCA6C37 /* FlyTestCollection-FlyTestCollection */;
+			targetProxy = 2622835043779ECC658365B8F40AAEAE /* PBXContainerItemProxy */;
+		};
+		D1222E5F6EB225172E49A869D4FA76AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RSSwizzle;
+			target = 1D8380E6EEBCE39C17D7992C2131202F /* RSSwizzle */;
+			targetProxy = 1BF640D814214D9927BA7E2D1D5EC235 /* PBXContainerItemProxy */;
+		};
+		D2F555A393B43944435B81B82A57C80C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlyBaseTool;
+			target = FEF74AF76AFDDE14F35E445D4271AA41 /* FlyBaseTool */;
+			targetProxy = CD9E829A060894A5746A39CFEBE14A6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07B6E024C3BC263C3E813E72B94BFF2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3E5CA33FD7E5FC71C2D3204681D14C6 /* FlyBaseTool.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FlyBaseTool/FlyBaseTool-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FlyBaseTool;
+				PRODUCT_NAME = FlyBaseTool;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		246F5E12353E48D9AC65754E110A985F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95358E94D89E8ABBD549EAAE6B94C8C /* Pods-FlyiOSWorkProject.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		274D996BFDF50CE833497B4EA8EB61EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 660BC9CB02588F89E647B5A353354F63 /* FlyTestCollection.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FlyTestCollection/FlyTestCollection-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FlyTestCollection;
+				PRODUCT_NAME = FlyTestCollection;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28982AFE344635CCBA6C81D5323D04FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 950BF2944472B7D0E62E76A1476730EF /* AFNetworking.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = AFNetworking;
+				PRODUCT_NAME = AFNetworking;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45CE5900E412D7F3E0AA7385079A33BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC48F8E63DBC9AC5060BE4E605E5A67 /* RSSwizzle.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/RSSwizzle/RSSwizzle-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RSSwizzle;
+				PRODUCT_NAME = RSSwizzle;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		546B01F8AB6F9A5867675C5386CA648B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6E14F239820854AB93DAA58D49FC143 /* FlyBaseTool.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FlyBaseTool/FlyBaseTool-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FlyBaseTool;
+				PRODUCT_NAME = FlyBaseTool;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54C9C30606BC83ED19CB4348447942AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EB96BA3453BF9199770A70A50C05112 /* RSSwizzle.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/RSSwizzle/RSSwizzle-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RSSwizzle;
+				PRODUCT_NAME = RSSwizzle;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		8AB2B46F87DEE329B09C7FBC74718741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6E14F239820854AB93DAA58D49FC143 /* FlyBaseTool.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FlyBaseTool";
+				IBSC_MODULE = FlyBaseTool;
+				INFOPLIST_FILE = "Target Support Files/FlyBaseTool/ResourceBundle-Base-FlyBaseTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = Base;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		8F5A1FDB9654D6A070062E59925A6A76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A32412485D65E89349F2EE234A5306 /* FlyTestCollection.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FlyTestCollection/FlyTestCollection-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FlyTestCollection;
+				PRODUCT_NAME = FlyTestCollection;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95FCD4733DE3DDAF656CA314D1F035AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A32412485D65E89349F2EE234A5306 /* FlyTestCollection.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FlyTestCollection";
+				IBSC_MODULE = FlyTestCollection;
+				INFOPLIST_FILE = "Target Support Files/FlyTestCollection/ResourceBundle-FlyTestCollection-FlyTestCollection-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = FlyTestCollection;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B551DAA454B16F61F93F8E7E6FF4239E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06120E9BE646C793AA8B2AF1860CA9D6 /* Pods-FlyiOSWorkProject.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		DE9A5F2709958152B737694D81B18194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3E5CA33FD7E5FC71C2D3204681D14C6 /* FlyBaseTool.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FlyBaseTool";
+				IBSC_MODULE = FlyBaseTool;
+				INFOPLIST_FILE = "Target Support Files/FlyBaseTool/ResourceBundle-Base-FlyBaseTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = Base;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		EBED3793C15C482942435DC4F847225E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 660BC9CB02588F89E647B5A353354F63 /* FlyTestCollection.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FlyTestCollection";
+				IBSC_MODULE = FlyTestCollection;
+				INFOPLIST_FILE = "Target Support Files/FlyTestCollection/ResourceBundle-FlyTestCollection-FlyTestCollection-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = FlyTestCollection;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		ECF28F9F3313A2BE79F6AE824D5B9FD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0B86BCD85C8B025C7054113B1686936 /* AFNetworking.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = AFNetworking;
+				PRODUCT_NAME = AFNetworking;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32EF2B5143EC20AC12C5275E9AE35C50 /* Build configuration list for PBXNativeTarget "FlyBaseTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B6E024C3BC263C3E813E72B94BFF2B /* Debug */,
+				546B01F8AB6F9A5867675C5386CA648B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39BF148761345F84AFC9A2C5E17F30A5 /* Build configuration list for PBXNativeTarget "FlyTestCollection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				274D996BFDF50CE833497B4EA8EB61EA /* Debug */,
+				8F5A1FDB9654D6A070062E59925A6A76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B672F13577ACADFA0F5A74EC3913388 /* Build configuration list for PBXNativeTarget "FlyTestCollection-FlyTestCollection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBED3793C15C482942435DC4F847225E /* Debug */,
+				95FCD4733DE3DDAF656CA314D1F035AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6030B64160BACF6FF0C4822489A2B046 /* Build configuration list for PBXNativeTarget "AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF28F9F3313A2BE79F6AE824D5B9FD1 /* Debug */,
+				28982AFE344635CCBA6C81D5323D04FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7AFB9837487B4140B3F86BC9531B37 /* Build configuration list for PBXNativeTarget "Pods-FlyiOSWorkProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				246F5E12353E48D9AC65754E110A985F /* Debug */,
+				B551DAA454B16F61F93F8E7E6FF4239E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A962E8CC8169A3EE726D0C450588704A /* Build configuration list for PBXNativeTarget "FlyBaseTool-Base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE9A5F2709958152B737694D81B18194 /* Debug */,
+				8AB2B46F87DEE329B09C7FBC74718741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30541CC8EA8CE424A78BCC9C0E4044B /* Build configuration list for PBXNativeTarget "RSSwizzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C9C30606BC83ED19CB4348447942AD /* Debug */,
+				45CE5900E412D7F3E0AA7385079A33BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

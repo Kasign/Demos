@@ -50,5 +50,13 @@
 #endif
 #endif
 
+#ifndef FLYFUNLog
+#if DEBUG
+#define FLYFUNLog(format, ...) FLYTIMELog(@"-[%@ %@] %@", [self class], NSStringFromSelector(_cmd), [NSString stringWithFormat:(format), ##__VA_ARGS__])
+#else
+#define FLYFUNLog(format, ...)
+#endif
+#endif
+
 
 #endif /* FlyBaseDefine_h */

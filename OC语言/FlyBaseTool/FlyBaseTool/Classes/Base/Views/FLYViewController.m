@@ -6,10 +6,9 @@
 //
 
 #import "FLYViewController.h"
+#import "FlyBaseView.h"
 
-//#define LOG2 FLYTIMELog(@"-[%@ %@] view:%p superview:%p alpha:%f isHidden:%d", [self class], NSStringFromSelector(_cmd), self.view, self.view.superview, self.view.alpha, self.view.isHidden)
-#define LOG2 FLYTIMELog(@"-[%@ %@]", [self class], NSStringFromSelector(_cmd))
-#define LOG3 FLYTIMELog(@"-[%@ %@]", [self class], NSStringFromSelector(_cmd))
+#define LOG4 FLYTIMELog(@"-[%@ %@] view:%p superview:%p alpha:%f isHidden:%d", [self class], NSStringFromSelector(_cmd), self.view, self.view.superview, self.view.alpha, self.view.isHidden)
 
 @interface FLYViewController ()
 
@@ -18,70 +17,79 @@
 @implementation FLYViewController
 
 - (void)loadView {
-    LOG2; // loadView
-    [super loadView];
-    LOG3;
+    FLYFUNLog(@""); // loadView
+    //    [super loadView];
+    FlyBaseView *root = [[FlyBaseView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    root.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view = root;
+    LOG4;
 }
 
 - (void)loadViewIfNeeded {
-    LOG2;
+    FLYFUNLog(@"");
     [super loadViewIfNeeded];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidLoad {
-    LOG2; // viewDidLoad
+    LOG4; // viewDidLoad
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    LOG3;
+    LOG4;
 }
 
 - (void)viewWillUnload {
-    LOG2;
+    FLYFUNLog(@"");
     [super viewWillUnload];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidUnload {
-    LOG2;
+    FLYFUNLog(@"");
     [super viewDidUnload];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    LOG2; // viewWillAppear
+    LOG4; // viewWillAppear
     [super viewWillAppear:animated];
-    LOG3;
+    FLYFUNLog(@"");
+}
+
+- (void)viewIsAppearing:(BOOL)animated {
+    LOG4;
+    [super viewIsAppearing:animated];
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    LOG2; // viewDidAppear
+    FLYFUNLog(@""); // viewDidAppear
     [super viewDidAppear:animated];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    LOG2; // viewWillDisappear
+    FLYFUNLog(@""); // viewWillDisappear
     [super viewWillDisappear:animated];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    LOG2; // viewDidDisappear
+    FLYFUNLog(@""); // viewDidDisappear
     [super viewDidDisappear:animated];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillLayoutSubviews {
-    LOG2;
+    LOG4;
     [super viewWillLayoutSubviews];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidLayoutSubviews {
-    LOG2;
+    LOG4;
     [super viewDidLayoutSubviews];
-    LOG3;
+    FLYFUNLog(@"");
 }
 
 @end

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-FlyiOSWorkProject/Pods-FlyiOSWorkProject-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/FlyBaseTool/Base.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/FlyTestCollection/FlyTestCollection.bundle

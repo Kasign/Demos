@@ -7,80 +7,97 @@
 
 #import "FLYNavigationController.h"
 
-#define LOG FLYTIMELog(@"-[%@ %@]", [self class], NSStringFromSelector(_cmd))
-#define LOG1 FLYTIMELog(@"-[%@ %@]", [self class], NSStringFromSelector(_cmd))
-//#define LOG FLYTIMELog(@"-[%@ %@] view:%p superview:%p alpha:%f isHidden:%d", [self class], NSStringFromSelector(_cmd), self.view, self.view.superview, self.view.alpha, self.view.isHidden)
-
 @interface FLYNavigationController ()
 
 @end
 
 @implementation FLYNavigationController
 
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
+    FLYFUNLog(@"");
+    self = [super initWithRootViewController:rootViewController];
+    FLYFUNLog(@"");
+    return self;
+}
+
 - (void)loadView {
-    LOG;
+    FLYFUNLog(@"");
     [super loadView];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)loadViewIfNeeded {
-    LOG;
+    FLYFUNLog(@"");
     [super loadViewIfNeeded];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidLoad {
-    LOG;
+    FLYFUNLog(@"");
     [super viewDidLoad];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillUnload {
-    LOG;
+    FLYFUNLog(@"");
     [super viewWillUnload];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidUnload {
-    LOG;
+    FLYFUNLog(@"");
     [super viewDidUnload];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    LOG;
+    FLYFUNLog(@"");
     [super viewWillAppear:animated];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    LOG;
+    FLYFUNLog(@"");
     [super viewDidAppear:animated];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    LOG;
+    FLYFUNLog(@"");
     [super viewWillDisappear:animated];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    LOG;
+    FLYFUNLog(@"");
     [super viewDidDisappear:animated];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewWillLayoutSubviews {
-    LOG;
+    FLYFUNLog(@"");
     [super viewWillLayoutSubviews];
-    LOG1;
+    FLYFUNLog(@"");
 }
 
 - (void)viewDidLayoutSubviews {
-    LOG;
+    FLYFUNLog(@"");
     [super viewDidLayoutSubviews];
-    LOG1;
+    FLYFUNLog(@"");
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    FLYFUNLog(@"push to : %@", viewController);
+    [super pushViewController:viewController animated:animated];
+    FLYFUNLog(@"push to : %@", viewController);
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    FLYFUNLog(@"");
+    UIViewController *v = [super popViewControllerAnimated:animated];
+    FLYFUNLog(@"");
+    return v;
 }
 
 @end

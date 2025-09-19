@@ -27,15 +27,17 @@ TODO: Add long description of the pod here.
   s.author           = { 'Kasign' => '393890129@qq.com' }
   s.source           = { :git => 'https://github.com/Kasign/FlyTestCollection.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  
+  s.preserve_paths = "#{s.name}/Classes/**/*", "#{s.name}/Resources/**/*", "#{s.name}/Assets/**/*", "#{s.name}/Framework/**/*", "#{s.name}/Archive/**/*"
 
   s.ios.deployment_target = '10.0'
   s.frameworks = 'Foundation', 'UIKit'
   s.prefix_header_file = "#{s.name}/Classes/FlyTestCollectionPrefix.pch"
   s.source_files = 'FlyTestCollection/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'FlyTestCollection' => ['FlyTestCollection/Assets/*.png']
-  # }
+   s.resource_bundle = {
+     'FlyTestCollection' => ['FlyTestCollection/Assets/*.{json,plist,png,zip,xcassets,md,css,*}','FlyTestCollection/Assets/Resource/*.{png,jpg}']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

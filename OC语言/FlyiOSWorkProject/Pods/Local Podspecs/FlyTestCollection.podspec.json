@@ -1,0 +1,43 @@
+{
+  "name": "FlyTestCollection",
+  "version": "0.1.0",
+  "summary": "A short description of FlyTestCollection.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Kasign/FlyTestCollection",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kasign": "393890129@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Kasign/FlyTestCollection.git",
+    "tag": "0.1.0"
+  },
+  "preserve_paths": [
+    "FlyTestCollection/Classes/**/*",
+    "FlyTestCollection/Resources/**/*",
+    "FlyTestCollection/Assets/**/*",
+    "FlyTestCollection/Framework/**/*",
+    "FlyTestCollection/Archive/**/*"
+  ],
+  "platforms": {
+    "ios": "10.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "prefix_header_file": "FlyTestCollection/Classes/FlyTestCollectionPrefix.pch",
+  "source_files": "FlyTestCollection/Classes/**/*",
+  "resource_bundles": {
+    "FlyTestCollection": [
+      "FlyTestCollection/Assets/*.{json,plist,png,zip,xcassets,md,css,*}",
+      "FlyTestCollection/Assets/Resource/*.{png,jpg}"
+    ]
+  },
+  "dependencies": {
+    "FlyBaseTool": []
+  }
+}
